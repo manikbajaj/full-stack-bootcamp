@@ -1,16 +1,47 @@
-<!-- https://www.w3schools.com/html/html_quotation_elements.asp -->
+<!-- https://www.w3schools.com/html/html_links.asp -->
 <!DOCTYPE html>
-<!-- Language attribute on HTML -->
 <html lang="en">
   <body>
-    <!-- Always use quotes with attributes -->
-    <p title="I'm a tooltip">This is a paragraph.</p>
+    <!-- Create a new page, new-page.html (Naming Convention) -->
+    <!-- 
+      The <a> tag is called the anchor tag because it "anchors" a hyperlink to a specific part of a web page or another page entirely.  
+    -->
+    <a href="/new-page.html">New Page</a> <br />
+    <a href="new-page.html">New Page Without Slash</a> <br />
 
-    <!-- Double Cquotes or single quotes -->
-    <p title='Using "Double" Quotes'></p>
-    <p title="Using 'Single' Quotes"></p>
+    <!-- 
+    A relative URL provides the path relative to the current page's location. It omits the protocol and domain name, referencing only the path within the website. Example: folder/page.html.
+    -->
 
-    <!-- Stype Attribute can be added to elements -->
-    <p style="color: red">This is a red paragraph.</p>
+    <!-- Pages inside nested directories can be linked as well -->
+    <!-- new page /blogs/index.html -->
+    <a href="/blogs/index.html">Blog Page</a><br />
+
+    <!-- 
+    Even if I use blogs in most of the cases the default file thata  server will look for is index.html, so something like this works in most sitautions
+    But its better to use the correct file
+    -->
+    <a href="/blogs">Blog Page Without index</a><br />
+
+    <!-- Absolute Url's can be used as well -->
+    <!-- 
+    An absolute URL contains the complete web address, including the protocol (e.g., https://), domain name, and path. Example:
+    -->
+    <a href="https://www.google.com/">Google</a><br />
+
+    <!-- 
+      _self - Default. Opens the document in the same window/tab as it was clicked
+      _blank - Opens the document in a new window or tab
+    -->
+    <!-- Opens the page in a new tab  -->
+    <a target="_blank" href="https://www.google.com/">Google New Tab</a><br />
+    <!-- _self is the defualt browser behaviour -->
+    <a target="_self" href="https://www.google.com/">Google New Tab</a><br />
+
+    <!-- 
+      Special links
+    -->
+    <a href="mailto:someone@gmail.com">Send email</a><br />
+    <a href="tel:+1805675456">Phone Call</a><br />
   </body>
 </html>
