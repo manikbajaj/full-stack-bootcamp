@@ -2,46 +2,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <body>
-    <!-- Create a new page, new-page.html (Naming Convention) -->
-    <!-- 
-      The <a> tag is called the anchor tag because it "anchors" a hyperlink to a specific part of a web page or another page entirely.  
-    -->
-    <a href="/new-page.html">New Page</a> <br />
-    <a href="new-page.html">New Page Without Slash</a> <br />
+    <!-- Images with absolute URLs -->
+    <img
+      src="https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U"
+    />
+    <br />
+
+    <!-- Images with relative URLs -->
+    <img src="/images/image1.jpg" />
 
     <!-- 
-    A relative URL provides the path relative to the current page's location. It omits the protocol and domain name, referencing only the path within the website. Example: folder/page.html.
+    The required alt attribute provides an alternate text for an image, if the user for some reason cannot view it (because of slow connection, an error in the src attribute, or if the user uses a screen reader).
     -->
 
-    <!-- Pages inside nested directories can be linked as well -->
-    <!-- new page /blogs/index.html -->
-    <a href="/blogs/index.html">Blog Page</a><br />
+    <!-- Width and height attibutes -->
+    <!-- Better to use only one to maintain the aspect ratio of the image -->
+    <!-- The browser scales the second measurement for you in correct aspect ratio -->
+    <img width="400px" src="/images/image1.jpg" />
+    <img height="400" src="/images/image1.jpg" />
+    <!-- Mentioning both in incorrect aspect ratio with distort the image-->
+    <img height="400" width="400" src="/images/image1.jpg" />
+    <!--  The image is in defaault ratio of 200x300 so size should be in same ratio 400X600, 100x150 will also work -->
 
-    <!-- 
-    Even if I use blogs in most of the cases the default file thata  server will look for is index.html, so something like this works in most sitautions
-    But its better to use the correct file
-    -->
-    <a href="/blogs">Blog Page Without index</a><br />
-
-    <!-- Absolute Url's can be used as well -->
-    <!-- 
-    An absolute URL contains the complete web address, including the protocol (e.g., https://), domain name, and path. Example:
-    -->
-    <a href="https://www.google.com/">Google</a><br />
-
-    <!-- 
-      _self - Default. Opens the document in the same window/tab as it was clicked
-      _blank - Opens the document in a new window or tab
-    -->
-    <!-- Opens the page in a new tab  -->
-    <a target="_blank" href="https://www.google.com/">Google New Tab</a><br />
-    <!-- _self is the defualt browser behaviour -->
-    <a target="_self" href="https://www.google.com/">Google New Tab</a><br />
-
-    <!-- 
-      Special links
-    -->
-    <a href="mailto:someone@gmail.com">Send email</a><br />
-    <a href="tel:+1805675456">Phone Call</a><br />
+    <!-- Both with and without px unit mean the same thing and give same output. If you so not mention the units, the browser defaults the units to px -->
+    <img width="400px" src="/images/image1.jpg" />
   </body>
 </html>
