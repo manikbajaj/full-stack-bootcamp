@@ -1,14 +1,22 @@
-<!-- https://www.w3schools.com/html/html_blocks.asp -->
+<!-- https://www.w3schools.com/html/html_head.asp -->
+<!-- https://www.w3schools.com/html/html_favicon.asp -->
 <!DOCTYPE html>
 <html lang="en">
+  <!-- 
+    The <head> element is a container for metadata (data about data) and is placed between the <html> tag and the <body> tag.
+    HTML metadata is data about the HTML document. Metadata is not displayed.
+    Metadata typically define the document title, character set, styles, scripts, and other meta information.
+  -->
+  <head>
+    <!-- 
+      The <title> element defines the title of the document. The title must be text-only, and it is shown in the browser's title bar or in the page's tab.
+      The <title> element is required in HTML documents!
+    -->
+    <title>Full Stack Bootcamp</title>
+    <!-- Adding Favicon using the link tag, link tag can be used for other assets to HTML webpage as well which we will cover later -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  </head>
   <body>
-    <!-- Example of block Level Elements -->
-    <!-- The browser also does add some margin to block elements -->
-    <p style="border: 1px solid black">Hello World</p>
-    <div style="border: 1px solid black">Hello World</div>
-
-    <!-- Example of inline Level Elements -->
-    <a style="border: 1px solid black" href="https://google.com">Google</a>
-    <a style="border: 1px solid black" href="https://facebook.com">Facebook</a>
+    <p>Welcome to Full-Stack Development Bootcamp</p>
   </body>
 </html>
