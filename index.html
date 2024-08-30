@@ -1,71 +1,49 @@
-<!-- 
-! Practice Exercise: HTML Basics
-! Objective:
-* Create a single HTML page incorporating various HTML elements and concepts you've learned. Focus on understanding the difference between elements and tags, using proper HTML syntax, and structuring content effectively.
-
-! Instructions:
-
-* Create the Basic Structure:
-  TODO: Start with the standard HTML boilerplate. Add a `<!DOCTYPE html>`, `<html>`, `<head>`, and `<body>`.
-
-* Head Element:
-  TODO: Set the page title to "My Practice Page."
-  TODO: Add a favicon to the page (you can use any image you like).
-
-* Heading and Paragraph Elements:
-  TODO: Add a main heading (`<h1>`) with the text "Welcome to My Practice Page."
-  TODO: Below the heading, add a paragraph (`<p>`) describing the purpose of this page.
-
-* Text Formatting Using HTML:
-  TODO: Within the paragraph, make some text **bold** using the `<strong>` or `<b>` tag and some text _italicized_ using the `<em>` or `<i>` tag.
-
-* HTML Comments:
-  TODO: Add a comment before the list, explaining that the list contains learning topics.
-
-* Quotations in HTML:
-  TODO: Add a blockquote (`<blockquote>`) with a famous quote about learning or coding.
-  TODO: Inside the blockquote, use the `<cite>` tag to cite the author of the quote.
-
-* Tags and Attributes:
-  TODO: Insert an image using the `<img>` tag. Include attributes like `src`, `alt`, and `title`. The image should be something relevant to your page.
-
-*Linking Pages with Anchor Tag:**
-  TODO: Below the image, add an anchor (`<a>`) tag linking to your favorite website. Use the `target="_blank"` attribute to open the link in a new tab.
--->
-
+<!-- https://www.w3schools.com/html/html_entities.asp -->
+<!-- https://www.w3schools.com/html/html_symbols.asp -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Practice Page</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>Full Stack Bootcamp</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   </head>
   <body>
-    <!-- Main Heading -->
-    <h1>Welcome to My Practice Page</h1>
+    <!-- 
+      EXTENSIVE LIST AVAILABLE ON W3 Schools website
 
-    <!-- Introduction Paragraph with Text Formatting -->
-    <p>
-      This page is a practice exercise to learn HTML. I am
-      <strong>excited</strong> to learn and <em>improve</em> my web development
-      skills.
-    </p>
+      HTML Entities:
+      Definition: HTML entities are special codes that represent characters in HTML that might otherwise be interpreted as code. They begin with & and end with ;.
+      Example: &lt; represents <, &amp; represents &.
+      
+      HTML Symbols:
+      Definition: HTML symbols refer to special characters or icons that are part of the Unicode standard. They can be used directly in HTML or represented by entities.
+      Example: © (copyright symbol), € (euro symbol).
+    -->
 
-    <!-- Blockquote with Citation -->
-    <blockquote cite="https://www.example.com">
-      "The best way to predict the future is to invent it."
-    </blockquote>
-    <cite>– Alan Kay</cite>
+    <!-- Non breaking space character -->
+    <p>A space character: &nbsp;here</p>
+    <p>A space character: &#160;here</p>
 
-    <!-- Image with Attributes -->
-    <img src="example-image.jpg" alt="An example image" title="Example Image" />
+    <!-- Less than entity -->
+    <p>10 &lt; 20</p>
+    <p>10 &#60; 20</p>
 
-    <!-- Anchor Tag for External Link -->
-    <p>
-      Visit my
-      <a href="https://www.example.com" target="_blank">favorite website</a> for
-      more learning resources.
-    </p>
+    <!-- Euro symbol -->
+    <p>I will display &euro;</p>
+    <p>I will display &#8364;</p>
+
+    <!-- Copyright symbol -->
+    <p>I will display &copy;</p>
+    <p>I will display &#169;</p>
+
+    <!-- Registered symbol -->
+    <p>I will display &reg;</p>
+    <p>I will display &#174;</p>
+
+    <!-- 
+    WHY USE ENTITIES AND SYMBOLS
+    Reserved Characters: Some characters like <, >, and & are reserved in HTML for tags and special syntax. Using entities (&lt;, &gt;, &amp;) prevents these characters from being misinterpreted as HTML code.
+
+    Consistency Across Platforms: Entities ensure that characters display correctly across different browsers, devices, and fonts, especially for special symbols not present on all keyboards.
+    -->
   </body>
 </html>
