@@ -1,5 +1,3 @@
-<!-- https://www.w3schools.com/html/html_entities.asp -->
-<!-- https://www.w3schools.com/html/html_symbols.asp -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,43 +5,63 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   </head>
   <body>
-    <!-- 
-      EXTENSIVE LIST AVAILABLE ON W3 Schools website
+    <!-- Example of how to create unordered list items  -->
+    <!-- Used when the order of the items is not important  -->
+    <ul>
+      <li>Apples</li>
+      <li>Bananas</li>
+      <li>Oranges</li>
+    </ul>
 
-      HTML Entities:
-      Definition: HTML entities are special codes that represent characters in HTML that might otherwise be interpreted as code. They begin with & and end with ;.
-      Example: &lt; represents <, &amp; represents &.
-      
-      HTML Symbols:
-      Definition: HTML symbols refer to special characters or icons that are part of the Unicode standard. They can be used directly in HTML or represented by entities.
-      Example: © (copyright symbol), € (euro symbol).
-    -->
+    <!-- Unordered Lists Can Be Nested  -->
+    <!-- Unordered lists can be nested inside other list items to create sub-lists.  -->
 
-    <!-- Non breaking space character -->
-    <p>A space character: &nbsp;here</p>
-    <p>A space character: &#160;here</p>
+    <ul>
+      <li>
+        <h4>Fruits</h4>
+        <ul>
+          <li>Apples</li>
+          <li>Bananas</li>
+        </ul>
+      </li>
+      <li>
+        <h4>Vegetables</h4>
+        <ul>
+          <li>Carrots</li>
+          <li>Broccoli</li>
+        </ul>
+      </li>
+    </ul>
 
-    <!-- Less than entity -->
-    <p>10 &lt; 20</p>
-    <p>10 &#60; 20</p>
+    <!-- Its not necessaryt use test item, UL can be a list of complex HTML elements as well -->
+    <ul>
+      <li>
+        <h4>John Doe</h4>
+        <p>john@email.com</p>
+      </li>
+      <li>
+        <h4>Mark Doe</h4>
+        <p>mark@email.com</p>
+      </li>
+    </ul>
 
-    <!-- Euro symbol -->
-    <p>I will display &euro;</p>
-    <p>I will display &#8364;</p>
-
-    <!-- Copyright symbol -->
-    <p>I will display &copy;</p>
-    <p>I will display &#169;</p>
-
-    <!-- Registered symbol -->
-    <p>I will display &reg;</p>
-    <p>I will display &#174;</p>
-
-    <!-- 
-    WHY USE ENTITIES AND SYMBOLS
-    Reserved Characters: Some characters like <, >, and & are reserved in HTML for tags and special syntax. Using entities (&lt;, &gt;, &amp;) prevents these characters from being misinterpreted as HTML code.
-
-    Consistency Across Platforms: Entities ensure that characters display correctly across different browsers, devices, and fonts, especially for special symbols not present on all keyboards.
-    -->
+    <!--  We can nest another list iems for details  -->
+    <!-- Its not necessaryt use test item, UL can be a list of complex HTML elements as well -->
+    <ul>
+      <li>
+        <h4>John Doe</h4>
+        <ul>
+          <li>Email: john@email.com</li>
+          <li>Phone: +1278974674</li>
+        </ul>
+      </li>
+      <li>
+        <h4>Mark Doe</h4>
+        <ul>
+          <li>Mail: mark@email.com</li>
+          <li>Phone: +12767865874</li>
+        </ul>
+      </li>
+    </ul>
   </body>
 </html>
