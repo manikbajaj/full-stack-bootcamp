@@ -5,58 +5,49 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   </head>
   <body>
-    <!-- Example of how to create ordered list items  -->
-    <!-- Used when the order of the items is important  -->
-    <ol>
-      <li>Preheat the oven.</li>
-      <li>Mix the ingredients.</li>
-      <li>Bake for 30 minutes.</li>
-    </ol>
+    <!-- 
+      Description lists in HTML are used to group terms and their descriptions. They are created using the <dl> tag, with terms enclosed in <dt> and descriptions in <dd>.
+    -->
+    <!-- 
+      <dl> stands for Description Lists 
+      <dt> stands for Definition Term.
+      <dd> stands for Definition Description.
+    -->
+    <dl>
+      <dt>HTML</dt>
+      <dd>A markup language for creating web pages.</dd>
+      <dt>CSS</dt>
+      <dd>
+        A style sheet language used for describing the look and formatting of a
+        document written in HTML.
+      </dd>
+    </dl>
 
-    <!-- Oredered Lists Can Be Nested  -->
-    <!-- Oredered lists can be nested inside other list items to create sub-lists.  -->
-
-    <ol>
+    <!-- Again description lists can be nested as well -->
+    <ul>
       <li>
-        <h4>Prepare the dough</h4>
-        <ol>
-          <li>Mix flour and water.</li>
-          <li>Knead the dough.</li>
-        </ol>
-      </li>
-      <li>
-        <h4>Bake the dough</h4>
-        <ol>
-          <li>Preheat the oven.</li>
-          <li>Bake at 350°F for 25 minutes.</li>
-        </ol>
-      </li>
-    </ol>
+        <h4>Programming Languages</h4>
+        <dl>
+          <dt>Python</dt>
+          <dd>High-level, interpreted language.</dd>
 
-    <!-- Again its not necessary to have text items inside oredered list items Its can nest complex HTML elements structure -->
-
-    <ol>
-      <li>
-        <h4>Prepare the dough</h4>
-        <ol>
-          <li>
-            <h5>Mix flour and water.</h5> 
-            <p>Directions on mixing the flour</h5> 
-          </li>
-
-          <li>
-            <h5>Knead the dough.</h5> 
-            <p>Directions on kneading the dough</h5> 
-          </li>
-        </ol>
+          <dt>JavaScript</dt>
+          <dd>
+            Language for web development, primarily used on the client side.
+          </dd>
+        </dl>
       </li>
+
       <li>
-        <h4>Bake the dough</h4>
-        <ol>
-          <li>Preheat the oven.</li>
-          <li>Bake at 350°F for 25 minutes.</li>
-        </ol>
+        <h4>Web Technologies</h4>
+        <dl>
+          <dt>HTML</dt>
+          <dd>Markup language for creating web pages.</dd>
+
+          <dt>CSS</dt>
+          <dd>Style sheet language for designing web pages.</dd>
+        </dl>
       </li>
-    </ol>
+    </ul>
   </body>
 </html>
