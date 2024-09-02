@@ -1,30 +1,3 @@
-<!-- Practice: HTML Structure One -->
-<!-- 
-!Objective:
-TODO: Create a single HTML page that incorporates the following concepts: block and inline elements, HTML entities and symbols, and various types of lists. This exercise will test your ability to apply these concepts effectively in a practical scenario.
-
-!Instructions:
-* 1. Block vs. Inline Elements
-?- Create a section that demonstrates the difference between block and inline elements.
-?- Include at least one block-level element and one inline element within the block element.
-?- Add another block-level element outside the first to observe how the layout changes.
-
-* 2. HTML Entities and Symbols
-?- Use HTML entities to display at least two reserved characters (e.g., less-than, greater-than).
-?- Include symbols like the copyright or registered trademark using both entities and direct symbols.
-
-* 3. Unordered Lists
-?- Create an unordered list with at least three items.
-?- Ensure that the items listed do not require a specific order.
-
-* 4. Ordered Lists
-?- Create an ordered list with at least four steps for a process or sequence.
-?- Choose a task where the order of items is crucial.
-
-* 5. Description Lists
-?- Create a description list where you define at least three terms with their corresponding descriptions.
-?- Ensure that the terms and definitions are clearly related and easy to understand. 
--->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,44 +5,83 @@ TODO: Create a single HTML page that incorporates the following concepts: block 
     <title>The solution Page</title>
   </head>
   <body>
-    <!-- 1. Block vs. Inline Elements -->
+    <!-- Before Sematic Elements Used -->
+    <!-- Page navigation -->
+
+    <!-- 
     <div>
-      This is a block-level element.
-      <span>This is an inline element inside the block-level element.</span>
-      <strong>Bold text</strong> and <em>italic text</em>.
+      <span>
+        <img height="50px" src="./images/cloudaffle-logo.png" />
+      </span>
+      <ul>
+        <li>Categories</li>
+        <li>Tags</li>
+      </ul>
     </div>
-    <p>This paragraph is outside the block-level element.</p>
+    
+    <h1>The HTML Blog</h1>
+    <div>
+      <h2>Blog Title One</h4>
+      <p>Blog Description</p>
+      <a href="#">Read Blog</a>
+    </div>
+    <div>
+      <h2>Blog Title Two</h4>
+      <p>Blog Description</p>
+      <a href="#">Read Blog</a>
+    </div>
+    <div>
+      <h3>Latest Blogs</h3>
+        <ul>
+          <li><a href="#">Blog Link 1</a></li>
+          <li><a href="#">Blog Link 1</a></li>
+        </ul>
+    </div>
+    -->
+    <header>
+      <nav>
+        <img
+          height="50px"
+          src="./images/cloudaffle-logo.png"
+          alt="Cloudaffle Logo"
+        />
+        <ul>
+          <li>Categories</li>
+          <li>Tags</li>
+        </ul>
+      </nav>
+    </header>
 
-    <!-- 2. HTML Entities and Symbols -->
-    <p>Use &lt; and &gt; for less-than and greater-than symbols.</p>
-    <p>Copyright Symbol: &copy; or &#169;</p>
-    <p>Registered Trademark Symbol: &reg; or &#174;</p>
+    <!-- Main content of the page -->
+    <main>
+      <h1>The HTML Blog</h1>
 
-    <!-- 3. Unordered Lists -->
-    <ul>
-      <li>Apple</li>
-      <li>Banana</li>
-      <li>Orange</li>
-    </ul>
+      <section>
+        <article>
+          <header>
+            <h2>Blog Title One</h2>
+          </header>
+          <p>Blog Description</p>
+          <a href="#">Read Blog</a>
+        </article>
 
-    <!-- 4. Ordered Lists -->
-    <ol>
-      <li>Boil water.</li>
-      <li>Add coffee grounds to a cup.</li>
-      <li>Pour hot water into the cup.</li>
-      <li>Stir and enjoy.</li>
-    </ol>
-
-    <!-- 5. Description Lists -->
-    <dl>
-      <dt>HTML</dt>
-      <dd>A markup language for creating web pages.</dd>
-
-      <dt>CSS</dt>
-      <dd>A style sheet language for designing web pages.</dd>
-
-      <dt>JavaScript</dt>
-      <dd>A programming language for making web pages interactive.</dd>
-    </dl>
+        <article>
+          <header>
+            <h2>Blog Title Two</h2>
+          </header>
+          <p>Blog Description</p>
+          <a href="#">Read Blog</a>
+        </article>
+      </section>
+      <section>
+        <aside>
+          <h3>Latest Blogs</h3>
+          <ul>
+            <li><a href="#">Blog Link 1</a></li>
+            <li><a href="#">Blog Link 1</a></li>
+          </ul>
+        </aside>
+      </section>
+    </main>
   </body>
 </html>
