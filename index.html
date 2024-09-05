@@ -1,87 +1,73 @@
+<!-- 
+!Instructions:
+?- Convert this non-semantic HTML page into a semantic version by replacing the non-semantic tags (<div>, <ul>, etc.) with semantic elements.
+
+?-   Use the following tags in your solution:
+* <article>
+* <aside>
+* <details>
+* <footer>
+* <header>
+* <main>
+* <nav>
+* <section>
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>The solution Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Non-Semantic Page</title>
   </head>
   <body>
-    <!-- Before Sematic Elements Used -->
-    <!-- Page navigation -->
-
-    <!-- 
+    <!-- Page Header -->
     <div>
-      <span>
-        <img height="50px" src="./images/cloudaffle-logo.png" />
-      </span>
+      <img src="logo.png" alt="Logo" height="50px" />
+      <div>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div>
+      <h1>Welcome to Our Blog</h1>
+
+      <div>
+        <h2>Blog Post Title One</h2>
+        <p>This is a short description of blog post one.</p>
+        <a href="#">Read More</a>
+      </div>
+
+      <div>
+        <h2>Blog Post Title Two</h2>
+        <p>This is a short description of blog post two.</p>
+        <a href="#">Read More</a>
+      </div>
+
+      <div>
+        <h2>Blog Post Title Three</h2>
+        <p>This is a short description of blog post three.</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div>
+      <h3>Related Links</h3>
       <ul>
-        <li>Categories</li>
-        <li>Tags</li>
+        <li><a href="#">Link One</a></li>
+        <li><a href="#">Link Two</a></li>
+        <li><a href="#">Link Three</a></li>
       </ul>
     </div>
-    
-    <h1>The HTML Blog</h1>
-    <div>
-      <h2>Blog Title One</h4>
-      <p>Blog Description</p>
-      <a href="#">Read Blog</a>
-    </div>
-    <div>
-      <h2>Blog Title Two</h4>
-      <p>Blog Description</p>
-      <a href="#">Read Blog</a>
-    </div>
-    <div>
-      <h3>Latest Blogs</h3>
-        <ul>
-          <li><a href="#">Blog Link 1</a></li>
-          <li><a href="#">Blog Link 1</a></li>
-        </ul>
-    </div>
-    -->
-    <header>
-      <nav>
-        <img
-          height="50px"
-          src="./images/cloudaffle-logo.png"
-          alt="Cloudaffle Logo"
-        />
-        <ul>
-          <li>Categories</li>
-          <li>Tags</li>
-        </ul>
-      </nav>
-    </header>
 
-    <!-- Main content of the page -->
-    <main>
-      <h1>The HTML Blog</h1>
-
-      <section>
-        <article>
-          <header>
-            <h2>Blog Title One</h2>
-          </header>
-          <p>Blog Description</p>
-          <a href="#">Read Blog</a>
-        </article>
-
-        <article>
-          <header>
-            <h2>Blog Title Two</h2>
-          </header>
-          <p>Blog Description</p>
-          <a href="#">Read Blog</a>
-        </article>
-      </section>
-      <section>
-        <aside>
-          <h3>Latest Blogs</h3>
-          <ul>
-            <li><a href="#">Blog Link 1</a></li>
-            <li><a href="#">Blog Link 1</a></li>
-          </ul>
-        </aside>
-      </section>
-    </main>
+    <!-- Page Footer -->
+    <div>
+      <p>Copyright © 2023. All rights reserved.</p>
+    </div>
   </body>
 </html>
