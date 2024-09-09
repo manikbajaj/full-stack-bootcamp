@@ -2,61 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Using Loeosl</title>
+    <title>Using Css Properties</title>
   </head>
   <body>
-    <h1 style="text-align: center">Heading 1 (center)</h1>
-    <h2 style="text-align: left">Heading 2 (left)</h2>
-    <h3 style="text-align: right">Heading 3 (right)</h3>
+    <p style="text-transform: uppercase">
+      This text is transformed to uppercase.
+    </p>
+    <p style="text-transform: lowercase">
+      This Text is transformed to lowercase.
+    </p>
+    <p sty;e="text-transform: capitalize">This text is capitalized.</p>
 
-    <!-- Example of justify content  -->
-    <p style="text-align: justify; width: 400px">
+    <p style="text-indent: 50px">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dapibus
       justo vitae dolor lobortis, sit amet scelerisque mi mollis. Aenean in
-      massa suscipit, rhoncus turpis eu, varius arcu. consectetur adipiscing
-      elit. Mauris dapibus justo vitae dolor lobortis, sit amet scelerisque mi
-      mollis. Aenean in massa suscipit, rhoncus turpis eu, varius
-      arcu.consectetur adipiscing elit. Mauris dapibus justo vitae dolor
-      lobortis, sit amet scelerisque mi mollis. Aenean in massa suscipit,
-      rhoncus turpis eu, varius arcu.
+      massa suscipit, rhoncus turpis eu, varius arcu.
+    </p>
+    <h2 style="letter-spacing: 5px">This is heading 2</h2>
+    <h2 style="letter-spacing: -2px">This is another heading</h2>
+
+    <p style="line-height: 1">
+      This is a paragraph with a smaller line-height.<br />
+      This is a paragraph with a smaller line-height.<br />
     </p>
 
-    <p style="text-align-last: justify; width: 400px">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dapibus
-      justo vitae dolor lobortis, sit amet scelerisque mi mollis. Aenean in
-      massa suscipit, rhoncus turpis eu, varius arcu. consectetur adipiscing
-      elit. Mauris dapibus justo vitae dolor lobortis, sit amet scelerisque mi
-      mollis. Aenean in massa suscipit, rhoncus turpis eu, varius
-      arcu.consectetur adipiscing elit. Mauris dapibus justo vitae dolor
-      lobortis, sit amet scelerisque mi mollis. Aenean in massa suscipit,
-      rhoncus turpis eu, varius arcu.
+    <!-- If the font size is 16px and line-height is set to 1.5, the line height would be 16px * 1.5 = 24px. -->
+
+    <p style="line-height: 2">
+      This is a paragraph with a smaller line-height.<br />
+      This is a paragraph with a smaller line-height.<br />
     </p>
 
-    <h2>For RTL Languages</h2>
-    <p style="direction: rtl; width: 400px">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dapibus
-      justo vitae dolor lobortis, sit amet scelerisque mi mollis. Aenean in
-      massa suscip
+    <p style="word-spacing: 10px">
+      This is a paragraph with larger word spacing.
     </p>
-
-    <h1 style="text-decoration-line: overline; text-decoration-color: red">
-      Overline text decoration
-    </h1>
-    <h1 style="text-decoration-line: line-through; text-decoration-color: blue">
-      Line-through text decoration
-    </h1>
-    <h1 style="text-decoration-line: underline; text-decoration-color: green">
-      Underline text decoration
-    </h1>
-    <!-- dotted, dashed, double -->
-    <h1
-      style="
-        text-decoration-line: overline underline;
-        text-decoration-color: purple;
-        text-decoration-style: wavy;
-      "
-    >
-      Overline and underline text decoration.
-    </h1>
+    <p style="word-spacing: -2px">
+      This is a paragraph with smaller word spacing.
+    </p>
   </body>
 </html>
