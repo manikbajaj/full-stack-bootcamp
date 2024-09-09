@@ -1,74 +1,46 @@
-<!-- 
-!Instructions:
-?- Convert this non-semantic HTML page into a semantic version by replacing the non-semantic tags (<div>, <ul>, etc.) with semantic elements.
-
-?-   Use the following tags in your solution:
-* <article>
-* <aside>
-* <details>
-* <footer>
-* <header>
-* <main>
-* <nav>
-* <section>
--->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Semantic Page</title>
+    <title>Using Loeosl</title>
   </head>
   <body>
-    <!-- Page Header -->
-    <header>
-      <img src="logo.png" alt="Logo" height="50px" />
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-      </nav>
-    </header>
+    <!-- Color Names Example -->
+    <h2 style="background-color: lightblue; color: darkred">
+      Heading with color names
+    </h2>
+    <p style="border: 2px solid green">
+      Paragraph with green border using color names.
+    </p>
 
-    <!-- Main Content -->
-    <main>
-      <h1>Welcome to Our Blog</h1>
+    <!-- RGBA Example -->
+    <h2 style="background-color: rgba(255, 0, 0, 0.5)">
+      Heading using RGBA for background
+    </h2>
+    <p style="color: rgba(0, 0, 255, 1)">Paragraph using RGBA</p>
+    <div style="border: 3px dashed rgba(0, 255, 0, 0.8)">
+      Div using RGBA for border color with transparency
+    </div>
 
-      <section>
-        <article>
-          <h2>Blog Post Title One</h2>
-          <p>This is a short description of blog post one.</p>
-          <a href="#">Read More</a>
-        </article>
+    <!-- HSLA Example -->
+    <h2 style="background-color: hsla(120, 100%, 50%, 0.5)">
+      Heading using HSLA for background color
+    </h2>
+    <p style="color: hsla(240, 100%, 50%, 1)">
+      Paragraph using HSLA for text color
+    </p>
+    <div style="border: 3px dotted hsla(280, 100%, 80%, 0.85)">
+      Div using HSLA for border color
+    </div>
 
-        <article>
-          <h2>Blog Post Title Two</h2>
-          <p>This is a short description of blog post two.</p>
-          <a href="#">Read More</a>
-        </article>
-
-        <article>
-          <h2>Blog Post Title Three</h2>
-          <p>This is a short description of blog post three.</p>
-          <a href="#">Read More</a>
-        </article>
-      </section>
-    </main>
-
-    <!-- Sidebar -->
-    <aside>
-      <h3>Related Links</h3>
-      <ul>
-        <li><a href="#">Link One</a></li>
-        <li><a href="#">Link Two</a></li>
-        <li><a href="#">Link Three</a></li>
-      </ul>
-    </aside>
-
-    <!-- Page Footer -->
-    <footer>
-      <p>Copyright © 2023. All rights reserved.</p>
-    </footer>
+    <!-- HEX Codes Example -->
+    <h2 style="background-color: #3498db">
+      This heading uses HEX codes for background color
+    </h2>
+    <p style="color: #7d0c00">Paragraph uses HEX codes</p>
+    <!--  Double Ridge -->
+    <div style="border: 8px groove #2ecc71">
+      Div using HEX codes for border color
+    </div>
   </body>
 </html>
