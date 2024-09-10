@@ -1,6 +1,24 @@
 p {
-  font-size: 20px;
+  font-size: 16px;
 }
-div {
+#red-para {
+  color: red;
+}
+
+.blue-bg {
   background-color: skyblue;
+  color: red;
+}
+
+.yellow-bg {
+  background-color: lightyellow;
+}
+
+/* 
+  Universal selector applies to all the elements of all the documents 
+  If any other specific class is applied the class property will take presidence over the universal selector
+*/
+* {
+  text-align: center;
+  color: blue;
 }

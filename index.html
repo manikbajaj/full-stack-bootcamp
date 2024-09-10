@@ -3,23 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <title>Internal Styles and External Style Sheets</title>
-    <style>
-      p {
-        font-size: 20px;
-      }
-      div {
-        background-color: skyblue;
-      }
-    </style>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Example 1: px (Pixels) -->
     <p>This paragraph uses a font-size of 20px.</p>
-    <p>This paragraph gets the same font size and properties</p>
+    <!-- 
+      The id selector uses the id attribute of an HTML element to select a specific element.
+      The id of an element is unique within a page, so the id selector is used to select one unique element!  
+      Naming Convention 
+      - IDs should begin with a letter (A-Z or a-z), NOT a number.
+      - IDs can contain letters, numbers, hyphens (-), underscores (_), but no spaces.
+    -->
+    <p id="red-para">This paragraph gets the same font size and properties</p>
 
-    <div>Div with a skyblue background color</div>
+    <!-- 
+      The class selector in CSS targets elements with a specific class attribute, allowing multiple elements to share the same styles. It’s reusable and defined with a period (.) followed by the class name.
+      Naming Convention same as the div
+    -->
+    <div class="blue-bg">Div with a skyblue background color</div>
 
-    <div>This div will get the same background color</div>
+    <div class="yellow-bg">Div with yellow background color</div>
+
+    <!-- 
+      Single element can have muliple classes and if the properties clash the final property takes precedence 
+    -->
+    <div class="blue-bg yellow-bg">Div with yellow background color</div>
   </body>
 </html>
