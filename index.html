@@ -4,40 +4,46 @@
     <meta charset="UTF-8" />
     <title>Using Css Properties</title>
   </head>
-  <body>
-    <p style="text-transform: uppercase">
-      This text is transformed to uppercase.
-    </p>
-    <p style="text-transform: lowercase">
-      This Text is transformed to lowercase.
-    </p>
-    <p sty;e="text-transform: capitalize">This text is capitalized.</p>
-
-    <p style="text-indent: 50px">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dapibus
-      justo vitae dolor lobortis, sit amet scelerisque mi mollis. Aenean in
-      massa suscipit, rhoncus turpis eu, varius arcu.
-    </p>
-    <h2 style="letter-spacing: 5px">This is heading 2</h2>
-    <h2 style="letter-spacing: -2px">This is another heading</h2>
-
-    <p style="line-height: 1">
-      This is a paragraph with a smaller line-height.<br />
-      This is a paragraph with a smaller line-height.<br />
+  <body style="font-size: 16px">
+    <!-- Example 1: px (Pixels) -->
+    <p style="font-size: 20px">
+      This paragraph uses a font-size of 20px. Pixels are an absolute unit,
+      meaning the size remains constant across different screen sizes.
     </p>
 
-    <!-- If the font size is 16px and line-height is set to 1.5, the line height would be 16px * 1.5 = 24px. -->
+    <div style="background-color: yellow; width: 200px">
+      Div with a fixed width of 200px
+    </div>
 
-    <p style="line-height: 2">
-      This is a paragraph with a smaller line-height.<br />
-      This is a paragraph with a smaller line-height.<br />
+    <div style="background-color: skyblue; width: 50%">
+      Div with a relative width of 50%
+    </div>
+
+    <!-- Example 2: rem (Root Em) -->
+    <p style="font-size: 1.5rem">
+      This paragraph uses a font-size of 1.5rem, which is relative to the root
+      element's font size (16px). So 1.5rem = 24px.
     </p>
 
-    <p style="word-spacing: 10px">
-      This is a paragraph with larger word spacing.
-    </p>
-    <p style="word-spacing: -2px">
-      This is a paragraph with smaller word spacing.
-    </p>
+    <!-- Example 3: em (Relative to Parent) -->
+    <div style="font-size: 20px">
+      Parent element font-size: 20px.
+      <p style="font-size: 1.5em">
+        This child paragraph has a font-size of 1.5em, relative to the parent
+        (20px). So 1.5em = 30px.
+      </p>
+    </div>
+
+    <!-- Example 4: vh (Viewport Height) -->
+    <div style="height: 50vh; background-color: beige">
+      This div takes up 50% of the viewport height, as 50vh equals half the
+      height of the browser window.
+    </div>
+
+    <!-- Example 5: vw (Viewport Width) -->
+    <div style="width: 30vw; background-color: aqua">
+      This div takes up 30% of the viewport width, as 50vw equals half the width
+      of the browser window.
+    </div>
   </body>
 </html>
