@@ -1,33 +1,67 @@
+<!-- https://www.w3schools.com/css/css_combinators.asp -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Internal Styles and External Style Sheets</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Combinator Selectors in CSS</title>
+    <style>
+      /* Descendant Selector (space): Targets any <p> inside a <div>, regardless of depth */
+      div p {
+        color: blue;
+      }
+
+      /* Child Selector (>): Targets only direct child <p> of a <div> */
+      div > p {
+        font-weight: bold;
+      }
+
+      /* Adjacent Sibling Selector (+): Targets the <p> immediately following an <h2> */
+      h2 + p {
+        color: green;
+      }
+
+      /* General Sibling Selector (~): Targets all <p> siblings after an <h2> */
+      h2 ~ p {
+        background-color: lightgray;
+      }
+    </style>
   </head>
   <body>
-    <!-- Example 1: px (Pixels) -->
-    <p>This paragraph uses a font-size of 20px.</p>
-    <!-- 
-      The id selector uses the id attribute of an HTML element to select a specific element.
-      The id of an element is unique within a page, so the id selector is used to select one unique element!  
-      Naming Convention 
-      - IDs should begin with a letter (A-Z or a-z), NOT a number.
-      - IDs can contain letters, numbers, hyphens (-), underscores (_), but no spaces.
-    -->
-    <p id="red-para">This paragraph gets the same font size and properties</p>
+    <h1>Combinator Selectors in CSS</h1>
 
-    <!-- 
-      The class selector in CSS targets elements with a specific class attribute, allowing multiple elements to share the same styles. It’s reusable and defined with a period (.) followed by the class name.
-      Naming Convention same as the div
-    -->
-    <div class="blue-bg">Div with a skyblue background color</div>
+    <!-- Descendant Selector Example -->
+    <div>
+      <h2>Descendant Selector (space)</h2>
+      <!-- This will be blue because it's a <p> inside a <div> -->
+      <p>This paragraph is a descendant of the div.</p>
+      <!-- Nested <div> with <p>, still a descendant -->
+      <div>
+        <p>This nested paragraph is also a descendant of the outer div.</p>
+      </div>
+    </div>
 
-    <div class="yellow-bg">Div with yellow background color</div>
+    <!-- Child Selector Example -->
+    <div>
+      <h2>Child Selector (>)</h2>
+      <!-- This will be bold because it's a direct child of the <div> -->
+      <p>This paragraph is a direct child of the div and will be bold.</p>
+      <!-- This won't be affected because it's nested, not a direct child -->
+      <div>
+        <p>This nested paragraph is not a direct child.</p>
+      </div>
+    </div>
 
-    <!-- 
-      Single element can have muliple classes and if the properties clash the final property takes precedence 
-    -->
-    <div class="blue-bg yellow-bg">Div with yellow background color</div>
+    <!-- Adjacent Sibling Selector Example -->
+    <h2>Adjacent Sibling Selector (+)</h2>
+    <!-- This will be green because it's the immediate sibling of the <h2> -->
+    <p>This paragraph is an adjacent sibling of the previous h2.</p>
+    <!-- This won't be affected because it's not immediately after the <h2> -->
+    <p>This paragraph is not an adjacent sibling of the previous h2.</p>
+
+    <!-- General Sibling Selector Example -->
+    <h2>General Sibling Selector (~)</h2>
+    <!-- All these <p> elements after <h2> will have a lightgray background -->
+    <p>This paragraph is a general sibling of the h2.</p>
+    <p>This paragraph is also a general sibling of the h2.</p>
   </body>
 </html>
