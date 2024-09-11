@@ -27,6 +27,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Practice Exercise</title>
+    <style>
+      /* Pseudo-Class examples */
+      nav a:first-child {
+        background-color: lightblue;
+      }
+
+      ul.feature-list li:last-child {
+        color: green;
+      }
+
+      nav a:hover {
+        color: red;
+      }
+
+      nav a.active {
+        font-weight: bold;
+      }
+
+      /* Pseudo-Element examples */
+      .intro-text::before {
+        content: "Note: ";
+        font-weight: bold;
+      }
+
+      section p:nth-child(3)::first-letter {
+        font-size: 2em;
+        color: blue;
+      }
+
+      footer p::first-line {
+        font-weight: bold;
+      }
+
+      /* Attribute Selector examples */
+      article[lang="en-US"] {
+        background-color: #f0f0f0;
+      }
+
+      nav a[href$=".html"] {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <h1>CSS Selectors Exercise</h1>
