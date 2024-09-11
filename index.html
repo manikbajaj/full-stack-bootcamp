@@ -1,41 +1,33 @@
-<!-- https://www.w3schools.com/css/css_combinators.asp -->
+<!-- 
+!Exercise: Create a Hover Tooltip
+* In this exercise, you'll be creating a simple hover tooltip using CSS. The tooltip will be hidden by default and will only become visible when the user hovers over the parent element.
+
+!Your Task:
+* Write the CSS code to make the paragraph (<p>) element inside a <div> appear when the user hovers over the <div>.
+* The tooltip should have a background color, padding, and other styling to make it look like a tooltip.
+
+! Instructions:
+* Hide the tooltip initially: Use CSS to hide the <p> element inside the <div>.
+* Display on hover: Make the <p> element appear when the user hovers over the <div>.
+* Add Styling: Style the tooltip to make it visually distinct by changing its background color, padding, or any other properties. 
+
+!Hint:
+* Use the :hover pseudo-class to detect when the user hovers over the <div>.
+* Control the visibility of the <p> element using the display property.
+
+-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Combinator Selectors in CSS</title>
     <style>
-      /* Unvisited link */
-      a:link {
-        color: blue;
-        text-decoration: none;
-      }
-
-      /* Visited link */
-      a:visited {
-        color: green;
-      }
-
-      /* Link on hover */
-      a:hover {
-        color: red;
-        text-decoration: underline;
-      }
-
-      /* Active link (while clicking) */
-      a:active {
-        color: orange;
-      }
+      /* Write CSS here */
     </style>
   </head>
   <body>
-    <!-- Example links demonstrating different pseudo-classes -->
-    <a href="https://www.example.com">Unvisited Link</a>
-    <br />
-    <a href="https://www.example1.com">Visited Link (Clicked Before)</a>
-
-    <!-- Hover and click effect link -->
-    <br />
-    <a href="https://www.example2.com">Hover or Click Me</a>
+    <div>
+      Hover over this element to show the p element
+      <p>I am visible on hover</p>
+    </div>
   </body>
 </html>
