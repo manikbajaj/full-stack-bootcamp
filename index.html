@@ -2,79 +2,87 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Pseudo-Elements Lecture</title>
+    <title>CSS Attribute Selectors Lecture</title>
     <style>
-      /* ::before - Insert content before an element */
-      .before-example::before {
-        content: "Before: ";
-        color: green;
+      /* [attribute] - Targets elements that have the specified attribute */
+      input[type] {
+        border: 2px solid blue;
       }
 
-      /* ::after - Insert content after an element */
-      .after-example::after {
-        content: " After.";
+      /* [attribute=value] - Targets elements with an attribute matching the exact value */
+      input[type="text"] {
+        background-color: lightyellow;
+      }
+
+      /* [attribute~=value] - Targets elements whose attribute value contains a space-separated list, and one of them matches */
+      [class~="highlight"] {
         color: red;
       }
 
-      /* ::first-letter - Style the first letter of a paragraph */
-      .first-letter-example::first-letter {
-        font-size: 2em;
-        color: blue;
+      /* [attribute|=value] - Targets elements whose attribute starts with a specific value or is exactly that value */
+      [lang|="en"] {
+        border: 2px solid green;
       }
 
-      /* ::first-line - Style the first line of a paragraph */
-      .first-line-example::first-line {
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-
-      /* ::marker - Style the bullet points in a list */
-      ul.marker-example li::marker {
+      /* [attribute^=value] - Targets elements whose attribute value starts with the specified value */
+      a[href^="https"] {
         color: purple;
-        font-size: 1.5em;
       }
 
-      ul.marker-example {
-        list-style-type: circle; /* Changes the bullet to a circle */
+      /* [attribute$=value] - Targets elements whose attribute value ends with the specified value */
+      a[href$=".pdf"] {
+        color: orange;
+        text-decoration: underline;
       }
 
-      /* ::selection - Style the selected text */
-      ::selection {
-        background-color: yellow;
-        color: black;
+      /* [attribute*=value] - Targets elements whose attribute value contains the specified value */
+      a[href*="example"] {
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
-    <h1>CSS Pseudo-Elements Lecture</h1>
+    <h1>CSS Attribute Selectors</h1>
 
-    <!-- ::before Example -->
-    <p class="before-example">This text has content inserted before it.</p>
+    <!-- 
+      ! CSS attribute selectors allow you to target elements based on the presence, value, or pattern of an attribute. They are useful for applying styles to elements dynamically without needing additional classes or IDs, based on attributes like type, href, or src.
+    -->
 
-    <!-- ::after Example -->
-    <p class="after-example">This text has content inserted after it</p>
+    <!-- Example for [attribute] -->
+    <h2>[attribute]</h2>
+    <input type="text" placeholder="This input has a 'type' attribute" />
+    <input type="password" placeholder="Another input with 'type' attribute" />
 
-    <!-- ::first-letter Example -->
-    <p class="first-letter-example">
-      This paragraph has a larger first letter.
+    <!-- Example for [attribute=value] -->
+    <h2>[attribute=value]</h2>
+    <input type="text" placeholder="This is a text input" />
+    <input type="password" placeholder="This is a password input" />
+
+    <!-- Example for [attribute~=value] -->
+    <h2>[attribute~=value]</h2>
+    <p class="highlight">This paragraph has the class "highlight".</p>
+    <p class="highlight special">
+      This paragraph has the class "highlight" and "special".
     </p>
 
-    <!-- ::first-line Example -->
-    <p class="first-line-example">
-      This is an example of styling the first line of text in a paragraph. The
-      rest of the text remains unchanged.<br />
-      <!-- Artificially creating the second line -->
-      This is the second line
-    </p>
+    <!-- Example for [attribute|=value] -->
+    <h2>[attribute|=value]</h2>
+    <p lang="en">This paragraph is in English.</p>
+    <p lang="en-US">This paragraph is in American English (en-US).</p>
 
-    <!-- ::marker Example -->
-    <ul class="marker-example">
-      <li>List item 1</li>
-      <li>List item 2</li>
-      <li>List item 3</li>
-    </ul>
+    <!-- Example for [attribute^=value] -->
+    <h2>[attribute^=value]</h2>
+    <a href="https://www.example.com">Secure link (starts with https)</a>
+    <a href="http://www.example.com">Insecure link (starts with http)</a>
 
-    <!-- ::selection Example (select this text) -->
-    <p>Select some text in this paragraph to see the selection style.</p>
+    <!-- Example for [attribute$=value] -->
+    <h2>[attribute$=value]</h2>
+    <a href="document.pdf">PDF Document (ends with .pdf)</a>
+    <a href="document.docx">Word Document (does not end with .pdf)</a>
+
+    <!-- Example for [attribute*=value] -->
+    <h2>[attribute*=value]</h2>
+    <a href="https://www.example.com">Link contains 'example'</a>
+    <a href="https://www.another.com">Link does not contain 'example'</a>
   </body>
 </html>
