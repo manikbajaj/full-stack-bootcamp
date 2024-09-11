@@ -1,42 +1,78 @@
-<!-- 
-!Exercise: Create a Hover Tooltip
-* In this exercise, you'll be creating a simple hover tooltip using CSS. The tooltip will be hidden by default and will only become visible when the user hovers over the parent element.
-
-!Your Task:
-* Write the CSS code to make the paragraph (<p>) element inside a <div> appear when the user hovers over the <div>.
-* The tooltip should have a background color, padding, and other styling to make it look like a tooltip.
-
-! Instructions:
-* Hide the tooltip initially: Use CSS to hide the <p> element inside the <div>.
-* Display on hover: Make the <p> element appear when the user hovers over the <div>.
-* Add Styling: Style the tooltip to make it visually distinct by changing its background color, padding, or any other properties. 
-
-!Hint:
-* Use the :hover pseudo-class to detect when the user hovers over the <div>.
-* Control the visibility of the <p> element using the display property.
-
--->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <title>Pseudo-Classes Example: List Items</title>
     <style>
-      /* Write CSS here */
-      p {
-        display: none;
-        background-color: yellow;
-        padding: 20px;
+      /* Style the first list item in the first ul */
+      ul.first-child-list li:first-child {
+        color: red;
+        font-weight: bold;
       }
 
-      div:hover p {
-        display: block;
+      /* Style the last list item in the second ul */
+      ul.last-child-list li:last-child {
+        color: blue;
+        font-weight: bold;
+      }
+
+      /* Style every third list item in the third ul */
+      ul.nth-child-list li:nth-child(3) {
+        background-color: yellow;
+      }
+
+      /* Style the only child element in the fourth ul */
+      ul.only-child-list li:only-child {
+        color: green;
+        font-style: italic;
+        background-color: lightgray;
+      }
+
+      /* No special styling for non-only-child lists */
+      ul.not-only-child-list li {
+        color: purple;
+        font-style: normal;
       }
     </style>
   </head>
   <body>
-    <div>
-      Hover over this element to show the p element
-      <p>I am visible on hover</p>
-    </div>
+    <!-- :first-child Example -->
+    <h2>:first-child Example</h2>
+    <ul class="first-child-list">
+      <li>This is the first item (red and bold).</li>
+      <li>This is the second item.</li>
+      <li>This is the third item.</li>
+      <li>This is the last item.</li>
+    </ul>
+
+    <!-- :last-child Example -->
+    <h2>:last-child Example</h2>
+    <ul class="last-child-list">
+      <li>This is the first item.</li>
+      <li>This is the second item.</li>
+      <li>This is the last item (blue and bold).</li>
+    </ul>
+
+    <!-- :nth-child(n) Example -->
+    <h2>:nth-child(n) Example</h2>
+    <ul class="nth-child-list">
+      <li>This is the first item.</li>
+      <li>This is the second item.</li>
+      <li>This is the third item (yellow background).</li>
+      <li>This is the fourth item.</li>
+    </ul>
+
+    <!-- :only-child Example -->
+    <h2>:only-child Example</h2>
+    <ul class="only-child-list">
+      <li>This is the only child.</li>
+    </ul>
+
+    <!-- NOT ONLY CHILD Example -->
+    <h2>Not Only Child Example</h2>
+    <ul class="not-only-child-list">
+      <li>First item.</li>
+      <li>Second item.</li>
+    </ul>
   </body>
 </html>
