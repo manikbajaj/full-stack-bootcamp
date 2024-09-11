@@ -2,64 +2,109 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Font Families Lecture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Font Styles and Shorthand Lecture</title>
     <style>
-      /* Example 1: Specific Font */
-      .specific-font {
-        font-family: "Times New Roman";
+      /* Example 1: Font Style (Italic) */
+      .italic {
+        font-style: italic;
       }
 
-      /* Example 2: Specific Font with Fallback */
-      .font-with-fallback {
-        font-family: "Times New Roman", Georgia;
+      /* Example 2: Font Style (Oblique) */
+      .oblique {
+        font-style: oblique;
       }
 
-      /* Example 3: Specific Font with Fallback and Generic Family */
-      .font-with-generic {
-        font-family: "Times New Roman", Georgia, serif;
+      /* Example 3: Font Variant (small-caps) */
+      .small-caps {
+        font-variant: small-caps;
       }
 
-      /* Example 4: Sans-Serif Font Family */
-      .sans-serif {
-        font-family: Arial, "Helvetica Neue", sans-serif;
+      /* Example 4: Font Size in Pixels */
+      .font-size-px {
+        font-size: 20px;
       }
 
-      /* Example 5: Monospace Font Family */
-      .monospace {
-        font-family: "Courier New", Courier, monospace;
+      /* Example 5: Font Size in EM */
+      .font-size-em {
+        font-size: 2em; /* Relative to parent font size */
       }
 
-      /* Example 6: Cursive Font Family */
-      .cursive {
-        font-family: "Brush Script MT", cursive;
+      /* Example 6: Font Size in REM */
+      .font-size-rem {
+        font-size: 1.5rem; /* Relative to root font size */
       }
 
-      /* Example 7: Fantasy Font Family */
-      .fantasy {
-        font-family: "Papyrus", fantasy;
+      /* Example 7: Font Weight (Bold) */
+      .font-weight {
+        font-weight: bold;
+      }
+
+      /* Example 8: Font Weight (Lighter) */
+      .font-weight-lighter {
+        font-weight: lighter;
+      }
+
+      /* Example 9: Font Shorthand (style, variant, weight, size, family) */
+      .font-shorthand {
+        font: italic small-caps bold 1.5rem "Arial", sans-serif;
       }
     </style>
   </head>
   <body>
-    <!-- Example 1: Using a Specific Font -->
-    <p class="specific-font">Times New Roman.</p>
+    <!-- Example 1: Font Style (Italic) -->
+    <p class="italic">Italic text.</p>
 
-    <!-- Example 2: Using a Specific Font with Fallback -->
-    <p class="font-with-fallback">Times New Roman or Georgia.</p>
+    <!-- Example 2: Font Style (Oblique) -->
+    <p class="oblique">Oblique text.</p>
 
-    <!-- Example 3: Using a Specific Font with Fallback and Generic Family -->
-    <p class="font-with-generic">Times New Roman, Georgia, or serif.</p>
+    <!-- Example 3: Font Variant (Small Caps) -->
+    <p class="small-caps">Small-caps text.</p>
 
-    <!-- Example 4: Sans-Serif Font Family -->
-    <p class="sans-serif">Arial, Helvetica, or sans-serif.</p>
+    <!-- Example 4: Font Size in Pixels -->
+    <p class="font-size-px">Font size in pixels (20px).</p>
 
-    <!-- Example 5: Monospace Font Family -->
-    <p class="monospace">Courier New or monospace.</p>
+    <!-- Example 5: Font Size in EM -->
+    <p class="font-size-em">Font size in em (2em).</p>
 
-    <!-- Example 6: Cursive Font Family -->
-    <p class="cursive">Brush Script or cursive.</p>
+    <!-- Example 6: Font Size in REM -->
+    <p class="font-size-rem">Font size in rem (1.5rem).</p>
 
-    <!-- Example 7: Fantasy Font Family -->
-    <p class="fantasy">Papyrus or fantasy.</p>
+    <!-- 
+    !Can Weights Be Applied to All Fonts?
+    Not all fonts support every weight. Here’s what happens when you apply font weights to fonts:
+
+    * Fonts With Predefined Weights:
+    Some fonts come with specific weights (e.g., 400 for normal, 700 for bold). If the font supports different weights, the browser will use the corresponding weight when you apply font-weight.
+
+   * Fonts Without Multiple Weights:
+    If a font doesn’t support a specific weight, the browser will simulate the weight:
+   ! CHECK GOOGLE FONTS FOR ALL AVAILABLE WEIGHTS
+    -->
+
+    <!-- Example 7: Font Weight (Bold) -->
+    <p class="font-weight">Bold text.</p>
+
+    <!-- Example 8: Font Weight (Lighter) -->
+    <p class="font-weight-lighter">Lighter text.</p>
+
+    <!-- Example 9: Font Shorthand -->
+    <!-- 
+    !The sequence in the font shorthand property is important, and certain properties are required, while others are optional. When using the shorthand, if a property is omitted, it will default to its initial value.
+
+    Order of Font Shorthand Properties:
+    The correct order for the font shorthand property is:
+
+    font-style (optional)
+    font-variant (optional)
+    font-weight (optional)
+    font-size (required)
+    line-height (optional, if used, should follow font-size with a /)
+    font-family (required)
+
+    -->
+    <p class="font-shorthand">
+      Shorthand font style (italic, small-caps, bold, 1.5rem, Arial).
+    </p>
   </body>
 </html>
