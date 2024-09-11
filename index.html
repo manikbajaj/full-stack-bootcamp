@@ -2,77 +2,79 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Pseudo-Classes Example: List Items</title>
+    <title>CSS Pseudo-Elements Lecture</title>
     <style>
-      /* Style the first list item in the first ul */
-      ul.first-child-list li:first-child {
-        color: red;
-        font-weight: bold;
-      }
-
-      /* Style the last list item in the second ul */
-      ul.last-child-list li:last-child {
-        color: blue;
-        font-weight: bold;
-      }
-
-      /* Style every third list item in the third ul */
-      ul.nth-child-list li:nth-child(3) {
-        background-color: yellow;
-      }
-
-      /* Style the only child element in the fourth ul */
-      ul.only-child-list li:only-child {
+      /* ::before - Insert content before an element */
+      .before-example::before {
+        content: "Before: ";
         color: green;
-        font-style: italic;
-        background-color: lightgray;
       }
 
-      /* No special styling for non-only-child lists */
-      ul.not-only-child-list li {
+      /* ::after - Insert content after an element */
+      .after-example::after {
+        content: " After.";
+        color: red;
+      }
+
+      /* ::first-letter - Style the first letter of a paragraph */
+      .first-letter-example::first-letter {
+        font-size: 2em;
+        color: blue;
+      }
+
+      /* ::first-line - Style the first line of a paragraph */
+      .first-line-example::first-line {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      /* ::marker - Style the bullet points in a list */
+      ul.marker-example li::marker {
         color: purple;
-        font-style: normal;
+        font-size: 1.5em;
+      }
+
+      ul.marker-example {
+        list-style-type: circle; /* Changes the bullet to a circle */
+      }
+
+      /* ::selection - Style the selected text */
+      ::selection {
+        background-color: yellow;
+        color: black;
       }
     </style>
   </head>
   <body>
-    <!-- :first-child Example -->
-    <h2>:first-child Example</h2>
-    <ul class="first-child-list">
-      <li>This is the first item (red and bold).</li>
-      <li>This is the second item.</li>
-      <li>This is the third item.</li>
-      <li>This is the last item.</li>
+    <h1>CSS Pseudo-Elements Lecture</h1>
+
+    <!-- ::before Example -->
+    <p class="before-example">This text has content inserted before it.</p>
+
+    <!-- ::after Example -->
+    <p class="after-example">This text has content inserted after it</p>
+
+    <!-- ::first-letter Example -->
+    <p class="first-letter-example">
+      This paragraph has a larger first letter.
+    </p>
+
+    <!-- ::first-line Example -->
+    <p class="first-line-example">
+      This is an example of styling the first line of text in a paragraph. The
+      rest of the text remains unchanged.<br />
+      <!-- Artificially creating the second line -->
+      This is the second line
+    </p>
+
+    <!-- ::marker Example -->
+    <ul class="marker-example">
+      <li>List item 1</li>
+      <li>List item 2</li>
+      <li>List item 3</li>
     </ul>
 
-    <!-- :last-child Example -->
-    <h2>:last-child Example</h2>
-    <ul class="last-child-list">
-      <li>This is the first item.</li>
-      <li>This is the second item.</li>
-      <li>This is the last item (blue and bold).</li>
-    </ul>
-
-    <!-- :nth-child(n) Example -->
-    <h2>:nth-child(n) Example</h2>
-    <ul class="nth-child-list">
-      <li>This is the first item.</li>
-      <li>This is the second item.</li>
-      <li>This is the third item (yellow background).</li>
-      <li>This is the fourth item.</li>
-    </ul>
-
-    <!-- :only-child Example -->
-    <h2>:only-child Example</h2>
-    <ul class="only-child-list">
-      <li>This is the only child.</li>
-    </ul>
-
-    <!-- NOT ONLY CHILD Example -->
-    <h2>Not Only Child Example</h2>
-    <ul class="not-only-child-list">
-      <li>First item.</li>
-      <li>Second item.</li>
-    </ul>
+    <!-- ::selection Example (select this text) -->
+    <p>Select some text in this paragraph to see the selection style.</p>
   </body>
 </html>
