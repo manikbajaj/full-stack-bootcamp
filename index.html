@@ -24,6 +24,12 @@
       h2 ~ p {
         background-color: lightgray;
       }
+
+      /* Combination of element and class: a.highlighted */
+      a.highlighted {
+        background-color: yellow;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -31,12 +37,12 @@
 
     <!-- Descendant Selector Example -->
     <div>
-      <h2>Descendant Selector (space)</h2>
+      <h2>Descendant Selector</h2>
       <!-- This will be blue because it's a <p> inside a <div> -->
-      <p>This paragraph is a descendant of the div.</p>
+      <p>Descendant of the div.</p>
       <!-- Nested <div> with <p>, still a descendant -->
       <div>
-        <p>This nested paragraph is also a descendant of the outer div.</p>
+        <p>Nested paragraph descendant of the outer div.</p>
       </div>
     </div>
 
@@ -44,24 +50,29 @@
     <div>
       <h2>Child Selector (>)</h2>
       <!-- This will be bold because it's a direct child of the <div> -->
-      <p>This paragraph is a direct child of the div and will be bold.</p>
+      <p>Direct child of the div and will be bold.</p>
       <!-- This won't be affected because it's nested, not a direct child -->
       <div>
-        <p>This nested paragraph is not a direct child.</p>
+        <p>Not a direct child.</p>
       </div>
     </div>
 
     <!-- Adjacent Sibling Selector Example -->
     <h2>Adjacent Sibling Selector (+)</h2>
     <!-- This will be green because it's the immediate sibling of the <h2> -->
-    <p>This paragraph is an adjacent sibling of the previous h2.</p>
+    <p>Adjacent sibling of the previous h2.</p>
     <!-- This won't be affected because it's not immediately after the <h2> -->
-    <p>This paragraph is not an adjacent sibling of the previous h2.</p>
+    <p>Not an adjacent sibling of the previous h2.</p>
 
     <!-- General Sibling Selector Example -->
     <h2>General Sibling Selector (~)</h2>
     <!-- All these <p> elements after <h2> will have a lightgray background -->
-    <p>This paragraph is a general sibling of the h2.</p>
-    <p>This paragraph is also a general sibling of the h2.</p>
+    <p>General sibling of the h2.</p>
+    <p>Also a general sibling of the h2.</p>
+
+    <!-- Highlighted class will only apply to this element -->
+    <a href="https://www.example.com" class="highlighted">Highlighted Link</a>
+    <!-- This will not be highlighted -->
+    <p class="highlighted">Highlighted Link</a>
   </body>
 </html>
