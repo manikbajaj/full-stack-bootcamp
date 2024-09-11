@@ -1,88 +1,66 @@
+<!-- 
+  !Practice Pseudo-Classes, Pseudo-Elements, and CSS Attribute Selectors
+  * In this exercise, you will be provided with an HTML structure. Your task is to write the CSS to style the specified elements using Pseudo-Classes, Pseudo-Elements, and Attribute Selectors. The focus is on selecting the correct elements and applying the requested styles.
+
+    !Instructions: CSS Tasks
+    * Use the provided HTML and write CSS to style the elements based on the following requirements. Focus on using Pseudo-Classes, Pseudo-Elements, and Attribute Selectors.
+
+    !Part 1: Pseudo-Classes
+    * Style the first navigation link in the <nav> using the :first-child pseudo-class to have a background color of lightblue.
+    * Style the last item in the <ul> list using the :last-child pseudo-class to have a font color of green.
+    * Apply a hover effect to all navigation links (<a>) to change their text color to red when hovered.
+    * Style the active navigation link (<a> with class "active") to have a bold font.
+
+    ! Part 2: Pseudo-Elements
+    * Use the ::before pseudo-element to insert the word "Note: " before the paragraph with the class .intro-text.
+    * Style the first letter of the second paragraph in the content section (the one without the class) using ::first-letter to have a font size of 2em and color blue.
+    * In the <footer>, style the first line of the text using the ::first-line pseudo-element to have a bold font.
+
+    ! Part 3: Attribute Selectors
+    * Use the [lang] attribute selector to target the <article> with lang="en-US" and apply a background color of #f0f0f0.
+    * Style all navigation links (<a>) that have an href attribute ending with .html using [href$=".html"] to have an underline.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Attribute Selectors Lecture</title>
-    <style>
-      /* [attribute] - Targets elements that have the specified attribute */
-      input[type] {
-        border: 2px solid blue;
-      }
-
-      /* [attribute=value] - Targets elements with an attribute matching the exact value */
-      input[type="text"] {
-        background-color: lightyellow;
-      }
-
-      /* [attribute~=value] - Targets elements whose attribute value contains a space-separated list, and one of them matches */
-      [class~="highlight"] {
-        color: red;
-      }
-
-      /* [attribute|=value] - Targets elements whose attribute starts with a specific value or is exactly that value */
-      [lang|="en"] {
-        border: 2px solid green;
-      }
-
-      /* [attribute^=value] - Targets elements whose attribute value starts with the specified value */
-      a[href^="https"] {
-        color: purple;
-      }
-
-      /* [attribute$=value] - Targets elements whose attribute value ends with the specified value */
-      a[href$=".pdf"] {
-        color: orange;
-        text-decoration: underline;
-      }
-
-      /* [attribute*=value] - Targets elements whose attribute value contains the specified value */
-      a[href*="example"] {
-        font-weight: bold;
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Exercise</title>
   </head>
   <body>
-    <h1>CSS Attribute Selectors</h1>
+    <h1>CSS Selectors Exercise</h1>
 
-    <!-- 
-      ! CSS attribute selectors allow you to target elements based on the presence, value, or pattern of an attribute. They are useful for applying styles to elements dynamically without needing additional classes or IDs, based on attributes like type, href, or src.
-    -->
+    <!-- Navigation Bar -->
+    <nav>
+      <a href="index.html" class="nav-item">Home</a>
+      <a href="about.html" class="nav-item">About</a>
+      <a href="contact.html" class="nav-item active">Contact</a>
+    </nav>
 
-    <!-- Example for [attribute] -->
-    <h2>[attribute]</h2>
-    <input type="text" placeholder="This input has a 'type' attribute" />
-    <input type="password" placeholder="Another input with 'type' attribute" />
+    <!-- Content Section -->
+    <section>
+      <h2>Welcome to the Exercise</h2>
+      <p class="intro-text">This paragraph introduces the exercise.</p>
+      <p>This is another paragraph that does not have a class.</p>
+    </section>
 
-    <!-- Example for [attribute=value] -->
-    <h2>[attribute=value]</h2>
-    <input type="text" placeholder="This is a text input" />
-    <input type="password" placeholder="This is a password input" />
+    <!-- List Example -->
+    <ul class="feature-list">
+      <li>Feature 1</li>
+      <li>Feature 2</li>
+      <li>Feature 3</li>
+    </ul>
 
-    <!-- Example for [attribute~=value] -->
-    <h2>[attribute~=value]</h2>
-    <p class="highlight">This paragraph has the class "highlight".</p>
-    <p class="highlight special">
-      This paragraph has the class "highlight" and "special".
-    </p>
+    <!-- Article Section -->
+    <article lang="en-US">
+      <h2>Article Heading</h2>
+      <p>This is the <strong>first paragraph</strong> in the article.</p>
+    </article>
 
-    <!-- Example for [attribute|=value] -->
-    <h2>[attribute|=value]</h2>
-    <p lang="en">This paragraph is in English.</p>
-    <p lang="en-US">This paragraph is in American English (en-US).</p>
-
-    <!-- Example for [attribute^=value] -->
-    <h2>[attribute^=value]</h2>
-    <a href="https://www.example.com">Secure link (starts with https)</a>
-    <a href="http://www.example.com">Insecure link (starts with http)</a>
-
-    <!-- Example for [attribute$=value] -->
-    <h2>[attribute$=value]</h2>
-    <a href="document.pdf">PDF Document (ends with .pdf)</a>
-    <a href="document.docx">Word Document (does not end with .pdf)</a>
-
-    <!-- Example for [attribute*=value] -->
-    <h2>[attribute*=value]</h2>
-    <a href="https://www.example.com">Link contains 'example'</a>
-    <a href="https://www.another.com">Link does not contain 'example'</a>
+    <!-- Footer Section -->
+    <footer>
+      <p>All rights reserved &copy; 2024</p>
+    </footer>
   </body>
 </html>
