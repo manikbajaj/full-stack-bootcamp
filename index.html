@@ -1,108 +1,65 @@
-<!-- 
-  !Practice Pseudo-Classes, Pseudo-Elements, and CSS Attribute Selectors
-  * In this exercise, you will be provided with an HTML structure. Your task is to write the CSS to style the specified elements using Pseudo-Classes, Pseudo-Elements, and Attribute Selectors. The focus is on selecting the correct elements and applying the requested styles.
-
-    !Instructions: CSS Tasks
-    * Use the provided HTML and write CSS to style the elements based on the following requirements. Focus on using Pseudo-Classes, Pseudo-Elements, and Attribute Selectors.
-
-    !Part 1: Pseudo-Classes
-    * Style the first navigation link in the <nav> using the :first-child pseudo-class to have a background color of lightblue.
-    * Style the last item in the <ul> list using the :last-child pseudo-class to have a font color of green.
-    * Apply a hover effect to all navigation links (<a>) to change their text color to red when hovered.
-    * Style the active navigation link (<a> with class "active") to have a bold font.
-
-    ! Part 2: Pseudo-Elements
-    * Use the ::before pseudo-element to insert the word "Note: " before the paragraph with the class .intro-text.
-    * Style the first letter of the second paragraph in the content section (the one without the class) using ::first-letter to have a font size of 2em and color blue.
-    * In the <footer>, style the first line of the text using the ::first-line pseudo-element to have a bold font.
-
-    ! Part 3: Attribute Selectors
-    * Use the [lang] attribute selector to target the <article> with lang="en-US" and apply a background color of #f0f0f0.
-    * Style all navigation links (<a>) that have an href attribute ending with .html using [href$=".html"] to have an underline.
--->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Practice Exercise</title>
+    <title>CSS Font Families Lecture</title>
     <style>
-      /* Pseudo-Class examples */
-      nav a:first-child {
-        background-color: lightblue;
+      /* Example 1: Specific Font */
+      .specific-font {
+        font-family: "Times New Roman";
       }
 
-      ul.feature-list li:last-child {
-        color: green;
+      /* Example 2: Specific Font with Fallback */
+      .font-with-fallback {
+        font-family: "Times New Roman", Georgia;
       }
 
-      nav a:hover {
-        color: red;
+      /* Example 3: Specific Font with Fallback and Generic Family */
+      .font-with-generic {
+        font-family: "Times New Roman", Georgia, serif;
       }
 
-      nav a.active {
-        font-weight: bold;
+      /* Example 4: Sans-Serif Font Family */
+      .sans-serif {
+        font-family: Arial, "Helvetica Neue", sans-serif;
       }
 
-      /* Pseudo-Element examples */
-      .intro-text::before {
-        content: "Note: ";
-        font-weight: bold;
+      /* Example 5: Monospace Font Family */
+      .monospace {
+        font-family: "Courier New", Courier, monospace;
       }
 
-      section p:nth-child(3)::first-letter {
-        font-size: 2em;
-        color: blue;
+      /* Example 6: Cursive Font Family */
+      .cursive {
+        font-family: "Brush Script MT", cursive;
       }
 
-      footer p::first-line {
-        font-weight: bold;
-      }
-
-      /* Attribute Selector examples */
-      article[lang="en-US"] {
-        background-color: #f0f0f0;
-      }
-
-      nav a[href$=".html"] {
-        text-decoration: underline;
+      /* Example 7: Fantasy Font Family */
+      .fantasy {
+        font-family: "Papyrus", fantasy;
       }
     </style>
   </head>
   <body>
-    <h1>CSS Selectors Exercise</h1>
+    <!-- Example 1: Using a Specific Font -->
+    <p class="specific-font">Times New Roman.</p>
 
-    <!-- Navigation Bar -->
-    <nav>
-      <a href="index.html" class="nav-item">Home</a>
-      <a href="about.html" class="nav-item">About</a>
-      <a href="contact.html" class="nav-item active">Contact</a>
-    </nav>
+    <!-- Example 2: Using a Specific Font with Fallback -->
+    <p class="font-with-fallback">Times New Roman or Georgia.</p>
 
-    <!-- Content Section -->
-    <section>
-      <h2>Welcome to the Exercise</h2>
-      <p class="intro-text">This paragraph introduces the exercise.</p>
-      <p>This is another paragraph that does not have a class.</p>
-    </section>
+    <!-- Example 3: Using a Specific Font with Fallback and Generic Family -->
+    <p class="font-with-generic">Times New Roman, Georgia, or serif.</p>
 
-    <!-- List Example -->
-    <ul class="feature-list">
-      <li>Feature 1</li>
-      <li>Feature 2</li>
-      <li>Feature 3</li>
-    </ul>
+    <!-- Example 4: Sans-Serif Font Family -->
+    <p class="sans-serif">Arial, Helvetica, or sans-serif.</p>
 
-    <!-- Article Section -->
-    <article lang="en-US">
-      <h2>Article Heading</h2>
-      <p>This is the <strong>first paragraph</strong> in the article.</p>
-    </article>
+    <!-- Example 5: Monospace Font Family -->
+    <p class="monospace">Courier New or monospace.</p>
 
-    <!-- Footer Section -->
-    <footer>
-      <p>All rights reserved &copy; 2024</p>
-    </footer>
+    <!-- Example 6: Cursive Font Family -->
+    <p class="cursive">Brush Script or cursive.</p>
+
+    <!-- Example 7: Fantasy Font Family -->
+    <p class="fantasy">Papyrus or fantasy.</p>
   </body>
 </html>
