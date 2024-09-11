@@ -2,61 +2,122 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Working with Google Material Icons</title>
-
-    <!-- Step 1: Include Google Material Icons Link -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <title>Styling List Items with CSS</title>
 
     <style>
-      /* Step 2: Style the icons */
-      .icon-large {
-        font-size: 48px; /* Making the icon large */
+      /* Different List Item Markers */
+      .list-disc {
+        list-style-type: disc; /* Default disc marker */
       }
 
-      .icon-medium {
-        font-size: 36px; /* Medium size icon */
+      .list-circle {
+        list-style-type: circle; /* Circle marker */
       }
 
-      .icon-small {
-        font-size: 24px; /* Small size icon */
+      .list-square {
+        list-style-type: square; /* Square marker */
       }
 
-      .icon-red {
-        color: red; /* Red color icon */
+      .list-decimal {
+        list-style-type: decimal; /* Decimal marker (numbers) */
       }
 
-      .icon-blue {
-        color: blue; /* Blue color icon */
+      .list-none {
+        list-style-type: none; /* No marker */
       }
 
-      .icon-centered {
-        vertical-align: middle; /* Align icon vertically with text */
+      /* Positioning List Item Markers */
+      .list-inside {
+        list-style-position: inside; /* Marker inside the content */
+      }
+
+      .list-outside {
+        list-style-position: outside; /* Marker outside the content */
+      }
+
+      /* Remove Default List Item Styles */
+      .list-reset {
+        list-style: none; /* Remove default marker */
+        padding: 0; /* Remove padding */
+        margin: 0; /* Remove margin */
+      }
+
+      /* List Shorthand Property */
+      .list-shorthand {
+        list-style: square inside; /* Using the shorthand to combine marker type and position */
+      }
+
+      /* Styling List Items with Colors */
+      .colored-list li {
+        color: green; /* Color for list item text */
+      }
+
+      .colored-list li::marker {
+        color: red; /* Color for list markers */
       }
     </style>
   </head>
   <body>
-    <!-- Step 3: Basic usage of material icons with different sizes -->
-    <i class="material-icons icon-large">home</i>
-    <!-- Large home icon -->
-    <i class="material-icons icon-medium">home</i>
-    <!-- Medium home icon -->
-    <i class="material-icons icon-small">home</i>
-    <!-- Small home icon -->
+    <h1>Styling List Items with CSS</h1>
 
-    <!-- Step 4: Different colored icons -->
-    <i class="material-icons icon-red">star</i>
-    <!-- Red star icon -->
-    <i class="material-icons icon-blue">star</i>
-    <!-- Blue star icon -->
+    <!-- Different List Item Markers -->
+    <h2>Different List Item Markers</h2>
+    <ul class="list-disc">
+      <li>Disc Marker (Default)</li>
+      <li>Disc Marker</li>
+    </ul>
 
-    <!-- Step 5: Center align icons with text -->
-    <p>
-      <i class="material-icons icon-centered">home</i> This icon is centered
-      with text.
-    </p>
+    <ul class="list-circle">
+      <li>Circle Marker</li>
+      <li>Circle Marker</li>
+    </ul>
+
+    <ul class="list-square">
+      <li>Square Marker</li>
+      <li>Square Marker</li>
+    </ul>
+
+    <ul class="list-decimal">
+      <li>Decimal Marker</li>
+      <li>Decimal Marker</li>
+    </ul>
+
+    <ul class="list-none">
+      <li>No Marker</li>
+      <li>No Marker</li>
+    </ul>
+
+    <!-- Positioning List Item Markers -->
+    <h2>Positioning the List Item Markers</h2>
+    <ul class="list-inside">
+      <li>Marker inside</li>
+      <li>Marker inside</li>
+    </ul>
+
+    <ul class="list-outside">
+      <li>Marker outside (Default)</li>
+      <li>Marker outside (Default)</li>
+    </ul>
+
+    <!-- Remove Default List Item Styles -->
+    <h2>Remove Default List Styles</h2>
+    <ul class="list-reset">
+      <li>No default styles</li>
+      <li>No default styles</li>
+    </ul>
+
+    <!-- Using the List Shorthand Property -->
+    <h2>List Shorthand Property</h2>
+    <ul class="list-shorthand">
+      <li>Square Marker, Inside Position</li>
+      <li>Square Marker, Inside Position</li>
+    </ul>
+
+    <!-- Styling List Items with Colors -->
+    <h2>Styling List Items with Colors</h2>
+    <ul class="colored-list">
+      <li>Green text with red markers</li>
+      <li>Green text with red markers</li>
+    </ul>
   </body>
 </html>
