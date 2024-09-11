@@ -1,119 +1,39 @@
-<!-- 
-    TODO: Practice Exercise for Working with Fonts, Font Properties, Google Fonts, Material Icons, and Styling List Items
-
-    ! IMPORTANT NOTE: Write all CSS in the external CSS file style.css linked with the HTML
-    
-    ! 1. Working with Fonts (Section 1):
-    * Apply different fonts for the h2 heading and the two paragraphs.
-    * Add a fallback font for the intro-paragraph.
-    * Ensure the highlight-text uses a different font family from the rest.
-    
-    ! 2. Deep Dive Into Font Properties (Section 2):
-    * Set the bold-text class to use bold weight.
-    * Set the italic-text class to use italic style.
-    * Set the small-caps-text class to display small caps.
-    
-    ! 3. Using Google Fonts (Section 3):
-    * Import two Google Fonts by adding the necessary <link> tags in the <head>.
-    * Apply the first Google Font to the google-font-1 class.
-    * Apply the second Google Font to the google-font-2 class and use different font weights and font sizes.
-    
-    ! 4. Using Google Material Icons (Section 4):
-    * Style the three Material Icons (home, star, settings) to have different sizes (small, medium, large).
-    * Change the color of the icons (e.g., home should be red, star should be blue, and settings should be green).
-    * Align the icons vertically center with the text.
-    
-    ! 5. Styling List Items (Section 5):
-    * Apply circle markers to the first list (circle-list).
-    * Apply square markers to the second list (square-list).
-    * Remove the default markers from the third list (no-marker-list).
-    * Style the last list (colored-list) to have red markers and green text.
--->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Practice Exercise: Fonts, Icons, and Lists</title>
 
-    <!-- Google Material Icons Link (For Task 4) -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./style.css" />
+    <title>CSS Inheritance</title>
 
-    <!-- Google Fonts Link Placeholder (For Task 3: Students will add the necessary links) -->
+    <style>
+      /* Inherited Property: Font-family */
+      body {
+        font-family: "Arial", sans-serif;
+        color: blue;
+      }
+
+      .custom-div {
+        color: green; /* This color will be inherited by the child elements */
+        font-style: italic; /* Italic style will also be inherited */
+      }
+    </style>
   </head>
   <body>
-    <h1 class="main-heading">Practice Exercise</h1>
+    <h1>CSS Inheritance Demonstration</h1>
 
-    <!-- Section 1: Working with Fonts -->
-    <section class="fonts-section">
-      <h2>Working with Fonts</h2>
-      <p class="intro-paragraph">
-        This paragraph needs a specific font with a fallback option.
+    <!-- Inherited font-family and color from body -->
+    <section class="container">
+      <h2>This is a heading inside the container</h2>
+      <p>
+        This paragraph inherits the <strong>font-family</strong> and
+        <strong>color</strong> from the body.
       </p>
-      <p class="highlight-text">
-        This is a highlighted paragraph with a unique font family.
-      </p>
-    </section>
 
-    <!-- Section 2: Deep Dive Into Font Properties -->
-    <section class="font-properties-section">
-      <h2>Deep Dive Into Font Properties</h2>
-      <p class="bold-text">This text needs to be bold.</p>
-      <p class="italic-text">This paragraph should be italic.</p>
-      <p class="small-caps-text">
-        This text should use the small-caps variant.
-      </p>
-    </section>
-
-    <!-- Section 3: Using Google Fonts -->
-    <section class="google-fonts-section">
-      <h2>Using Google Fonts</h2>
-      <p class="google-font-1">This text should use the first Google Font.</p>
-      <p class="google-font-2">
-        This text should use the second Google Font, with different font weights
-        and sizes.
-      </p>
-    </section>
-
-    <!-- Section 4: Using Google Material Icons -->
-    <section class="material-icons-section">
-      <h2>Using Google Material Icons</h2>
-      <i class="material-icons icon-small">home</i> Home Icon<br />
-      <i class="material-icons icon-medium">star</i> Star Icon<br />
-      <i class="material-icons icon-large">settings</i> Settings Icon<br />
-    </section>
-
-    <!-- Section 5: Styling List Items -->
-    <section class="list-section">
-      <h2>Styling List Items</h2>
-
-      <!-- List with Circle Markers -->
-      <ul class="circle-list">
-        <li>List item 1</li>
-        <li>List item 2</li>
-      </ul>
-
-      <!-- List with Square Markers -->
-      <ul class="square-list">
-        <li>List item 1</li>
-        <li>List item 2</li>
-      </ul>
-
-      <!-- List with No Markers -->
-      <ul class="no-marker-list">
-        <li>List item 1</li>
-        <li>List item 2</li>
-      </ul>
-
-      <!-- List with Colored Markers -->
-      <ul class="colored-list">
-        <li>List item 1</li>
-        <li>List item 2</li>
-      </ul>
+      <!-- New div with child elements -->
+      <div class="custom-div">
+        <h3>This heading inherits styles from .custom-div</h3>
+        <p>Inherits the color and font-style from the .custom-div class.</p>
+      </div>
     </section>
   </body>
 </html>
