@@ -1,24 +1,80 @@
-p {
-  font-size: 16px;
-}
-#red-para {
-  color: red;
+/* Section 1: Working with Fonts */
+.fonts-section h2 {
+  font-family: "Arial", sans-serif; /* Different font for the heading */
 }
 
-.blue-bg {
-  background-color: skyblue;
-  color: red;
+.intro-paragraph {
+  font-family: "Georgia", serif; /* Primary font with a fallback */
 }
 
-.yellow-bg {
-  background-color: lightyellow;
+.highlight-text {
+  font-family: "Verdana", sans-serif; /* Different font family for highlighted text */
 }
 
-/* 
-  Universal selector applies to all the elements of all the documents 
-  If any other specific class is applied the class property will take presidence over the universal selector
-*/
-* {
-  text-align: center;
-  color: blue;
+/* Section 2: Deep Dive Into Font Properties */
+.bold-text {
+  font-weight: bold; /* Bold text */
+}
+
+.italic-text {
+  font-style: italic; /* Italic style */
+}
+
+.small-caps-text {
+  font-variant: small-caps; /* Small caps style */
+}
+
+/* Section 3: Using Google Fonts */
+/* Assuming the student has already added the correct Google Fonts links in <head> */
+
+.google-font-1 {
+  font-family: "Roboto", sans-serif; /* First Google Font (Roboto) */
+}
+
+.google-font-2 {
+  font-family: "Open Sans", sans-serif; /* Second Google Font (Open Sans) */
+  font-weight: 700; /* Bold weight */
+  font-size: 1.5rem; /* Font size in rem */
+}
+
+/* Section 4: Using Google Material Icons */
+.icon-small {
+  font-size: 24px; /* Small icon size */
+  color: red; /* Red color for home icon */
+}
+
+.icon-medium {
+  font-size: 36px; /* Medium icon size */
+  color: blue; /* Blue color for star icon */
+}
+
+.icon-large {
+  font-size: 48px; /* Large icon size */
+  color: green; /* Green color for settings icon */
+}
+
+.icon-centered {
+  vertical-align: middle; /* Vertically align icon with text */
+}
+
+/* Section 5: Styling List Items */
+.circle-list {
+  list-style-type: circle; /* Circle marker */
+}
+
+.square-list {
+  list-style-type: square; /* Square marker */
+}
+
+.no-marker-list {
+  list-style-type: none; /* Remove list markers */
+  padding-left: 0; /* Remove default padding */
+}
+
+.colored-list li {
+  color: green; /* Green text color */
+}
+
+.colored-list li::marker {
+  color: red; /* Red list marker color */
 }
