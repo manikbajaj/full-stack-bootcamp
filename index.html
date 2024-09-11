@@ -2,109 +2,84 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Font Styles and Shorthand Lecture</title>
+    <title>Using Google Fonts and Font Effects - CSS Lecture</title>
+
+    <!-- Step 1: Include a single Google font (Roboto) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Step 2: Include multiple Google fonts (Roboto and Open Sans) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Step 3: Include multiple font weights for the Roboto font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Step 4: Enabling Font Effects (using Google Font Effects - Fire and Neon) -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Sofia&effect=fire|neon"
+      rel="stylesheet"
+    />
+
     <style>
-      /* Example 1: Font Style (Italic) */
-      .italic {
-        font-style: italic;
+      /* Step 1: Applying a single Google font (Roboto) */
+      .single-font {
+        font-family: "Roboto", sans-serif;
       }
 
-      /* Example 2: Font Style (Oblique) */
-      .oblique {
-        font-style: oblique;
+      /* Step 2: Applying multiple Google fonts (Roboto and Open Sans) */
+      .multi-font-roboto {
+        font-family: "Roboto", sans-serif;
       }
 
-      /* Example 3: Font Variant (small-caps) */
-      .small-caps {
-        font-variant: small-caps;
+      .multi-font-open-sans {
+        font-family: "Open Sans", sans-serif;
       }
 
-      /* Example 4: Font Size in Pixels */
-      .font-size-px {
-        font-size: 20px;
+      /* Step 3: Applying multiple weights (Regular 400 and Bold 700 for Roboto) */
+      .font-weight-normal {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
       }
 
-      /* Example 5: Font Size in EM */
-      .font-size-em {
-        font-size: 2em; /* Relative to parent font size */
+      .font-weight-bold {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
       }
 
-      /* Example 6: Font Size in REM */
-      .font-size-rem {
-        font-size: 1.5rem; /* Relative to root font size */
+      /* Step 4: Applying Font Effects */
+      .font-effect-fire {
+        font-family: "Sofia", sans-serif;
+        font-size: 30px;
       }
 
-      /* Example 7: Font Weight (Bold) */
-      .font-weight {
-        font-weight: bold;
-      }
-
-      /* Example 8: Font Weight (Lighter) */
-      .font-weight-lighter {
-        font-weight: lighter;
-      }
-
-      /* Example 9: Font Shorthand (style, variant, weight, size, family) */
-      .font-shorthand {
-        font: italic small-caps bold 1.5rem "Arial", sans-serif;
+      .font-effect-neon {
+        font-family: "Sofia", sans-serif;
+        font-size: 30px;
       }
     </style>
   </head>
   <body>
-    <!-- Example 1: Font Style (Italic) -->
-    <p class="italic">Italic text.</p>
+    <!-- Step 1: Applying a single Google font (Roboto) -->
+    <p class="single-font">This is using the Roboto font.</p>
 
-    <!-- Example 2: Font Style (Oblique) -->
-    <p class="oblique">Oblique text.</p>
+    <!-- Step 2: Applying multiple Google fonts -->
+    <p class="multi-font-roboto">This is using Roboto.</p>
+    <p class="multi-font-open-sans">This is using Open Sans.</p>
 
-    <!-- Example 3: Font Variant (Small Caps) -->
-    <p class="small-caps">Small-caps text.</p>
+    <!-- Step 3: Applying multiple font weights for Roboto -->
+    <p class="font-weight-normal">This is Roboto with normal weight (400).</p>
+    <p class="font-weight-bold">This is Roboto with bold weight (700).</p>
 
-    <!-- Example 4: Font Size in Pixels -->
-    <p class="font-size-px">Font size in pixels (20px).</p>
-
-    <!-- Example 5: Font Size in EM -->
-    <p class="font-size-em">Font size in em (2em).</p>
-
-    <!-- Example 6: Font Size in REM -->
-    <p class="font-size-rem">Font size in rem (1.5rem).</p>
-
-    <!-- 
-    !Can Weights Be Applied to All Fonts?
-    Not all fonts support every weight. Here’s what happens when you apply font weights to fonts:
-
-    * Fonts With Predefined Weights:
-    Some fonts come with specific weights (e.g., 400 for normal, 700 for bold). If the font supports different weights, the browser will use the corresponding weight when you apply font-weight.
-
-   * Fonts Without Multiple Weights:
-    If a font doesn’t support a specific weight, the browser will simulate the weight:
-   ! CHECK GOOGLE FONTS FOR ALL AVAILABLE WEIGHTS
-    -->
-
-    <!-- Example 7: Font Weight (Bold) -->
-    <p class="font-weight">Bold text.</p>
-
-    <!-- Example 8: Font Weight (Lighter) -->
-    <p class="font-weight-lighter">Lighter text.</p>
-
-    <!-- Example 9: Font Shorthand -->
-    <!-- 
-    !The sequence in the font shorthand property is important, and certain properties are required, while others are optional. When using the shorthand, if a property is omitted, it will default to its initial value.
-
-    Order of Font Shorthand Properties:
-    The correct order for the font shorthand property is:
-
-    font-style (optional)
-    font-variant (optional)
-    font-weight (optional)
-    font-size (required)
-    line-height (optional, if used, should follow font-size with a /)
-    font-family (required)
-
-    -->
-    <p class="font-shorthand">
-      Shorthand font style (italic, small-caps, bold, 1.5rem, Arial).
-    </p>
+    <!-- Step 4: Applying Font Effects (Fire and Neon) -->
+    <h1 class="font-effect-fire">Sofia on Fire</h1>
+    <h1 class="font-effect-neon">Sofia with Neon Effect</h1>
   </body>
 </html>
