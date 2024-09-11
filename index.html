@@ -5,63 +5,37 @@
     <meta charset="UTF-8" />
     <title>Combinator Selectors in CSS</title>
     <style>
-      /* Descendant Selector (space): Targets any <p> inside a <div>, regardless of depth */
-      div p {
+      /* Unvisited link */
+      a:link {
         color: blue;
+        text-decoration: none;
       }
 
-      /* Child Selector (>): Targets only direct child <p> of a <div> */
-      div > p {
-        font-weight: bold;
-      }
-
-      /* Adjacent Sibling Selector (+): Targets the <p> immediately following an <h2> */
-      h2 + p {
+      /* Visited link */
+      a:visited {
         color: green;
       }
 
-      /* General Sibling Selector (~): Targets all <p> siblings after an <h2> */
-      h2 ~ p {
-        background-color: lightgray;
+      /* Link on hover */
+      a:hover {
+        color: red;
+        text-decoration: underline;
+      }
+
+      /* Active link (while clicking) */
+      a:active {
+        color: orange;
       }
     </style>
   </head>
   <body>
-    <h1>Combinator Selectors in CSS</h1>
+    <!-- Example links demonstrating different pseudo-classes -->
+    <a href="https://www.example.com">Unvisited Link</a>
+    <br />
+    <a href="https://www.example1.com">Visited Link (Clicked Before)</a>
 
-    <!-- Descendant Selector Example -->
-    <div>
-      <h2>Descendant Selector (space)</h2>
-      <!-- This will be blue because it's a <p> inside a <div> -->
-      <p>This paragraph is a descendant of the div.</p>
-      <!-- Nested <div> with <p>, still a descendant -->
-      <div>
-        <p>This nested paragraph is also a descendant of the outer div.</p>
-      </div>
-    </div>
-
-    <!-- Child Selector Example -->
-    <div>
-      <h2>Child Selector (>)</h2>
-      <!-- This will be bold because it's a direct child of the <div> -->
-      <p>This paragraph is a direct child of the div and will be bold.</p>
-      <!-- This won't be affected because it's nested, not a direct child -->
-      <div>
-        <p>This nested paragraph is not a direct child.</p>
-      </div>
-    </div>
-
-    <!-- Adjacent Sibling Selector Example -->
-    <h2>Adjacent Sibling Selector (+)</h2>
-    <!-- This will be green because it's the immediate sibling of the <h2> -->
-    <p>This paragraph is an adjacent sibling of the previous h2.</p>
-    <!-- This won't be affected because it's not immediately after the <h2> -->
-    <p>This paragraph is not an adjacent sibling of the previous h2.</p>
-
-    <!-- General Sibling Selector Example -->
-    <h2>General Sibling Selector (~)</h2>
-    <!-- All these <p> elements after <h2> will have a lightgray background -->
-    <p>This paragraph is a general sibling of the h2.</p>
-    <p>This paragraph is also a general sibling of the h2.</p>
+    <!-- Hover and click effect link -->
+    <br />
+    <a href="https://www.example2.com">Hover or Click Me</a>
   </body>
 </html>
