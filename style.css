@@ -1,46 +1,77 @@
+/* General page styles */
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
-  background-color: #f0f0f0;
+  background-color: #f9f9f9;
 }
 
-.container {
-  background-color: lightgray;
-  padding: 15px;
-  margin-bottom: 30px;
-  border: 1px solid black;
+h1,
+h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
 }
 
-/* Styling for boxes */
+p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* Base styling for boxes */
 .box {
   background-color: lightblue;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 20px;
+  width: 200px;
+  color: white;
+  font-weight: bold;
   text-align: center;
-  color: darkblue;
+  margin-bottom: 20px;
 }
 
-/* Min-width example */
-.min-width-box {
-  width: 50%;
-  min-width: 300px; /* Ensures the box doesn't shrink below 300px */
+/* Static position (default) */
+.static-box {
+  background-color: lightcoral;
 }
 
-/* Max-width example */
-.max-width-box {
-  width: 90%;
-  max-width: 400px; /* Limits the box's maximum width to 400px */
+/* Relative position */
+.relative-box {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  background-color: lightgreen;
 }
 
-/* Min-height example */
-.min-height-box {
-  height: 50px;
-  min-height: 150px; /* Ensures the box doesn't shrink below 150px in height */
+/* Absolute position */
+.absolute-box {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  background-color: orange;
 }
 
-/* Max-height example */
-.max-height-box {
+/* Fixed position */
+.fixed-box {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: darkblue;
+}
+
+/* Sticky Position */
+.sticky-box {
+  position: sticky;
+  top: 10px;
+  background-color: darkorange;
+}
+
+/* Container to demonstrate absolute positioning */
+.container {
+  position: relative;
   height: 300px;
-  max-height: 200px; /* Limits the box's maximum height to 200px */
-  overflow: auto; /* Adds scroll if content exceeds max-height */
+  background-color: lightgray;
+  border: 2px solid black;
+  padding: 20px;
+}
+/* Add extra height for scrolling */
+.extra-space {
+  height: 2000px; /* Add extra space to enable scrolling */
 }
