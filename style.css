@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f0f0f0;
+}
+
+.container {
+  background-color: lightgray;
+  padding: 15px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+}
+
+/* Styling for boxes */
+.box {
+  background-color: lightblue;
+  padding: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: darkblue;
+}
+
+/* Min-width example */
+.min-width-box {
+  width: 50%;
+  min-width: 300px; /* Ensures the box doesn't shrink below 300px */
+}
+
+/* Max-width example */
+.max-width-box {
+  width: 90%;
+  max-width: 400px; /* Limits the box's maximum width to 400px */
+}
+
+/* Min-height example */
+.min-height-box {
+  height: 50px;
+  min-height: 150px; /* Ensures the box doesn't shrink below 150px in height */
+}
+
+/* Max-height example */
+.max-height-box {
+  height: 300px;
+  max-height: 200px; /* Limits the box's maximum height to 200px */
+  overflow: auto; /* Adds scroll if content exceeds max-height */
+}

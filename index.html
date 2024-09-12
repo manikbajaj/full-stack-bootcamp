@@ -2,122 +2,68 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Overflow Property Demonstration</title>
-    <style>
-      /* General styling for containers */
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        background-color: #f0f0f0;
-      }
-
-      .container {
-        background-color: lightgray;
-        padding: 15px;
-        margin-bottom: 30px;
-        border: 1px solid black;
-        width: 300px;
-        height: 150px; /* Fixed height to demonstrate overflow */
-      }
-
-      /* Example of overflow: visible (default) */
-      .overflow-visible {
-        overflow: visible; /* Default behavior */
-      }
-
-      /* Example of overflow: hidden */
-      .overflow-hidden {
-        overflow: hidden; /* Content is clipped */
-      }
-
-      /* Example of overflow: scroll */
-      .overflow-scroll {
-        overflow: scroll; /* Scrollbars are always visible */
-      }
-
-      /* Example of overflow: auto */
-      .overflow-auto {
-        overflow: auto; /* Scrollbars appear when necessary */
-      }
-
-      /* Content inside the box to demonstrate overflow */
-      .content {
-        background-color: lightblue;
-        padding: 10px;
-      }
-    </style>
+    <title>CSS Max/Min Width and Height Demonstration</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>CSS Overflow Property Demonstration</h1>
+    <h1>CSS Max-Width, Min-Width, Max-Height, and Min-Height Demonstration</h1>
 
-    <!-- Overflow: visible (default behavior) -->
-    <section class="container overflow-visible">
-      <h2>Overflow: Visible</h2>
-      <div class="content">
-        This content overflows, and it is visible outside the box.
-        <br /><br />
-        Content outside the box will be shown.
+    <!-- Min-Width Example -->
+    <section class="container">
+      <h2>Min-Width Example</h2>
+      <div class="box min-width-box">
+        This box has <strong>min-width: 300px</strong>. It will never shrink
+        below 300px, even if the screen is smaller.
       </div>
       <p>
-        Instructions: By default, overflow is visible, meaning content that
-        doesn't fit within the container will overflow and be displayed outside
-        the boundaries of the element.
+        Explanation: The <strong>min-width</strong> property ensures that the
+        box will not shrink below 300px even when the container or window size
+        is reduced. It's useful for keeping a minimum size for important
+        content.
       </p>
     </section>
 
-    <!-- Overflow: hidden -->
-    <section class="container overflow-hidden">
-      <h2>Overflow: Hidden</h2>
-      <div class="content">
-        This content overflows but is clipped, and you cannot see it.
-        <br /><br />
-        Hidden content will not be visible.
+    <!-- Max-Width Example -->
+    <section class="container">
+      <h2>Max-Width Example</h2>
+      <div class="box max-width-box">
+        This box has <strong>max-width: 400px</strong>. It won't expand beyond
+        400px, even if the screen is larger.
       </div>
       <p>
-        Instructions: With <strong>overflow: hidden</strong>, any content that
-        exceeds the container's size is clipped, and the overflowing content is
-        not displayed.
+        Explanation: The <strong>max-width</strong> property limits the width of
+        the box to 400px, even if the available space is larger. It’s helpful
+        for preventing elements from becoming too wide on large screens.
       </p>
     </section>
 
-    <!-- Overflow: scroll -->
-    <!-- 
-        overflow: scroll forces the browser to show scrollbars for both the horizontal and vertical directions, regardless of whether the content overflows.
-        Even if the content doesn't overflow, scrollbars will be visible.
-
-        !Remove the content and the scrollbars will still be visible 
-    -->
-
-    <section class="container overflow-scroll">
-      <h2>Overflow: Scroll</h2>
-      <div class="content">
-        This content overflows and has scrollbars. Scroll to see more content.
-        <br /><br />
-        Scrollbars will always be visible.
+    <!-- Min-Height Example -->
+    <section class="container">
+      <h2>Min-Height Example</h2>
+      <div class="box min-height-box">
+        This box has <strong>min-height: 150px</strong>. It will not shrink
+        below 150px, even if there's not enough content.
       </div>
       <p>
-        Instructions: With <strong>overflow: scroll</strong>, the container will
-        always show scrollbars, whether or not the content overflows.
+        Explanation: The <strong>min-height</strong> property ensures the box
+        maintains a minimum height of 150px, regardless of the content inside.
+        It’s useful to avoid content "squishing" into small spaces.
       </p>
     </section>
 
-    <!-- Overflow: auto -->
-    <!-- 
-    overflow: auto only displays scrollbars if the content overflows the container's bounds.
-      In this example, the scrollbars will appear only when needed, making it more efficient for containers that might have varying amounts of content.
-    -->
-
-    <section class="container overflow-auto">
-      <h2>Overflow: Auto</h2>
-      <div class="content">
-        This content overflows, but scrollbars will only appear when needed.
-        <br /><br />
-        Scrollbars appear automatically.
+    <!-- Max-Height Example -->
+    <section class="container">
+      <h2>Max-Height Example</h2>
+      <div class="box max-height-box">
+        This box has <strong>max-height: 200px</strong>. If the content
+        overflows, you can scroll within the box. <br /><br />
+        This extra content is here to demonstrate the scrolling behavior when
+        the content exceeds the maximum height.
       </div>
       <p>
-        Instructions: With <strong>overflow: auto</strong>, scrollbars will
-        appear only if the content exceeds the size of the container, otherwise
-        they remain hidden.
+        Explanation: The <strong>max-height</strong> property limits the box's
+        height to 200px. Any content that exceeds this height will be clipped,
+        and you can add <strong>overflow: auto</strong> to make it scrollable.
       </p>
     </section>
   </body>
