@@ -2,122 +2,90 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Display Properties Demonstration</title>
+    <title>CSS Collapsing Margins Demonstration</title>
     <style>
-      /* Container styles for better visibility */
+      /* General styles for container */
+      body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+      }
+
       .container {
+        padding: 20px;
         background-color: lightgray;
-        padding: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
       }
 
-      /* Block-level element */
-      .block-element {
-        display: block;
+      /* Adjacent sibling margins */
+      .adjacent-box {
         background-color: lightblue;
         padding: 10px;
-        margin-bottom: 10px;
+        margin: 20px 0; /* Top and bottom margin */
       }
 
-      /* Inline element */
-      .inline-element {
-        display: inline;
+      /* Parent-child collapsing margin */
+      .parent {
         background-color: lightgreen;
-        padding: 10px;
-        margin-right: 1rem;
-        width: 700px; /* Assigning a width does not have an impact on inline elements*/
-        height: 300px; /* Even height will not have an impact on these */
+        margin-top: 20px;
       }
 
-      /* Inline-block element */
-      .inline-block-element {
-        display: inline-block;
+      .child {
         background-color: lightcoral;
-        padding: 10px;
-        /* Demonstrate change in width and height */
-        width: 200px; /* Width is respected in case on inline-block */
-        height: 70px; /* Height is respected in case on inline-block */
-        margin-right: 20px;
+        margin-top: 20px; /* Parent-child collapsing margin */
       }
 
-      /* Element hidden using display: none */
-      .hidden-element {
-        display: none;
+      /* Empty block-level elements */
+      .empty-element {
         background-color: lightyellow;
-        padding: 10px;
-      }
-
-      /* Inherited display */
-      .parent-inherit {
-        display: inline-block;
-        padding: 10px;
-        background-color: lightblue;
-      }
-
-      .child-inherit {
-        display: inherit;
-        background-color: lightyellow;
-        padding: 5px;
+        height: 0; /* No height, so only margin affects it */
+        margin-top: 30px;
+        margin-bottom: 30px;
       }
     </style>
   </head>
   <body>
-    <h1>CSS Display Properties Demonstration</h1>
+    <h1>CSS Collapsing Margins Demonstration</h1>
 
-    <!-- Block display -->
+    <!-- Adjacent Sibling Margins -->
+
+    <!-- 
+    Adjacent Sibling Elements:
+      Reason: When two block-level elements are adjacent siblings, and both have vertical margins (top/bottom), their margins collapse into one. The browser collapses the margins into the larger of the two rather than adding them. In this case, both elements have a 20px margin, so the result is 20px, not 40px.
+      This behavior ensures that there is no excessive space between elements.
+    -->
     <section class="container">
-      <h2>Block Element</h2>
-      <!-- Block elements stack below each other -->
-      <div class="block-element">
-        This is a block-level element. It takes up the full width and starts on
-        a new line.
+      <h2>Adjacent Sibling Elements</h2>
+      <div class="adjacent-box">First box with 20px margin</div>
+      <div class="adjacent-box">Second box with 20px margin</div>
+    </section>
+
+    <!-- Parent-Child Collapsing Margins -->
+
+    <!-- 
+      Parent-Child Collapsing Margins:
+        Reason: When a child element has a top margin and is inside a parent with no padding, border, or content separating them, the child’s margin collapses with the parent’s margin. This is because CSS considers the margins of parent and child as one block. As a result, the child’s margin “escapes” the parent and collapses into one margin, usually the larger of the two.
+        This keeps vertical spacing more consistent without stacking margins.
+    -->
+    <section class="container">
+      <h2>Parent-Child Margin Collapsing</h2>
+      <div class="parent">
+        <div class="child">Child with 20px top margin inside the parent</div>
       </div>
-      <!-- Even if I use an inline element like a span it behaves like a block element because of the display set to block in CSS -->
-      <span class="block-element">
-        This is a block-level element. It takes up the full width and starts on
-        a new line.
-      </span>
     </section>
 
-    <!-- Inline display -->
+    <!-- Empty Element with Collapsing Margin -->
+    <!-- 
+      Empty Block-Level Elements:
+        Reason: If a block-level element has no height (like in the case of an empty element), its top and bottom margins will collapse into a single margin. Since the element itself takes up no space, the browser treats the margins as if they were stacked, resulting in only one margin being applied.
+        This behavior prevents unnecessary spacing when an element has no content or height.
+    -->
     <section class="container">
-      <h2>Inline Element</h2>
-      <span class="inline-element">This is an inline element.</span>
-      <span class="inline-element"
-        >It stays on the same line as other inline elements.</span
-      >
-    </section>
-
-    <!-- Inline-block display -->
-    <section class="container">
-      <h2>Inline-block Element</h2>
-      <div class="inline-block-element">This is inline-block 1.</div>
-      <div class="inline-block-element">This is inline-block 2.</div>
-    </section>
-
-    <!-- None display -->
-    <section class="container">
-      <h2>Display: None</h2>
-      <div class="hidden-element">
-        This element is hidden using display: none and will not take up any
-        space.
-      </div>
-      <p>
-        The element above is hidden, so you can't see it or the space it would
-        occupy.
+      <h2>Empty Block-Level Element</h2>
+      <div class="empty-element"></div>
+      <p class="empty-element">
+        In this case, the empty block-level element has no height, so the top
+        and bottom margins collapse into a single 30px margin.
       </p>
-    </section>
-
-    <!-- Inherit display -->
-    <!-- Child element inherits the property of the parent -->
-    <section class="container">
-      <h2>Display: Inherit</h2>
-      <div class="parent-inherit">
-        Parent Element (display: inline-block)
-        <div class="child-inherit">
-          Child Element (display: inherit - inherits parent's display type)
-        </div>
-      </div>
     </section>
   </body>
 </html>
