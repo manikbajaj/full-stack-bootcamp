@@ -14,8 +14,8 @@ CSS Goal: Apply different display properties to the elements.
 
 ! Task 3: Display None and Inherit:
 
-CSS Goal: Initially hide the child element, then change its display to inherit when toggled.
-* Instructions: Add display: none to the .child element initially. The students will need to use JavaScript to add the display: inherit class on button click (or set it up as an option in CSS if JavaScript is not being used in this exercise).
+CSS Goal: Initially hide the child element, then display it when the parent element is hovered.
+ * Instructions: Use display: none to hide the .child element by default. Use the :hover pseudo-class on the .parent element to reveal the .child by setting its display to inherit.
 
 ! Task 4: Understanding Collapsing Margins:
 
@@ -62,18 +62,17 @@ CSS Goal: Apply rounded corners using border-radius.
       </p>
     </section>
 
-    <!-- Display None and Inherit -->
+    <!-- Display None and Inherit (CSS-Only Hover Effect) -->
     <section>
-      <h2>Task 3: Display None and Inherit</h2>
+      <h2>Task 3: Display None and Inherit (CSS-Only)</h2>
       <div class="parent">
         Parent Element
-        <div class="child">Child Element (hidden by default)</div>
+        <div class="child">Child Element (Hidden by default)</div>
       </div>
-      <button class="toggle-display">Toggle Child Display</button>
       <p>
         Instructions: Initially hide the child element using
-        <strong>display: none</strong>. Add a class to change its display to
-        <strong>inherit</strong> when a button is clicked.
+        <strong>display: none</strong>. Make the child visible when the parent
+        is hovered.
       </p>
     </section>
 

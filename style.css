@@ -35,6 +35,11 @@
   padding: 10px;
 }
 
+/* When the parent is hovered, display the child */
+.parent:hover .child {
+  display: inherit;
+}
+
 /* Task 4: Understanding Collapsing Margins */
 .collapsing-margin-1,
 .collapsing-margin-2 {
