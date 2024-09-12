@@ -2,68 +2,142 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Max/Min Width and Height Demonstration</title>
-    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Floats Demonstration</title>
+    <style>
+      /* General styling for containers */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f9f9f9;
+      }
+
+      .container {
+        background-color: lightgray;
+        padding: 15px;
+        margin-bottom: 30px;
+        border: 1px solid black;
+      }
+
+      /* Styling for float boxes */
+      .box {
+        background-color: lightblue;
+        padding: 10px;
+        width: 150px;
+        height: 100px;
+        margin: 10px;
+        color: darkblue;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid darkblue;
+      }
+
+      /* Float left */
+      .float-left {
+        float: left;
+      }
+
+      /* Float right */
+      .float-right {
+        float: right;
+      }
+
+      /* No float */
+      .float-none {
+        float: none;
+      }
+
+      /* Clearfix for container to clear floated elements */
+      /* 
+      .clearfix::after:
+          The ::after pseudo-element inserts a new, invisible element after the content of the container.
+          This pseudo-element is used to clear the floats without requiring additional markup in the HTML.
+          content: "":
+
+          This property is used to generate content in the ::after pseudo-element. In this case, an empty string ("") is provided, meaning the pseudo-element doesn't actually insert any visible content.
+          It's required in order for the pseudo-element to function.
+          display: block:
+
+          Sets the pseudo-element to be a block-level element, ensuring that it takes up space and affects the layout.
+          This makes the invisible element behave like a normal block element.
+          clear: both:
+
+          This property clears the float, ensuring that no floated elements (both float: left and float: right) are allowed to float beside the pseudo-element.
+          By clearing the floats, the parent container is forced to expand and wrap around the floated child elements.
+      */
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
   </head>
   <body>
-    <h1>CSS Max-Width, Min-Width, Max-Height, and Min-Height Demonstration</h1>
+    <h1>CSS Floats Demonstration</h1>
 
-    <!-- Min-Width Example -->
-    <section class="container">
-      <h2>Min-Width Example</h2>
-      <div class="box min-width-box">
-        This box has <strong>min-width: 300px</strong>. It will never shrink
-        below 300px, even if the screen is smaller.
-      </div>
+    <!-- Float Left Example -->
+    <section class="container clearfix">
+      <h2>Float Left Example</h2>
+      <div class="box float-left">Float Left 1</div>
+      <div class="box float-left">Float Left 2</div>
       <p>
-        Explanation: The <strong>min-width</strong> property ensures that the
-        box will not shrink below 300px even when the container or window size
-        is reduced. It's useful for keeping a minimum size for important
-        content.
+        Explanation: Elements with <strong>float: left</strong> will align to
+        the left side of the container. The next floated element will float next
+        to it, as long as there’s enough space. These elements will sit inline
+        until they fill the container width.
       </p>
     </section>
 
-    <!-- Max-Width Example -->
-    <section class="container">
-      <h2>Max-Width Example</h2>
-      <div class="box max-width-box">
-        This box has <strong>max-width: 400px</strong>. It won't expand beyond
-        400px, even if the screen is larger.
-      </div>
+    <!-- Clearfix Example -->
+    <section class="container clearfix">
+      <h2>Clearfix to Clear Floats</h2>
+      <div class="box float-left">Float Left</div>
+      <div class="box float-right">Float Right</div>
       <p>
-        Explanation: The <strong>max-width</strong> property limits the width of
-        the box to 400px, even if the available space is larger. It’s helpful
-        for preventing elements from becoming too wide on large screens.
+        Explanation: When using floated elements, the parent container may
+        collapse if it's not cleared. By applying a clearfix (as used here), the
+        container expands to wrap around its floated children. This keeps the
+        layout intact.
       </p>
     </section>
 
-    <!-- Min-Height Example -->
-    <section class="container">
-      <h2>Min-Height Example</h2>
-      <div class="box min-height-box">
-        This box has <strong>min-height: 150px</strong>. It will not shrink
-        below 150px, even if there's not enough content.
-      </div>
+    <!-- Float Right Example -->
+    <!-- 
+    The float property allows an element to move to the left or right of its container, allowing other content to flow around it. When an element is floated, it is removed from the normal document flow, which means its parent container no longer recognizes its height. This causes the parent to "collapse" as if the floated element doesn't exist. To prevent this, techniques like clearfix are used to clear floats and ensure the parent container wraps around the floated child elements, maintaining the layout's integrity.
+    -->
+
+    <section class="container clearfix">
+      <h2>Float Right Example</h2>
+      <div class="box float-right">Float Right 1</div>
+      <div class="box float-right">Float Right 2</div>
       <p>
-        Explanation: The <strong>min-height</strong> property ensures the box
-        maintains a minimum height of 150px, regardless of the content inside.
-        It’s useful to avoid content "squishing" into small spaces.
+        Explanation: Elements with <strong>float: right</strong> will align to
+        the right side of the container. Just like float left, multiple floated
+        elements will line up next to each other but start from the right.
       </p>
     </section>
 
-    <!-- Max-Height Example -->
-    <section class="container">
-      <h2>Max-Height Example</h2>
-      <div class="box max-height-box">
-        This box has <strong>max-height: 200px</strong>. If the content
-        overflows, you can scroll within the box. <br /><br />
-        This extra content is here to demonstrate the scrolling behavior when
-        the content exceeds the maximum height.
-      </div>
+    <!-- Float None Example -->
+    <section class="container clearfix">
+      <h2>No Float Example</h2>
+      <div class="box float-none">No Float</div>
       <p>
-        Explanation: The <strong>max-height</strong> property limits the box's
-        height to 200px. Any content that exceeds this height will be clipped,
-        and you can add <strong>overflow: auto</strong> to make it scrollable.
+        Explanation: Elements with <strong>float: none</strong> (default value)
+        stay in the normal document flow. They don’t float and maintain the
+        regular layout positioning, stacking as block-level elements.
+      </p>
+    </section>
+
+    <!-- Float Left and Float Right Together -->
+    <section class="container clearfix">
+      <h2>Float Left and Right Together</h2>
+      <div class="box float-left">Float Left</div>
+      <div class="box float-right">Float Right</div>
+      <p>
+        Explanation: You can combine both <strong>float: left</strong> and
+        <strong>float: right</strong> in the same container. The left-floated
+        element aligns to the left, and the right-floated element aligns to the
+        right, leaving space in between if possible.
       </p>
     </section>
   </body>
