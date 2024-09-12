@@ -1,131 +1,103 @@
+<!-- 
+ 
+* Instructions for Each Task:
+TODO: Write all the styles in style.css
+
+! Task 1: Padding, Border, and Margin:
+CSS Goal: Add padding inside the box, a border around it, and margin outside.
+* Instructions: Add padding: 20px, border: 5px solid, and margin: 15px to the .box element.
+
+! Task 2: Block, Inline, and Inline-Block:
+
+CSS Goal: Apply different display properties to the elements.
+* Instructions: Add display: block for the .block-element, display: inline for the .inline-element, and display: inline-block for the .inline-block-element.
+
+! Task 3: Display None and Inherit:
+
+CSS Goal: Initially hide the child element, then change its display to inherit when toggled.
+* Instructions: Add display: none to the .child element initially. The students will need to use JavaScript to add the display: inherit class on button click (or set it up as an option in CSS if JavaScript is not being used in this exercise).
+
+! Task 4: Understanding Collapsing Margins:
+
+CSS Goal: Demonstrate margin collapsing between two adjacent block elements.
+* Instructions: Apply margin: 30px 0 to both .collapsing-margin-1 and .collapsing-margin-2 and observe how the margins collapse.
+
+! Task 5: Rounded Corners:
+
+CSS Goal: Apply rounded corners using border-radius.
+* Instructions: Add border-radius: 20px to the .rounded-box to make its corners rounded.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Rounded Corners Tutorial</title>
+    <title>CSS Practice Exercise</title>
     <style>
-      /* General styling for containers */
-      body {
-        background-color: #f4f4f4;
-        font-family: Arial, sans-serif;
-        margin: 20px;
-      }
-
-      .container {
-        background-color: lightgray;
-        padding: 20px;
-        margin-bottom: 30px;
-        border: 1px solid black;
-      }
-
-      .box {
-        background-color: lightblue;
-        padding: 20px;
-        width: 200px;
-        height: 100px;
-        margin-bottom: 20px;
-        display: inline-block;
-      }
-
-      /* Uniform rounded corners */
-      .uniform-rounded {
-        border-radius: 20px; /* All corners with the same radius */
-      }
-
-      /* Specific corner rounding */
-      .top-left-rounded {
-        border-top-left-radius: 30px; /* Top-left corner rounding */
-      }
-
-      .top-right-rounded {
-        border-top-right-radius: 30px; /* Top-right corner rounding */
-      }
-
-      .bottom-left-rounded {
-        border-bottom-left-radius: 30px; /* Bottom-left corner rounding */
-      }
-
-      .bottom-right-rounded {
-        border-bottom-right-radius: 30px; /* Bottom-right corner rounding */
-      }
-
-      /* Different rounding for each corner */
-      .different-corners {
-        border-radius: 20px 40px 60px 80px; /* Top-left, top-right, bottom-right, bottom-left */
-      }
-
-      /* Elliptical rounding */
-      .elliptical-rounded {
-        border-radius: 50px 20px; /* Horizontal and vertical radius */
-      }
-
-      /* Circle (fully rounded) */
-      .circle {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%; /* Makes the element fully circular */
-        background-color: coral;
-      }
+      /* Add your CSS here */
     </style>
   </head>
   <body>
-    <h1>CSS Rounded Corners Tutorial</h1>
+    <h1>CSS Practice Exercise</h1>
 
-    <!-- Uniform rounded corners -->
-    <section class="container">
-      <h2>Uniform Rounded Corners</h2>
-      <div class="box uniform-rounded">border-radius: 20px;</div>
+    <!-- Padding, Border, and Margin -->
+    <section>
+      <h2>Task 1: Padding, Border, and Margin</h2>
+      <div class="box">This box should have padding, a border, and margin.</div>
       <p>
-        In this example, the <i>border-radius</i> property is applied uniformly
-        to all four corners, making them rounded by 20px.
+        Instructions: Add padding of 20px inside the box, a solid border of 5px,
+        and a margin of 15px around the box.
       </p>
     </section>
 
-    <!-- Specific corner rounding -->
-    <section class="container">
-      <h2>Specific Corner Rounding</h2>
-      <div class="box top-left-rounded">Top-left: 30px</div>
-      <div class="box top-right-rounded">Top-right: 30px</div>
-      <div class="box bottom-left-rounded">Bottom-left: 30px</div>
-      <div class="box bottom-right-rounded">Bottom-right: 30px</div>
+    <!-- Block, Inline, and Inline-Block -->
+    <section>
+      <h2>Task 2: Block, Inline, and Inline-Block</h2>
+      <div class="block-element">Block Element</div>
+      <span class="inline-element">Inline Element 1</span>
+      <span class="inline-element">Inline Element 2</span>
+      <div class="inline-block-element">Inline-block Element</div>
       <p>
-        Here, different corners of each box have been rounded individually using
-        <i>border-top-left-radius</i>, <i>border-top-right-radius</i>,
-        <i>border-bottom-left-radius</i>, and
-        <i>border-bottom-right-radius</i> properties.
+        Instructions: Set <strong>display: block</strong> for the block element,
+        <strong>display: inline</strong> for the inline elements, and
+        <strong>display: inline-block</strong> for the inline-block element.
       </p>
     </section>
 
-    <!-- Different rounding for each corner -->
-    <section class="container">
-      <h2>Different Rounding for Each Corner</h2>
-      <div class="box different-corners">20px 40px 60px 80px</div>
+    <!-- Display None and Inherit -->
+    <section>
+      <h2>Task 3: Display None and Inherit</h2>
+      <div class="parent">
+        Parent Element
+        <div class="child">Child Element (hidden by default)</div>
+      </div>
+      <button class="toggle-display">Toggle Child Display</button>
       <p>
-        In this example, each corner has a different radius using
-        <i>border-radius</i> with four values: top-left, top-right,
-        bottom-right, and bottom-left.
+        Instructions: Initially hide the child element using
+        <strong>display: none</strong>. Add a class to change its display to
+        <strong>inherit</strong> when a button is clicked.
       </p>
     </section>
 
-    <!-- Elliptical rounding -->
-    <section class="container">
-      <h2>Elliptical Rounding</h2>
-      <div class="box elliptical-rounded">50px / 20px</div>
+    <!-- Collapsing Margins -->
+    <section>
+      <h2>Task 4: Understanding Collapsing Margins</h2>
+      <div class="collapsing-margin-1">First box with 30px margin</div>
+      <div class="collapsing-margin-2">Second box with 30px margin</div>
       <p>
-        The <i>border-radius</i> property is applied using two values to create
-        an elliptical shape. The first value is the horizontal radius, and the
-        second is the vertical radius.
+        Instructions: Both elements should have a top and bottom margin of 30px.
+        Demonstrate how the margins collapse.
       </p>
     </section>
 
-    <!-- Fully rounded circle -->
-    <section class="container">
-      <h2>Circle (Fully Rounded)</h2>
-      <div class="circle"></div>
+    <!-- Rounded Corners -->
+    <section>
+      <h2>Task 5: Rounded Corners</h2>
+      <div class="rounded-box">This box should have rounded corners</div>
       <p>
-        By setting the <i>border-radius</i> to 50%, you can create a perfect
-        circle if the width and height of the element are equal.
+        Instructions: Add a <strong>border-radius</strong> of 20px to create
+        rounded corners for this box.
       </p>
     </section>
   </body>
