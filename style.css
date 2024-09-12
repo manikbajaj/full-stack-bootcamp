@@ -1,80 +1,52 @@
-/* Section 1: Working with Fonts */
-.fonts-section h2 {
-  font-family: "Arial", sans-serif; /* Different font for the heading */
+/* Task 1: Padding, Border, and Margin */
+.box {
+  padding: 20px;
+  border: 5px solid black;
+  margin: 15px;
+  background-color: lightblue;
 }
 
-.intro-paragraph {
-  font-family: "Georgia", serif; /* Primary font with a fallback */
+/* Task 2: Block, Inline, and Inline-Block */
+.block-element {
+  display: block;
+  background-color: lightgreen;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
-.highlight-text {
-  font-family: "Verdana", sans-serif; /* Different font family for highlighted text */
+.inline-element {
+  display: inline;
+  background-color: lightyellow;
+  padding: 5px;
 }
 
-/* Section 2: Deep Dive Into Font Properties */
-.bold-text {
-  font-weight: bold; /* Bold text */
+.inline-block-element {
+  display: inline-block;
+  background-color: lightcoral;
+  padding: 10px;
+  width: 150px;
+  height: 50px;
 }
 
-.italic-text {
-  font-style: italic; /* Italic style */
+/* Task 3: Display None and Inherit */
+.child {
+  display: none; /* Hidden by default */
+  background-color: lightpink;
+  padding: 10px;
 }
 
-.small-caps-text {
-  font-variant: small-caps; /* Small caps style */
+/* Task 4: Understanding Collapsing Margins */
+.collapsing-margin-1,
+.collapsing-margin-2 {
+  background-color: lightblue;
+  padding: 10px;
+  margin: 30px 0; /* Margins will collapse */
 }
 
-/* Section 3: Using Google Fonts */
-/* Assuming the student has already added the correct Google Fonts links in <head> */
-
-.google-font-1 {
-  font-family: "Roboto", sans-serif; /* First Google Font (Roboto) */
-}
-
-.google-font-2 {
-  font-family: "Open Sans", sans-serif; /* Second Google Font (Open Sans) */
-  font-weight: 700; /* Bold weight */
-  font-size: 1.5rem; /* Font size in rem */
-}
-
-/* Section 4: Using Google Material Icons */
-.icon-small {
-  font-size: 24px; /* Small icon size */
-  color: red; /* Red color for home icon */
-}
-
-.icon-medium {
-  font-size: 36px; /* Medium icon size */
-  color: blue; /* Blue color for star icon */
-}
-
-.icon-large {
-  font-size: 48px; /* Large icon size */
-  color: green; /* Green color for settings icon */
-}
-
-.icon-centered {
-  vertical-align: middle; /* Vertically align icon with text */
-}
-
-/* Section 5: Styling List Items */
-.circle-list {
-  list-style-type: circle; /* Circle marker */
-}
-
-.square-list {
-  list-style-type: square; /* Square marker */
-}
-
-.no-marker-list {
-  list-style-type: none; /* Remove list markers */
-  padding-left: 0; /* Remove default padding */
-}
-
-.colored-list li {
-  color: green; /* Green text color */
-}
-
-.colored-list li::marker {
-  color: red; /* Red list marker color */
+/* Task 5: Rounded Corners */
+.rounded-box {
+  border: 2px solid black;
+  padding: 15px;
+  background-color: lightgray;
+  border-radius: 20px;
 }
