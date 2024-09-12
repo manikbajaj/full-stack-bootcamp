@@ -2,53 +2,77 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Box Model Demonstration</title>
+    <title>CSS Display Properties Demonstration</title>
     <style>
-      body {
-        background-color: lightyellow;
-      }
-      /* Styling the box model */
-      .box-model {
-        text-align: center;
-        width: 300px; /* Content width */
-        padding: 20px; /* Padding inside the box */
-        border: 5px solid black; /* Border around the box */
-        margin: 30px; /* Margin outside the box */
-        background-color: lightblue; /* Content background color */
+      /* Container styles for better visibility */
+      .container {
+        background-color: lightgray;
+        padding: 10px;
+        margin-bottom: 20px;
       }
 
-      .different-properties {
-        text-align: center;
-        width: 300px; /* Content width */
-        padding-left: 20px;
-        padding-right: 40px;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        border-left: 10px solid red;
-        border-right: 5px solid black;
-        border-top: 5px solid black;
-        border-bottom: 5px solid black;
-        margin: auto; /* Even if we resize the window auto will calculate  */
-        background-color: lightblue; /* Content background color */
+      /* Block-level element */
+      .block-element {
+        display: block;
+        background-color: lightblue;
+        padding: 10px;
+        margin-bottom: 10px;
       }
 
-      .shorthand {
-        text-align: center;
-        width: 300px; /* Content width */
-        padding: 20px 40px 40px 40px; /* TRBL */
-        border-width: 5px 1em 1rem 20px; /* Top, Right, Bottom, Left */
-        border-style: solid dashed dotted double;
-        border-color: red green blue black;
-        /* margin: 30px auto 50px auto; TRBL combininig shorthands */
-        margin: 30px 50px 20px; /* combininig 2 shorthands */
-        background-color: lightblue; /* Content background color */
+      /* Inline element */
+      .inline-element {
+        display: inline;
+        background-color: lightgreen;
+        padding: 10px;
+        margin-right: 1rem;
+        width: 700px; /* Assigning a width does not have an impact on inline elements*/
+        height: 300px; /* Even height will not have an impact on these */
+      }
+
+      /* Inline-block element */
+      .inline-block-element {
+        display: inline-block;
+        background-color: lightcoral;
+        padding: 10px;
+        /* Demonstrate change in width and height */
+        width: 200px; /* Width is respected in case on inline-block */
+        height: 70px; /* Height is respected in case on inline-block */
+        margin-right: 20px;
       }
     </style>
   </head>
   <body>
-    <!-- The total width of the element in dev tools is 350px  -->
-    <div class="box-model">Content Inside The Box</div>
-    <div class="different-properties">Content Inside The Box</div>
-    <div class="shorthand">Content Inside The Box</div>
+    <h1>CSS Display Properties Demonstration</h1>
+
+    <!-- Block display -->
+    <section class="container">
+      <h2>Block Element</h2>
+      <!-- Block elements stack below each other -->
+      <div class="block-element">
+        This is a block-level element. It takes up the full width and starts on
+        a new line.
+      </div>
+      <!-- Even if I use an inline element like a span it behaves like a block element because of the display set to block in CSS -->
+      <span class="block-element">
+        This is a block-level element. It takes up the full width and starts on
+        a new line.
+      </span>
+    </section>
+
+    <!-- Inline display -->
+    <section class="container">
+      <h2>Inline Element</h2>
+      <span class="inline-element">This is an inline element.</span>
+      <span class="inline-element"
+        >It stays on the same line as other inline elements.</span
+      >
+    </section>
+
+    <!-- Inline-block display -->
+    <section class="container">
+      <h2>Inline-block Element</h2>
+      <div class="inline-block-element">This is inline-block 1.</div>
+      <div class="inline-block-element">This is inline-block 2.</div>
+    </section>
   </body>
 </html>
