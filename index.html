@@ -39,6 +39,26 @@
         height: 70px; /* Height is respected in case on inline-block */
         margin-right: 20px;
       }
+
+      /* Element hidden using display: none */
+      .hidden-element {
+        display: none;
+        background-color: lightyellow;
+        padding: 10px;
+      }
+
+      /* Inherited display */
+      .parent-inherit {
+        display: inline-block;
+        padding: 10px;
+        background-color: lightblue;
+      }
+
+      .child-inherit {
+        display: inherit;
+        background-color: lightyellow;
+        padding: 5px;
+      }
     </style>
   </head>
   <body>
@@ -73,6 +93,31 @@
       <h2>Inline-block Element</h2>
       <div class="inline-block-element">This is inline-block 1.</div>
       <div class="inline-block-element">This is inline-block 2.</div>
+    </section>
+
+    <!-- None display -->
+    <section class="container">
+      <h2>Display: None</h2>
+      <div class="hidden-element">
+        This element is hidden using display: none and will not take up any
+        space.
+      </div>
+      <p>
+        The element above is hidden, so you can't see it or the space it would
+        occupy.
+      </p>
+    </section>
+
+    <!-- Inherit display -->
+    <!-- Child element inherits the property of the parent -->
+    <section class="container">
+      <h2>Display: Inherit</h2>
+      <div class="parent-inherit">
+        Parent Element (display: inline-block)
+        <div class="child-inherit">
+          Child Element (display: inherit - inherits parent's display type)
+        </div>
+      </div>
     </section>
   </body>
 </html>
