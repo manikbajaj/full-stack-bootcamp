@@ -2,92 +2,122 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Box-Sizing Property Demonstration</title>
+    <title>CSS Overflow Property Demonstration</title>
     <style>
-      /* General styles for containers */
+      /* General styling for containers */
       body {
-        background-color: #f4f4f4;
         font-family: Arial, sans-serif;
         margin: 20px;
+        background-color: #f0f0f0;
       }
 
       .container {
         background-color: lightgray;
-        padding: 20px;
+        padding: 15px;
         margin-bottom: 30px;
         border: 1px solid black;
-      }
-
-      /* Styling for all boxes */
-      .box {
         width: 300px;
-        padding: 20px;
-        border: 10px solid darkblue;
+        height: 150px; /* Fixed height to demonstrate overflow */
+      }
+
+      /* Example of overflow: visible (default) */
+      .overflow-visible {
+        overflow: visible; /* Default behavior */
+      }
+
+      /* Example of overflow: hidden */
+      .overflow-hidden {
+        overflow: hidden; /* Content is clipped */
+      }
+
+      /* Example of overflow: scroll */
+      .overflow-scroll {
+        overflow: scroll; /* Scrollbars are always visible */
+      }
+
+      /* Example of overflow: auto */
+      .overflow-auto {
+        overflow: auto; /* Scrollbars appear when necessary */
+      }
+
+      /* Content inside the box to demonstrate overflow */
+      .content {
         background-color: lightblue;
-        margin-bottom: 20px;
-      }
-
-      /* Default box-sizing: content-box (default behavior) */
-      .content-box {
-        box-sizing: content-box;
-      }
-
-      /* box-sizing: border-box */
-      .border-box {
-        box-sizing: border-box;
-      }
-
-      /* box-sizing: padding-box (rarely used, but shown for completeness) */
-      .padding-box {
-        box-sizing: padding-box;
+        padding: 10px;
       }
     </style>
   </head>
   <body>
-    <h1>CSS Box-Sizing Property Demonstration</h1>
+    <h1>CSS Overflow Property Demonstration</h1>
 
-    <!-- !All calculations can be checked with inpect element -->
-
-    <!-- Content-box example -->
-    <section class="container">
-      <h2>Content-Box (Default)</h2>
-      <div class="box content-box">box-sizing: content-box;</div>
+    <!-- Overflow: visible (default behavior) -->
+    <section class="container overflow-visible">
+      <h2>Overflow: Visible</h2>
+      <div class="content">
+        This content overflows, and it is visible outside the box.
+        <br /><br />
+        Content outside the box will be shown.
+      </div>
       <p>
-        With <strong>box-sizing: content-box</strong>, the width is applied only
-        to the content. The padding and border are added outside of the width,
-        increasing the total size of the element.
-      </p>
-      <p>
-        For example, the width is set to 300px, but the actual size is 300px
-        (content) + 20px (padding on both sides) + 10px (border on both sides) =
-        360px.
+        Instructions: By default, overflow is visible, meaning content that
+        doesn't fit within the container will overflow and be displayed outside
+        the boundaries of the element.
       </p>
     </section>
 
-    <!-- Border-box example -->
-    <section class="container">
-      <h2>Border-Box</h2>
-      <div class="box border-box">box-sizing: border-box;</div>
+    <!-- Overflow: hidden -->
+    <section class="container overflow-hidden">
+      <h2>Overflow: Hidden</h2>
+      <div class="content">
+        This content overflows but is clipped, and you cannot see it.
+        <br /><br />
+        Hidden content will not be visible.
+      </div>
       <p>
-        With <strong>box-sizing: border-box</strong>, the width includes the
-        content, padding, and border. The total width remains 300px, as padding
-        and border are part of the width calculation.
-      </p>
-      <p>
-        The content's available space is reduced accordingly, but the total size
-        is exactly 300px.
+        Instructions: With <strong>overflow: hidden</strong>, any content that
+        exceeds the container's size is clipped, and the overflowing content is
+        not displayed.
       </p>
     </section>
 
-    <!-- Padding-box example (rarely used) -->
-    <section class="container">
-      <h2>Padding-Box</h2>
-      <div class="box padding-box">box-sizing: padding-box;</div>
+    <!-- Overflow: scroll -->
+    <!-- 
+        overflow: scroll forces the browser to show scrollbars for both the horizontal and vertical directions, regardless of whether the content overflows.
+        Even if the content doesn't overflow, scrollbars will be visible.
+
+        !Remove the content and the scrollbars will still be visible 
+    -->
+
+    <section class="container overflow-scroll">
+      <h2>Overflow: Scroll</h2>
+      <div class="content">
+        This content overflows and has scrollbars. Scroll to see more content.
+        <br /><br />
+        Scrollbars will always be visible.
+      </div>
       <p>
-        With <strong>box-sizing: padding-box</strong>, the width includes the
-        content and padding but excludes the border. This value is rarely used
-        and not widely supported across all browsers.
+        Instructions: With <strong>overflow: scroll</strong>, the container will
+        always show scrollbars, whether or not the content overflows.
+      </p>
+    </section>
+
+    <!-- Overflow: auto -->
+    <!-- 
+    overflow: auto only displays scrollbars if the content overflows the container's bounds.
+      In this example, the scrollbars will appear only when needed, making it more efficient for containers that might have varying amounts of content.
+    -->
+
+    <section class="container overflow-auto">
+      <h2>Overflow: Auto</h2>
+      <div class="content">
+        This content overflows, but scrollbars will only appear when needed.
+        <br /><br />
+        Scrollbars appear automatically.
+      </div>
+      <p>
+        Instructions: With <strong>overflow: auto</strong>, scrollbars will
+        appear only if the content exceeds the size of the container, otherwise
+        they remain hidden.
       </p>
     </section>
   </body>
