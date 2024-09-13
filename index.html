@@ -2,56 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Inheritance Lecture</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Source Order of Styles - CSS Lecture</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>CSS Inheritance Lecture</h1>
+    <h1>CSS Lecture: Source Order of Styles</h1>
 
-    <!-- Basic Inheritance Example -->
+    <!-- Basic Source Order Example -->
     <section>
-      <h2>Basic Inheritance</h2>
-      <p class="parent-text">Inherited from the parent.</p>
-      <p class="child-text">
-        Color is overridden, but other styles are inherited.
-      </p>
+      <h2>Basic Source Order</h2>
+      <p>Last rule wins, this is red.</p>
     </section>
 
-    <!-- Non-inherited Properties -->
+    <!-- Nearest Ancestor Wins -->
     <section>
-      <h2>Non-Inherited Properties</h2>
-      <div class="non-inherited">
-        <p>Width and padding are not inherited.</p>
-        <div class="child-box">
-          <p>Child box has its own width and padding.</p>
+      <h2>Nearest Ancestor Wins</h2>
+      <div>
+        <p>Inherits font-size of 20px from nearest div.</p>
+      </div>
+      <article>
+        <div>
+          <p>Inherits 24px from article's div.</p>
         </div>
+      </article>
+    </section>
+
+    <!-- Inherited Styles Accumulate -->
+    <section>
+      <h2>Inherited Styles Accumulate</h2>
+      <div class="parent">
+        <p class="child">Inherits color green, adds bold from child class.</p>
       </div>
     </section>
 
-    <!-- Advanced Inheritance: Overriding Parent Styles -->
+    <!-- Directly Applied Style Wins -->
     <section>
-      <h2>Advanced Inheritance: Overriding Parent Styles</h2>
-      <div class="parent-container">
-        <p>Font size, color, and line-height are inherited.</p>
-        <div class="child-container">
-          <p>Font size is overridden, color and line-height are inherited.</p>
-        </div>
-      </div>
+      <h2>Directly Applied Style Wins</h2>
+      <p id="direct-style">ID selector wins, this is purple.</p>
     </section>
 
-    <!-- Inheriting properties across multiple levels -->
+    <!-- Inline Style Wins -->
     <section>
-      <h2>Multiple Levels of Inheritance</h2>
-      <div class="outer-box">
-        <p>Outer box styles inherited.</p>
-        <div class="middle-box">
-          <p>Middle box overrides some styles.</p>
-          <div class="inner-box">
-            <p>Inner box inherits styles from both parents.</p>
-          </div>
-        </div>
-      </div>
+      <h2>Inline Style Wins</h2>
+      <p style="color: orange">Inline style wins, this is orange.</p>
     </section>
   </body>
 </html>

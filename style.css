@@ -1,67 +1,39 @@
-/* General Page Styles */
-body {
-  font-family: Arial, sans-serif;
-  color: darkblue;
-  text-align: center;
+/* Basic Source Order: The last rule wins */
+p {
+  color: blue;
 }
+p {
+  color: red;
+} /* This rule wins due to source order */
 
-/* Basic Inheritance */
-.parent-text {
-  font-size: 18px;
-}
-
-.child-text {
-  color: darkred; /* Overrides color */
-}
-
-/* Non-Inherited Properties */
-.non-inherited {
-  width: 200px;
-  padding: 10px;
-  border: 2px solid black;
-  background-color: lightgray;
-}
-
-.child-box {
-  width: 100px;
-  padding: 5px;
-  border: 2px solid blue;
-  background-color: lightyellow;
-}
-
-/* Advanced Inheritance: Overriding Parent Styles */
-.parent-container {
+/* Nearest Ancestor Wins */
+div {
   font-size: 20px;
-  line-height: 1.5;
-  color: darkgreen;
-  padding: 10px;
-  border: 2px solid green;
-}
+} /* Applies to p inside div */
+section {
+  font-size: 16px;
+} /* Applies to p inside section */
+article div p {
+  font-size: 24px;
+} /* More specific rule, nearest ancestor in article wins */
 
-.child-container {
-  font-size: 16px; /* Overrides font-size */
-  padding: 5px;
-  border: 2px solid red;
-  background-color: lightpink;
-}
+/* Inherited Styles Accumulate */
+body {
+  font-family: Arial;
+} /* Inherited by all children */
+.parent {
+  color: green;
+} /* Parent element sets color */
+.child {
+  font-weight: bold;
+} /* Inherited color, adds bold weight */
 
-/* Multiple Levels of Inheritance */
-.outer-box {
-  color: navy;
-  padding: 15px;
-  border: 2px solid navy;
-  background-color: lightblue;
-}
+/* Directly Applied Style Wins */
+#direct-style {
+  color: purple;
+} /* Direct ID selector wins */
 
-.middle-box {
-  padding: 10px;
-  border: 2px solid darkblue;
-  background-color: lightgray;
-  font-size: 18px; /* Overrides font-size */
-}
-
-.inner-box {
-  padding: 5px;
-  border: 2px solid blue;
-  background-color: white;
+/* Inline Style Wins */
+p {
+  font-style: italic;
 }
