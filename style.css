@@ -1,0 +1,125 @@
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
+}
+
+h1,
+h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* Task 1: Box-sizing */
+.box-sizing-element {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid black;
+  box-sizing: border-box; /* Ensures padding and border are included in the width calculation */
+}
+
+/* Task 2: Overflow */
+.overflow-element {
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+  border: 2px solid black;
+  overflow: auto; /* Allows the content to be scrollable */
+}
+
+/* Task 3: Max and Min Properties */
+.maxmin-element {
+  width: 70%; /* Set default width */
+  height: 250px; /* Set default height */
+  max-width: 500px;
+  min-width: 200px;
+  max-height: 300px;
+  min-height: 150px;
+  padding: 20px;
+  border: 2px solid blue;
+  background-color: lightyellow;
+}
+
+/* Task 4: Floats */
+.float-left {
+  width: 45%;
+  float: left;
+  padding: 20px;
+  margin-right: 10px;
+  background-color: lightblue;
+  border: 2px solid black;
+}
+
+.float-right {
+  width: 45%;
+  float: right;
+  padding: 20px;
+  background-color: lightgreen;
+  border: 2px solid black;
+}
+
+/* Task 5: Positioning */
+.relative-box {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  padding: 20px;
+  background-color: lightpink;
+  border: 2px solid black;
+}
+
+.absolute-box {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  padding: 20px;
+  background-color: lightcoral;
+  border: 2px solid black;
+}
+
+.fixed-box {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 20px;
+  background-color: lightblue;
+  border: 2px solid black;
+}
+
+/* Task 6: Z-Index */
+.layer-1 {
+  position: relative;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  background-color: lightyellow;
+  border: 2px solid black;
+  margin-bottom: -50px; /* Overlap the next layer */
+}
+
+.layer-2 {
+  position: relative;
+  z-index: 2;
+  width: 150px;
+  height: 150px;
+  background-color: lightcoral;
+  border: 2px solid black;
+  margin-bottom: -50px; /* Overlap the next layer */
+  left: 30px;
+}
+
+.layer-3 {
+  position: relative;
+  z-index: 3;
+  width: 150px;
+  height: 150px;
+  background-color: lightblue;
+  border: 2px solid black;
+  left: 60px;
+}
