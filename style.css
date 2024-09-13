@@ -3,85 +3,34 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Basic Specificity Example */
-p {
-  color: red; /* Element (Tag) Selector */
+/* Basic Example - !important Flag */
+.basic {
+  color: red !important; /* !important wins */
 }
 
-.example {
-  color: green; /* Class Selector */
+.basic {
+  color: blue; /* This will be overridden by the !important rule above */
 }
 
-#unique {
-  color: purple; /* ID Selector */
+/* Inline Styles vs. !important */
+.inline {
+  color: purple !important; /* !important wins over inline style */
 }
 
-/* Element, Class, and ID Selectors */
+/* ID and Class Selectors vs. !important */
 .class-example {
-  color: orange; /* Class Selector */
+  color: green !important; /* !important wins */
 }
 
 #id-example {
-  color: pink; /* ID Selector overrides the class selector */
+  color: blue; /* ID selector loses to !important */
 }
 
-/* Specificity and Inheritance */
-#parent {
-  color: navy; /* Parent ID Selector */
+/* Combinator Selectors with !important */
+#wrapper #element .link a.important-link {
+  color: darkred !important; /* !important wins */
 }
 
-.child {
-  color: darkgreen; /* Class Selector of child overrides parent's inherited color */
-}
-
-/* Conflicting Styles Example */
-#conflict {
-  color: blue; /* ID Selector */
-}
-
-.highlight {
-  color: yellow; /* Class Selector */
-}
-
-/* Inline Style Overriding All */
-#inline {
-  color: teal; /* ID Selector */
-}
-
-.class-inline {
-  color: brown; /* Class Selector */
-}
-
-/* Attribute Selectors */
-[attr] {
-  color: brown; /* Attribute Selector */
-}
-
-.attr {
-  color: violet; /* Class Selector */
-}
-
-#attribute-example {
-  color: magenta; /* ID Selector overrides both class and attribute selectors */
-}
-
-/* Universal Selector */
-* {
-  color: lightgray; /* Universal Selector */
-}
-
-.universal {
-  color: gold; /* Class Selector overrides universal selector */
-}
-
-/* Specific Combinator Selector */
-#wrapper #element .link {
-  color: darkred;
-  font-weight: bold;
-}
-
-/* Directly applied styles to the <a> tag */
 a {
-  color: blue; /* This will be overridden by the combinator selector */
-  text-decoration: underline;
+  color: blue; /* This will lose to the combinator selector with !important */
 }
