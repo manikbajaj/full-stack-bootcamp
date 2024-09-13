@@ -1,39 +1,87 @@
-/* Basic Source Order: The last rule wins */
-p {
-  color: blue;
-}
-p {
-  color: red;
-} /* This rule wins due to source order */
-
-/* Nearest Ancestor Wins */
-div {
-  font-size: 20px;
-} /* Applies to p inside div */
-section {
-  font-size: 16px;
-} /* Applies to p inside section */
-article div p {
-  font-size: 24px;
-} /* More specific rule, nearest ancestor in article wins */
-
-/* Inherited Styles Accumulate */
+/* General Styles */
 body {
-  font-family: Arial;
-} /* Inherited by all children */
-.parent {
-  color: green;
-} /* Parent element sets color */
-.child {
-  font-weight: bold;
-} /* Inherited color, adds bold weight */
+  font-family: Arial, sans-serif;
+}
 
-/* Directly Applied Style Wins */
-#direct-style {
-  color: purple;
-} /* Direct ID selector wins */
-
-/* Inline Style Wins */
+/* Basic Specificity Example */
 p {
-  font-style: italic;
+  color: red; /* Element (Tag) Selector */
+}
+
+.example {
+  color: green; /* Class Selector */
+}
+
+#unique {
+  color: purple; /* ID Selector */
+}
+
+/* Element, Class, and ID Selectors */
+.class-example {
+  color: orange; /* Class Selector */
+}
+
+#id-example {
+  color: pink; /* ID Selector overrides the class selector */
+}
+
+/* Specificity and Inheritance */
+#parent {
+  color: navy; /* Parent ID Selector */
+}
+
+.child {
+  color: darkgreen; /* Class Selector of child overrides parent's inherited color */
+}
+
+/* Conflicting Styles Example */
+#conflict {
+  color: blue; /* ID Selector */
+}
+
+.highlight {
+  color: yellow; /* Class Selector */
+}
+
+/* Inline Style Overriding All */
+#inline {
+  color: teal; /* ID Selector */
+}
+
+.class-inline {
+  color: brown; /* Class Selector */
+}
+
+/* Attribute Selectors */
+[attr] {
+  color: brown; /* Attribute Selector */
+}
+
+.attr {
+  color: violet; /* Class Selector */
+}
+
+#attribute-example {
+  color: magenta; /* ID Selector overrides both class and attribute selectors */
+}
+
+/* Universal Selector */
+* {
+  color: lightgray; /* Universal Selector */
+}
+
+.universal {
+  color: gold; /* Class Selector overrides universal selector */
+}
+
+/* Specific Combinator Selector */
+#wrapper #element .link {
+  color: darkred;
+  font-weight: bold;
+}
+
+/* Directly applied styles to the <a> tag */
+a {
+  color: blue; /* This will be overridden by the combinator selector */
+  text-decoration: underline;
 }

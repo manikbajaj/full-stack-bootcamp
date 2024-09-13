@@ -2,49 +2,144 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Source Order of Styles - CSS Lecture</title>
-    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specificity in CSS - Lecture</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>CSS Lecture: Source Order of Styles</h1>
+    <h1>CSS Specificity Lecture</h1>
 
-    <!-- Basic Source Order Example -->
+    <!-- Basic Specificity Example -->
     <section>
-      <h2>Basic Source Order</h2>
-      <p>Last rule wins, this is red.</p>
+      <p class="example" id="unique" style="color: blue">
+        This text has multiple selectors applied.
+      </p>
+      <!-- Explanation: Inline styles will override all other CSS selectors applied (ID, class, or tag selectors). -->
+      <!-- 
+      Specificity Points:
+      - Tag Selector <p>: 1 point
+      - Class Selector .example: 10 points
+      - ID Selector #unique: 100 points
+      - Inline style "color: blue": 1000 points
+      Highest Points - 1000 For Inline Style - Wins
+      -->
     </section>
 
-    <!-- Nearest Ancestor Wins -->
+    <!-- Element, Class, and ID Selectors -->
     <section>
-      <h2>Nearest Ancestor Wins</h2>
-      <div>
-        <p>Inherits font-size of 20px from nearest div.</p>
+      <p id="id-example" class="class-example">
+        This text has both class and ID selectors. The ID selector will override
+        the class selector.
+      </p>
+      <!-- Explanation: An ID selector will take priority over class and element selectors. -->
+      <!-- 
+      Specificity Points:
+      - Tag Selector <p>: 1 point
+      - Class Selector .class-example: 10 points
+      - ID Selector #id-example: 100 points
+      Highest Points - 100 For ID Selector - Wins
+      -->
+    </section>
+
+    <!-- Specificity and Inheritance -->
+    <section>
+      <div id="parent">
+        <p class="child">
+          This text inherits styles from its parent but also has its own class
+          applied.
+        </p>
       </div>
-      <article>
-        <div>
-          <p>Inherits 24px from article's div.</p>
+      <!-- Explanation: Inherited styles from the parent will be overridden by a more specific child selector. -->
+      <!-- 
+      Specificity Points for Parent (Inherited):
+      - ID Selector #parent: 100 points
+
+      Specificity Points for Child:
+      - Tag Selector <p>: 1 point
+      - Class Selector .child: 10 points
+      The Child's Class Selector Wins with 10 points (Overrides the Parent's Inherited Style)
+      -->
+    </section>
+
+    <!-- Conflicting Styles Example -->
+    <section>
+      <p id="conflict" class="highlight">
+        This text has conflicting styles from an ID and a class. The ID will win
+        over the class.
+      </p>
+      <!-- Explanation: When both an ID and a class apply to the same element, the ID takes precedence. -->
+      <!-- 
+      Specificity Points:
+      - Tag Selector <p>: 1 point
+      - Class Selector .highlight: 10 points
+      - ID Selector #conflict: 100 points
+      Highest Points - 100 For ID Selector - Wins
+      -->
+    </section>
+
+    <!-- Inline Style Overriding All -->
+    <section>
+      <p id="inline" class="class-inline" style="color: orange">
+        This text has an inline style that overrides the class selector.
+      </p>
+      <!-- Explanation: Inline styles will always override external styles from CSS files, including IDs and classes. -->
+      <!-- 
+      Specificity Points:
+      - Tag Selector <p>: 1 point
+      - Class Selector .class-inline: 10 points
+      - ID Selector #inline: 100 points
+      - Inline style "color: orange": 1000 points
+      Highest Points - 1000 For Inline Style - Wins
+      -->
+    </section>
+
+    <!-- Attribute Selectors -->
+    <section>
+      <p id="attribute-example" class="attr" data-example="value">
+        This text has an attribute selector applied.
+      </p>
+      <!-- Explanation: Attribute selectors are less specific than ID or class selectors but still apply styles to elements with specific attributes. -->
+      <!-- 
+      Specificity Points:
+      - Tag Selector <p>: 1 point
+      - Class Selector .attr: 10 points
+      - ID Selector #attribute-example: 100 points
+      Highest Points - 100 For ID Selector - Wins
+      -->
+    </section>
+
+    <!-- Universal Selector -->
+    <section>
+      <p class="universal">
+        This text is styled using the universal selector, but it is overridden
+        by the class selector.
+      </p>
+      <!-- Explanation: Universal selectors apply styles to all elements, but they have the lowest specificity and are easily overridden by other selectors. -->
+      <!-- 
+      Specificity Points:
+      - Universal Selector (*): 0 points
+      - Class Selector .universal: 10 points
+      Highest Points - 10 For Class Selector - Wins
+      -->
+    </section>
+
+    <!-- Combinator Selector Example -->
+    <section>
+      <div id="wrapper">
+        <div id="element">
+          <a class="link" href="#"
+            >This link is selected by a combinator selector.</a
+          >
         </div>
-      </article>
-    </section>
-
-    <!-- Inherited Styles Accumulate -->
-    <section>
-      <h2>Inherited Styles Accumulate</h2>
-      <div class="parent">
-        <p class="child">Inherits color green, adds bold from child class.</p>
       </div>
-    </section>
-
-    <!-- Directly Applied Style Wins -->
-    <section>
-      <h2>Directly Applied Style Wins</h2>
-      <p id="direct-style">ID selector wins, this is purple.</p>
-    </section>
-
-    <!-- Inline Style Wins -->
-    <section>
-      <h2>Inline Style Wins</h2>
-      <p style="color: orange">Inline style wins, this is orange.</p>
+      <!-- Explanation: A more specific combinator selector is used here to apply styles to the anchor tag. -->
+      <!-- 
+      Specificity Points:
+      - ID Selector #wrapper: 100 points
+      - ID Selector #element: 100 points
+      - Class Selector .class: 10 points
+      Total Specificity: 210 points (Combinator Selector Wins)
+      -->
     </section>
   </body>
 </html>
