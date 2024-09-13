@@ -1,133 +1,57 @@
-<!-- 
-    !Instructions:
-    * You are provided with the HTML structure. Your task is to write the CSS in a separate file named style.css to achieve the goals for each section.
-    
-    * Focus on the specific properties mentioned for each task and ensure the layout and behavior follow the instructions.
-    
-    * Test your code by applying various styles to check if the elements behave as expected
-
-    TODO 1: The box-sizing Property
-    * Ensure that padding and borders are included in the element's width and height using the box-sizing property.
-    * The total width of the element, including padding and borders, should not exceed 300px.
-    
-    TODO 2: The Overflow Property
-    * Apply the appropriate overflow property to handle overflowing content.
-    * The content should be scrollable if it overflows the available space.
-    
-    TODO 3: Max and Min Properties
-    * Constrain the element’s width and height using max-width, min-width, max-height, and min-height properties.
-    * Ensure the element doesn’t shrink below or expand beyond the specified limits.
-    
-    TODO 4: Working with Floats
-    * Make two boxes float side by side using the float property (float: left and float: right).
-    * Ensure they are correctly aligned within their container.
-    
-    TODO 5: Positioning in CSS
-    * Use relative, absolute, and fixed positioning for different elements:
-    * The relative element should move 20px from the top-left of its original position.
-    * The absolute element should be placed inside its parent.
-    * The fixed element should be fixed at the bottom-right of the viewport.
-    
-    TODO 6: Layers and Z-Index
-    * Use z-index to layer the elements in the correct order:
-    * Assign higher z-index values to elements you want to appear on top of others.
--->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Practice Exercise: Layouts and Positioning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Inheritance Lecture</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>CSS Practice Exercise: Layouts and Positioning</h1>
+    <h1>CSS Inheritance Lecture</h1>
 
-    <!-- Task 1: The box-sizing Property -->
-    <section class="box-sizing-task">
-      <h2>Task 1: Box-Sizing</h2>
-      <div class="box-sizing-element">Box-Sizing Example</div>
-      <p>
-        Instruction: Write CSS to make sure padding and borders are included in
-        the element's width calculation using the
-        <strong>box-sizing</strong> property. The element should be 300px wide
-        including padding and borders.
+    <!-- Basic Inheritance Example -->
+    <section>
+      <h2>Basic Inheritance</h2>
+      <p class="parent-text">Inherited from the parent.</p>
+      <p class="child-text">
+        Color is overridden, but other styles are inherited.
       </p>
     </section>
 
-    <!-- Task 2: The Overflow Property -->
-    <section class="overflow-task">
-      <h2>Task 2: Overflow Property</h2>
-      <div class="overflow-element">
-        Overflow Example: This box has more content than it can fit. You need to
-        apply the appropriate overflow behavior to make sure the content is
-        either scrollable or clipped.
-        <p>
-          Extra text to simulate overflow content. Keep adding text to simulate
-          overflow content. Extra text to simulate overflow content.
-        </p>
+    <!-- Non-inherited Properties -->
+    <section>
+      <h2>Non-Inherited Properties</h2>
+      <div class="non-inherited">
+        <p>Width and padding are not inherited.</p>
+        <div class="child-box">
+          <p>Child box has its own width and padding.</p>
+        </div>
       </div>
-      <p>
-        Instruction: Write CSS to control the behavior of overflowing content.
-        Make the content scrollable using the appropriate
-        <strong>overflow</strong> property.
-      </p>
     </section>
 
-    <!-- Task 3: Max and Min Properties -->
-    <section class="maxmin-task">
-      <h2>Task 3: Max and Min Properties</h2>
-      <div class="maxmin-element">
-        This element should be constrained in its width and height using
-        <strong>max-width</strong>, <strong>min-width</strong>,
-        <strong>max-height</strong>, and <strong>min-height</strong>.
+    <!-- Advanced Inheritance: Overriding Parent Styles -->
+    <section>
+      <h2>Advanced Inheritance: Overriding Parent Styles</h2>
+      <div class="parent-container">
+        <p>Font size, color, and line-height are inherited.</p>
+        <div class="child-container">
+          <p>Font size is overridden, color and line-height are inherited.</p>
+        </div>
       </div>
-      <p>
-        Instruction: Write CSS to constrain the size of this element using
-        <strong>max-width</strong>, <strong>min-width</strong>,
-        <strong>max-height</strong>, and <strong>min-height</strong> properties.
-      </p>
     </section>
 
-    <!-- Task 4: Working with Floats -->
-    <section class="float-task">
-      <h2>Task 4: Working with Floats</h2>
-      <div class="float-left">Float Left</div>
-      <div class="float-right">Float Right</div>
-      <p>
-        Instruction: Write CSS to make the two boxes float side by side. Use
-        <strong>float: left</strong> and
-        <strong>float: right</strong> properties, ensuring they align next to
-        each other in the layout.
-      </p>
-    </section>
-
-    <!-- Task 5: Positioning in CSS -->
-    <section class="position-task">
-      <h2>Task 5: Positioning in CSS</h2>
-      <div class="relative-box">Relative Position</div>
-      <div class="absolute-box">Absolute Position</div>
-      <div class="fixed-box">Fixed Position</div>
-      <p>
-        Instruction: Write CSS using the <strong>position</strong> property
-        (relative, absolute, and fixed) to place the elements accordingly. The
-        relative box should move 20px from the top-left, the absolute box should
-        be inside its parent, and the fixed box should stay at the bottom-right
-        of the viewport.
-      </p>
-    </section>
-
-    <!-- Task 6: Layers and Z-Index -->
-    <section class="zindex-task">
-      <h2>Task 6: Layers and Z-Index</h2>
-      <div class="layer-1">Layer 1</div>
-      <div class="layer-2">Layer 2</div>
-      <div class="layer-3">Layer 3</div>
-      <p>
-        Instruction: Write CSS to assign <strong>z-index</strong> values to
-        stack the layers on top of each other, ensuring the highest z-index
-        element appears in front.
-      </p>
+    <!-- Inheriting properties across multiple levels -->
+    <section>
+      <h2>Multiple Levels of Inheritance</h2>
+      <div class="outer-box">
+        <p>Outer box styles inherited.</p>
+        <div class="middle-box">
+          <p>Middle box overrides some styles.</p>
+          <div class="inner-box">
+            <p>Inner box inherits styles from both parents.</p>
+          </div>
+        </div>
+      </div>
     </section>
   </body>
 </html>
