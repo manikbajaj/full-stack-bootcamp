@@ -1,43 +1,64 @@
+<!-- 
+  !Instructions for Students:
+  You are given an HTML file. Your task is to write the CSS in a separate file named style.css to style the elements.
+
+  TODO 1: Demonstrate Source Order of Styles
+  * Apply two different colors to the .source-order class. One should come before the other in the stylesheet. The color that is applied later should be the one that is displayed.
+
+  TODO 2: Demonstrate Specificity in CSS
+  * Use element, class, and ID selectors to demonstrate how specificity works. Write CSS that styles the <p> with the class .specificity and ID #specificity-example.
+  * The ID selector should win over the class and element selectors.
+  
+  TODO 3: Using the !important Flag
+  * Style the .important-flag class with two colors. Use !important on one of the rules so it overrides any other rule, even if it comes first or has lower specificity.
+
+  TODO 4: Combined Cascade Algorithm
+  * In this task, demonstrate source order, specificity, and !important together.
+  * Write rules that target the .cascade-example class and #cascade-example ID. Apply conflicting styles and use the cascade algorithm to resolve the conflict (including !important).
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Cascade: Source Order, Specificity, and !important</title>
+    <title>Practice: CSS Cascade and Specificity</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>CSS Cascade: Source Order, Specificity, and !important</h1>
+    <h1>Practice Exercise: CSS Cascade, Specificity, and !important</h1>
 
-    <!-- Step 1: !important Wins Over Everything -->
+    <!-- Task 1: Source Order of Styles -->
     <section>
-      <h2>Step 1: !important Wins</h2>
-      <p class="important-example">This text is controlled by !important.</p>
-      <!-- Explanation: Even though multiple rules are applied to this element, the !important flag makes this text red. -->
-    </section>
-
-    <!-- Step 2: Specificity Determines the Winner -->
-    <section>
-      <h2>Step 2: Specificity Comparison</h2>
-      <p class="specificity-example" id="id-example">
-        This text is controlled by a more specific selector.
+      <h2>Task 1: Source Order of Styles</h2>
+      <p class="source-order">
+        Style this text to show how source order affects which rule is applied.
       </p>
-      <!-- Explanation: The ID selector will win because it is more specific than a class selector. -->
     </section>
 
-    <!-- Step 3: Source Order Wins When Specificity Is Equal -->
+    <!-- Task 2: Specificity in CSS -->
     <section>
-      <h2>Step 3: Source Order Comparison</h2>
-      <p class="order-example">This text is controlled by source order.</p>
-      <!-- Explanation: Both selectors are of equal specificity, so the rule declared later in the CSS will win. -->
-    </section>
-
-    <!-- Combined Example: Source Order, Specificity, and !important -->
-    <section>
-      <h2>Combined Example</h2>
-      <p class="combined-example" id="combined-id">
-        This text will follow all three steps to determine its final style.
+      <h2>Task 2: Specificity in CSS</h2>
+      <p id="specificity-example" class="specificity">
+        This text should demonstrate how specificity works with class, ID, and
+        element selectors.
       </p>
-      <!-- Explanation: This element will resolve conflicts using the !important flag, specificity, and source order in that order. -->
+    </section>
+
+    <!-- Task 3: Using the !important Flag -->
+    <section>
+      <h2>Task 3: Using the !important Flag</h2>
+      <p class="important-flag">
+        Style this text using !important to override other styles.
+      </p>
+    </section>
+
+    <!-- Task 4: Combined Cascade Algorithm Example -->
+    <section>
+      <h2>Task 4: Combined Cascade Algorithm</h2>
+      <p class="cascade-example" id="cascade-example">
+        This text should apply the cascade algorithm, combining source order,
+        specificity, and the !important flag.
+      </p>
     </section>
   </body>
 </html>
