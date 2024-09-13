@@ -2,104 +2,130 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Position Property Demonstration</title>
+    <title>CSS Z-Index Demonstration</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>CSS Position Property Demonstration</h1>
+    <h1>CSS Z-Index Demonstration</h1>
 
-    <!-- Static Position Example -->
+    <!-- Z-Index Basics Example -->
     <!-- 
-    Static Position (Default):
-      position: static is the default position for all elements. Elements appear in the normal document flow, meaning they are displayed one after another in the order they are written in the HTML.
-      Elements with position: static are not affected by positioning properties like top, left, right, or bottom.
-      In this example, the red box follows the regular document flow and does not respond to any position-related adjustments.
-     -->
-    <section>
-      <h2>Static Position (Default)</h2>
-      <div class="box static-box">Static Position</div>
-      <p>
-        Explanation: The default position of all HTML elements is
-        <strong>static</strong>. In this mode, elements follow the normal
-        document flow, meaning they appear one after another in the order they
-        are written in the HTML. They do not respond to positioning properties
-        like <code>top</code>, <code>left</code>, <code>right</code>, or
-        <code>bottom</code>.
-      </p>
-    </section>
-
-    <!-- Relative Position Example -->
-    <!-- 
-      position: relative allows an element to be positioned relative to its normal position in the document flow. The element is shifted using the top, left, right, or bottom properties, but its original position is still reserved in the layout.
-      Other elements will behave as though the relatively positioned element is still in its original spot, even if it is moved.
-      In this example, the green box is positioned 20px down and 20px to the right of its original position but still takes up space where it was initially placed.
-     -->
-    <section>
-      <h2>Relative Position</h2>
-      <div class="box relative-box">Relative Position</div>
-      <p>
-        Explanation: With <strong>position: relative</strong>, the element is
-        positioned relative to its original position in the normal document
-        flow. The <code>top</code> and <code>left</code> properties adjust the
-        element's position without removing it from the flow, meaning other
-        elements still consider it in its original location.
-      </p>
-    </section>
-
-    <!-- Absolute Position Example -->
-    <!-- 
-      position: absolute removes the element from the normal document flow. The element is then positioned relative to its closest positioned ancestor (an element with position: relative, absolute, or fixed).
-      If no positioned ancestor is found, the element is positioned relative to the initial containing block (usually the <html> element or the browser window).
-      In this example, the orange box is positioned 100px from the top and left of its parent container, which has position: relative.
+    z-index controls the stacking order of positioned elements (those with position: relative, absolute, or fixed).
+    Elements with a higher z-index value are stacked on top of elements with a lower z-index.
+    In this example, three boxes are positioned with different z-index values. The green box (z-index: 3) is stacked on top, followed by the red box (z-index: 2), and the blue box (z-index: 1).
      -->
     <section class="container">
-      <h2>Absolute Position</h2>
-      <div class="box absolute-box">Absolute Position</div>
+      <h2>Z-Index: Controlling Stacking Order</h2>
+      <div class="box box1">z-index: 1</div>
+      <div class="box box2">z-index: 2</div>
+      <div class="box box3">z-index: 3</div>
       <p>
-        Explanation: With <strong>position: absolute</strong>, the element is
-        removed from the normal document flow and positioned relative to its
-        closest positioned ancestor (an element with
-        <code>position: relative</code>, <code>absolute</code>, or
-        <code>fixed</code>). Here, it's positioned 100px from the top and left
-        of the container.
+        Explanation: The <strong>z-index</strong> property controls the stacking
+        order of positioned elements. Elements with a higher z-index value are
+        stacked on top of those with a lower z-index. Here, the green box
+        (z-index: 3) is on top, followed by the red box (z-index: 2), and the
+        blue box (z-index: 1) at the bottom.
       </p>
     </section>
 
-    <!-- Fixed Position Example -->
+    <!-- Example without z-index -->
     <!-- 
-    position: fixed also removes the element from the normal document flow, but the element is positioned relative to the viewport (the browser window). It stays fixed in place even when the page is scrolled.
-    In this example, the dark blue box stays fixed 20px from the top and right of the viewport, regardless of page scrolling.
-    -->
-    <section>
-      <h2>Fixed Position</h2>
-      <div class="box fixed-box">Fixed Position</div>
+    When no z-index is specified, the stacking order is determined by the order of the elements in the DOM (Document Object Model). Later elements in the HTML are stacked on top of earlier ones.
+This section demonstrates how elements without a z-index behave when placed in the same container. The second box appears on top of the first simply because it comes later in the code.
+     -->
+    <section class="container">
+      <h2>Elements Without Z-Index</h2>
+      <div class="box-no-zindex">No z-index</div>
+      <div class="box-overlapping">No z-index</div>
       <p>
-        Explanation: With <strong>position: fixed</strong>, the element is
-        removed from the normal document flow and positioned relative to the
-        viewport. It remains fixed in place as the page scrolls. In this case,
-        the element stays fixed at 20px from the top and right of the viewport.
+        Explanation: When no <strong>z-index</strong> is specified, elements are
+        stacked based on their order in the DOM. Here, the second box appears on
+        top simply because it comes later in the code.
       </p>
     </section>
 
-    <!-- Sticky Position Example -->
+    <!-- Example showing stacking context and how it resets with nested elements -->
+
     <!-- 
-    position: sticky is a hybrid of relative and fixed positioning.
-    When the element is within its container, it behaves like position: relative and scrolls with the page.
-    Once it reaches the specified position (in this case, 10px from the top), it "sticks" and behaves like position: fixed, staying in place while the rest of the content scrolls past it.
+    When a parent element has a z-index value, it creates a new stacking context. The child elements' z-index values are calculated relative to their parent, not the entire page.
+    In this example, the parent has a z-index: 10, and the child has a z-index: 5. Even though the child has a lower z-index than the parent, it is still nested within the parent and does not overlap it.
     -->
-    <section style="height: 1000px; background-color: antiquewhite">
-      <h2>Sticky Position</h2>
-      <div class="box sticky-box">Sticky Position</div>
+    <section class="container">
+      <h2>Stacking Context: Nested Elements</h2>
+      <div
+        style="
+          position: relative;
+          z-index: 10;
+          background-color: lightgreen;
+          padding: 20px;
+        "
+      >
+        Parent Element (z-index: 10)
+        <div
+          style="
+            position: absolute;
+            z-index: 5;
+            background-color: lightcoral;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            left: 50px;
+          "
+        >
+          Child Element (z-index: 5)
+        </div>
+      </div>
       <p>
-        Explanation: With <strong>position: sticky</strong>, the element acts
-        like <code>relative</code> until it reaches a specified scroll position,
-        after which it "sticks" and behaves like <code>fixed</code>. In this
-        case, the element will stick 10px from the top of the viewport as you
-        scroll down.
+        Explanation: A new <strong>stacking context</strong> is created when a
+        positioned element has a z-index. The child element’s z-index (5) is
+        relative to the parent’s stacking context (z-index: 10), meaning the
+        parent remains on top even though its z-index is higher.
       </p>
     </section>
 
-    <!-- Extra space to allow for scrolling -->
-    <div class="extra-space"></div>
+    <!-- Example with z-index and negative z-index -->
+
+    <!-- 
+    Negative z-index values allow elements to be stacked behind other elements with a positive or zero z-index.
+    In this example, the blue box has a z-index: -1, so it appears behind the red box, which has a z-index: 1.
+    -->
+    <!-- 
+      The parent container now has z-index: 0 to ensure that the element with z-index: -1 appears behind other elements inside the container but still within the visible stacking context of the parent.
+      This avoids the blue box being hidden behind the gray container itself.
+      THIS IS STACKING CONTEXT
+      -->
+    <section class="container" style="position: relative; z-index: 0">
+      <h2>Z-Index With Negative Values</h2>
+      <div
+        class="box"
+        style="
+          background-color: lightblue;
+          position: absolute;
+          top: 150px;
+          left: 150px;
+          z-index: -1;
+        "
+      >
+        z-index: -1
+      </div>
+      <div
+        class="box"
+        style="
+          background-color: lightcoral;
+          position: absolute;
+          top: 100px;
+          left: 100px;
+          z-index: 1;
+        "
+      >
+        z-index: 1
+      </div>
+      <p>
+        Explanation: <strong>z-index</strong> can also be set to negative
+        values, which places elements behind those with a positive z-index or no
+        z-index. In this case, the blue box (z-index: -1) appears behind the red
+        box (z-index: 1).
+      </p>
+    </section>
   </body>
 </html>
