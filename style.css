@@ -3,34 +3,42 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Basic Example - !important Flag */
-.basic {
-  color: red !important; /* !important wins */
+/* Step 1: !important Flag */
+.important-example {
+  color: green; /* Normal rule */
 }
 
-.basic {
-  color: blue; /* This will be overridden by the !important rule above */
+.important-example {
+  color: red !important; /* This will win due to the !important flag */
 }
 
-/* Inline Styles vs. !important */
-.inline {
-  color: purple !important; /* !important wins over inline style */
-}
-
-/* ID and Class Selectors vs. !important */
-.class-example {
-  color: green !important; /* !important wins */
-}
-
+/* Step 2: Specificity */
 #id-example {
-  color: blue; /* ID selector loses to !important */
+  color: blue; /* ID selector is more specific than class selector */
 }
 
-/* Combinator Selectors with !important */
-#wrapper #element .link a.important-link {
-  color: darkred !important; /* !important wins */
+.specificity-example {
+  color: purple; /* This class selector will lose to the ID selector */
 }
 
-a {
-  color: blue; /* This will lose to the combinator selector with !important */
+/* Step 3: Source Order */
+.order-example {
+  color: pink; /* This rule comes first */
+}
+
+.order-example {
+  color: orange; /* This rule comes later in the source order, so it wins */
+}
+
+/* Combined Example: Source Order, Specificity, and !important */
+.combined-example {
+  color: green; /* Class selector - Lower specificity */
+}
+
+#combined-id {
+  color: blue; /* ID selector - Higher specificity */
+}
+
+#combined-id {
+  color: purple !important; /* !important wins, despite source order and specificity */
 }

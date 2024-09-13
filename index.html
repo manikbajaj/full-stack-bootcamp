@@ -2,52 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS !important Flag - Lecture</title>
+    <title>CSS Cascade: Source Order, Specificity, and !important</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>CSS !important Flag Lecture</h1>
+    <h1>CSS Cascade: Source Order, Specificity, and !important</h1>
 
-    <!-- Basic Example - !important Wins Over Other Rules -->
+    <!-- Step 1: !important Wins Over Everything -->
     <section>
-      <h2>Basic Example</h2>
-      <p class="basic">
-        This text should be red because of the !important flag.
-      </p>
-      <!-- Explanation: Even though the color blue is declared later, the !important flag on red will win. -->
+      <h2>Step 1: !important Wins</h2>
+      <p class="important-example">This text is controlled by !important.</p>
+      <!-- Explanation: Even though multiple rules are applied to this element, the !important flag makes this text red. -->
     </section>
 
-    <!-- Inline Styles vs. External Styles -->
+    <!-- Step 2: Specificity Determines the Winner -->
     <section>
-      <h2>Inline Styles vs. !important</h2>
-      <p class="inline" style="color: orange">
-        This text has an inline style but will be overridden by the external
-        !important flag.
+      <h2>Step 2: Specificity Comparison</h2>
+      <p class="specificity-example" id="id-example">
+        This text is controlled by a more specific selector.
       </p>
-      <!-- Explanation: Inline styles will lose to the !important rule in the external stylesheet. -->
+      <!-- Explanation: The ID selector will win because it is more specific than a class selector. -->
     </section>
 
-    <!-- ID, Class, and !important -->
+    <!-- Step 3: Source Order Wins When Specificity Is Equal -->
     <section>
-      <h2>ID and Class Selectors vs. !important</h2>
-      <p id="id-example" class="class-example">
-        This text has both ID and class selectors but is overridden by
-        !important.
-      </p>
-      <!-- Explanation: The !important flag will override both class and ID-based styles. -->
+      <h2>Step 3: Source Order Comparison</h2>
+      <p class="order-example">This text is controlled by source order.</p>
+      <!-- Explanation: Both selectors are of equal specificity, so the rule declared later in the CSS will win. -->
     </section>
 
-    <!-- !important in Combinator Selectors -->
+    <!-- Combined Example: Source Order, Specificity, and !important -->
     <section>
-      <h2>Combinator Selectors with !important</h2>
-      <div id="wrapper">
-        <div id="element" class="link">
-          <a href="#" class="important-link"
-            >This link's color is set by !important.</a
-          >
-        </div>
-      </div>
-      <!-- Explanation: Even with complex combinator selectors, the !important flag takes precedence. -->
+      <h2>Combined Example</h2>
+      <p class="combined-example" id="combined-id">
+        This text will follow all three steps to determine its final style.
+      </p>
+      <!-- Explanation: This element will resolve conflicts using the !important flag, specificity, and source order in that order. -->
     </section>
   </body>
 </html>
