@@ -1,0 +1,57 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Task 1: Source Order */
+/* Apply multiple rules with the same selector to demonstrate source order */
+.source-order {
+  color: green; /* This will be overridden */
+}
+
+.source-order {
+  color: blue; /* This will win due to source order */
+}
+
+/* Task 2: Specificity */
+/* Demonstrate specificity by using element, class, and ID selectors */
+p {
+  color: gray; /* Element selector - Lowest specificity */
+}
+
+.specificity {
+  color: purple; /* Class selector - Medium specificity */
+}
+
+#specificity-example {
+  color: red; /* ID selector - Highest specificity (Wins) */
+}
+
+/* Task 3: !important Flag */
+/* Use the !important flag to override other rules */
+.important-flag {
+  color: yellow; /* This will be overridden by !important */
+}
+
+.important-flag {
+  color: orange !important; /* This will win due to the !important flag */
+}
+
+/* Task 4: Cascade Algorithm */
+/* Combine source order, specificity, and !important to show how they interact */
+p {
+  color: black; /* Element selector - Lowest specificity */
+}
+
+.cascade-example {
+  color: blue; /* Class selector - Medium specificity */
+}
+
+#cascade-example {
+  color: green; /* ID selector - Highest specificity (normally wins) */
+}
+
+/* !important will override all other styles */
+.cascade-example {
+  color: red !important; /* !important will win over all other rules */
+}
