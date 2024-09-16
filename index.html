@@ -3,33 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Media Queries with Separate Files</title>
-    <link href="./default-style.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      media="screen and (max-width: 480px)"
-      href="mobile-style.css"
-    />
-    <link
-      rel="stylesheet"
-      media="screen and (min-width: 481px) and (max-width: 1024px) and (orientation: portrait)"
-      href="tablet-portrait.css"
-    />
-    <link
-      rel="stylesheet"
-      media="screen and (min-width: 481px) and (max-width: 1024px) and (orientation: landscape)"
-      href="tablet-landscape.css"
-    />
-    <link
-      rel="stylesheet"
-      media="screen and (min-width: 1025px)"
-      href="desktop-style.css"
-    />
+    <title>Responsive Images and Background Images</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Responsive with Media Queries</h1>
-    <div class="box">
-      <p>This is a responsive box.</p>
-    </div>
-  </body>
+
+    <!-- Responsive Image Example -->
+    <section class="responsive-image-section">
+      <h2>Responsive Image Width</h2>
+      <p>
+        This image adapts based on the screen size using the
+        <code>srcset</code> attribute:
+      </p>
+      <img src="images/large.jpg" alt="A beautiful landscape" />
+    </section>
+
+    <section>
+      <!-- 
+       The <picture> tag is more flexible and allows you to provide multiple sources for different scenarios, such as changing image formats or using different images for different screen orientations or resolutions.
+      -->
+      <h2>Picture Tag</h2>
+      <picture>
+        <source media="(max-width: 600px)" srcset="images/small.jpg" />
+        <source media="(max-width: 1024px)" srcset="images/medium.jpg" />
+        <source media="(min-width: 1025px)" srcset="images/large.jpg" />
+        <img
+          src="images/large.jpg"
+          alt="A responsive image with art direction"
+        />
+      </picture>
+    </section>
+
 </html>
