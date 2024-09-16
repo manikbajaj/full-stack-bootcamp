@@ -1,57 +1,100 @@
-/* General Styles */
+/* Default styles */
 body {
   font-family: Arial, sans-serif;
+  background-color: lightgray;
+  margin: 0;
+  padding: 20px;
 }
 
-/* Task 1: Source Order */
-/* Apply multiple rules with the same selector to demonstrate source order */
-.source-order {
-  color: green; /* This will be overridden */
+h1 {
+  text-align: center;
+  font-size: 2rem;
 }
 
-.source-order {
-  color: blue; /* This will win due to source order */
-}
-
-/* Task 2: Specificity */
-/* Demonstrate specificity by using element, class, and ID selectors */
 p {
-  color: gray; /* Element selector - Lowest specificity */
+  font-size: 1.2rem;
+  text-align: justify;
 }
 
-.specificity {
-  color: purple; /* Class selector - Medium specificity */
+.box {
+  background-color: white;
+  border: 2px solid black;
+  padding: 20px;
+  margin: 10px 0;
 }
 
-#specificity-example {
-  color: red; /* ID selector - Highest specificity (Wins) */
+/* Styles for small devices (e.g., mobile phones) */
+@media (max-width: 480px) {
+  body {
+    background-color: lightpink;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .box {
+    background-color: lightgreen;
+  }
 }
 
-/* Task 3: !important Flag */
-/* Use the !important flag to override other rules */
-.important-flag {
-  color: yellow; /* This will be overridden by !important */
+/* Styles for medium devices (e.g., tablets) */
+@media (min-width: 481px) and (max-width: 1024px) and (orientation: portrait) {
+  body {
+    background-color: lightblue;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .box {
+    background-color: lightpink;
+  }
 }
 
-.important-flag {
-  color: orange !important; /* This will win due to the !important flag */
+/* Styles for medium devices (e.g., tablets) */
+@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+  body {
+    background-color: lightgoldenrodyellow;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .box {
+    background-color: lightskyblue;
+  }
 }
 
-/* Task 4: Cascade Algorithm */
-/* Combine source order, specificity, and !important to show how they interact */
-p {
-  color: black; /* Element selector - Lowest specificity */
-}
+/* Styles for large devices (e.g., desktops) */
+@media (min-width: 1025px) {
+  body {
+    background-color: lightseagreen;
+  }
 
-.cascade-example {
-  color: blue; /* Class selector - Medium specificity */
-}
+  h1 {
+    font-size: 2.5rem;
+  }
 
-#cascade-example {
-  color: green; /* ID selector - Highest specificity (normally wins) */
-}
+  p {
+    font-size: 1.3rem;
+  }
 
-/* !important will override all other styles */
-.cascade-example {
-  color: red !important; /* !important will win over all other rules */
+  .box {
+    background-color: lightgoldenrodyellow;
+  }
 }
