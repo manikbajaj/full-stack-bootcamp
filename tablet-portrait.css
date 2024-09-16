@@ -1,0 +1,16 @@
+/* Styles for medium devices (e.g., tablets) in portrait */
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.1rem;
+}
+
+.box {
+  background-color: lightpink;
+}

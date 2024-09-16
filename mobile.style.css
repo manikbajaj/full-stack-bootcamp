@@ -1,0 +1,16 @@
+/* Styles for small devices (e.g., mobile phones) */
+body {
+  background-color: lightpink;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.box {
+  background-color: lightgreen;
+}

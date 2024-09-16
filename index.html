@@ -3,8 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Media Queries Examples</title>
-    <link href="./style.css" rel="stylesheet" />
+    <title>Media Queries with Separate Files</title>
+    <link href="./default-style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 480px)"
+      href="mobile-style.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 481px) and (max-width: 1024px) and (orientation: portrait)"
+      href="tablet-portrait.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 481px) and (max-width: 1024px) and (orientation: landscape)"
+      href="tablet-landscape.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 1025px)"
+      href="desktop-style.css"
+    />
   </head>
   <body>
     <h1>Responsive with Media Queries</h1>
