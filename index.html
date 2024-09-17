@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Align Content - Flexbox Demonstration</title>
+    <title>Gap, Row-Gap, and Column-Gap Demonstration</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Align Content Demonstration</h1>
+    <h1>Gap, Row-Gap, and Column-Gap Demonstration</h1>
 
-    <!-- Align-content: flex-start -->
+    <!-- Example 1: Using Row Gap and Column Gap separately -->
     <section>
-      <h2>Align Content: flex-start</h2>
-      <div class="flex-container flex-start">
+      <h2>Row-Gap and Column-Gap</h2>
+      <div class="flex-container row-column-gap">
         <div class="flex-item wide">Item 1</div>
         <div class="flex-item narrow">Item 2</div>
         <div class="flex-item medium">Item 3</div>
@@ -22,75 +22,10 @@
       </div>
     </section>
 
-    <!-- Align-content: flex-end -->
+    <!-- Example2: Using Gap shorthand -->
     <section>
-      <h2>Align Content: flex-end</h2>
-      <div class="flex-container flex-end">
-        <div class="flex-item wide">Item 1</div>
-        <div class="flex-item narrow">Item 2</div>
-        <div class="flex-item medium">Item 3</div>
-        <div class="flex-item wide">Item 4</div>
-        <div class="flex-item narrow">Item 5</div>
-        <div class="flex-item medium">Item 6</div>
-      </div>
-    </section>
-
-    <!-- Align-content: center -->
-    <section>
-      <h2>Align Content: center</h2>
-      <div class="flex-container center">
-        <div class="flex-item wide">Item 1</div>
-        <div class="flex-item narrow">Item 2</div>
-        <div class="flex-item medium">Item 3</div>
-        <div class="flex-item wide">Item 4</div>
-        <div class="flex-item narrow">Item 5</div>
-        <div class="flex-item medium">Item 6</div>
-      </div>
-    </section>
-
-    <!-- Align-content: space-between -->
-    <section>
-      <h2>Align Content: space-between</h2>
-      <div class="flex-container space-between">
-        <div class="flex-item wide">Item 1</div>
-        <div class="flex-item narrow">Item 2</div>
-        <div class="flex-item medium">Item 3</div>
-        <div class="flex-item wide">Item 4</div>
-        <div class="flex-item narrow">Item 5</div>
-        <div class="flex-item medium">Item 6</div>
-      </div>
-    </section>
-
-    <!-- Align-content: space-around -->
-    <section>
-      <h2>Align Content: space-around</h2>
-      <div class="flex-container space-around">
-        <div class="flex-item wide">Item 1</div>
-        <div class="flex-item narrow">Item 2</div>
-        <div class="flex-item medium">Item 3</div>
-        <div class="flex-item wide">Item 4</div>
-        <div class="flex-item narrow">Item 5</div>
-        <div class="flex-item medium">Item 6</div>
-      </div>
-    </section>
-
-    <!-- Align-content: space-evenly -->
-    <section>
-      <h2>Align Content: space-evenly</h2>
-      <div class="flex-container space-evenly">
-        <div class="flex-item wide">Item 1</div>
-        <div class="flex-item narrow">Item 2</div>
-        <div class="flex-item medium">Item 3</div>
-        <div class="flex-item wide">Item 4</div>
-        <div class="flex-item narrow">Item 5</div>
-        <div class="flex-item medium">Item 6</div>
-      </div>
-    </section>
-
-    <!-- Align-content: stretch (default) -->
-    <section>
-      <h2>Align Content: stretch (default)</h2>
-      <div class="flex-container stretch">
+      <h2>Gap (shorthand)</h2>
+      <div class="flex-container gap-shorthand">
         <div class="flex-item wide">Item 1</div>
         <div class="flex-item narrow">Item 2</div>
         <div class="flex-item medium">Item 3</div>
