@@ -31,15 +31,15 @@ h2 {
 
 /* Variable widths for flex items */
 .flex-item.wide {
-  width: 300px;
+  width: 40%;
 }
 
 .flex-item.medium {
-  width: 200px;
+  width: 30%;
 }
 
 .flex-item.narrow {
-  width: 100px;
+  width: 20%;
 }
 
 /* Gap Example - Using gap shorthand */
