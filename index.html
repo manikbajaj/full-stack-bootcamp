@@ -3,53 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flex Item Properties Demonstration</title>
+    <title>Flex-Basis and Flex Shorthand Demonstration</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Flex Item Properties Demonstration</h1>
+    <h1>Flex-Basis and Flex Shorthand Demonstration</h1>
 
-    <!-- Flex Order Example -->
+    <!-- Flex-Basis Auto Example -->
     <section>
-      <h2>Flex-Order</h2>
-      <div class="flex-container order-example">
+      <h2>Flex-Basis: auto (default)</h2>
+      <div class="flex-container auto-example">
         <div class="flex-item">Item 1</div>
         <div class="flex-item">Item 2</div>
         <div class="flex-item">Item 3</div>
       </div>
       <p class="explanation">
-        Explanation: The <strong>order</strong> property changes the order of
-        the items in the flex container without changing the order in the HTML.
+        Explanation: <strong>flex-basis: auto</strong> is the default value. The
+        items will take up the width of their content or the width specified in
+        the CSS.
       </p>
     </section>
 
-    <!-- Flex Grow Example -->
+    <!-- Flex-Basis with Percentage -->
+    <!-- 
+    This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. 
+    -->
     <section>
-      <h2>Flex-Grow</h2>
-      <div class="flex-container grow-example">
+      <h2>Flex-Basis with Percentage</h2>
+      <div class="flex-container percentage-example">
         <div class="flex-item">Item 1</div>
         <div class="flex-item">Item 2</div>
         <div class="flex-item">Item 3</div>
+        <div class="flex-item">Item 4</div>
+        <div class="flex-item">Item 5</div>
+        <div class="flex-item">Item 6</div>
       </div>
       <p class="explanation">
-        Explanation: The <strong>flex-grow</strong> property allows items to
-        grow and take up available space in the container based on their growth
-        factor.
+        Explanation: <strong>flex-basis</strong> can be set in percentages to
+        specify how much space the items will take within the flex container.
       </p>
     </section>
 
-    <!-- Flex Shrink Example -->
+    <!-- Flex Shorthand Example -->
     <section>
-      <h2>Flex-Shrink</h2>
-      <div class="flex-container shrink-example">
+      <h2>Flex Shorthand</h2>
+      <div class="flex-container flex-shorthand-example">
         <div class="flex-item">Item 1</div>
         <div class="flex-item">Item 2</div>
         <div class="flex-item">Item 3</div>
       </div>
       <p class="explanation">
-        Explanation: The <strong>flex-shrink</strong> property controls how much
-        an item shrinks if the container is smaller than the total width of the
-        flex items.
+        Explanation: The <strong>flex</strong> shorthand property combines
+        <strong>flex-grow</strong>, <strong>flex-shrink</strong>, and
+        <strong>flex-basis</strong> into a single declaration.
       </p>
     </section>
   </body>
