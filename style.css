@@ -1,74 +1,56 @@
-/* General Page Styles */
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
-  padding: 0;
-  background-color: #f5f5f5;
+  background-color: #f9f9f9;
 }
 
-/* Responsive Image Section */
-.responsive-image-section {
-  margin-bottom: 40px;
+h1,
+h2 {
+  text-align: center;
+  color: #333;
 }
 
-img {
-  /* Show the image without 100% setting and the problem that it does not scale well specially when you try to view the image on small screen it does not scale well */
-  max-width: 100%;
-  height: auto;
-  border: 2px solid #333;
+/* Flexbox Demonstration Styles */
+.flex-container {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: lightgray;
+  margin-bottom: 20px;
+  border: 2px solid black;
 }
 
-/* Background Image Section */
-.background-image-section {
-  margin-bottom: 40px;
-}
-
-.background-container {
-  background-image: url("images/medium.jpg");
-  /* 
-  Possible Values for background-size:
-    * Cover Contain values
-    cover: Scales the background image to cover the entire element, maintaining its aspect ratio.
-    contain: Scales the background image to fit within the element without cropping, maintaining the aspect ratio.
-    Example: background-size: cover;
-
-    * Length/Percentage Values:
-    You can define width and height explicitly using length units or percentages.
-    Example: background-size: 100px 50px; or background-size: 50% 25%;
-
-    * Single Value:
-    If only one value is given, it defines the width, and the height is scaled automatically to maintain aspect ratio.
-    Example: background-size: 100px;
-
-    * Auto:
-    Maintains the original size of the background image.
-    Example: background-size: auto;
-  */
-  background-size: cover;
-  background-position: center; /* 50% 50%, */
-  /* background-position: top left; */
-  /* background-position: bottom right; */
-  /* background-position: 50% 50%; */
-  /* background-position: left 10px top 20px; */
-  height: 300px;
-  color: white;
-  font-size: 1.5rem;
-  border: 2px solid #333;
-}
-
-.background-container p {
-  background-color: rgba(0, 0, 0, 0.5);
+.flex-item {
+  background-color: lightblue;
   padding: 20px;
+  text-align: center;
+  border: 1px solid #333;
 }
 
-/* Background Repeat Section */
-.background-repeat-section {
-  margin-bottom: 40px;
+/* Different Flex Directions */
+
+/* Default Flex (row) */
+.default-flex {
+  flex-direction: row;
 }
 
-.background-repeat-container {
-  background-image: url("images/pattern.png");
-  background-repeat: repeat; /* no-repeat, repeat-x, repeat-y*/
-  height: 200px;
-  border: 2px solid #333;
+/* Flex Direction: row */
+.row-flex {
+  flex-direction: row;
+}
+
+/* Flex Direction: row-reverse */
+.row-reverse-flex {
+  flex-direction: row-reverse;
+}
+
+/* Flex Direction: column */
+.column-flex {
+  flex-direction: column;
+}
+
+/* Flex Direction: column-reverse */
+.column-reverse-flex {
+  flex-direction: column-reverse;
 }
