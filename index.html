@@ -2,49 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Flexbox and Flex Direction Demonstration</title>
+    <title>Flexbox - Flex Wrap and Flex Flow Demonstration</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Demonstrating Flexbox and Flex Direction</h1>
+    <h1>Flexbox Flex-Wrap and Flex-Flow Demonstration</h1>
 
-    <!-- Flex Container with default direction (row) -->
-    <section class="flex-container default-flex">
-      <div class="flex-item">Item 1</div>
-      <div class="flex-item">Item 2</div>
-      <div class="flex-item">Item 3</div>
+    <!-- Flex Container with flex-wrap: wrap and flex-direction: row -->
+    <section>
+      <h2>Flex Direction: Row (Default) with Flex-Wrap: Wrap</h2>
+      <div class="flex-container wrap-row">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+        <div class="flex-item">Item 4</div>
+        <div class="flex-item">Item 5</div>
+        <div class="flex-item">Item 6</div>
+      </div>
     </section>
 
-    <!-- Flex Direction: row -->
-    <h2>Flex Direction: Row (default)</h2>
-    <section class="flex-container row-flex">
-      <div class="flex-item">Item 1</div>
-      <div class="flex-item">Item 2</div>
-      <div class="flex-item">Item 3</div>
+    <!-- Flex Container with flex-wrap: wrap and flex-direction: column -->
+    <section>
+      <h2>Flex Direction: Column with Flex-Wrap: Wrap</h2>
+      <div class="flex-container wrap-column">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+        <div class="flex-item">Item 4</div>
+        <div class="flex-item">Item 5</div>
+        <div class="flex-item">Item 6</div>
+      </div>
     </section>
 
-    <!-- Flex Direction: row-reverse -->
-    <h2>Flex Direction: Row-Reverse</h2>
-    <section class="flex-container row-reverse-flex">
-      <div class="flex-item">Item 1</div>
-      <div class="flex-item">Item 2</div>
-      <div class="flex-item">Item 3</div>
-    </section>
-
-    <!-- Flex Direction: column -->
-    <h2>Flex Direction: Column</h2>
-    <section class="flex-container column-flex">
-      <div class="flex-item">Item 1</div>
-      <div class="flex-item">Item 2</div>
-      <div class="flex-item">Item 3</div>
-    </section>
-
-    <!-- Flex Direction: column-reverse -->
-    <h2>Flex Direction: Column-Reverse</h2>
-    <section class="flex-container column-reverse-flex">
-      <div class="flex-item">Item 1</div>
-      <div class="flex-item">Item 2</div>
-      <div class="flex-item">Item 3</div>
+    <!-- Flex-Flow Shorthand Example -->
+    <section>
+      <h2>Flex-Flow Shorthand (Direction + Wrap)</h2>
+      <div class="flex-container flex-flow">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+        <div class="flex-item">Item 4</div>
+        <div class="flex-item">Item 5</div>
+        <div class="flex-item">Item 6</div>
+      </div>
     </section>
   </body>
 </html>

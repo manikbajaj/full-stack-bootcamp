@@ -11,13 +11,13 @@ h2 {
   color: #333;
 }
 
-/* Flexbox Demonstration Styles */
+/* Flexbox Container and Item Styling */
 .flex-container {
   display: flex;
   gap: 10px;
   padding: 10px;
   background-color: lightgray;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border: 2px solid black;
 }
 
@@ -26,31 +26,27 @@ h2 {
   padding: 20px;
   text-align: center;
   border: 1px solid #333;
+  width: 150px;
+  height: 100px;
 }
 
-/* Different Flex Directions */
-
-/* Default Flex (row) */
-.default-flex {
-  flex-direction: row;
+/* Flex-Wrap in Row Direction */
+.wrap-row {
+  /* !Show how the default behavior is when elements overflow the container when the screen width is reduced */
+  flex-direction: row; /* Also show how it works with row-reverse*/
+  flex-wrap: wrap;
+  max-width: 600px; /* Limit the width to demonstrate wrapping */
 }
 
-/* Flex Direction: row */
-.row-flex {
-  flex-direction: row;
-}
-
-/* Flex Direction: row-reverse */
-.row-reverse-flex {
-  flex-direction: row-reverse;
-}
-
-/* Flex Direction: column */
-.column-flex {
+/* Flex-Wrap in Column Direction */
+.wrap-column {
   flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 300px; /* Limit the height to demonstrate wrapping */
 }
 
-/* Flex Direction: column-reverse */
-.column-reverse-flex {
-  flex-direction: column-reverse;
+/* Flex-Flow Shorthand Example */
+.flex-flow {
+  flex-flow: row wrap; /* This is the shorthand for flex-direction and flex-wrap */
+  max-width: 600px;
 }
