@@ -14,11 +14,17 @@ h2 {
 /* Flexbox Container and Item Styling */
 .flex-container {
   display: flex;
+  /* *Flex direction by default is row even if its not set */
+  /* !The following two properties are needed to see the effects of justify-content when flex-direction is set to column */
+  /* flex-direction: column;
+  min-height: 400px; */
   gap: 10px;
   padding: 10px;
   background-color: lightgray;
   margin-bottom: 30px;
   border: 2px solid black;
+  width: 80%;
+  margin: 0 auto; /* Center the flex container */
 }
 
 .flex-item {
@@ -26,27 +32,36 @@ h2 {
   padding: 20px;
   text-align: center;
   border: 1px solid #333;
-  width: 150px;
-  height: 100px;
+  width: 100px;
 }
 
-/* Flex-Wrap in Row Direction */
-.wrap-row {
-  /* !Show how the default behavior is when elements overflow the container when the screen width is reduced */
-  flex-direction: row; /* Also show how it works with row-reverse*/
-  flex-wrap: wrap;
-  max-width: 600px; /* Limit the width to demonstrate wrapping */
+/* Justify Content - flex-start */
+.flex-start {
+  justify-content: flex-start; /* Also known as "start", but not widely supported. Use flex-start for better compatibility. */
 }
 
-/* Flex-Wrap in Column Direction */
-.wrap-column {
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 300px; /* Limit the height to demonstrate wrapping */
+/* Justify Content - flex-end */
+.flex-end {
+  justify-content: flex-end; /* Also known as "end", but not widely supported. Use flex-end for better compatibility. */
 }
 
-/* Flex-Flow Shorthand Example */
-.flex-flow {
-  flex-flow: row wrap; /* This is the shorthand for flex-direction and flex-wrap */
-  max-width: 600px;
+/* Justify Content - center */
+.center {
+  justify-content: center;
+}
+
+/* Justify Content - space-between */
+.space-between {
+  justify-content: space-between;
+}
+
+/* Justify Content - space-around */
+.space-around {
+  justify-content: space-around;
+}
+
+/* Justify Content - space-evenly */
+.space-evenly {
+  justify-content: space-evenly;
+  /* Note: "space-evenly" is newer and may not be supported in older browsers */
 }

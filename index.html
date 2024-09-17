@@ -2,48 +2,70 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Flexbox - Flex Wrap and Flex Flow Demonstration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Justify Content - Flexbox Demonstration</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Flexbox Flex-Wrap and Flex-Flow Demonstration</h1>
+    <h1>Justify Content Demonstration</h1>
 
-    <!-- Flex Container with flex-wrap: wrap and flex-direction: row -->
+    <!-- Flex-start (Default) -->
     <section>
-      <h2>Flex Direction: Row (Default) with Flex-Wrap: Wrap</h2>
-      <div class="flex-container wrap-row">
+      <h2>Justify Content: flex-start (Default)</h2>
+      <div class="flex-container flex-start">
         <div class="flex-item">Item 1</div>
         <div class="flex-item">Item 2</div>
         <div class="flex-item">Item 3</div>
-        <div class="flex-item">Item 4</div>
-        <div class="flex-item">Item 5</div>
-        <div class="flex-item">Item 6</div>
       </div>
     </section>
 
-    <!-- Flex Container with flex-wrap: wrap and flex-direction: column -->
+    <!-- Flex-end -->
     <section>
-      <h2>Flex Direction: Column with Flex-Wrap: Wrap</h2>
-      <div class="flex-container wrap-column">
+      <h2>Justify Content: flex-end</h2>
+      <div class="flex-container flex-end">
         <div class="flex-item">Item 1</div>
         <div class="flex-item">Item 2</div>
         <div class="flex-item">Item 3</div>
-        <div class="flex-item">Item 4</div>
-        <div class="flex-item">Item 5</div>
-        <div class="flex-item">Item 6</div>
       </div>
     </section>
 
-    <!-- Flex-Flow Shorthand Example -->
+    <!-- Center -->
     <section>
-      <h2>Flex-Flow Shorthand (Direction + Wrap)</h2>
-      <div class="flex-container flex-flow">
+      <h2>Justify Content: center</h2>
+      <div class="flex-container center">
         <div class="flex-item">Item 1</div>
         <div class="flex-item">Item 2</div>
         <div class="flex-item">Item 3</div>
-        <div class="flex-item">Item 4</div>
-        <div class="flex-item">Item 5</div>
-        <div class="flex-item">Item 6</div>
+      </div>
+    </section>
+
+    <!-- Space-between -->
+    <section>
+      <h2>Justify Content: space-between</h2>
+      <div class="flex-container space-between">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+      </div>
+    </section>
+
+    <!-- Space-around -->
+    <section>
+      <h2>Justify Content: space-around</h2>
+      <div class="flex-container space-around">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+      </div>
+    </section>
+
+    <!-- Space-evenly -->
+    <section>
+      <h2>Justify Content: space-evenly</h2>
+      <div class="flex-container space-evenly">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
       </div>
     </section>
   </body>
