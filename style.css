@@ -1,62 +1,52 @@
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
   background-color: #f9f9f9;
+  margin: 20px;
 }
 
 h1,
 h2 {
   text-align: center;
   color: #333;
+  margin-bottom: 20px;
 }
 
-/* Flexbox Container and Item Styling */
-.flex-container {
-  display: flex;
-  flex-wrap: wrap; /* Allows items to wrap */
-  gap: 15px; /* Add gaps between items */
-  padding: 10px;
-  background-color: lightgray;
-  margin-bottom: 30px;
-  border: 2px solid black;
-}
-
-/* Flex Items Styling */
-.flex-item {
+/* Box Styling */
+.box {
+  width: 200px;
+  height: 200px;
   background-color: lightblue;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  border: 2px solid #333;
+  cursor: pointer;
+  text-align: center;
   padding: 20px;
-  text-align: center;
-  border: 1px solid #333;
 }
 
-/* Flex-Basis Auto Example */
-.auto-example .flex-item {
-  /* Flex-basis is auto by default */
+/* Transition Properties Example */
+.property-example {
+  transition-property: background-color, width; /* Define which properties will transition */
+  transition-duration: 2s; /* Time the transition will take */
+  transition-delay: 1s; /* Delay before transition begins */
+  transition-timing-function: ease-in-out; /* Speed curve for the transition */
 }
 
-/* Flex-Basis with Percentage Example */
-.percentage-example .flex-item {
-  flex-basis: 20%; /* Items take up 20% of the container's width */
+.property-example:hover {
+  background-color: lightcoral;
+  width: 300px;
 }
 
-/* Flex Shorthand Example */
-.flex-shorthand-example .flex-item:nth-child(1) {
-  flex: 1 1 50%; /* flex-grow: 1, flex-shrink: 1, flex-basis: 50% */
+/* Transition Shorthand Example */
+.shorthand-example {
+  transition: background-color 1s ease-in-out 0.5s, width 2s ease-in; /* Using shorthand */
 }
 
-.flex-shorthand-example .flex-item:nth-child(2) {
-  flex: 2 1 30%; /* flex-grow: 2, flex-shrink: 1, flex-basis: 30% */
-}
-
-.flex-shorthand-example .flex-item:nth-child(3) {
-  flex: 1 1 20%; /* flex-grow: 1, flex-shrink: 1, flex-basis: 20% */
-}
-
-/* Explanation Styling */
-.explanation {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 1.1rem;
-  color: #555;
+.shorthand-example:hover {
+  background-color: lightgreen;
+  width: 300px;
 }
