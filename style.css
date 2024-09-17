@@ -14,12 +14,12 @@ h2 {
 /* Flexbox Container and Item Styling */
 .flex-container {
   display: flex;
-  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  flex-wrap: wrap; /* Allows items to wrap */
+  gap: 15px; /* Add gaps between items */
   padding: 10px;
   background-color: lightgray;
   margin-bottom: 30px;
   border: 2px solid black;
-  height: 300px; /* Set a height for the container */
 }
 
 .flex-item {
@@ -27,28 +27,52 @@ h2 {
   padding: 20px;
   text-align: center;
   border: 1px solid #333;
+  width: 100px;
 }
 
-/* Variable widths for flex items */
-.flex-item.wide {
-  width: 40%;
+/* Order Example */
+.order-example .flex-item:nth-child(1) {
+  order: 3; /* Reorders the first item to appear third */
 }
 
-.flex-item.medium {
-  width: 30%;
+.order-example .flex-item:nth-child(2) {
+  order: 1; /* Reorders the second item to appear first */
 }
 
-.flex-item.narrow {
-  width: 20%;
+.order-example .flex-item:nth-child(3) {
+  order: 2; /* Reorders the third item to appear second */
 }
 
-/* Gap Example - Using gap shorthand */
-.gap-shorthand {
-  gap: 10px 30px; /* Shorthand for setting both row-gap and column-gap */
+/* Flex Grow Example */
+.grow-example .flex-item:nth-child(1) {
+  flex-grow: 1; /* Grows 1x of remaining space */
 }
 
-/* Row-Gap and Column-Gap Example */
-.row-column-gap {
-  row-gap: 30px; /* Vertical spacing between rows */
-  column-gap: 15px; /* Horizontal spacing between columns */
+.grow-example .flex-item:nth-child(2) {
+  flex-grow: 2; /* Grows 2x of remaining space */
+}
+
+.grow-example .flex-item:nth-child(3) {
+  flex-grow: 0; /* Does not grow */
+}
+
+/* Flex Shrink Example */
+.shrink-example .flex-item:nth-child(1) {
+  flex-shrink: 1; /* Shrinks normally */
+}
+
+.shrink-example .flex-item:nth-child(2) {
+  flex-shrink: 2; /* Shrinks twice as much */
+}
+
+.shrink-example .flex-item:nth-child(3) {
+  flex-shrink: 0; /* Does not shrink */
+}
+
+/* Explanation Styling */
+.explanation {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #555;
 }
