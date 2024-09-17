@@ -14,14 +14,14 @@ h2 {
 /* Flexbox Container and Item Styling */
 .flex-container {
   display: flex;
-  /* !Add the flex direction to see how it behaves when direction is set to column */
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  /* !See how it works with flex-direction set to column on the next line  */
   /* flex-direction: column; */
-  gap: 10px;
   padding: 10px;
   background-color: lightgray;
   margin-bottom: 30px;
   border: 2px solid black;
-  height: 200px; /* Set a fixed height for the container */
+  height: 300px; /* Set a height for the container */
 }
 
 .flex-item {
@@ -29,30 +29,53 @@ h2 {
   padding: 20px;
   text-align: center;
   border: 1px solid #333;
+  flex-grow: 1;
 }
 
-/* Align Items - stretch (default) */
-.stretch {
-  /* !Remember it respects the height and the width assigned to element. So stetch will not work if a definitive height is assigned to an element  */
-  align-items: stretch; /* This is the default value */
+/* Variable widths for flex items */
+.flex-item.wide {
+  flex-basis: 40%;
 }
 
-/* Align Items - flex-start */
+.flex-item.medium {
+  flex-basis: 30%;
+}
+
+.flex-item.narrow {
+  flex-basis: 20%;
+}
+
+/* Align-content: flex-start */
 .flex-start {
-  align-items: flex-start; /* Also known as "start", but "flex-start" is safer to use */
+  align-content: flex-start; /* Also called "start", but flex-start is safer */
 }
 
-/* Align Items - flex-end */
+/* Align-content: flex-end */
 .flex-end {
-  align-items: flex-end; /* Also known as "end", but "flex-end" is safer to use */
+  align-content: flex-end; /* Also called "end", but flex-end is safer */
 }
 
-/* Align Items - center */
+/* Align-content: center */
 .center {
-  align-items: center;
+  align-content: center;
 }
 
-/* Align Items - baseline */
-.baseline {
-  align-items: baseline;
+/* Align-content: space-between */
+.space-between {
+  align-content: space-between;
+}
+
+/* Align-content: space-around */
+.space-around {
+  align-content: space-around;
+}
+
+/* Align-content: space-evenly */
+.space-evenly {
+  align-content: space-evenly;
+}
+
+/* Align-content: stretch (default behavior) */
+.stretch {
+  align-content: stretch;
 }

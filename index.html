@@ -2,60 +2,101 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Align Items - Flexbox Demonstration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Align Content - Flexbox Demonstration</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Align Items Demonstration</h1>
+    <h1>Align Content Demonstration</h1>
 
-    <!-- Stretch (default) -->
+    <!-- Align-content: flex-start -->
     <section>
-      <h2>Align Items: stretch (default)</h2>
-      <div class="flex-container stretch">
-        <div class="flex-item">Item 1</div>
-        <div class="flex-item">Item 2</div>
-        <div class="flex-item">Item 3</div>
-      </div>
-    </section>
-
-    <!-- Flex-start -->
-    <section>
-      <h2>Align Items: flex-start</h2>
+      <h2>Align Content: flex-start</h2>
       <div class="flex-container flex-start">
-        <div class="flex-item">Item 1</div>
-        <div class="flex-item">Item 2</div>
-        <div class="flex-item">Item 3</div>
+        <div class="flex-item wide">Item 1</div>
+        <div class="flex-item narrow">Item 2</div>
+        <div class="flex-item medium">Item 3</div>
+        <div class="flex-item wide">Item 4</div>
+        <div class="flex-item narrow">Item 5</div>
+        <div class="flex-item medium">Item 6</div>
       </div>
     </section>
 
-    <!-- Flex-end -->
+    <!-- Align-content: flex-end -->
     <section>
-      <h2>Align Items: flex-end</h2>
+      <h2>Align Content: flex-end</h2>
       <div class="flex-container flex-end">
-        <div class="flex-item">Item 1</div>
-        <div class="flex-item">Item 2</div>
-        <div class="flex-item">Item 3</div>
+        <div class="flex-item wide">Item 1</div>
+        <div class="flex-item narrow">Item 2</div>
+        <div class="flex-item medium">Item 3</div>
+        <div class="flex-item wide">Item 4</div>
+        <div class="flex-item narrow">Item 5</div>
+        <div class="flex-item medium">Item 6</div>
       </div>
     </section>
 
-    <!-- Center -->
+    <!-- Align-content: center -->
     <section>
-      <h2>Align Items: center</h2>
+      <h2>Align Content: center</h2>
       <div class="flex-container center">
-        <div class="flex-item">Item 1</div>
-        <div class="flex-item">Item 2</div>
-        <div class="flex-item">Item 3</div>
+        <div class="flex-item wide">Item 1</div>
+        <div class="flex-item narrow">Item 2</div>
+        <div class="flex-item medium">Item 3</div>
+        <div class="flex-item wide">Item 4</div>
+        <div class="flex-item narrow">Item 5</div>
+        <div class="flex-item medium">Item 6</div>
       </div>
     </section>
 
-    <!-- Baseline -->
+    <!-- Align-content: space-between -->
     <section>
-      <h2>Align Items: baseline</h2>
-      <div class="flex-container baseline">
-        <div class="flex-item">Item 1</div>
-        <!-- Add extra font-size to shift the baseline and see the difference -->
-        <div style="font-size: 40px" class="flex-item">Item 2</div>
-        <div class="flex-item">Item 3</div>
+      <h2>Align Content: space-between</h2>
+      <div class="flex-container space-between">
+        <div class="flex-item wide">Item 1</div>
+        <div class="flex-item narrow">Item 2</div>
+        <div class="flex-item medium">Item 3</div>
+        <div class="flex-item wide">Item 4</div>
+        <div class="flex-item narrow">Item 5</div>
+        <div class="flex-item medium">Item 6</div>
+      </div>
+    </section>
+
+    <!-- Align-content: space-around -->
+    <section>
+      <h2>Align Content: space-around</h2>
+      <div class="flex-container space-around">
+        <div class="flex-item wide">Item 1</div>
+        <div class="flex-item narrow">Item 2</div>
+        <div class="flex-item medium">Item 3</div>
+        <div class="flex-item wide">Item 4</div>
+        <div class="flex-item narrow">Item 5</div>
+        <div class="flex-item medium">Item 6</div>
+      </div>
+    </section>
+
+    <!-- Align-content: space-evenly -->
+    <section>
+      <h2>Align Content: space-evenly</h2>
+      <div class="flex-container space-evenly">
+        <div class="flex-item wide">Item 1</div>
+        <div class="flex-item narrow">Item 2</div>
+        <div class="flex-item medium">Item 3</div>
+        <div class="flex-item wide">Item 4</div>
+        <div class="flex-item narrow">Item 5</div>
+        <div class="flex-item medium">Item 6</div>
+      </div>
+    </section>
+
+    <!-- Align-content: stretch (default) -->
+    <section>
+      <h2>Align Content: stretch (default)</h2>
+      <div class="flex-container stretch">
+        <div class="flex-item wide">Item 1</div>
+        <div class="flex-item narrow">Item 2</div>
+        <div class="flex-item medium">Item 3</div>
+        <div class="flex-item wide">Item 4</div>
+        <div class="flex-item narrow">Item 5</div>
+        <div class="flex-item medium">Item 6</div>
       </div>
     </section>
   </body>
