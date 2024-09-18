@@ -2,128 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Styled Form</title>
-    <link href="style.css" rel="stylesheet" />
+    <title>Simple Table Example</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2>Forms with HTML and CSS</h3>
+    <h1>Introduction to HTML Tables</h1>
 
-    <form>
-      <div class="form-container">
-        <div class="form-column">
-          <!-- First Name -->
-          <label for="fname">First Name</label>
-          <input
-            type="text"
-            id="fname"
-            name="firstname"
-            placeholder="Your name.."
-            required
-          />
+    <!-- Simple Table Structure -->
+    <table>
+      <!-- Table Header -->
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+      </tr>
 
-
-          <!-- Email -->
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your email.."
-          />
-
-          <!-- Phone -->
-          <label for="tel">Phone Number</label>
-          <input
-            type="tel"
-            id="tel"
-            name="telephone"
-            placeholder="Your phone number.."
-          />
-
-          <!-- Number Input -->
-          <label for="age">Age</label>
-          <input type="number" id="age" name="age" placeholder="Your age.." />
-
-          <!-- Date Input -->
-          <label for="dob">Date of Birth</label>
-          <input type="date" id="dob" name="dateOfBirth" />
-
-          <!-- Month Input -->
-          <label for="month">Month of Birth</label>
-          <input type="month" id="month" name="month" />
-
-          <!-- Time Input -->
-          <label for="time">Preferred Time</label>
-          <input type="time" id="time" name="time" />
-
-          <!-- Color Picker -->
-          <label for="favcolor">Favorite Color</label>
-          <input type="color" id="favcolor" name="favcolor" />
-        </div>
-
-        <div class="form-column">
-          <!-- Last Name -->
-          <label for="lname">Last Name</label>
-          <input
-            type="text"
-            id="lname"
-            name="lastname"
-            placeholder="Your last name.."
-          />
-
-                    <!-- Password -->
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Your password.."
-          />
-
-          <!-- Website -->
-          <label for="url">Website</label>
-          <input
-            type="url"
-            id="url"
-            name="website"
-            placeholder="Your website.."
-          />
-
-          <!-- Country Select -->
-          <label for="country">Country</label>
-          <select id="country" name="country">
-            <option value="australia">Australia</option>
-            <option value="canada">Canada</option>
-            <option value="usa">USA</option>
-          </select>
-
-
-          <!-- Gender Radio Inputs -->
-          <p>Gender:</p>
-          <input type="radio" id="male" name="gender" value="male" />
-          <label for="male">Male</label>
-          <input type="radio" id="female" name="gender" value="female" />
-          <label for="female">Female</label>
-          <input type="radio" id="other" name="gender" value="other" />
-          <label for="other">Other</label>
-
-          <!-- Agree or Disagree Checkboxes -->
-          <p>Please indicate whether you agree or disagree to the terms:</p>
-          <div>
-            <input type="checkbox" id="agree" name="terms" />
-            <label for="agree">I agree</label>
-
-            <input type="checkbox" id="disagree" name="terms" />
-            <label for="disagree">I disagree</label>
-          </div>
-
-        </div>
-      </div>
-      <!-- Submit Button -->
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+      <!-- Table Rows with Data -->
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>28</td>
+      </tr>
+      <tr>
+        <td>Jane</td>
+        <td>Smith</td>
+        <td>32</td>
+      </tr>
+      <tr>
+        <td>Michael</td>
+        <td>Johnson</td>
+        <td>45</td>
+      </tr>
+    </table>
   </body>
 </html>

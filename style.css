@@ -1,69 +1,16 @@
-/* 
-  Using box-sizing: border-box; ensures that the two-column layout (with width: 48% for each column) remains consistent and doesn't break, even when padding or borders are applied to the input elements.
-*/
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
-
-/* Form layout in two columns */
-.form-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: #f2f2f2;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.form-column {
-  width: 48%;
-}
-
-input,
-select {
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0 24px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
-/*  Hide the arrow */
-/* Not an elegant solution */
-select {
-  appearance: none;
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
-button {
-  width: 100%;
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-/* ! Only needed for Color Input Style */
-input[type="color"] {
-  width: 100%;
-  padding: 5px;
-  height: 40px;
-  margin-top: 5px;
-}
-
-/* ! Only needed for Checkbox and Radio */
-input[type="checkbox"],
-input[type="radio"] {
-  width: auto;
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
