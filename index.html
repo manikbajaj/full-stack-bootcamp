@@ -2,37 +2,99 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Simple Table Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customizing Table Headers in HTML & CSS</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Introduction to HTML Tables</h1>
+    <h1>Customizing Table Headers</h1>
 
-    <!-- Simple Table Structure -->
-    <table>
-      <!-- Table Header -->
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Age</th>
-      </tr>
+    <!-- Basic Table with Horizontal Headers -->
+    <section>
+      <h2>Basic Horizontal Table Headers</h2>
+      <table class="basic-table">
+        <caption>
+          Product Price and Stock
+        </caption>
+        <!--   
+          The <thead> tag clearly defines the table's header section, improving the semantic clarity of the HTML. This is useful for accessibility, making it easier for screen readers to identify and navigate table headers.
+        -->
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Widget A</td>
+            <td>$50</td>
+            <td>200</td>
+          </tr>
+          <tr>
+            <td>Widget B</td>
+            <td>$70</td>
+            <td>150</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-      <!-- Table Rows with Data -->
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>Jane</td>
-        <td>Smith</td>
-        <td>32</td>
-      </tr>
-      <tr>
-        <td>Michael</td>
-        <td>Johnson</td>
-        <td>45</td>
-      </tr>
-    </table>
+    <!-- Table with Vertical Headers -->
+    <section>
+      <h2>Vertical Table Headers</h2>
+      <table class="vertical-headers">
+        <caption>
+          Quarterly Revenue and Expense
+        </caption>
+        <tbody>
+          <tr>
+            <th>Revenue</th>
+            <td>$80K</td>
+            <td>$85K</td>
+            <td>$90K</td>
+          </tr>
+          <tr>
+            <th>Expenses</th>
+            <td>$50K</td>
+            <td>$55K</td>
+            <td>$60K</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Horizontal and Vertical Headers Combined -->
+    <section>
+      <h2>Combined Vertical and Horizontal Headers</h2>
+      <table class="combined-table">
+        <caption>
+          Quarterly Revenue and Expense
+        </caption>
+        <thead>
+          <tr>
+            <th>Metrics</th>
+            <th>Quater 1</th>
+            <th>Quater 2</th>
+            <th>Quater 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Revenue</th>
+            <td>$80K</td>
+            <td>$85K</td>
+            <td>$90K</td>
+          </tr>
+          <tr>
+            <th>Expenses</th>
+            <td>$50K</td>
+            <td>$55K</td>
+            <td>$60K</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </body>
 </html>
