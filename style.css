@@ -1,48 +1,36 @@
-* {
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
-}
-
-h2 {
-  margin: 60px 0px 0px;
-}
-
-/* General Table Styling */
+/* General Table Styles */
 table {
-  width: 100%;
-  /* 
-  The CSS property border-collapse: collapse; is used to merge the borders of adjacent table cells into a single border, rather than keeping them separate. Here's the role of this property:
-  */
+  font-family: Arial, sans-serif;
   border-collapse: collapse;
-  margin: 0 0 30px 0;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 th,
 td {
-  padding: 12px;
-  border: 1px solid #ddd;
-  text-align: center;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
-tbody tr:nth-child(even) {
+tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-/* Style the Table Headers */
+/* Header Styling */
 th {
   background-color: lightblue;
+  color: white;
+  text-align: center;
 }
 
-.vertical-headers th:nth-child(1) {
-  text-align: left;
-  background-color: lightgoldenrodyellow;
+/* Larger header cells */
+.header-large {
+  font-size: 1.2rem;
+  padding: 10px;
 }
 
-/* Combined Vertical and Horizontal Headers */
-.combined-table th {
-  background-color: lightcyan;
-}
-
-caption {
-  margin-bottom: 15px;
+/* Custom row height */
+tr.custom-height {
+  height: 50px;
 }

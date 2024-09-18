@@ -3,98 +3,103 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Customizing Table Headers in HTML & CSS</title>
+    <title>Rowspan and Colspan Demonstration</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Customizing Table Headers</h1>
+    <h1>Rowspan and Colspan in Tables</h1>
 
-    <!-- Basic Table with Horizontal Headers -->
-    <section>
-      <h2>Basic Horizontal Table Headers</h2>
-      <table class="basic-table">
-        <caption>
-          Product Price and Stock
-        </caption>
-        <!--   
-          The <thead> tag clearly defines the table's header section, improving the semantic clarity of the HTML. This is useful for accessibility, making it easier for screen readers to identify and navigate table headers.
-        -->
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Stock</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Widget A</td>
-            <td>$50</td>
-            <td>200</td>
-          </tr>
-          <tr>
-            <td>Widget B</td>
-            <td>$70</td>
-            <td>150</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <!-- Simple Table with Rowspan Example -->
+    <h2>Rowspan Example</h2>
+    <table>
+      <tr>
+        <th rowspan="2" class="header-large">Product</th>
+        <th class="header-large">Q1</th>
+        <th class="header-large">Q2</th>
+      </tr>
+      <tr>
+        <td>$100</td>
+        <td>$150</td>
+      </tr>
+      <tr>
+        <td>Item 2</td>
+        <td>$200</td>
+        <td>$250</td>
+      </tr>
+    </table>
 
-    <!-- Table with Vertical Headers -->
-    <section>
-      <h2>Vertical Table Headers</h2>
-      <table class="vertical-headers">
-        <caption>
-          Quarterly Revenue and Expense
-        </caption>
-        <tbody>
-          <tr>
-            <th>Revenue</th>
-            <td>$80K</td>
-            <td>$85K</td>
-            <td>$90K</td>
-          </tr>
-          <tr>
-            <th>Expenses</th>
-            <td>$50K</td>
-            <td>$55K</td>
-            <td>$60K</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <!-- Simple Table with Colspan Example -->
+    <h2>Colspan Example</h2>
+    <table>
+      <tr>
+        <th>Product</th>
+        <th colspan="2" class="header-large">Quarterly Revenue</th>
+      </tr>
+      <tr>
+        <td>Item 1</td>
+        <td>$100</td>
+        <td>$150</td>
+      </tr>
+      <tr>
+        <td>Item 2</td>
+        <td>$200</td>
+        <td>$250</td>
+      </tr>
+    </table>
 
-    <!-- Horizontal and Vertical Headers Combined -->
-    <section>
-      <h2>Combined Vertical and Horizontal Headers</h2>
-      <table class="combined-table">
-        <caption>
-          Quarterly Revenue and Expense
-        </caption>
-        <thead>
-          <tr>
-            <th>Metrics</th>
-            <th>Quater 1</th>
-            <th>Quater 2</th>
-            <th>Quater 3</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Revenue</th>
-            <td>$80K</td>
-            <td>$85K</td>
-            <td>$90K</td>
-          </tr>
-          <tr>
-            <th>Expenses</th>
-            <td>$50K</td>
-            <td>$55K</td>
-            <td>$60K</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <!-- Combination of Rowspan and Colspan -->
+    <h2>Combination of Rowspan and Colspan</h2>
+    <table>
+      <tr>
+        <th rowspan="2" class="header-large">Employee</th>
+        <th colspan="2" class="header-large">Sales Performance</th>
+      </tr>
+      <tr>
+        <td>Q1</td>
+        <td>Q2</td>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>$300</td>
+        <td>$500</td>
+      </tr>
+      <tr>
+        <td>Jane</td>
+        <td>$400</td>
+        <td>$600</td>
+      </tr>
+    </table>
+
+    <!-- Advanced Example: Table with Different Rowspan and Colspan -->
+    <h2>Advanced Rowspan and Colspan Example</h2>
+    <table>
+      <tr>
+        <th rowspan="2" class="header-large">Region</th>
+        <th colspan="3" class="header-large">Sales Data</th>
+      </tr>
+      <tr>
+        <td>Q1</td>
+        <td>Q2</td>
+        <td>Q3</td>
+      </tr>
+      <tr>
+        <td>North</td>
+        <td>$500</td>
+        <td>$600</td>
+        <td rowspan="2">$800</td>
+        <!-- This spans the 3rd quarter for two rows -->
+      </tr>
+      <tr>
+        <td>South</td>
+        <td>$300</td>
+        <td>$400</td>
+      </tr>
+      <tr>
+        <td>East</td>
+        <td colspan="2">$700</td>
+        <!-- This spans two quarters for Q1 and Q2 -->
+        <td>$900</td>
+      </tr>
+    </table>
   </body>
 </html>
