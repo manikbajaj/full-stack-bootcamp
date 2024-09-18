@@ -3,23 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Transitions Lecture</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Styled Form</title>
+    <link href="style.css" rel="stylesheet" />
+    <style></style>
   </head>
   <body>
-    <h1>CSS Transitions Demonstration</h1>
+    <h2>Forms with HTML and CSS</h3>
 
-    <!-- Demonstrating transition-property, duration, delay, and timing-function -->
-    <section>
-      <h2>Transition Properties Demonstration</h2>
-      <!-- Transition on background-color and width -->
-      <div class="box property-example">Hover over me!</div>
-    </section>
+    <form>
+      <div class="form-container">
+        <div class="form-column">
+          <!-- First Name -->
+          <label for="fname">First Name</label>
+          <input
+            type="text"
+            id="fname"
+            name="firstname"
+            placeholder="Your name.."
+            required
+          />
+        </div>
 
-    <!-- Demonstrating the shorthand transition property -->
-    <section>
-      <h2>Transition Shorthand Demonstration</h2>
-      <div class="box shorthand-example">Hover over me!</div>
-    </section>
+        <div class="form-column">
+          <!-- Last Name -->
+          <label for="lname">Last Name</label>
+          <input
+            type="text"
+            id="lname"
+            name="lastname"
+            placeholder="Your last name.."
+          />
+        </div>
+      </div>
+      <!-- Submit Button -->
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
   </body>
 </html>

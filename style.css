@@ -1,52 +1,69 @@
-/* General Styles */
+/* 
+  Using box-sizing: border-box; ensures that the two-column layout (with width: 48% for each column) remains consistent and doesn't break, even when padding or borders are applied to the input elements.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  margin: 20px;
 }
 
-h1,
-h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Box Styling */
-.box {
-  width: 200px;
-  height: 200px;
-  background-color: lightblue;
-  margin: 20px auto;
+/* Form layout in two columns */
+.form-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #333;
-  border: 2px solid #333;
-  cursor: pointer;
-  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #f2f2f2;
   padding: 20px;
+  border-radius: 5px;
 }
 
-/* Transition Properties Example */
-.property-example {
-  transition-property: background-color, width; /* Define which properties will transition */
-  transition-duration: 2s; /* Time the transition will take */
-  transition-delay: 1s; /* Delay before transition begins */
-  transition-timing-function: ease-in-out; /* Speed curve for the transition */
+.form-column {
+  width: 48%;
 }
 
-.property-example:hover {
-  background-color: lightcoral;
-  width: 300px;
+input,
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0 24px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-/* Transition Shorthand Example */
-.shorthand-example {
-  transition: background-color 1s ease-in-out 0.5s, width 2s ease-in; /* Using shorthand */
+/*  Hide the arrow */
+/* Not an elegant solution */
+select {
+  appearance: none;
 }
 
-.shorthand-example:hover {
-  background-color: lightgreen;
-  width: 300px;
+button {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* ! Only needed for Color Input Style */
+input[type="color"] {
+  width: 100%;
+  padding: 5px;
+  height: 40px;
+  margin-top: 5px;
+}
+
+/* ! Only needed for Checkbox and Radio */
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
 }
