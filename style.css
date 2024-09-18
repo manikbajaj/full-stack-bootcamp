@@ -11,6 +11,30 @@ th {
   padding: 8px;
 }
 
+th {
+  background-color: gray;
+  color: white;
+}
+
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+/* Adjust column widths */
+th:first-child,
+td:first-child {
+  width: 50%; /* First column with wider width */
+}
+
+th:nth-child(2),
+td:nth-child(2),
+th:nth-child(3),
+td:nth-child(3) {
+  width: 25%; /* Second and third columns with smaller width */
+}
+
+/* Adjust row height for the second row */
+tr:nth-child(2) {
+  height: 100px; /* Increases height for this row */
+  background-color: lightblue;
 }
