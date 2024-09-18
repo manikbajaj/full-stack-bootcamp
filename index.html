@@ -1,105 +1,85 @@
+<!-- 
+    ! Instructions for the Exercise:
+    TODO: In this exercise, your task is to style a complex table using HTML and CSS. You have been be provided with the HTML structure of the table, but it does not contain any classes or styles. Your goal is to achieve the same final design as provided in the below screenshot:
+
+    * Adding CSS classes to the HTML table elements.
+    * Creating a style.css file to style the table as shown in the screenshot provided.
+    
+    !Your Task:
+    * Add the missing classes to the provided HTML table structure.
+    * Write the CSS code to achieve the correct styling for the table, including:
+    * Borders for all table cells.
+    * Proper alignment and spacing for the header, rows, and columns.
+    * Adding alternating background colors for rows.
+    * Styling the table caption.
+    * Styling for the header cells to differentiate them from the content rows.
+    
+    ! Challenge:
+    * Make sure your table is responsive, meaning it should adjust properly when the screen size changes. Make sure that the final result is the same as the design provided 
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rowspan and Colspan Demonstration</title>
+    <title>Styled Complex Table</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Rowspan and Colspan in Tables</h1>
+    <!-- Final Result -->
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <h2 style="margin: 0px">View of final table</h2>
+      <img src="./images/final-table.png" />
+    </div>
+    <!-- /Final Result -->
 
-    <!-- Simple Table with Rowspan Example -->
-    <h2>Rowspan Example</h2>
     <table>
-      <tr>
-        <th rowspan="2" class="header-large">Product</th>
-        <th class="header-large">Q1</th>
-        <th class="header-large">Q2</th>
-      </tr>
-      <tr>
-        <td>$100</td>
-        <td>$150</td>
-      </tr>
-      <tr>
-        <td>Item 2</td>
-        <td>$200</td>
-        <td>$250</td>
-      </tr>
-    </table>
-
-    <!-- Simple Table with Colspan Example -->
-    <h2>Colspan Example</h2>
-    <table>
-      <tr>
-        <th>Product</th>
-        <th colspan="2" class="header-large">Quarterly Revenue</th>
-      </tr>
-      <tr>
-        <td>Item 1</td>
-        <td>$100</td>
-        <td>$150</td>
-      </tr>
-      <tr>
-        <td>Item 2</td>
-        <td>$200</td>
-        <td>$250</td>
-      </tr>
-    </table>
-
-    <!-- Combination of Rowspan and Colspan -->
-    <h2>Combination of Rowspan and Colspan</h2>
-    <table>
-      <tr>
-        <th rowspan="2" class="header-large">Employee</th>
-        <th colspan="2" class="header-large">Sales Performance</th>
-      </tr>
-      <tr>
-        <td>Q1</td>
-        <td>Q2</td>
-      </tr>
-      <tr>
-        <td>John</td>
-        <td>$300</td>
-        <td>$500</td>
-      </tr>
-      <tr>
-        <td>Jane</td>
-        <td>$400</td>
-        <td>$600</td>
-      </tr>
-    </table>
-
-    <!-- Advanced Example: Table with Different Rowspan and Colspan -->
-    <h2>Advanced Rowspan and Colspan Example</h2>
-    <table>
-      <tr>
-        <th rowspan="2" class="header-large">Region</th>
-        <th colspan="3" class="header-large">Sales Data</th>
-      </tr>
-      <tr>
-        <td>Q1</td>
-        <td>Q2</td>
-        <td>Q3</td>
-      </tr>
-      <tr>
-        <td>North</td>
-        <td>$500</td>
-        <td>$600</td>
-        <td rowspan="2">$800</td>
-        <!-- This spans the 3rd quarter for two rows -->
-      </tr>
-      <tr>
-        <td>South</td>
-        <td>$300</td>
-        <td>$400</td>
-      </tr>
-      <tr>
-        <td>East</td>
-        <td colspan="2">$700</td>
-        <!-- This spans two quarters for Q1 and Q2 -->
-        <td>$900</td>
-      </tr>
+      <caption>
+        Company Sales Report
+      </caption>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quarter 1</th>
+          <th>Quarter 2</th>
+          <th>Quarter 3</th>
+          <th>Quarter 4</th>
+          <th>Total Sales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Product A</td>
+          <td>$1200</td>
+          <td>$1350</td>
+          <td>$1420</td>
+          <td>$1550</td>
+          <td>$5520</td>
+        </tr>
+        <tr>
+          <td>Product B</td>
+          <td>$900</td>
+          <td>$1100</td>
+          <td>$1050</td>
+          <td>$1250</td>
+          <td>$4300</td>
+        </tr>
+        <tr>
+          <td>Product C</td>
+          <td>$1400</td>
+          <td>$1450</td>
+          <td>$1500</td>
+          <td>$1600</td>
+          <td>$5950</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Grand Total Sales</td>
+          <td>$15,770</td>
+        </tr>
+      </tfoot>
     </table>
   </body>
 </html>
