@@ -12,8 +12,10 @@ let car = {
   model: "7 Series",
   color: "White",
   make: 2024,
+  "car owner": "John", // Dont do this
 };
 
 // Now each property of the car can be accessed using the car Object or group
 console.log("Car Model:", car.model);
-console.log("Car Brand:", car["brand"]);
+console.log("Car Brand:", car.brand);
+console.log("Car Brand:", car["car owner"]);
