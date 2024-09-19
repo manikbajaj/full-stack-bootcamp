@@ -2,45 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>JavaScript Variables Lecture</title>
+    <title>JavaScript: Null and Undefined</title>
   </head>
   <body>
     <script>
-      // String: a sequence of characters (text)
-      // String values are always between quotes
-      // Double quotes and single qoutes mean the same thing
-      let myName = "John Doe";
-      let greeting = "Hello";
+      // 1. Undefined
+      // Declaring a variable without initializing it gives the value 'undefined'.
+      let unassignedVariable;
+      console.log("Unassigned variable:", unassignedVariable); // Output: undefined
 
-      // Displaying the string values
-      console.log(myName); // Output: John Doe
-      console.log(greeting); // Output: Hello
+      // 2. Null
+      // Null is explicitly assigned to a variable to indicate "no value".
+      let emptyVariable = null;
+      console.log("Empty variable:", emptyVariable); // Output: null
 
-      // String concatenation (combining strings)
-      let fullGreeting = greeting + " " + myName + ".";
-      console.log(fullGreeting); // Output: Hello, John Doe.
+      // 3. Key Difference: Null vs Undefined
+      console.log("Type of undefined:", typeof unassignedVariable); // Output: 'undefined'
+      console.log("Type of null:", typeof emptyVariable); // Output: 'object' (this is a quirk in JavaScript)
 
-      // Number: represents numeric values
-      let age = 25;
-      let price = 19.99;
+      // 4. Reassigning Undefined
+      // Undefined is automatically assigned when a variable is declared but not initialized.
+      let example;
+      console.log("Initially:", example); // Output: undefined
 
-      // Displaying number values
-      console.log(age); // Output: 25
-      console.log(price); // Output: 19.99
+      example = 5; // Now assigning a value
+      console.log("After assigning a value:", example); // Output: 5
 
-      // Arithmetic operations with numbers
-      let totalCost = price * 3; // Multiply price by 3
-      let discount = price / 2;
-      console.log(totalCost); // Output: 59.97
-      console.log(discount);
+      // 5. Reassigning Null
+      // Null must be explicitly assigned to a variable. It means "nothing" or "empty".
+      let person = null; // No person initially
+      console.log("Person initially:", person); // Output: null
 
-      // Boolean: represents true or false values
-      let isStudent = true;
-      let isTeacher = false;
-
-      // Displaying boolean values
-      console.log(isStudent); // Output: true
-      console.log(isTeacher); // Output: false
+      person = "John"; // Later assigning a value
+      console.log("Person after assignment:", person); // Output: John
     </script>
   </body>
 </html>
