@@ -6,39 +6,51 @@
   </head>
   <body>
     <script>
-      // 1. Simple Assignment (=)
-      let x = 10;
-      console.log("Assigned value: x =", x); // Output: 10
+      // 1. Equal (==)
+      let num1 = 10;
+      let str1 = "10";
+      console.log("Equal (==):", num1 == str1); // Output: true (compares value, not type)
 
-      // 2. Add and Assign (+=)
-      let a = 5;
-      a += 3; // Equivalent to a = a + 3
-      console.log("After 'a += 3', a =", a); // Output: 8
+      // 2. Strict Equal (===)
+      console.log("Strict Equal (===):", num1 === str1); // Output: false (compares value and type)
 
-      // 3. Subtract and Assign (-=)
-      let b = 12;
-      b -= 7; // Equivalent to b = b - 7
-      console.log("After 'b -= 7', b =", b); // Output: 5
+      // 3. Not Equal (!=)
+      let num2 = 5;
+      let str2 = "5";
+      console.log("Not Equal (!=):", num2 != str2); // Output: false (compares value, not type)
 
-      // 4. Multiply and Assign (*=)
-      let c = 4;
-      c *= 2; // Equivalent to c = c * 2
-      console.log("After 'c *= 2', c =", c); // Output: 8
+      // 4. Strict Not Equal (!==)
+      console.log("Strict Not Equal (!==):", num2 !== str2); // Output: true (compares value and type)
 
-      // 5. Divide and Assign (/=)
-      let d = 20;
-      d /= 4; // Equivalent to d = d / 4
-      console.log("After 'd /= 4', d =", d); // Output: 5
+      // 5. Greater Than (>)
+      let age1 = 25;
+      let age2 = 18;
+      console.log("Greater Than (>):", age1 > age2); // Output: true
 
-      // 6. Modulus and Assign (%=)
-      let e = 17;
-      e %= 3; // Equivalent to e = e % 3
-      console.log("After 'e %= 3', e =", e); // Output: 2
+      // 6. Greater Than or Equal (>=)
+      let score1 = 80;
+      let score2 = 80;
+      console.log("Greater Than or Equal (>=):", score1 >= score2); // Output: true
 
-      // 7. Exponentiation and Assign (**=)
-      let f = 5;
-      f **= 2; // Equivalent to f = f ** 2
-      console.log("After 'f **= 2', f =", f); // Output: 25
+      // 7. Less Than (<)
+      let temp1 = 15;
+      let temp2 = 30;
+      console.log("Less Than (<):", temp1 < temp2); // Output: true
+
+      // 8. Less Than or Equal (<=)
+      let num3 = 50;
+      let num4 = 100;
+      console.log("Less Than or Equal (<=):", num3 <= num4); // Output: true
+
+      // 9. Compare different data types
+      console.log("Compare number and string:", 100 == "100"); // Output: true
+      console.log("Strict compare number and string:", 100 === "100"); // Output: false
+
+      // 10. Compare booleans
+      let isTrue = true;
+      let isFalse = false;
+      console.log("Boolean comparison (true == 1):", isTrue == 1); // Output: true
+      console.log("Boolean comparison (false == 0):", isFalse == 0); // Output: true
     </script>
   </body>
 </html>
