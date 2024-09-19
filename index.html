@@ -2,45 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>JavaScript: Null and Undefined</title>
+    <title>Arithmetic Operators</title>
   </head>
   <body>
     <script>
-      // Introduction to BigInt
+      // 1. Addition (+)
+      let sum = 5 + 3;
+      console.log("5 + 3 =", sum); // Output: 8
 
-      // Show the maximum safe integer in JavaScript using Number.MAX_SAFE_INTEGER
-      let maxInteger = Number.MAX_SAFE_INTEGER;
-      console.log("Max Safe Integer in JavaScript:", maxInteger); // Output: 9007199254740991
+      // 2. Subtraction (-)
+      let difference = 10 - 6;
+      console.log("10 - 6 =", difference); // Output: 4
 
-      // Trying to add to the max safe integer
-      let incorrectSum = maxInteger + 1;
-      console.log("Incorrect Sum:", incorrectSum); // Output: 9007199254740992 (seems correct, but let's go further)
+      // 3. Multiplication (*)
+      let product = 7 * 4;
+      console.log("7 * 4 =", product); // Output: 28
 
-      // Now adding another 1 to the result
-      let furtherIncorrectSum = maxInteger + 2;
-      console.log("Further Incorrect Sum:", furtherIncorrectSum); // Output: 9007199254740992 (Oops! Same result as before!)
+      // 4. Division (/)
+      let quotient = 20 / 5;
+      console.log("20 / 5 =", quotient); // Output: 4
 
-      // Introducing BigInt for very large numbers
-      let bigInteger = BigInt(maxInteger) + 2n; // Using 'n' to denote a BigInt
-      console.log("Accurate Sum with BigInt:", bigInteger); // Output: 9007199254740993n (correct!)
+      // 5. Modulus (%)
+      let num1 = 15;
+      let num2 = 4;
+      let remainder = num1 % num2;
+      console.log(`${num1} % ${num2} =`, remainder); // Output: 3
 
-      // Conclusion: BigInt is needed to work with integers larger than Number.MAX_SAFE_INTEGER
+      // 6. Exponentiation (**)
+      let base = 2;
+      let exponent = 3;
+      let power = base ** exponent;
+      console.log(`${base} ** ${exponent} =`, power); // Output: 8
 
-      // Introduction to Symbol
+      // 7. Increment (++)
+      let incrementValue = 5;
+      incrementValue++; // Increases the value by 1
+      console.log("Increment 5 by 1 =", incrementValue); // Output: 6
 
-      // Creating a basic Symbol
-      let symbol1 = Symbol();
-      console.log("Symbol1:", symbol1); // Output: Symbol()
-
-      // Symbols are unique, even if they have the same description
-      let symbol2 = Symbol("description");
-      let symbol3 = Symbol("description");
-
-      console.log("Symbol2:", symbol2); // Output: Symbol(description)
-      console.log("Symbol3:", symbol3); // Output: Symbol(description)
-
-      // Comparing two symbols with the same description
-      console.log("Are symbol2 and symbol3 equal?", symbol2 === symbol3); // Output: false (each Symbol is unique!)
+      // 8. Decrement (--)
+      let decrementValue = 5;
+      decrementValue--; // Decreases the value by 1
+      console.log("Decrement 5 by 1 =", decrementValue); // Output: 4
     </script>
   </body>
 </html>
