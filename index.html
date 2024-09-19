@@ -6,43 +6,39 @@
   </head>
   <body>
     <script>
-      // 1. Addition (+)
-      let sum = 5 + 3;
-      console.log("5 + 3 =", sum); // Output: 8
+      // 1. Simple Assignment (=)
+      let x = 10;
+      console.log("Assigned value: x =", x); // Output: 10
 
-      // 2. Subtraction (-)
-      let difference = 10 - 6;
-      console.log("10 - 6 =", difference); // Output: 4
+      // 2. Add and Assign (+=)
+      let a = 5;
+      a += 3; // Equivalent to a = a + 3
+      console.log("After 'a += 3', a =", a); // Output: 8
 
-      // 3. Multiplication (*)
-      let product = 7 * 4;
-      console.log("7 * 4 =", product); // Output: 28
+      // 3. Subtract and Assign (-=)
+      let b = 12;
+      b -= 7; // Equivalent to b = b - 7
+      console.log("After 'b -= 7', b =", b); // Output: 5
 
-      // 4. Division (/)
-      let quotient = 20 / 5;
-      console.log("20 / 5 =", quotient); // Output: 4
+      // 4. Multiply and Assign (*=)
+      let c = 4;
+      c *= 2; // Equivalent to c = c * 2
+      console.log("After 'c *= 2', c =", c); // Output: 8
 
-      // 5. Modulus (%)
-      let num1 = 15;
-      let num2 = 4;
-      let remainder = num1 % num2;
-      console.log(`${num1} % ${num2} =`, remainder); // Output: 3
+      // 5. Divide and Assign (/=)
+      let d = 20;
+      d /= 4; // Equivalent to d = d / 4
+      console.log("After 'd /= 4', d =", d); // Output: 5
 
-      // 6. Exponentiation (**)
-      let base = 2;
-      let exponent = 3;
-      let power = base ** exponent;
-      console.log(`${base} ** ${exponent} =`, power); // Output: 8
+      // 6. Modulus and Assign (%=)
+      let e = 17;
+      e %= 3; // Equivalent to e = e % 3
+      console.log("After 'e %= 3', e =", e); // Output: 2
 
-      // 7. Increment (++)
-      let incrementValue = 5;
-      incrementValue++; // Increases the value by 1
-      console.log("Increment 5 by 1 =", incrementValue); // Output: 6
-
-      // 8. Decrement (--)
-      let decrementValue = 5;
-      decrementValue--; // Decreases the value by 1
-      console.log("Decrement 5 by 1 =", decrementValue); // Output: 4
+      // 7. Exponentiation and Assign (**=)
+      let f = 5;
+      f **= 2; // Equivalent to f = f ** 2
+      console.log("After 'f **= 2', f =", f); // Output: 25
     </script>
   </body>
 </html>
