@@ -6,38 +6,41 @@
   </head>
   <body>
     <script>
-      // 1. Undefined
-      // Declaring a variable without initializing it gives the value 'undefined'.
-      let unassignedVariable;
-      console.log("Unassigned variable:", unassignedVariable); // Output: undefined
+      // Introduction to BigInt
 
-      // 2. Null
-      // Null is explicitly assigned to a variable to indicate "no value".
-      let emptyVariable = null;
-      console.log("Empty variable:", emptyVariable); // Output: null
+      // Show the maximum safe integer in JavaScript using Number.MAX_SAFE_INTEGER
+      let maxInteger = Number.MAX_SAFE_INTEGER;
+      console.log("Max Safe Integer in JavaScript:", maxInteger); // Output: 9007199254740991
 
-      // 3. Key Difference: Null vs Undefined
-      console.log("Type of undefined:", typeof unassignedVariable); // Output: 'undefined'
-      /**
-       * In JavaScript, the output of typeof null returns 'object' due to a historical quirk in the language. When JavaScript was first created, values were stored as binary data, and the type tag for objects was 0. However, null was also given the same type tag, meaning it was accidentally classified as an object. Although this is recognized as an error, it has been left unchanged to maintain backward compatibility with older code.
-       */
-      console.log("Type of null:", typeof emptyVariable); // Output: 'object' (this is a quirk in JavaScript)
+      // Trying to add to the max safe integer
+      let incorrectSum = maxInteger + 1;
+      console.log("Incorrect Sum:", incorrectSum); // Output: 9007199254740992 (seems correct, but let's go further)
 
-      // 4. Reassigning Undefined
-      // Undefined is automatically assigned when a variable is declared but not initialized.
-      let example;
-      console.log("Initially:", example); // Output: undefined
+      // Now adding another 1 to the result
+      let furtherIncorrectSum = maxInteger + 2;
+      console.log("Further Incorrect Sum:", furtherIncorrectSum); // Output: 9007199254740992 (Oops! Same result as before!)
 
-      example = 5; // Now assigning a value
-      console.log("After assigning a value:", example); // Output: 5
+      // Introducing BigInt for very large numbers
+      let bigInteger = BigInt(maxInteger) + 2n; // Using 'n' to denote a BigInt
+      console.log("Accurate Sum with BigInt:", bigInteger); // Output: 9007199254740993n (correct!)
 
-      // 5. Reassigning Null
-      // Null must be explicitly assigned to a variable. It means "nothing" or "empty".
-      let person = null; // No person initially
-      console.log("Person initially:", person); // Output: null
+      // Conclusion: BigInt is needed to work with integers larger than Number.MAX_SAFE_INTEGER
 
-      person = "John"; // Later assigning a value
-      console.log("Person after assignment:", person); // Output: John
+      // Introduction to Symbol
+
+      // Creating a basic Symbol
+      let symbol1 = Symbol();
+      console.log("Symbol1:", symbol1); // Output: Symbol()
+
+      // Symbols are unique, even if they have the same description
+      let symbol2 = Symbol("description");
+      let symbol3 = Symbol("description");
+
+      console.log("Symbol2:", symbol2); // Output: Symbol(description)
+      console.log("Symbol3:", symbol3); // Output: Symbol(description)
+
+      // Comparing two symbols with the same description
+      console.log("Are symbol2 and symbol3 equal?", symbol2 === symbol3); // Output: false (each Symbol is unique!)
     </script>
   </body>
 </html>
