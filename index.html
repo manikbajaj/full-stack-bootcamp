@@ -18,6 +18,9 @@
 
       // 3. Key Difference: Null vs Undefined
       console.log("Type of undefined:", typeof unassignedVariable); // Output: 'undefined'
+      /**
+       * In JavaScript, the output of typeof null returns 'object' due to a historical quirk in the language. When JavaScript was first created, values were stored as binary data, and the type tag for objects was 0. However, null was also given the same type tag, meaning it was accidentally classified as an object. Although this is recognized as an error, it has been left unchanged to maintain backward compatibility with older code.
+       */
       console.log("Type of null:", typeof emptyVariable); // Output: 'object' (this is a quirk in JavaScript)
 
       // 4. Reassigning Undefined
