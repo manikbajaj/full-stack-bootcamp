@@ -1,32 +1,29 @@
-// Example of defininig all the properties of a car
-let carBrand = "BMW";
-let carModel = "7 Series";
-let carColor = "White";
-let carMake = 2024;
-
-// All these properties belong to the same entity Car
-// Types of cars will probably have all these properties
-// There is a way to group all these properties of a Car into a single group or object called Car
+// Initial object
 let car = {
   brand: "BMW",
   model: "7 Series",
   color: "White",
   make: 2024,
-  "car owner": "John",
 };
 
-// Now each property of the car can be accessed using the car Object or group
-console.log("Car Model:", car.model);
-console.log("Car Brand:", car.brand);
-console.log("Car Owner:", car["car owner"]);
+console.log("Original car object:", car);
 
-// Creating a car object using the new Object constructor
-let audi = new Object();
-audi.brand = "Audi";
-audi.model = "A7";
-audi.color = "black";
-audi.make = 2024;
-audi["car owner"] = "mark";
+// Mutability Example: Modifying the object directly
+let carCopy = car; // carCopy holds a reference to the same object
+carCopy.color = "Red"; // Changing color through carCopy also affects car
 
-console.log("Audi Color:", audi.color);
-console.log("Audi Owner:", audi["car owner"]);
+console.log("Modified carCopy object:", carCopy);
+console.log("Original car object after modification:", car);
+
+// Explanation of the problem: Both variables point to the same object, so modifying one affects the other.
+// This can lead to unintended consequences if multiple parts of the code rely on the same object.
+
+// Solution to Avoid Unwanted Mutations: Create a copy of the object
+let newCar = { ...car }; // Shallow copy using spread operator
+console.log("newcar object:", newCar);
+newCar.color = "Blue"; // This change won't affect the original car object
+
+console.log("New car object:", newCar);
+console.log("Original car object remains unchanged:", car);
+
+// The spread operator does not work for nested objects but we will look at that when we encounter such objects in future
