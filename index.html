@@ -11,6 +11,9 @@
       // Double quotes and single qoutes mean the same thing
       let myName = "John Doe";
       let greeting = "Hello";
+      // Since this is inside double quotes this will be treated like a string by javaScript you cannot perform numerical operations on this
+      let numberString = "1234";
+      let anotherString = "1";
 
       // Displaying the string values
       console.log(myName); // Output: John Doe
@@ -20,12 +23,16 @@
       let fullGreeting = greeting + " " + myName + ".";
       console.log(fullGreeting); // Output: Hello, John Doe.
 
+      // Trying to add numbers strings
+      console.log(typeof numberString);
+      console.log(numberString + anotherString);
+
       // Number: represents numeric values
       let age = 25;
       let price = 19.99;
 
       // Displaying number values
-      console.log(age); // Output: 25
+      console.log(typeof age); // Output: 25
       console.log(price); // Output: 19.99
 
       // Arithmetic operations with numbers
@@ -39,7 +46,7 @@
       let isTeacher = false;
 
       // Displaying boolean values
-      console.log(isStudent); // Output: true
+      console.log(typeof isStudent); // Output: true
       console.log(isTeacher); // Output: false
     </script>
   </body>
