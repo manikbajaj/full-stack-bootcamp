@@ -2,57 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Styled Complex Table</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>JavaScript Variables Lecture</title>
   </head>
   <body>
-    <table class="styled-table">
-      <caption class="table-caption">
-        Company Sales Report
-      </caption>
-      <thead>
-        <tr>
-          <th class="header">Product</th>
-          <th class="header">Quarter 1</th>
-          <th class="header">Quarter 2</th>
-          <th class="header">Quarter 3</th>
-          <th class="header">Quarter 4</th>
-          <th class="header">Total Sales</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="row">
-          <td class="cell">Product A</td>
-          <td class="cell">$1200</td>
-          <td class="cell">$1350</td>
-          <td class="cell">$1420</td>
-          <td class="cell">$1550</td>
-          <td class="total">$5520</td>
-        </tr>
-        <tr class="row alternate-row">
-          <td class="cell">Product B</td>
-          <td class="cell">$900</td>
-          <td class="cell">$1100</td>
-          <td class="cell">$1050</td>
-          <td class="cell">$1250</td>
-          <td class="total">$4300</td>
-        </tr>
-        <tr class="row">
-          <td class="cell">Product C</td>
-          <td class="cell">$1400</td>
-          <td class="cell">$1450</td>
-          <td class="cell">$1500</td>
-          <td class="cell">$1600</td>
-          <td class="total">$5950</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td class="footer" colspan="5">Grand Total Sales</td>
-          <td class="footer total">$15,770</td>
-        </tr>
-      </tfoot>
-    </table>
+    <script>
+      /*
+        Block Level comments in JavaScript
+        Can contain multiple lines
+       */
+      // var allows redeclaration and reassignment
+      var name;
+
+      /** ! assigninment operator is = */
+      var name = "John";
+      name = "Alice"; // Reassigning value
+      console.log(name);
+
+      //  Redeclaration within same scope is possible
+      var name = "Mark";
+      console.log(name);
+
+      // let allows reassignment but not redeclaration in the same scope
+      let _age = 25;
+      _age = 30; // Reassigning value
+      console.log(_age);
+
+      // Redeclaration of the varibale with let keyword within same scope is not possible
+      // This will give error
+      // let _age = 40;
+
+      // variables can contain digits as well
+      let variable10 = 10;
+
+      // Variable names are case sensitive
+      // COUNTRY is different from country
+      const COUNTRY = "USA";
+      //  Script will error over here
+      COUNTRY = "Canada";
+      console.log(COUNTRY);
+    </script>
   </body>
 </html>
