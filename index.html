@@ -6,40 +6,41 @@
   </head>
   <body>
     <script>
-      /*
-        Block Level comments in JavaScript
-        Can contain multiple lines
-       */
-      // var allows redeclaration and reassignment
-      var name;
+      // String: a sequence of characters (text)
+      // String values are always between quotes
+      // Double quotes and single qoutes mean the same thing
+      let myName = "John Doe";
+      let greeting = "Hello";
 
-      /** ! assigninment operator is = */
-      var name = "John";
-      name = "Alice"; // Reassigning value
-      console.log(name);
+      // Displaying the string values
+      console.log(myName); // Output: John Doe
+      console.log(greeting); // Output: Hello
 
-      //  Redeclaration within same scope is possible
-      var name = "Mark";
-      console.log(name);
+      // String concatenation (combining strings)
+      let fullGreeting = greeting + " " + myName + ".";
+      console.log(fullGreeting); // Output: Hello, John Doe.
 
-      // let allows reassignment but not redeclaration in the same scope
-      let _age = 25;
-      _age = 30; // Reassigning value
-      console.log(_age);
+      // Number: represents numeric values
+      let age = 25;
+      let price = 19.99;
 
-      // Redeclaration of the varibale with let keyword within same scope is not possible
-      // This will give error
-      // let _age = 40;
+      // Displaying number values
+      console.log(age); // Output: 25
+      console.log(price); // Output: 19.99
 
-      // variables can contain digits as well
-      let variable10 = 10;
+      // Arithmetic operations with numbers
+      let totalCost = price * 3; // Multiply price by 3
+      let discount = price / 2;
+      console.log(totalCost); // Output: 59.97
+      console.log(discount);
 
-      // Variable names are case sensitive
-      // COUNTRY is different from country
-      const COUNTRY = "USA";
-      //  Script will error over here
-      COUNTRY = "Canada";
-      console.log(COUNTRY);
+      // Boolean: represents true or false values
+      let isStudent = true;
+      let isTeacher = false;
+
+      // Displaying boolean values
+      console.log(isStudent); // Output: true
+      console.log(isTeacher); // Output: false
     </script>
   </body>
 </html>
