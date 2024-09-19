@@ -2,55 +2,83 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Arithmetic Operators</title>
+    <title>Logical Operators in JavaScript</title>
   </head>
   <body>
     <script>
-      // 1. Equal (==)
-      let num1 = 10;
-      let str1 = "10";
-      console.log("Equal (==):", num1 == str1); // Output: true (compares value, not type)
+      // Example 1: Simple If Statement
+      let age = 20;
+      if (age >= 18) {
+        console.log("You are eligible to vote.");
+      }
 
-      // 2. Strict Equal (===)
-      console.log("Strict Equal (===):", num1 === str1); // Output: false (compares value and type)
+      // Example 2: If-Else Statement
+      let temperature = 15;
+      if (temperature > 30) {
+        console.log("It's a hot day.");
+      } else {
+        console.log("It's not that hot today.");
+      }
 
-      // 3. Not Equal (!=)
-      let num2 = 5;
-      let str2 = "5";
-      console.log("Not Equal (!=):", num2 != str2); // Output: false (compares value, not type)
+      // Example 3: If-Else with Multiple Conditions (Else If)
+      let score = 75;
+      if (score >= 90) {
+        console.log("Grade: A");
+      } else if (score >= 80) {
+        console.log("Grade: B");
+      } else if (score >= 70) {
+        console.log("Grade: C");
+      } else {
+        console.log("Grade: D");
+      }
 
-      // 4. Strict Not Equal (!==)
-      console.log("Strict Not Equal (!==):", num2 !== str2); // Output: true (compares value and type)
+      // Example 4: Nested If Statements
+      let isWeekend = true;
+      let isSunny = false;
+      if (isWeekend) {
+        if (isSunny) {
+          console.log("Let's go for a picnic!");
+        } else {
+          console.log("Let's stay inside and watch a movie.");
+        }
+      } else {
+        console.log("It's a weekday, time for work.");
+      }
 
-      // 5. Greater Than (>)
-      let age1 = 25;
-      let age2 = 18;
-      console.log("Greater Than (>):", age1 > age2); // Output: true
+      // Example 5: Using Boolean Variables in If-Else
+      let isMember = true;
+      let hasCoupon = false;
+      if (isMember || hasCoupon) {
+        console.log("You get a discount!");
+      } else {
+        console.log("No discount available.");
+      }
 
-      // 6. Greater Than or Equal (>=)
-      let score1 = 80;
-      let score2 = 80;
-      console.log("Greater Than or Equal (>=):", score1 >= score2); // Output: true
+      // Example 6: Comparing Multiple Conditions
+      let time = 10;
+      if (time < 12) {
+        console.log("Good morning!");
+      } else if (time < 18) {
+        console.log("Good afternoon!");
+      } else {
+        console.log("Good evening!");
+      }
 
-      // 7. Less Than (<)
-      let temp1 = 15;
-      let temp2 = 30;
-      console.log("Less Than (<):", temp1 < temp2); // Output: true
+      // Example 7: Checking for Equality
+      let username = "admin";
+      if (username === "admin") {
+        console.log("Welcome, Admin!");
+      } else {
+        console.log("Welcome, User!");
+      }
 
-      // 8. Less Than or Equal (<=)
-      let num3 = 50;
-      let num4 = 100;
-      console.log("Less Than or Equal (<=):", num3 <= num4); // Output: true
-
-      // 9. Compare different data types
-      console.log("Compare number and string:", 100 == "100"); // Output: true
-      console.log("Strict compare number and string:", 100 === "100"); // Output: false
-
-      // 10. Compare booleans
-      let isTrue = true;
-      let isFalse = false;
-      console.log("Boolean comparison (true == 1):", isTrue == 1); // Output: true
-      console.log("Boolean comparison (false == 0):", isFalse == 0); // Output: true
+      // Example 8: If-Else with Numbers
+      let number = 7;
+      if (number % 2 === 0) {
+        console.log(number + " is an even number.");
+      } else {
+        console.log(number + " is an odd number.");
+      }
     </script>
   </body>
 </html>
