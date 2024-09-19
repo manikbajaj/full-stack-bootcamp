@@ -12,8 +12,21 @@ let car = {
   model: "7 Series",
   color: "White",
   make: 2024,
+  "car owner": "John",
 };
 
 // Now each property of the car can be accessed using the car Object or group
 console.log("Car Model:", car.model);
-console.log("Car Brand:", car["brand"]);
+console.log("Car Brand:", car.brand);
+console.log("Car Owner:", car["car owner"]);
+
+// Creating a car object using the new Object constructor
+let audi = new Object();
+audi.brand = "Audi";
+audi.model = "A7";
+audi.color = "black";
+audi.make = 2024;
+audi["car owner"] = "mark";
+
+console.log("Audi Color:", audi.color);
+console.log("Audi Owner:", audi["car owner"]);
