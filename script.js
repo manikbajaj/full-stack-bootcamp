@@ -1,95 +1,65 @@
-// Lecture on the JavaScript 'for' loop
+// Lecture on JavaScript 'for...in' Loop
 
-// Example 1: Basic 'for' loop structure
-// A basic loop that prints numbers from 1 to 5.
-for (let i = 1; i <= 5; i++) {
-  console.log("Iteration", i);
+// Example 1: Using 'for...in' to loop through an object
+let car = {
+  brand: "BMW",
+  model: "7 Series",
+  color: "White",
+  year: 2024,
+};
+
+// Loop through the car object
+for (let property in car) {
+  console.log(property + ": " + car[property]);
 }
-// Output: 1 2 3 4 5
+// Output:
+// brand: BMW
+// model: 7 Series
+// color: White
+// year: 2024
 
 // Explanation:
-// - The 'for' loop consists of three parts inside parentheses:
-//   1. **Initialization**: `let i = 1;` sets the starting value.
-//   2. **Condition**: `i <= 5;` checks if the loop should continue.
-//   3. **Final Expression**: `i++` increments the counter after every iteration.
+// - The 'for...in' loop iterates over the properties of the car object.
+// - 'property' is a variable that holds the name of each property in the object.
+// - We use bracket notation to access the property value (`car[property]`).
 
-// Example 2: Looping through an array
+// Example 2: Using 'for...in' with an array
 let fruits = ["Apple", "Banana", "Orange", "Mango"];
-for (let i = 0; i < fruits.length; i++) {
-  console.log(fruits[i]);
+
+// Loop through the fruits array
+for (let index in fruits) {
+  console.log("Index " + index + ": " + fruits[index]);
 }
-// Output: "Apple" "Banana" "Orange" "Mango"
+// Output:
+// Index 0: Apple
+// Index 1: Banana
+// Index 2: Orange
+// Index 3: Mango
 
 // Explanation:
-// - `fruits.length` is used to ensure the loop runs through each item in the array.
-// - `i` serves as the index to access array elements within the loop.
+// - The 'for...in' loop iterates over the indices of the array.
+// - 'index' is a variable that holds each index of the array.
+// - We use the index to access each element in the array (`fruits[index]`).
 
-// Example 3: Using 'for' to sum numbers
-let sum = 0;
-for (let i = 1; i <= 10; i++) {
-  sum += i;
+// Example 3: Demonstrating the potential issue with 'for...in' for arrays
+let mixedArray = ["Hello", 25, true, null, { name: "John" }];
+
+// Add a custom property to the array (not common in practice)
+mixedArray.customProperty = "I am a custom property";
+
+// Loop through the mixedArray
+for (let key in mixedArray) {
+  console.log(key + ": " + mixedArray[key]);
 }
-console.log("Sum from 1 to 10:", sum);
-// Output: Sum from 1 to 10: 55
+// Output:
+// 0: Hello
+// 1: 25
+// 2: true
+// 3: null
+// 4: [object Object]
+// customProperty: I am a custom property
 
 // Explanation:
-// - The loop iterates from 1 to 10, adding each number to the 'sum' variable.
-// - This example showcases how loops can be used for calculation tasks.
-
-// Example 4: Loop with a break statement
-// Loop through numbers and stop when you find the number 3.
-for (let i = 1; i <= 5; i++) {
-  if (i === 3) {
-    console.log("Stopping at 3");
-    break;
-  }
-  console.log(i);
-}
-// Output: 1 2 "Stopping at 3"
-
-// Explanation:
-// - The `break` statement exits the loop when the condition `i === 3` is met.
-// - This helps to control when to stop a loop early.
-
-// Example 5: Loop with continue statement
-// Loop through numbers and skip the number 3.
-for (let i = 1; i <= 5; i++) {
-  if (i === 3) {
-    console.log("Skipping 3");
-    continue;
-  }
-  console.log(i);
-}
-// Output: 1 2 "Skipping 3" 4 5
-
-// Explanation:
-// - The `continue` statement skips the current iteration and moves to the next one.
-// - This allows for selective skipping of certain values within a loop.
-
-// Example 6: Nested 'for' loop
-// Loop through a matrix (2D array).
-let matrix = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
-for (let row = 0; row < matrix.length; row++) {
-  for (let col = 0; col < matrix[row].length; col++) {
-    console.log("Matrix Value:", matrix[row][col]);
-  }
-}
-// Output: Matrix Values: 1 2 3 4 5 6 7 8 9
-
-// Explanation:
-// - A nested loop is used to loop through each row and column of the matrix.
-// - The outer loop iterates through rows, while the inner loop iterates through columns.
-
-// Example 7: Decrementing Loop
-// Loop backward from 5 to 1.
-for (let i = 5; i >= 1; i--) {
-  console.log("Decrementing:", i);
-}
-// Output: 5 4 3 2 1
-
-// Explanation:
-// - The loop decrements `i--` on each iteration until the condition `i >= 1` is false.
+// - 'for...in' loops over both indices and any added properties in an array.
+// - In this example, 'customProperty' is also included in the loop, which is usually undesirable for arrays.
+// - That's why it's safer to use 'for...of' or other array-specific methods for arrays.
