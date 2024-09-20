@@ -1,67 +1,55 @@
-// Introduction to Maps in JavaScript
+// Lecture: JavaScript Sets
 
-// A Map is a collection of key-value pairs where both the keys and the values can be of any type.
-// Unlike objects, Maps allow keys to be objects, functions, or any primitive values.
+// Introduction to Sets
+// A Set is a collection of unique values in JavaScript.
+// Unlike arrays, Sets do not allow duplicate elements, and values are stored in insertion order.
 
-/* 
-Creating a new Map:
-You can create a new Map using the Map constructor.
-*/
+let mySet = new Set();
 
-let myMap = new Map(); // Creating an empty Map
-console.log(myMap); // Output: Map(0) {}
+// Adding Values to a Set
+// You can add values to a Set using the add() method.
 
-// Adding key-value pairs to a Map using the set() method
-myMap.set("name", "John"); // A string key
-myMap.set(123, "Number as key"); // A number as a key
-myMap.set(true, "Boolean as key"); // A boolean as a key
+mySet.add(1); // Adding a number
+mySet.add(5); // Adding another number
+mySet.add(1); // This won't be added, as Sets do not allow duplicates
+mySet.add("Hello"); // Adding a string
 
-//  Setting an object as a key to map
-let car = { brand: "BMW", model: "7 Series" };
-myMap.set(car, "Luxury Car"); // An object as a key
+console.log(mySet); // Output: Set { 1, 5, 'Hello' }
 
-/* 
-Output: 
-Map(4) {
-  'name' => 'John',
-  123 => 'Number as key',
-  true => 'Boolean as key',
-  { key: 'value' } => 'Object as key'
-}
-*/
+// Checking the Size of a Set
+// You can check how many unique values are in a Set using the size property.
 
-// Accessing values in a Map using the get() method
-console.log(myMap.get("name")); // Output: John
-console.log(myMap.get(123)); // Output: Number as key
-console.log(myMap.get(true)); // Output: Boolean as key
-console.log(myMap.get(car)); // Output: Boolean as key
+console.log(mySet.size); // Output: 3 (Only unique values are counted)
 
-// Check if a key exists in the Map using the has() method
-console.log(myMap.has("name")); // Output: true
-console.log(myMap.has("age")); // Output: false
+// Checking if a Value Exists in a Set
+// Use the has() method to check whether a value exists in the Set.
 
-// Removing a key-value pair from the Map using the delete() method
-myMap.delete(123);
-console.log(myMap);
-/* 
-Output:
-Map(3) {
-  'name' => 'John',
-  true => 'Boolean as key',
-  { key: 'value' } => 'Object as key'
-}
-*/
+console.log(mySet.has(5)); // Output: true (5 is in the Set)
+console.log(mySet.has(10)); // Output: false (10 is not in the Set)
 
-// Checking the size of the Map using the size property
-console.log(myMap.size); // Output: 3
+// Removing Values from a Set
+// You can remove values from a Set using the delete() method.
 
-// Clearing all key-value pairs from the Map using the clear() method
-myMap.clear();
-console.log(myMap); // Output: Map(0) {}
+mySet.delete(5); // Remove the number 5 from the Set
+console.log(mySet); // Output: Set { 1, 'Hello' }
 
-/* 
-Key Differences between Maps and Objects:
-1. Maps can use any value (objects, functions, primitives) as keys, whereas objects can only use strings or symbols.
-2. Maps maintain the order of key insertion, whereas object keys are not ordered.
-3. Maps have better performance when adding or removing many key-value pairs compared to objects.
-*/
+// Converting a Set to an Array
+// You can easily convert a Set to an Array using the spread operator or Array.from()
+
+let myArray = [...mySet]; // Convert Set to Array
+console.log(myArray); // Output: [ 1, 'Hello' ]
+
+// Clearing all Elements from a Set
+// The clear() method removes all elements from a Set.
+
+mySet.clear();
+console.log(mySet); // Output: Set {}
+
+// Sets are useful for:
+// - Storing unique values without duplicates
+// - Removing duplicates from arrays
+
+// Example: Removing duplicates from an array using a Set
+let numberArray = [1, 2, 3, 1, 2, 4, 5];
+let uniqueNumbers = [...new Set(numberArray)];
+console.log(uniqueNumbers); // Output: [ 1, 2, 3, 4, 5 ]
