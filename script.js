@@ -1,49 +1,54 @@
-// Lecture: JavaScript Functions
+// Lecture: Function Scope in JavaScript
 
-// 1. Basic Function Declaration
-function greet() {
-  console.log("Hello, welcome to the function tutorial!");
+// 1. Global Scope Example (Outside any function)
+var globalVar = "Global variable (var)";
+let globalLet = "Global variable (let)";
+
+console.log(globalVar); // Accessible here: Output "I'm a global variable (var)"
+console.log(globalLet); // Accessible here: Output "I'm a global variable (let)"
+
+// 2. Function Scope Example
+function scopeTest() {
+  var functionScopedVar = "Function-scoped variable (var)";
+  let functionScopedLet = "Block-scoped variable (let)";
+
+  console.log(functionScopedVar); // Output: "I'm a function-scoped variable (var)"
+  console.log(functionScopedLet); // Output: "I'm a block-scoped variable (let)"
 }
 
-// Invoking the function
-greet(); // Output: "Hello, welcome to the function tutorial!"
+scopeTest();
 
-// 2. Function with Parameters
-function addTwoNumbers(a, b) {
-  return a + b;
+// Uncommenting the below lines will throw an error because the variables are scoped inside the function
+// console.log(functionScopedVar); // Error: functionScopedVar is not defined
+// console.log(functionScopedLet); // Error: functionScopedLet is not defined
+
+// 3. Block Scope with 'var' and 'let'
+function blockScopeExample() {
+  // Example of a conditional scope
+  if (true) {
+    var blockVar = "Declared with var inside a block";
+    let blockLet = "Declared with let inside a block";
+  }
+
+  console.log(blockVar); // Output: "I'm declared with var inside a block"
+  // Uncommenting the below line will throw an error because 'blockLet' is block-scoped
+  // console.log(blockLet); // Error: blockLet is not defined
 }
 
-// Invoking the function with arguments
-let sum = addTwoNumbers(5, 7);
-console.log("Sum of 5 and 7 is:", sum); // Output: "Sum of 5 and 7 is: 12"
+blockScopeExample();
 
-// 3. Function with Default Parameters
-function greetUser(name = "Student") {
-  console.log("Hello, " + name + "!");
+// 4. var vs let in Loops
+console.log("Using var in loops:");
+for (var i = 0; i < 3; i++) {
+  console.log("Inside loop with var:", i);
 }
+console.log("Outside loop with var:", i); // 'i' is still accessible here with var
 
-// Invoking with and without arguments
-greetUser("John"); // Output: "Hello, John!"
-greetUser(); // Output: "Hello, Student!" (using the default value)
-
-// 4. Returning Values from Functions
-function multiplyNumbers(x, y) {
-  return x * y;
+console.log("Using let in loops:");
+for (let j = 0; j < 3; j++) {
+  console.log("Inside loop with let:", j);
 }
+// Uncommenting the below line will throw an error because 'j' is block-scoped with let
+// console.log("Outside loop with let:", j); // Error: j is not defined
 
-let result = multiplyNumbers(4, 3);
-console.log("Multiplication of 4 and 3 is:", result); // Output: 12
-
-// 5. Anonymous Function (Function Expression)
-const divideNumbers = function (a, b) {
-  return a / b;
-};
-
-// Invoking the anonymous function
-console.log("Division of 20 by 5 is:", divideNumbers(20, 5)); // Output: 4
-
-// 6. Arrow Functions (ES6+ syntax)
-const subtractNumbers = (x, y) => x - y;
-
-// Invoking the arrow function
-console.log("Subtraction of 10 and 3 is:", subtractNumbers(10, 3)); // Output: 7
+// Summary: 'var' is function-scoped, while 'let' is block-scoped, making 'let' safer for block-level operations.
