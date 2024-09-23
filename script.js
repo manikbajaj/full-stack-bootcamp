@@ -1,56 +1,44 @@
-// JavaScript Lecture: Using Default Parameters in Functions
+// JavaScript Lecture: The Spread Operator in Function Calls
 
-// 1. Introduction to Default Parameters
-// Default parameters allow you to set initial values for function parameters.
-// If no argument is provided when the function is called, the default value is used.
+// 1. Introduction to Spread Operator
+// The spread operator (three dots: ...) allows an iterable like an array to be expanded
+// in places where multiple elements or arguments are expected.
+// When used in a function call, it "spreads" elements of an array or iterable as individual arguments.
 
-// Example: Basic use of default parameters
-function greet(name = "Guest") {
-  console.log(`Hello, ${name}!`);
+function add(a, b, c) {
+  return a + b + c;
 }
 
-// Calling the function with an argument
-greet("Alice"); // Output: Hello, Alice!
+const numbers = [1, 2, 3];
 
-// Calling the function without an argument (default value is used)
-greet(); // Output: Hello, Guest!
+// Using spread operator to pass array elements as function arguments
+console.log(add(...numbers)); // Output: 6
 
-// 2. Multiple Default Parameters
-// You can have multiple default parameters in a function. Each parameter can have its own default value.
+// 2. Using Spread Operator with Multiple Arrays
+// You can use the spread operator to combine arrays or pass multiple arrays to a function.
 
-function orderCoffee(size = "medium", type = "black") {
-  console.log(`You ordered a ${size} ${type} coffee.`);
+function multiply(a, b, c, d) {
+  return a * b * c * d;
 }
 
-// Calling with both arguments
-orderCoffee("large", "latte"); // Output: You ordered a large latte coffee.
+const numbers1 = [2, 3];
+const numbers2 = [4, 5];
 
-// Calling with one argument (second argument uses the default value)
-orderCoffee("small"); // Output: You ordered a small black coffee.
+// Spread the elements of two arrays as individual arguments to the function
+console.log(multiply(...numbers1, ...numbers2)); // Output: 120
 
-// Calling with no arguments (both default values are used)
-orderCoffee(); // Output: You ordered a medium black coffee.
+// 3. Spread Operator with Rest Parameters (Advanced)
+// The spread operator is also commonly used in conjunction with rest parameters to handle arbitrary numbers of arguments.
 
-// 3. Expressions in Default Parameters
-// You can use expressions as default values. These expressions are evaluated when the function is called.
-
-function add(x = 10, y = x * 2) {
-  return x + y;
+function findMax(...args) {
+  return Math.max(...args);
 }
 
-console.log(add(5, 15)); // Output: 20
-console.log(add(5)); // Output: 15 (y defaults to 5 * 2)
-console.log(add()); // Output: 30 (x defaults to 10, y defaults to 10 * 2)
+// Now you can pass any number of arguments to this function
+console.log(findMax(1, 2, 3, 4, 5)); // Output: 5
+console.log(findMax(10, 20, 30)); // Output: 30
 
-// 4. Function with Optional Parameters
-// Default parameters can also be used to make some parameters optional.
-
-function calculateArea(length, width = length) {
-  return length * width;
-}
-
-// Calling with both arguments
-console.log(calculateArea(5, 10)); // Output: 50
-
-// Calling with one argument (width defaults to length, making this a square calculation)
-console.log(calculateArea(4)); // Output: 16
+// 4. Benefits of the Spread Operator in Function Calls
+// - Cleaner and more readable code when passing arrays or iterables to functions.
+// - Reduces the need for manually accessing array elements.
+// - Makes it easy to pass variable numbers of arguments.
