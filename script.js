@@ -1,31 +1,44 @@
-// Lecture: Commonly Used Number Methods in JavaScript
+// Lecture: Commonly Used Array Methods in JavaScript
 
-// **1. toFixed()**
-// Rounds a number to a specified number of decimal places.
-let num = 3.14159;
-console.log("Rounded to 2 decimal places:", num.toFixed(2)); // Output: '3.14'
+// **1. push()**
+// Adds one or more elements to the end of an array.
+let fruits = ["Apple", "Banana"];
+fruits.push("Orange");
+console.log("After push:", fruits); // Output: ['Apple', 'Banana', 'Orange']
 
-// **2. toString()**
-// Converts a number to a string.
-let number = 42;
-console.log("Number as a string:", number.toString()); // Output: '42'
+// **2. pop()**
+// Removes the last element from an array.
+fruits.pop();
+console.log("After pop:", fruits); // Output: ['Apple', 'Banana']
 
-// **3. toExponential()**
-// Returns the number in exponential notation with the specified number of decimal places.
-let largeNumber = 123456;
-console.log("Exponential notation:", largeNumber.toExponential(2)); // Output: '1.23e+5'
+// **3. unshift()**
+// Adds one or more elements to the beginning of an array.
+fruits.unshift("Mango");
+console.log("After unshift:", fruits); // Output: ['Mango', 'Apple', 'Banana']
 
-// **4. toPrecision()**
-// Formats a number to a specific length.
-let preciseNumber = 5.6789;
-console.log("Formatted to 3 significant digits:", preciseNumber.toPrecision(3)); // Output: '5.68'
+// **4. shift()**
+// Removes the first element from an array.
+fruits.shift();
+console.log("After shift:", fruits); // Output: ['Apple', 'Banana']
 
-// **5. parseFloat()**
-// Parses a string and returns a floating-point number.
-let floatStr = "3.14159";
-console.log("Parsed floating-point number:", parseFloat(floatStr)); // Output: 3.14159
+// **5. indexOf()**
+// Returns the first index of a specified element.
+let index = allFruits.indexOf("Pineapple");
+console.log("Index of 'Pineapple':", index); // Output: 2
 
-// **6. parseInt()**
-// Parses a string and returns an integer.
-let intStr = "100.99";
-console.log("Parsed integer:", parseInt(intStr)); // Output: 100
+// **6. includes()**
+// Determines if an array includes a certain element.
+let hasBanana = allFruits.includes("Banana");
+console.log("Includes 'Banana'?", hasBanana); // Output: false
+
+// **7. slice()**
+// Returns a shallow copy of a portion of an array into a new array.
+let slicedFruits = allFruits.slice(1, 3);
+console.log("After slice:", slicedFruits); // Output: ['Banana', 'Pineapple']
+
+// **8. splice()**
+// Adds/removes elements in an array at a specified index.
+allFruits.splice(2, 0, "Kiwi");
+console.log("After splice (adding):", allFruits); // Output: ['Apple', 'Banana', 'Kiwi', 'Pineapple', 'Grapes']
+allFruits.splice(1, 1); // Removes 1 element at index 1
+console.log("After splice (removing):", allFruits); // Output: ['Apple', 'Kiwi', 'Pineapple', 'Grapes']
