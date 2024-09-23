@@ -53,31 +53,3 @@ console.log(first); // Output: 1
 console.log(second); // Output: 2
 console.log(third); // Output: 3
 console.log(fourth); // Output: 4
-
-// 6. Swapping Variables using Destructuring
-// Destructuring makes it easy to swap variable values without the need for a temporary variable.
-
-let a = 5,
-  b = 10;
-console.log("Before swap:", a, b); // Output: 5 10
-
-// Swap values
-[a, b] = [b, a];
-
-console.log("After swap:", a, b); // Output: 10 5
-
-// 7. Destructuring Function Return Values
-// Destructuring can be useful when a function returns an array, allowing you to extract multiple return values easily.
-
-function getDimensions() {
-  return [400, 600];
-}
-
-const [width, height] = getDimensions();
-console.log(`Width: ${width}, Height: ${height}`); // Output: Width: 400, Height: 600
-
-// 8. Use Cases for Destructuring
-// - Extracting values from arrays and assigning them to variables
-// - Handling function return values
-// - Swapping variable values
-// - Collecting rest of the elements in an array
