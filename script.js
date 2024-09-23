@@ -1,71 +1,56 @@
-// JavaScript Lecture: Spread Operator with Objects
+// JavaScript Lecture: Using Default Parameters in Functions
 
-// 1. Introduction to Spread Operator with Objects
-// The spread operator (...) allows you to copy, merge, or add properties to objects.
-// This is particularly useful when working with complex objects and needing to modify or combine them.
+// 1. Introduction to Default Parameters
+// Default parameters allow you to set initial values for function parameters.
+// If no argument is provided when the function is called, the default value is used.
 
-// Example: Basic use of spread operator with objects
-let car = {
-  brand: "BMW",
-  model: "7 Series",
-  color: "White",
-  make: 2024,
-};
+// Example: Basic use of default parameters
+function greet(name = "Guest") {
+  console.log(`Hello, ${name}!`);
+}
 
-let updatedCar = { ...car, color: "Black" }; // Overwriting the color property
-console.log("Original Car:", car);
-console.log("Updated Car:", updatedCar);
-// Output: Original Car: {brand: "BMW", model: "7 Series", color: "White", make: 2024}
-//         Updated Car: {brand: "BMW", model: "7 Series", color: "Black", make: 2024}
+// Calling the function with an argument
+greet("Alice"); // Output: Hello, Alice!
 
-// 2. Merging Multiple Objects
-// You can combine properties from multiple objects into one using the spread operator.
+// Calling the function without an argument (default value is used)
+greet(); // Output: Hello, Guest!
 
-let owner = {
-  name: "John",
-  age: 30,
-};
+// 2. Multiple Default Parameters
+// You can have multiple default parameters in a function. Each parameter can have its own default value.
 
-let carWithOwner = { ...car, ...owner };
-console.log("Car with Owner Details:", carWithOwner);
-// Output: {brand: "BMW", model: "7 Series", color: "White", make: 2024, name: "John", age: 30}
+function orderCoffee(size = "medium", type = "black") {
+  console.log(`You ordered a ${size} ${type} coffee.`);
+}
 
-// 3. Adding New Properties with Spread Operator
-// You can add new properties while copying an object using the spread operator.
+// Calling with both arguments
+orderCoffee("large", "latte"); // Output: You ordered a large latte coffee.
 
-let detailedCar = { ...car, fuel: "Petrol", price: "$50,000" };
-console.log("Detailed Car:", detailedCar);
-// Output: {brand: "BMW", model: "7 Series", color: "White", make: 2024, fuel: "Petrol", price: "$50,000"}
+// Calling with one argument (second argument uses the default value)
+orderCoffee("small"); // Output: You ordered a small black coffee.
 
-// 4. Overriding Properties with Spread Operator
-// When combining objects with the spread operator, if properties overlap, the one on the right overwrites the one on the left.
+// Calling with no arguments (both default values are used)
+orderCoffee(); // Output: You ordered a medium black coffee.
 
-let carUpdate = {
-  color: "Red",
-  year: 2025,
-};
+// 3. Expressions in Default Parameters
+// You can use expressions as default values. These expressions are evaluated when the function is called.
 
-let finalCar = { ...car, ...carUpdate };
-console.log("Final Car with Overridden Properties:", finalCar);
-// Output: {brand: "BMW", model: "7 Series", color: "Red", make: 2024, year: 2025}
-// The `color` property has been overwritten, and the `year` property was added.
+function add(x = 10, y = x * 2) {
+  return x + y;
+}
 
-// 5. Shallow Copy Warning with Spread Operator
-// The spread operator creates a shallow copy, which means that nested objects are still shared between the original and the copy.
+console.log(add(5, 15)); // Output: 20
+console.log(add(5)); // Output: 15 (y defaults to 5 * 2)
+console.log(add()); // Output: 30 (x defaults to 10, y defaults to 10 * 2)
 
-let nestedCar = {
-  brand: "BMW",
-  specs: {
-    color: "White",
-    engine: "V8",
-  },
-};
+// 4. Function with Optional Parameters
+// Default parameters can also be used to make some parameters optional.
 
-let copiedNestedCar = { ...nestedCar };
-copiedNestedCar.specs.color = "Black"; // Modifying the nested object
+function calculateArea(length, width = length) {
+  return length * width;
+}
 
-console.log("Original Nested Car:", nestedCar);
-// Output: {brand: "BMW", specs: {color: "Black", engine: "V8"}}
-console.log("Copied Nested Car:", copiedNestedCar);
-// Output: {brand: "BMW", specs: {color: "Black", engine: "V8"}}
-// Both objects reflect the same nested object change because only a shallow copy was made.
+// Calling with both arguments
+console.log(calculateArea(5, 10)); // Output: 50
+
+// Calling with one argument (width defaults to length, making this a square calculation)
+console.log(calculateArea(4)); // Output: 16
