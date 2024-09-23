@@ -1,67 +1,99 @@
-// JavaScript Lecture: Destructuring Objects
+// JavaScript Lecture: Destructuring Function Parameters
 
-// 1. What is Object Destructuring?
-// Object destructuring allows you to unpack properties from objects into distinct variables.
-// This feature was introduced in ES6 (ECMAScript 2015).
+/*
+1. Introduction to Destructuring Function Parameters:
+Destructuring function parameters allow you to extract values directly from objects or arrays passed as arguments. 
+This simplifies the code when dealing with complex parameter structures.
+*/
 
-// Basic Syntax:
-// const { property1, property2 } = object;
+// Example 1: Basic Object Destructuring in Function Parameters
+function printCarDetails({ brand, model, year }) {
+  console.log(`Brand: ${brand}, Model: ${model}, Year: ${year}`);
+}
 
-// Example 1: Basic Object Destructuring
 const car = {
   brand: "BMW",
   model: "7 Series",
-  color: "White",
   year: 2024,
 };
 
-// Destructuring the object to extract properties
-const { brand, model, year } = car;
+printCarDetails(car); // Output: Brand: BMW, Model: 7 Series, Year: 2024
 
-console.log(brand); // Output: BMW
-console.log(model); // Output: 7 Series
-console.log(year); // Output: 2024
+/*
+Explanation:
+- In the example above, the function 'printCarDetails' destructures the object properties directly in the parameter list.
+- Instead of accessing each property manually within the function, you can extract 'brand', 'model', and 'year' directly.
+*/
 
-// 2. Assigning New Variable Names
-// You can assign different variable names while destructuring by using a colon (:).
+// Example 2: Providing Default Values in Function Parameters
+function printOwnerDetails({ name = "Unknown", age = 0 }) {
+  console.log(`Owner: ${name}, Age: ${age}`);
+}
 
-const { brand: carBrand, model: carModel } = car;
+// Passing an object with both values
+printOwnerDetails({ name: "John", age: 35 });  // Output: Owner: John, Age: 35
 
-console.log(carBrand); // Output: BMW
-console.log(carModel); // Output: 7 Series
+// Passing an object with no values
+printOwnerDetails({});  // Output: Owner: Unknown, Age: 0
 
-// 3. Assigning Default Values
-// If a property does not exist in the object, you can assign a default value.
+// Passing an undefined object
+printOwnerDetails();  // Error: Cannot destructure property 'name' of 'undefined'
 
-const { color = "Black", engine = "V8" } = car;
+/*
+Explanation:
+- You can set default values for destructured parameters by assigning them in the function parameter list.
+- When the function is called with incomplete or no values, it will fall back to the default values.
+- However, if the object itself is undefined or missing, you need to handle that case properly.
+*/
 
-console.log(color); // Output: White (uses the actual value)
-console.log(engine); // Output: V8 (uses the default value as engine does not exist in the car object)
+// Example 3: Handling Missing Objects with Default Values
+function printSafeOwnerDetails({ name = "Unknown", age = 0 } = {}) {
+  console.log(`Owner: ${name}, Age: ${age}`);
+}
 
-// 4. Nested Object Destructuring
-// You can destructure properties from nested objects by matching their structure.
+printSafeOwnerDetails();  // Output: Owner: Unknown, Age: 0
 
-const carWithOwner = {
-  brand: "BMW",
-  model: "7 Series",
-  color: "White",
-  owner: {
-    name: "John Doe",
-    age: 35,
-  },
-};
+/*
+Explanation:
+- To handle cases where the object itself might be missing, you can assign a default value (empty object `{}`) to the parameter.
+- This prevents errors when destructuring is applied to `undefined` or `null`.
+*/
 
-const {
-  owner: { name, age },
-} = carWithOwner;
+// Example 4: Array Destructuring in Function Parameters
+function printScores([first, second, third]) {
+  console.log(`1st: ${first}, 2nd: ${second}, 3rd: ${third}`);
+}
 
-console.log(name); // Output: John Doe
-console.log(age); // Output: 35
+const scores = [95, 85, 75];
+printScores(scores); // Output: 1st: 95, 2nd: 85, 3rd: 75
 
-// 5. Destructuring with Rest Operator
-// You can use the rest operator to collect remaining properties into a new object.
+/*
+Explanation:
+- Destructuring can also be applied to arrays passed as function parameters.
+- In the example, the array `scores` is destructured into individual variables `first`, `second`, and `third`.
+*/
 
-const { brand: carBrandNew, ...otherDetails } = carWithOwner;
+// Example 5: Combining Destructuring with Rest Parameters
+function printTopScores([first, second, ...rest]) {
+  console.log(`1st: ${first}, 2nd: ${second}`);
+  console.log(`Rest: ${rest}`);
+}
 
-console.log(carBrandNew); // Output: BMW
-console.log(otherDetails); // Output: { model: '7 Series', color: 'White', owner: { name: 'John Doe', age: 35 } }
+const allScores = [98, 89, 78, 67, 56];
+printTopScores(allScores);  // Output: 1st: 98, 2nd: 89, Rest: 78,67,56
+
+/*
+Explanation:
+- The rest parameter `...rest` can be used with array destructuring to capture the remaining values.
+- This is useful when you want to extract the first few values and gather the remaining items into a new array.
+*/
+
+// Example 6: Nested Object Destructuring in Function Parameters
+function displayOwnerCarDetails({ owner: { name, age }, car: { brand, model } }) {
+  console.log(`Owner: ${name}, Age: ${age}`);
+  console.log(`Car: ${brand}, Model: ${model}`);
+}
+
+const person = {
+  owner: { name: "Jane", age: 30 },
+  car: { brand: "Tesla
