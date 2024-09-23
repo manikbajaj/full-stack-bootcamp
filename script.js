@@ -1,91 +1,50 @@
-// Lecture: Understanding the 'this' Keyword in JavaScript
+// Lecture: Commonly Used String Methods in JavaScript
 
-/*
-What is the 'this' Keyword?
-- The 'this' keyword in JavaScript refers to the object that is executing the current function.
-- It dynamically changes its value based on the context in which it is used.
-*/
+// **1. length**
+// Returns the length of the string.
+let example = "JavaScript is awesome!";
+console.log("Length of the string:", example.length); // Output: 21
 
-// Example 1: 'this' in the Global Context
-console.log(this); // In the browser, 'this' refers to the global Window object
+// **2. charAt()**
+// Returns the character at a specific index.
+console.log("Character at index 4:", example.charAt(4)); // Output: 'S'
 
-// Explanation:
-// - In the global scope, 'this' refers to the global object (Window in the browser, global in Node.js).
+// **3. indexOf()**
+// Finds the first occurrence of a substring. Returns -1 if not found.
+console.log("Index of 'awesome':", example.indexOf("awesome")); // Output: 15
+console.log("Index of 'Python':", example.indexOf("Python")); // Output: -1 (not found)
 
-// Example 2: 'this' in an Object Method
-let car = {
-  brand: "BMW",
-  model: "7 Series",
-  displayInfo: function () {
-    console.log(this); // 'this' refers to the 'car' object
-    return `This car is a ${this.brand} ${this.model}.`;
-  },
-};
+// **4. slice()**
+// Extracts a section of the string and returns it as a new string.
+console.log("Slice from index 0 to 10:", example.slice(0, 10)); // Output: 'JavaScript'
 
-console.log(car.displayInfo()); // Output: This car is a BMW 7 Series
+// **5. toUpperCase()**
+// Converts the entire string to uppercase.
+console.log("Uppercase:", example.toUpperCase()); // Output: 'JAVASCRIPT IS AWESOME!'
 
-// Explanation:
-// - Inside a method, 'this' refers to the object that owns the method. In this case, it's the 'car' object.
+// **6. toLowerCase()**
+// Converts the entire string to lowercase.
+console.log("Lowercase:", example.toLowerCase()); // Output: 'javascript is awesome!'
 
-// Example 3: 'this' in a Function (Regular Function)
-function showThis() {
-  console.log(this);
-}
+// **7. replace()**
+// Replaces the first occurrence of a substring with another substring.
+let replaced = example.replace("awesome", "fantastic");
+console.log("Replaced 'awesome' with 'fantastic':", replaced); // Output: 'JavaScript is fantastic!'
 
-showThis(); // In non-strict mode, 'this' refers to the global object (Window in browser)
+// **8. includes()**
+// Checks if the string contains a substring.
+console.log(
+  "Does the string include 'JavaScript'?",
+  example.includes("JavaScript")
+); // Output: true
+console.log("Does the string include 'Python'?", example.includes("Python")); // Output: false
 
-// Explanation:
-// - In a regular function, outside of an object, 'this' refers to the global object in non-strict mode.
-// - In strict mode, 'this' will be undefined in such a case.
+// **9. split()**
+// Splits the string into an array based on a specified delimiter.
+let words = example.split(" ");
+console.log("Split string into words:", words); // Output: ['JavaScript', 'is', 'awesome!']
 
-// Example 4: 'this' in Arrow Functions
-let person = {
-  name: "John",
-  showThisArrow: () => {
-    console.log(this); // 'this' refers to the enclosing scope (Window in browser)
-  },
-  showThisRegular: function () {
-    console.log(this); // 'this' refers to the 'person' object
-  },
-};
-
-person.showThisArrow(); // Output: 'this' refers to the Window object (due to arrow function)
-person.showThisRegular(); // Output: 'this' refers to the 'person' object
-
-// Explanation:
-// - Arrow functions do not have their own 'this'. They inherit 'this' from their enclosing scope.
-// - Regular functions have their own 'this' based on how they're called.
-
-// Example 5: 'this' in Constructor Functions
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
-}
-
-let john = new Person("John", 30);
-console.log(john.name); // Output: John
-console.log(john.age); // Output: 30
-
-// Explanation:
-// - When a function is used as a constructor (called with 'new'), 'this' refers to the newly created object.
-
-// Example 6: 'this' in Event Handlers
-let button = document.createElement("button");
-button.textContent = "Click me!";
-document.body.appendChild(button);
-
-button.addEventListener("click", function () {
-  console.log(this); // 'this' refers to the button element
-});
-
-// Explanation:
-// - In event handlers, 'this' refers to the HTML element that received the event (e.g., the button).
-
-/*
-Summary:
-1. In the global context or a regular function, 'this' refers to the global object (Window in browser).
-2. In an object method, 'this' refers to the object that owns the method.
-3. In arrow functions, 'this' refers to the enclosing scope and doesn't bind to its own 'this'.
-4. In a constructor function, 'this' refers to the newly created object.
-5. In event handlers, 'this' refers to the HTML element that triggered the event.
-*/
+// **10. trim()**
+// Removes whitespace from both sides of a string.
+let paddedString = "   Hello World!   ";
+console.log("Trimmed string:", paddedString.trim()); // Output: 'Hello World!'
