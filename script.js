@@ -1,44 +1,88 @@
-// JavaScript Lecture: The Spread Operator in Function Calls
+// JavaScript Lecture: Rest Parameters in Functions
 
-// 1. Introduction to Spread Operator
-// The spread operator (three dots: ...) allows an iterable like an array to be expanded
-// in places where multiple elements or arguments are expected.
-// When used in a function call, it "spreads" elements of an array or iterable as individual arguments.
+// 1. Introduction to Rest Parameters
+// Rest parameters allow a function to accept an indefinite number of arguments as an array.
+// Syntax: The rest parameter syntax uses three dots `...` followed by the parameter name.
+// Example: function myFunc(...args) {}
 
-function add(a, b, c) {
-  return a + b + c;
+// 2. Rest Parameters Usage
+// Rest parameters gather all remaining arguments into an array.
+
+function sumAll(...numbers) {
+  // numbers is an array of all passed arguments
+  let total = 0;
+  for (let num of numbers) {
+    total += num;
+  }
+  return total;
 }
 
-const numbers = [1, 2, 3];
+// Using the function with various numbers of arguments
+console.log(sumAll(1, 2, 3)); // Output: 6
+console.log(sumAll(4, 5, 6, 7)); // Output: 22
 
-// Using spread operator to pass array elements as function arguments
-console.log(add(...numbers)); // Output: 6
+// 3. Rest Parameters vs. Arguments Object
+// The `arguments` object in JavaScript functions can also contain all arguments passed to a function.
+// However, `arguments` is not an actual array and lacks array methods.
+// Rest parameters, on the other hand, are actual arrays and can use array methods.
 
-// 2. Using Spread Operator with Multiple Arrays
-// You can use the spread operator to combine arrays or pass multiple arrays to a function.
-
-function multiply(a, b, c, d) {
-  return a * b * c * d;
+function restVsArguments(a, b) {
+  console.log(arguments); // Shows all arguments as an array-like object
+  console.log([a, b]); // Shows the first two arguments as an array
+  console.log(Array.isArray(arguments)); // false (arguments is not an array)
 }
 
-const numbers1 = [2, 3];
-const numbers2 = [4, 5];
+restVsArguments(1, 2, 3, 4, 5); // Output: arguments as array-like
 
-// Spread the elements of two arrays as individual arguments to the function
-console.log(multiply(...numbers1, ...numbers2)); // Output: 120
-
-// 3. Spread Operator with Rest Parameters (Advanced)
-// The spread operator is also commonly used in conjunction with rest parameters to handle arbitrary numbers of arguments.
-
-function findMax(...args) {
-  return Math.max(...args);
+// Example with Rest Parameters (preferred way)
+function restVsArgumentsRest(...args) {
+  console.log(args); // args is a real array
+  console.log(Array.isArray(args)); // true (args is an array)
 }
 
-// Now you can pass any number of arguments to this function
-console.log(findMax(1, 2, 3, 4, 5)); // Output: 5
-console.log(findMax(10, 20, 30)); // Output: 30
+restVsArgumentsRest(1, 2, 3, 4, 5); // Output: array with arguments
 
-// 4. Benefits of the Spread Operator in Function Calls
-// - Cleaner and more readable code when passing arrays or iterables to functions.
-// - Reduces the need for manually accessing array elements.
-// - Makes it easy to pass variable numbers of arguments.
+// 4. Combining Rest Parameters with Other Parameters
+// Rest parameters must always be the **last** parameter in the function definition.
+// Any parameters before the rest parameter get assigned individual values.
+
+function displayNames(firstName, lastName, ...otherNames) {
+  console.log(`First Name: ${firstName}`);
+  console.log(`Last Name: ${lastName}`);
+  console.log(`Other Names: ${otherNames}`); // otherNames is an array
+}
+
+displayNames("John", "Doe", "Mr.", "Junior", "III");
+// Output:
+// First Name: John
+// Last Name: Doe
+// Other Names: [ 'Mr.', 'Junior', 'III' ]
+
+// 5. Working with Rest Parameters in Function Calls
+// Rest parameters allow functions to accept varying numbers of arguments, making them more flexible.
+
+function multiply(multiplier, ...numbers) {
+  return numbers.map((num) => num * multiplier);
+}
+
+console.log(multiply(2, 1, 2, 3)); // Output: [2, 4, 6]
+console.log(multiply(3, 5, 6, 7, 8)); // Output: [15, 18, 21, 24]
+
+// 6. Rest Parameters vs Spread Operator
+// While the rest parameter collects all remaining arguments into an array,
+// the spread operator `...` spreads elements of an array into individual arguments.
+// Example of combining both:
+
+function calculateSum(multiplier, ...numbers) {
+  let total = numbers.reduce((sum, current) => sum + current, 0);
+  return multiplier * total;
+}
+
+const numArray = [2, 3, 4];
+console.log(calculateSum(2, ...numArray)); // Using spread operator to pass array elements
+// Output: 18 (2 * (2 + 3 + 4))
+
+// 7. Benefits of Rest Parameters
+// - Simplifies handling of functions with a variable number of arguments.
+// - Replaces the need to use the `arguments` object.
+// - Works seamlessly with array methods.
