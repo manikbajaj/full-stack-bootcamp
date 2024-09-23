@@ -31,13 +31,13 @@ function printOwnerDetails({ name = "Unknown", age = 0 }) {
 }
 
 // Passing an object with both values
-printOwnerDetails({ name: "John", age: 35 });  // Output: Owner: John, Age: 35
+printOwnerDetails({ name: "John", age: 35 }); // Output: Owner: John, Age: 35
 
 // Passing an object with no values
-printOwnerDetails({});  // Output: Owner: Unknown, Age: 0
+printOwnerDetails({}); // Output: Owner: Unknown, Age: 0
 
 // Passing an undefined object
-printOwnerDetails();  // Error: Cannot destructure property 'name' of 'undefined'
+printOwnerDetails(); // Error: Cannot destructure property 'name' of 'undefined'
 
 /*
 Explanation:
@@ -51,7 +51,7 @@ function printSafeOwnerDetails({ name = "Unknown", age = 0 } = {}) {
   console.log(`Owner: ${name}, Age: ${age}`);
 }
 
-printSafeOwnerDetails();  // Output: Owner: Unknown, Age: 0
+printSafeOwnerDetails(); // Output: Owner: Unknown, Age: 0
 
 /*
 Explanation:
@@ -80,7 +80,7 @@ function printTopScores([first, second, ...rest]) {
 }
 
 const allScores = [98, 89, 78, 67, 56];
-printTopScores(allScores);  // Output: 1st: 98, 2nd: 89, Rest: 78,67,56
+printTopScores(allScores); // Output: 1st: 98, 2nd: 89, Rest: 78,67,56
 
 /*
 Explanation:
@@ -89,11 +89,30 @@ Explanation:
 */
 
 // Example 6: Nested Object Destructuring in Function Parameters
-function displayOwnerCarDetails({ owner: { name, age }, car: { brand, model } }) {
+function displayOwnerCarDetails({
+  owner: { name, age },
+  car: { brand, model },
+}) {
   console.log(`Owner: ${name}, Age: ${age}`);
   console.log(`Car: ${brand}, Model: ${model}`);
 }
 
 const person = {
   owner: { name: "Jane", age: 30 },
-  car: { brand: "Tesla
+  car: { brand: "Tesla", model: "Model S" },
+};
+
+displayOwnerCarDetails(person); // Output: Owner: Jane, Age: 30, Car: Tesla, Model: Model S
+
+/*
+Explanation:
+- Nested objects can be destructured in the function parameters, as shown in the example above.
+- The `owner` and `car` objects inside the `person` object are destructured and used directly in the function.
+*/
+
+/*
+Conclusion:
+- Destructuring function parameters simplify the extraction of values from complex objects and arrays.
+- It helps reduce redundant code and makes function signatures cleaner and easier to understand.
+- Use default values and rest parameters to handle missing or extra data efficiently.
+*/
