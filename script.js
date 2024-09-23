@@ -26,19 +26,3 @@ const numbers2 = [4, 5];
 
 // Spread the elements of two arrays as individual arguments to the function
 console.log(multiply(...numbers1, ...numbers2)); // Output: 120
-
-// 3. Spread Operator with Rest Parameters (Advanced)
-// The spread operator is also commonly used in conjunction with rest parameters to handle arbitrary numbers of arguments.
-
-function findMax(...args) {
-  return Math.max(...args);
-}
-
-// Now you can pass any number of arguments to this function
-console.log(findMax(1, 2, 3, 4, 5)); // Output: 5
-console.log(findMax(10, 20, 30)); // Output: 30
-
-// 4. Benefits of the Spread Operator in Function Calls
-// - Cleaner and more readable code when passing arrays or iterables to functions.
-// - Reduces the need for manually accessing array elements.
-// - Makes it easy to pass variable numbers of arguments.
