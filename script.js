@@ -1,50 +1,31 @@
-// Lecture: Commonly Used String Methods in JavaScript
+// Lecture: Commonly Used Number Methods in JavaScript
 
-// **1. length**
-// Returns the length of the string.
-let example = "JavaScript is awesome!";
-console.log("Length of the string:", example.length); // Output: 21
+// **1. toFixed()**
+// Rounds a number to a specified number of decimal places.
+let num = 3.14159;
+console.log("Rounded to 2 decimal places:", num.toFixed(2)); // Output: '3.14'
 
-// **2. charAt()**
-// Returns the character at a specific index.
-console.log("Character at index 4:", example.charAt(4)); // Output: 'S'
+// **2. toString()**
+// Converts a number to a string.
+let number = 42;
+console.log("Number as a string:", number.toString()); // Output: '42'
 
-// **3. indexOf()**
-// Finds the first occurrence of a substring. Returns -1 if not found.
-console.log("Index of 'awesome':", example.indexOf("awesome")); // Output: 15
-console.log("Index of 'Python':", example.indexOf("Python")); // Output: -1 (not found)
+// **3. toExponential()**
+// Returns the number in exponential notation with the specified number of decimal places.
+let largeNumber = 123456;
+console.log("Exponential notation:", largeNumber.toExponential(2)); // Output: '1.23e+5'
 
-// **4. slice()**
-// Extracts a section of the string and returns it as a new string.
-console.log("Slice from index 0 to 10:", example.slice(0, 10)); // Output: 'JavaScript'
+// **4. toPrecision()**
+// Formats a number to a specific length.
+let preciseNumber = 5.6789;
+console.log("Formatted to 3 significant digits:", preciseNumber.toPrecision(3)); // Output: '5.68'
 
-// **5. toUpperCase()**
-// Converts the entire string to uppercase.
-console.log("Uppercase:", example.toUpperCase()); // Output: 'JAVASCRIPT IS AWESOME!'
+// **5. parseFloat()**
+// Parses a string and returns a floating-point number.
+let floatStr = "3.14159";
+console.log("Parsed floating-point number:", parseFloat(floatStr)); // Output: 3.14159
 
-// **6. toLowerCase()**
-// Converts the entire string to lowercase.
-console.log("Lowercase:", example.toLowerCase()); // Output: 'javascript is awesome!'
-
-// **7. replace()**
-// Replaces the first occurrence of a substring with another substring.
-let replaced = example.replace("awesome", "fantastic");
-console.log("Replaced 'awesome' with 'fantastic':", replaced); // Output: 'JavaScript is fantastic!'
-
-// **8. includes()**
-// Checks if the string contains a substring.
-console.log(
-  "Does the string include 'JavaScript'?",
-  example.includes("JavaScript")
-); // Output: true
-console.log("Does the string include 'Python'?", example.includes("Python")); // Output: false
-
-// **9. split()**
-// Splits the string into an array based on a specified delimiter.
-let words = example.split(" ");
-console.log("Split string into words:", words); // Output: ['JavaScript', 'is', 'awesome!']
-
-// **10. trim()**
-// Removes whitespace from both sides of a string.
-let paddedString = "   Hello World!   ";
-console.log("Trimmed string:", paddedString.trim()); // Output: 'Hello World!'
+// **6. parseInt()**
+// Parses a string and returns an integer.
+let intStr = "100.99";
+console.log("Parsed integer:", parseInt(intStr)); // Output: 100
