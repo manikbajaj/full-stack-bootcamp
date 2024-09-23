@@ -1,110 +1,119 @@
-// Lecture: Understanding Methods Inside an Object in JavaScript
+/*
+ * Lecture: Understanding Lexical Scope in JavaScript
+ * Lexical scope refers to the visibility of variables based on their position within the code.
+ * Let's explore the various scopes and see how `var` and `let` behave differently.
+ */
 
-// What is a Method?
-// A method is a function defined as a property of an object.
-// It allows the object to perform specific actions related to its data.
+/////////////////////////////////
+// 1. Global Scope
+/////////////////////////////////
 
-// Example 1: Declaring a Method in an Object
-let car = {
-  brand: "BMW",
-  model: "7 Series",
-  year: 2024,
+// Variables declared outside of any function or block are in the global scope.
+// These variables can be accessed from anywhere in the program.
 
-  // Method to describe the car
-  describeCar: function () {
-    return `This car is a ${this.year} ${this.brand} ${this.model}.`;
-  },
-};
+var globalVar = "I am a global variable";
+let globalLet = "I am also a global variable";
 
-// Accessing the method
-console.log(car.describeCar()); // Output: This car is a 2024 BMW 7 Series
+function checkGlobalScope() {
+  console.log(globalVar); // Output: I am a global variable
+  console.log(globalLet); // Output: I am also a global variable
+}
+checkGlobalScope(); // Global variables can be accessed inside functions
 
-// Explanation:
-// - 'describeCar' is a method. It is a function inside the 'car' object.
-// - The 'this' keyword refers to the object the method belongs to. In this case, 'this' refers to the 'car' object.
+console.log(globalVar); // Accessible from anywhere
+console.log(globalLet); // Accessible from anywhere
 
-// Shorthand Method Syntax:
-// When defining methods, we can use a shorter syntax introduced in ES6.
+/////////////////////////////////
+// 2. Local Scope (Function Scope)
+/////////////////////////////////
 
-// Example 2: Using Shorthand Syntax to Declare Methods
-let person = {
-  firstName: "John",
-  lastName: "Doe",
+// Variables declared inside a function are scoped to that function only.
+// They are not accessible from outside the function.
 
-  // Shorthand method to get full name
-  getFullName() {
-    return `${this.firstName} ${this.lastName}`;
-  },
-};
+function localScopeExample() {
+  var localVar = "I am local to this function";
+  let localLet = "I am also local to this function";
 
-console.log(person.getFullName()); // Output: John Doe
+  console.log(localVar); // Output: I am local to this function
+  console.log(localLet); // Output: I am also local to this function
+}
+localScopeExample();
 
-// Explanation:
-// - Here, 'getFullName' is a method. The syntax is simpler than the traditional function declaration.
-// - This reduces redundancy while maintaining the same functionality.
+// Uncommenting the following lines will throw errors because localVar and localLet are not accessible outside the function.
+// console.log(localVar); // Error: localVar is not defined
+// console.log(localLet);  // Error: localLet is not defined
 
-// Example 3: Methods with Parameters
-// Methods can also take parameters just like normal functions.
+/////////////////////////////////
+// 3. Block Scope
+/////////////////////////////////
 
-let calculator = {
-  // Method to add two numbers
-  add: function (num1, num2) {
-    return num1 + num2;
-  },
+// Variables declared with `let` and `const` inside a block (curly braces) are scoped to that block.
+// `var`, however, ignores block scope and leaks out of the block.
 
-  // Shorthand method to subtract two numbers
-  subtract(num1, num2) {
-    return num1 - num2;
-  },
-};
+function blockScopeExample() {
+  if (true) {
+    var blockVar = "I am declared with var inside a block";
+    let blockLet = "I am declared with let inside a block";
+    console.log(blockVar); // Output: I am declared with var inside a block
+    console.log(blockLet); // Output: I am declared with let inside a block
+  }
+  console.log(blockVar); // Output: I am declared with var inside a block (because `var` ignores block scope)
+  // console.log(blockLet); // Error: blockLet is not defined (because `let` respects block scope)
+}
+blockScopeExample();
 
-console.log(calculator.add(5, 3)); // Output: 8
-console.log(calculator.subtract(10, 4)); // Output: 6
+/////////////////////////////////
+// 4. Nested Scope
+/////////////////////////////////
 
-// Explanation:
-// - The 'add' method takes two parameters and returns their sum.
-// - Similarly, the 'subtract' method uses the shorthand syntax and returns the difference of the two numbers.
+// Nested scope occurs when functions are defined inside other functions.
+// Inner functions can access variables from their outer functions due to JavaScript's lexical scoping.
 
-// Example 4: The 'this' Keyword in Methods
-// The 'this' keyword refers to the object that the method belongs to.
-// Let's see how 'this' works inside a method.
+function outerFunction() {
+  var outerVar = "I am in the outer function";
 
-let employee = {
-  name: "Jane",
-  age: 30,
-  position: "Developer",
+  function innerFunction() {
+    var innerVar = "I am in the inner function";
+    console.log(outerVar); // Inner function can access outer function's variables (Output: I am in the outer function)
+    console.log(innerVar); // Output: I am in the inner function
+  }
 
-  // Method using 'this' keyword
-  introduce() {
-    return `Hello, my name is ${this.name}, I am a ${this.position}.`;
-  },
-};
+  innerFunction();
+  // console.log(innerVar); // Error: innerVar is not defined (outer function cannot access inner function's variables)
+}
+outerFunction();
 
-console.log(employee.introduce()); // Output: Hello, my name is Jane, I am a Developer.
+/////////////////////////////////
+// 5. Differences between var and let
+/////////////////////////////////
 
-// Explanation:
-// - 'this.name' refers to the 'name' property of the 'employee' object.
-// - 'this' ensures that the method can access other properties within the same object.
+// `var` is function-scoped, while `let` is block-scoped. This can lead to unintended behavior if you're not careful.
 
-// Example 5: Methods Inside Nested Objects
-// Methods can also be nested inside objects that are properties of other objects.
+function varVsLetExample() {
+  if (true) {
+    var x = 10;
+    let y = 20;
+  }
+  console.log(x); // Output: 10 (because `var` is function-scoped and leaks out of the block)
+  // console.log(y); // Error: y is not defined (because `let` is block-scoped)
+}
+varVsLetExample();
 
-let company = {
-  name: "TechCorp",
-  location: "New York",
-  employee: {
-    name: "John",
-    position: "Software Engineer",
+// Another example demonstrating the difference in loops
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log("var i:", i), 1000); // Output: var i: 3, 3, 3 (var is function-scoped, so `i` is overwritten)
+}
 
-    // Method inside nested object
-    getDetails() {
-      return `${this.name} works as a ${this.position}.`;
-    },
-  },
-};
+for (let j = 0; j < 3; j++) {
+  setTimeout(() => console.log("let j:", j), 1000); // Output: let j: 0, 1, 2 (let is block-scoped, so `j` maintains its value in each loop)
+}
 
-console.log(company.employee.getDetails()); // Output: John works as a Software Engineer.
-
-// Explanation:
-// - The 'employee' object is a nested object inside the 'company' object.
-//
+/*
+ * Conclusion:
+ * - Global Scope: Accessible from anywhere.
+ * - Local Scope: Limited to the function in which the variable is declared.
+ * - Block Scope: Variables declared with `let` and `const` are block-scoped, while `var` is not.
+ * - Nested Scope: Inner functions can access variables from their outer functions.
+ *
+ * `var` vs `let`: `var` is function-scoped, while `let` is block-scoped. Be mindful when using them, especially inside loops and conditionals.
+ */
