@@ -1,88 +1,83 @@
-// JavaScript Lecture: Rest Parameters in Functions
+// JavaScript Lecture: Destructuring Arrays
 
-// 1. Introduction to Rest Parameters
-// Rest parameters allow a function to accept an indefinite number of arguments as an array.
-// Syntax: The rest parameter syntax uses three dots `...` followed by the parameter name.
-// Example: function myFunc(...args) {}
+// 1. What is Array Destructuring?
+// Destructuring allows us to extract values from arrays and assign them to variables in a concise and readable way.
+// This feature was introduced in ES6 (ECMAScript 2015).
 
-// 2. Rest Parameters Usage
-// Rest parameters gather all remaining arguments into an array.
+// Basic Syntax:
+// const [variable1, variable2] = array;
 
-function sumAll(...numbers) {
-  // numbers is an array of all passed arguments
-  let total = 0;
-  for (let num of numbers) {
-    total += num;
-  }
-  return total;
+// Example 1: Basic Array Destructuring
+const fruits = ["Apple", "Banana", "Orange"];
+const [firstFruit, secondFruit, thirdFruit] = fruits;
+
+console.log(firstFruit); // Output: Apple
+console.log(secondFruit); // Output: Banana
+console.log(thirdFruit); // Output: Orange
+
+// 2. Skipping Array Elements
+// You can skip elements in the array by leaving gaps between the commas.
+
+const numbers = [1, 2, 3, 4, 5];
+const [firstNumber, , thirdNumber] = numbers; // Skips the second element
+
+console.log(firstNumber); // Output: 1
+console.log(thirdNumber); // Output: 3
+
+// 3. Assigning Default Values
+// If the array does not contain enough values, you can assign default values to variables.
+
+const colors = ["Red"];
+const [primaryColor, secondaryColor = "Blue"] = colors;
+
+console.log(primaryColor); // Output: Red
+console.log(secondaryColor); // Output: Blue (since the second element is missing)
+
+// 4. Destructuring with Rest Operator
+// You can use the rest operator (`...`) to collect the remaining elements into a new array.
+
+const scores = [80, 90, 70, 60];
+const [topScore, secondTopScore, ...remainingScores] = scores;
+
+console.log(topScore); // Output: 80
+console.log(secondTopScore); // Output: 90
+console.log(remainingScores); // Output: [70, 60]
+
+// 5. Nested Array Destructuring
+// You can destructure nested arrays in a similar manner by matching the structure.
+
+const nestedArray = [1, [2, 3], 4];
+const [first, [second, third], fourth] = nestedArray;
+
+console.log(first); // Output: 1
+console.log(second); // Output: 2
+console.log(third); // Output: 3
+console.log(fourth); // Output: 4
+
+// 6. Swapping Variables using Destructuring
+// Destructuring makes it easy to swap variable values without the need for a temporary variable.
+
+let a = 5,
+  b = 10;
+console.log("Before swap:", a, b); // Output: 5 10
+
+// Swap values
+[a, b] = [b, a];
+
+console.log("After swap:", a, b); // Output: 10 5
+
+// 7. Destructuring Function Return Values
+// Destructuring can be useful when a function returns an array, allowing you to extract multiple return values easily.
+
+function getDimensions() {
+  return [400, 600];
 }
 
-// Using the function with various numbers of arguments
-console.log(sumAll(1, 2, 3)); // Output: 6
-console.log(sumAll(4, 5, 6, 7)); // Output: 22
+const [width, height] = getDimensions();
+console.log(`Width: ${width}, Height: ${height}`); // Output: Width: 400, Height: 600
 
-// 3. Rest Parameters vs. Arguments Object
-// The `arguments` object in JavaScript functions can also contain all arguments passed to a function.
-// However, `arguments` is not an actual array and lacks array methods.
-// Rest parameters, on the other hand, are actual arrays and can use array methods.
-
-function restVsArguments(a, b) {
-  console.log(arguments); // Shows all arguments as an array-like object
-  console.log([a, b]); // Shows the first two arguments as an array
-  console.log(Array.isArray(arguments)); // false (arguments is not an array)
-}
-
-restVsArguments(1, 2, 3, 4, 5); // Output: arguments as array-like
-
-// Example with Rest Parameters (preferred way)
-function restVsArgumentsRest(...args) {
-  console.log(args); // args is a real array
-  console.log(Array.isArray(args)); // true (args is an array)
-}
-
-restVsArgumentsRest(1, 2, 3, 4, 5); // Output: array with arguments
-
-// 4. Combining Rest Parameters with Other Parameters
-// Rest parameters must always be the **last** parameter in the function definition.
-// Any parameters before the rest parameter get assigned individual values.
-
-function displayNames(firstName, lastName, ...otherNames) {
-  console.log(`First Name: ${firstName}`);
-  console.log(`Last Name: ${lastName}`);
-  console.log(`Other Names: ${otherNames}`); // otherNames is an array
-}
-
-displayNames("John", "Doe", "Mr.", "Junior", "III");
-// Output:
-// First Name: John
-// Last Name: Doe
-// Other Names: [ 'Mr.', 'Junior', 'III' ]
-
-// 5. Working with Rest Parameters in Function Calls
-// Rest parameters allow functions to accept varying numbers of arguments, making them more flexible.
-
-function multiply(multiplier, ...numbers) {
-  return numbers.map((num) => num * multiplier);
-}
-
-console.log(multiply(2, 1, 2, 3)); // Output: [2, 4, 6]
-console.log(multiply(3, 5, 6, 7, 8)); // Output: [15, 18, 21, 24]
-
-// 6. Rest Parameters vs Spread Operator
-// While the rest parameter collects all remaining arguments into an array,
-// the spread operator `...` spreads elements of an array into individual arguments.
-// Example of combining both:
-
-function calculateSum(multiplier, ...numbers) {
-  let total = numbers.reduce((sum, current) => sum + current, 0);
-  return multiplier * total;
-}
-
-const numArray = [2, 3, 4];
-console.log(calculateSum(2, ...numArray)); // Using spread operator to pass array elements
-// Output: 18 (2 * (2 + 3 + 4))
-
-// 7. Benefits of Rest Parameters
-// - Simplifies handling of functions with a variable number of arguments.
-// - Replaces the need to use the `arguments` object.
-// - Works seamlessly with array methods.
+// 8. Use Cases for Destructuring
+// - Extracting values from arrays and assigning them to variables
+// - Handling function return values
+// - Swapping variable values
+// - Collecting rest of the elements in an array
