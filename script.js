@@ -1,54 +1,110 @@
-// Lecture: Function Scope in JavaScript
+// Lecture: Understanding Methods Inside an Object in JavaScript
 
-// 1. Global Scope Example (Outside any function)
-var globalVar = "Global variable (var)";
-let globalLet = "Global variable (let)";
+// What is a Method?
+// A method is a function defined as a property of an object.
+// It allows the object to perform specific actions related to its data.
 
-console.log(globalVar); // Accessible here: Output "I'm a global variable (var)"
-console.log(globalLet); // Accessible here: Output "I'm a global variable (let)"
+// Example 1: Declaring a Method in an Object
+let car = {
+  brand: "BMW",
+  model: "7 Series",
+  year: 2024,
 
-// 2. Function Scope Example
-function scopeTest() {
-  var functionScopedVar = "Function-scoped variable (var)";
-  let functionScopedLet = "Block-scoped variable (let)";
+  // Method to describe the car
+  describeCar: function () {
+    return `This car is a ${this.year} ${this.brand} ${this.model}.`;
+  },
+};
 
-  console.log(functionScopedVar); // Output: "I'm a function-scoped variable (var)"
-  console.log(functionScopedLet); // Output: "I'm a block-scoped variable (let)"
-}
+// Accessing the method
+console.log(car.describeCar()); // Output: This car is a 2024 BMW 7 Series
 
-scopeTest();
+// Explanation:
+// - 'describeCar' is a method. It is a function inside the 'car' object.
+// - The 'this' keyword refers to the object the method belongs to. In this case, 'this' refers to the 'car' object.
 
-// Uncommenting the below lines will throw an error because the variables are scoped inside the function
-// console.log(functionScopedVar); // Error: functionScopedVar is not defined
-// console.log(functionScopedLet); // Error: functionScopedLet is not defined
+// Shorthand Method Syntax:
+// When defining methods, we can use a shorter syntax introduced in ES6.
 
-// 3. Block Scope with 'var' and 'let'
-function blockScopeExample() {
-  // Example of a conditional scope
-  if (true) {
-    var blockVar = "Declared with var inside a block";
-    let blockLet = "Declared with let inside a block";
-  }
+// Example 2: Using Shorthand Syntax to Declare Methods
+let person = {
+  firstName: "John",
+  lastName: "Doe",
 
-  console.log(blockVar); // Output: "I'm declared with var inside a block"
-  // Uncommenting the below line will throw an error because 'blockLet' is block-scoped
-  // console.log(blockLet); // Error: blockLet is not defined
-}
+  // Shorthand method to get full name
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+};
 
-blockScopeExample();
+console.log(person.getFullName()); // Output: John Doe
 
-// 4. var vs let in Loops
-console.log("Using var in loops:");
-for (var i = 0; i < 3; i++) {
-  console.log("Inside loop with var:", i);
-}
-console.log("Outside loop with var:", i); // 'i' is still accessible here with var
+// Explanation:
+// - Here, 'getFullName' is a method. The syntax is simpler than the traditional function declaration.
+// - This reduces redundancy while maintaining the same functionality.
 
-console.log("Using let in loops:");
-for (let j = 0; j < 3; j++) {
-  console.log("Inside loop with let:", j);
-}
-// Uncommenting the below line will throw an error because 'j' is block-scoped with let
-// console.log("Outside loop with let:", j); // Error: j is not defined
+// Example 3: Methods with Parameters
+// Methods can also take parameters just like normal functions.
 
-// Summary: 'var' is function-scoped, while 'let' is block-scoped, making 'let' safer for block-level operations.
+let calculator = {
+  // Method to add two numbers
+  add: function (num1, num2) {
+    return num1 + num2;
+  },
+
+  // Shorthand method to subtract two numbers
+  subtract(num1, num2) {
+    return num1 - num2;
+  },
+};
+
+console.log(calculator.add(5, 3)); // Output: 8
+console.log(calculator.subtract(10, 4)); // Output: 6
+
+// Explanation:
+// - The 'add' method takes two parameters and returns their sum.
+// - Similarly, the 'subtract' method uses the shorthand syntax and returns the difference of the two numbers.
+
+// Example 4: The 'this' Keyword in Methods
+// The 'this' keyword refers to the object that the method belongs to.
+// Let's see how 'this' works inside a method.
+
+let employee = {
+  name: "Jane",
+  age: 30,
+  position: "Developer",
+
+  // Method using 'this' keyword
+  introduce() {
+    return `Hello, my name is ${this.name}, I am a ${this.position}.`;
+  },
+};
+
+console.log(employee.introduce()); // Output: Hello, my name is Jane, I am a Developer.
+
+// Explanation:
+// - 'this.name' refers to the 'name' property of the 'employee' object.
+// - 'this' ensures that the method can access other properties within the same object.
+
+// Example 5: Methods Inside Nested Objects
+// Methods can also be nested inside objects that are properties of other objects.
+
+let company = {
+  name: "TechCorp",
+  location: "New York",
+  employee: {
+    name: "John",
+    position: "Software Engineer",
+
+    // Method inside nested object
+    getDetails() {
+      return `${this.name} works as a ${this.position}.`;
+    },
+  },
+};
+
+console.log(company.employee.getDetails()); // Output: John works as a Software Engineer.
+
+// Explanation:
+// - The 'employee' object is a nested object inside the 'company' object.
+//
