@@ -1,45 +1,71 @@
-// JavaScript Lecture: Spread Operator with Arrays
+// JavaScript Lecture: Spread Operator with Objects
 
-// 1. Introduction to Spread Operator with Arrays
-// The spread operator (...) allows an array to be expanded in places where zero or more elements are expected.
-// It essentially "spreads" out the elements of an array into individual elements.
+// 1. Introduction to Spread Operator with Objects
+// The spread operator (...) allows you to copy, merge, or add properties to objects.
+// This is particularly useful when working with complex objects and needing to modify or combine them.
 
-let numbers = [1, 2, 3];
-let moreNumbers = [4, 5, 6];
-
-// Using spread operator to combine arrays
-let combined = [...numbers, ...moreNumbers];
-console.log("Combined Array:", combined);
-// Output: [1, 2, 3, 4, 5, 6]
-
-// 2. Adding Elements to an Array Using Spread Operator
-// You can use the spread operator to easily add new elements to an array without modifying the original array.
-
-let moreFruits = ["Grapes", ...fruits, "Pineapple"];
-console.log("New Fruits Array:", moreFruits);
-// Output: ["Grapes", "Apple", "Banana", "Orange", "Pineapple"]
-
-// 3. Shallow Copy Warning with Spread Operator
-// The spread operator only creates a shallow copy of an array, meaning that nested objects within the array will still be referenced.
-
-let nestedArray = [
-  [1, 2],
-  [3, 4],
-];
-let copiedArray = [...nestedArray];
-
-// Modifying the nested array in the copied array affects the original array
-copiedArray[0][0] = 99;
-console.log("Original Nested Array:", nestedArray);
-// Output: [[99, 2], [3, 4]]
-
-// 7. Spread Operator with Arrays Inside Objects
-// Spread operator can also be used inside objects to spread arrays as values.
-
-let objectWithArray = {
-  name: "Sample Object",
-  items: [...fruits],
+// Example: Basic use of spread operator with objects
+let car = {
+  brand: "BMW",
+  model: "7 Series",
+  color: "White",
+  make: 2024,
 };
 
-console.log("Object with Array Inside:", objectWithArray);
-// Output: { name: 'Sample Object', items: ['Apple', 'Banana', 'Orange'] }
+let updatedCar = { ...car, color: "Black" }; // Overwriting the color property
+console.log("Original Car:", car);
+console.log("Updated Car:", updatedCar);
+// Output: Original Car: {brand: "BMW", model: "7 Series", color: "White", make: 2024}
+//         Updated Car: {brand: "BMW", model: "7 Series", color: "Black", make: 2024}
+
+// 2. Merging Multiple Objects
+// You can combine properties from multiple objects into one using the spread operator.
+
+let owner = {
+  name: "John",
+  age: 30,
+};
+
+let carWithOwner = { ...car, ...owner };
+console.log("Car with Owner Details:", carWithOwner);
+// Output: {brand: "BMW", model: "7 Series", color: "White", make: 2024, name: "John", age: 30}
+
+// 3. Adding New Properties with Spread Operator
+// You can add new properties while copying an object using the spread operator.
+
+let detailedCar = { ...car, fuel: "Petrol", price: "$50,000" };
+console.log("Detailed Car:", detailedCar);
+// Output: {brand: "BMW", model: "7 Series", color: "White", make: 2024, fuel: "Petrol", price: "$50,000"}
+
+// 4. Overriding Properties with Spread Operator
+// When combining objects with the spread operator, if properties overlap, the one on the right overwrites the one on the left.
+
+let carUpdate = {
+  color: "Red",
+  year: 2025,
+};
+
+let finalCar = { ...car, ...carUpdate };
+console.log("Final Car with Overridden Properties:", finalCar);
+// Output: {brand: "BMW", model: "7 Series", color: "Red", make: 2024, year: 2025}
+// The `color` property has been overwritten, and the `year` property was added.
+
+// 5. Shallow Copy Warning with Spread Operator
+// The spread operator creates a shallow copy, which means that nested objects are still shared between the original and the copy.
+
+let nestedCar = {
+  brand: "BMW",
+  specs: {
+    color: "White",
+    engine: "V8",
+  },
+};
+
+let copiedNestedCar = { ...nestedCar };
+copiedNestedCar.specs.color = "Black"; // Modifying the nested object
+
+console.log("Original Nested Car:", nestedCar);
+// Output: {brand: "BMW", specs: {color: "Black", engine: "V8"}}
+console.log("Copied Nested Car:", copiedNestedCar);
+// Output: {brand: "BMW", specs: {color: "Black", engine: "V8"}}
+// Both objects reflect the same nested object change because only a shallow copy was made.
