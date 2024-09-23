@@ -1,36 +1,52 @@
-// Lecture: Commonly Used Math Object Methods in JavaScript
+// Lecture: Commonly Used Date Object Methods in JavaScript
 
-// **1. Math.PI**
-// Returns the value of Pi (approximately 3.14159).
-console.log("Value of Pi:", Math.PI); // Output: 3.141592653589793
+// // // // // // // //
+// WHY Math Object can be used without instantiatioon and Date cannot be used
+// // // // // // // //
+/**
+ * Since Math only contains utility functions (like Math.pow() or Math.random()), there is no need for storing individual state or data. Therefore, you can access and use the methods directly without creating a new instance.
+ *
+ * Creating a new Date object using new Date() allows you to store, manipulate, and work with unique time values for different scenarios, unlike Math, which just provides utility functions that don’t rely on individual instances.
+ *
+ * THERE ARE SOME FUNCTIONS ON DATE THAT CANBE USED DIRECTLY like now()
+ */
 
-// **2. Math.abs()**
-// Returns the absolute value of a number (i.e., removes any negative sign).
-let negativeNumber = -25;
-console.log("Absolute value of -25:", Math.abs(negativeNumber)); // Output: 25
+// **1. Creating a new Date Object**
+// If no arguments are provided, the Date object will be initialized to the current date and time.
+let currentDate = new Date();
+console.log("Current Date and Time:", currentDate);
 
-// **3. Math.round()**
-// Rounds a number to the nearest integer.
-let num = 4.7;
-console.log("Rounded value of 4.7:", Math.round(num)); // Output: 5
+// **2. Date with Specific Date and Time**
+// You can create a Date object with specific date and time values by passing them as arguments.
+let specificDate = new Date(2024, 6, 18, 15, 30, 0); // Year, Month (0-based), Day, Hour, Minute, Second
+console.log("Specific Date and Time:", specificDate);
 
-// **4. Math.floor()**
-// Rounds a number down to the nearest integer.
-console.log("Floor value of 4.7:", Math.floor(num)); // Output: 4
+// **3. Get the current year**
+// Using the `getFullYear()` method to get the 4-digit year of the date.
+console.log("Current Year:", currentDate.getFullYear());
 
-// **5. Math.ceil()**
-// Rounds a number up to the nearest integer.
-console.log("Ceil value of 4.7:", Math.ceil(num)); // Output: 5
+// **4. Get the current month**
+// Using the `getMonth()` method to get the month (0-based, so January is 0, February is 1, etc.).
+console.log("Current Month (0-based):", currentDate.getMonth()); // 0-based
 
-// **6. Math.sqrt()**
-// Returns the square root of a number.
-let square = 49;
-console.log("Square root of 49:", Math.sqrt(square)); // Output: 7
+// **5. Get the current day of the month**
+// The `getDate()` method returns the day of the month (1-31).
+console.log("Current Day of the Month:", currentDate.getDate());
 
-// **7. Math.min()**
-// Returns the smallest number from the given set of numbers.
-console.log("Smallest number in (5, 10, 2, -1):", Math.min(5, 10, 2, -1)); // Output: -1
+// **6. Get the current day of the week**
+// The `getDay()` method returns the day of the week (0-based, Sunday is 0, Monday is 1, etc.).
+console.log(
+  "Current Day of the Week (0-Sunday, 6-Saturday):",
+  currentDate.getDay()
+);
 
-// **8. Math.max()**
-// Returns the largest number from the given set of numbers.
-console.log("Largest number in (5, 10, 2, -1):", Math.max(5, 10, 2, -1)); // Output: 10
+// **10. Date.now()**
+// This method returns the number of milliseconds that have passed since January 1, 1970 (Unix Epoch).
+let currentTimestamp = Date.now();
+console.log("Current Timestamp:", currentTimestamp);
+
+// **11. Converting Date to String**
+// Use `toString()`, `toDateString()`, and `toTimeString()` to convert a date to a readable format.
+console.log("Date to String:", currentDate.toString()); // Full string representation
+console.log("Date only String:", currentDate.toDateString()); // Only date
+console.log("Time only String:", currentDate.toTimeString()); // Only time
