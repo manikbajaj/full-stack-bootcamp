@@ -1,44 +1,36 @@
-// Lecture: Commonly Used Array Methods in JavaScript
+// Lecture: Commonly Used Math Object Methods in JavaScript
 
-// **1. push()**
-// Adds one or more elements to the end of an array.
-let fruits = ["Apple", "Banana"];
-fruits.push("Orange");
-console.log("After push:", fruits); // Output: ['Apple', 'Banana', 'Orange']
+// **1. Math.PI**
+// Returns the value of Pi (approximately 3.14159).
+console.log("Value of Pi:", Math.PI); // Output: 3.141592653589793
 
-// **2. pop()**
-// Removes the last element from an array.
-fruits.pop();
-console.log("After pop:", fruits); // Output: ['Apple', 'Banana']
+// **2. Math.abs()**
+// Returns the absolute value of a number (i.e., removes any negative sign).
+let negativeNumber = -25;
+console.log("Absolute value of -25:", Math.abs(negativeNumber)); // Output: 25
 
-// **3. unshift()**
-// Adds one or more elements to the beginning of an array.
-fruits.unshift("Mango");
-console.log("After unshift:", fruits); // Output: ['Mango', 'Apple', 'Banana']
+// **3. Math.round()**
+// Rounds a number to the nearest integer.
+let num = 4.7;
+console.log("Rounded value of 4.7:", Math.round(num)); // Output: 5
 
-// **4. shift()**
-// Removes the first element from an array.
-fruits.shift();
-console.log("After shift:", fruits); // Output: ['Apple', 'Banana']
+// **4. Math.floor()**
+// Rounds a number down to the nearest integer.
+console.log("Floor value of 4.7:", Math.floor(num)); // Output: 4
 
-// **5. indexOf()**
-// Returns the first index of a specified element.
-let index = allFruits.indexOf("Pineapple");
-console.log("Index of 'Pineapple':", index); // Output: 2
+// **5. Math.ceil()**
+// Rounds a number up to the nearest integer.
+console.log("Ceil value of 4.7:", Math.ceil(num)); // Output: 5
 
-// **6. includes()**
-// Determines if an array includes a certain element.
-let hasBanana = allFruits.includes("Banana");
-console.log("Includes 'Banana'?", hasBanana); // Output: false
+// **6. Math.sqrt()**
+// Returns the square root of a number.
+let square = 49;
+console.log("Square root of 49:", Math.sqrt(square)); // Output: 7
 
-// **7. slice()**
-// Returns a shallow copy of a portion of an array into a new array.
-let slicedFruits = allFruits.slice(1, 3);
-console.log("After slice:", slicedFruits); // Output: ['Banana', 'Pineapple']
+// **7. Math.min()**
+// Returns the smallest number from the given set of numbers.
+console.log("Smallest number in (5, 10, 2, -1):", Math.min(5, 10, 2, -1)); // Output: -1
 
-// **8. splice()**
-// Adds/removes elements in an array at a specified index.
-allFruits.splice(2, 0, "Kiwi");
-console.log("After splice (adding):", allFruits); // Output: ['Apple', 'Banana', 'Kiwi', 'Pineapple', 'Grapes']
-allFruits.splice(1, 1); // Removes 1 element at index 1
-console.log("After splice (removing):", allFruits); // Output: ['Apple', 'Kiwi', 'Pineapple', 'Grapes']
+// **8. Math.max()**
+// Returns the largest number from the given set of numbers.
+console.log("Largest number in (5, 10, 2, -1):", Math.max(5, 10, 2, -1)); // Output: 10
