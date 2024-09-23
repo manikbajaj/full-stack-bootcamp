@@ -1,83 +1,67 @@
-// JavaScript Lecture: Destructuring Arrays
+// JavaScript Lecture: Destructuring Objects
 
-// 1. What is Array Destructuring?
-// Destructuring allows us to extract values from arrays and assign them to variables in a concise and readable way.
+// 1. What is Object Destructuring?
+// Object destructuring allows you to unpack properties from objects into distinct variables.
 // This feature was introduced in ES6 (ECMAScript 2015).
 
 // Basic Syntax:
-// const [variable1, variable2] = array;
+// const { property1, property2 } = object;
 
-// Example 1: Basic Array Destructuring
-const fruits = ["Apple", "Banana", "Orange"];
-const [firstFruit, secondFruit, thirdFruit] = fruits;
+// Example 1: Basic Object Destructuring
+const car = {
+  brand: "BMW",
+  model: "7 Series",
+  color: "White",
+  year: 2024,
+};
 
-console.log(firstFruit); // Output: Apple
-console.log(secondFruit); // Output: Banana
-console.log(thirdFruit); // Output: Orange
+// Destructuring the object to extract properties
+const { brand, model, year } = car;
 
-// 2. Skipping Array Elements
-// You can skip elements in the array by leaving gaps between the commas.
+console.log(brand); // Output: BMW
+console.log(model); // Output: 7 Series
+console.log(year); // Output: 2024
 
-const numbers = [1, 2, 3, 4, 5];
-const [firstNumber, , thirdNumber] = numbers; // Skips the second element
+// 2. Assigning New Variable Names
+// You can assign different variable names while destructuring by using a colon (:).
 
-console.log(firstNumber); // Output: 1
-console.log(thirdNumber); // Output: 3
+const { brand: carBrand, model: carModel } = car;
+
+console.log(carBrand); // Output: BMW
+console.log(carModel); // Output: 7 Series
 
 // 3. Assigning Default Values
-// If the array does not contain enough values, you can assign default values to variables.
+// If a property does not exist in the object, you can assign a default value.
 
-const colors = ["Red"];
-const [primaryColor, secondaryColor = "Blue"] = colors;
+const { color = "Black", engine = "V8" } = car;
 
-console.log(primaryColor); // Output: Red
-console.log(secondaryColor); // Output: Blue (since the second element is missing)
+console.log(color); // Output: White (uses the actual value)
+console.log(engine); // Output: V8 (uses the default value as engine does not exist in the car object)
 
-// 4. Destructuring with Rest Operator
-// You can use the rest operator (`...`) to collect the remaining elements into a new array.
+// 4. Nested Object Destructuring
+// You can destructure properties from nested objects by matching their structure.
 
-const scores = [80, 90, 70, 60];
-const [topScore, secondTopScore, ...remainingScores] = scores;
+const carWithOwner = {
+  brand: "BMW",
+  model: "7 Series",
+  color: "White",
+  owner: {
+    name: "John Doe",
+    age: 35,
+  },
+};
 
-console.log(topScore); // Output: 80
-console.log(secondTopScore); // Output: 90
-console.log(remainingScores); // Output: [70, 60]
+const {
+  owner: { name, age },
+} = carWithOwner;
 
-// 5. Nested Array Destructuring
-// You can destructure nested arrays in a similar manner by matching the structure.
+console.log(name); // Output: John Doe
+console.log(age); // Output: 35
 
-const nestedArray = [1, [2, 3], 4];
-const [first, [second, third], fourth] = nestedArray;
+// 5. Destructuring with Rest Operator
+// You can use the rest operator to collect remaining properties into a new object.
 
-console.log(first); // Output: 1
-console.log(second); // Output: 2
-console.log(third); // Output: 3
-console.log(fourth); // Output: 4
+const { brand: carBrandNew, ...otherDetails } = carWithOwner;
 
-// 6. Swapping Variables using Destructuring
-// Destructuring makes it easy to swap variable values without the need for a temporary variable.
-
-let a = 5,
-  b = 10;
-console.log("Before swap:", a, b); // Output: 5 10
-
-// Swap values
-[a, b] = [b, a];
-
-console.log("After swap:", a, b); // Output: 10 5
-
-// 7. Destructuring Function Return Values
-// Destructuring can be useful when a function returns an array, allowing you to extract multiple return values easily.
-
-function getDimensions() {
-  return [400, 600];
-}
-
-const [width, height] = getDimensions();
-console.log(`Width: ${width}, Height: ${height}`); // Output: Width: 400, Height: 600
-
-// 8. Use Cases for Destructuring
-// - Extracting values from arrays and assigning them to variables
-// - Handling function return values
-// - Swapping variable values
-// - Collecting rest of the elements in an array
+console.log(carBrandNew); // Output: BMW
+console.log(otherDetails); // Output: { model: '7 Series', color: 'White', owner: { name: 'John Doe', age: 35 } }
