@@ -1,40 +1,60 @@
-// Lecture: How to Select HTML Elements Using DOM Methods Effectively
+// Lecture: JavaScript Built-in Constructors
+// This lecture demonstrates how to use JavaScript's built-in constructors for Object(), Array(), and Function().
+// We will cover creating objects using constructors and accessing built-in functions on these constructor objects.
 
-// 1. Selecting an Element by its ID
-// getElementById() method returns a single element object that has the specified ID.
-let heading = document.getElementById("main-title");
-// Example: Fetches the element with ID 'main-title'
-console.log(heading); // Outputs: <h1 id="main-title">Hello, DOM!</h1>
+/*
+  1. Object() Constructor
+*/
 
-// 2. Selecting Elements by Class Name
-// getElementsByClassName() returns an array-like object (HTMLCollection) of all elements with the specified class name.
-// Remember, this method does not return a true array but an HTMLCollection.
-let paragraphs = document.getElementsByClassName("content");
-// Example: Fetches all elements with the class 'content'
-console.log(paragraphs); // Outputs: HTMLCollection of all elements with 'content' class
+// Example 1: Creating a new object using the Object() constructor
+let person = new Object();
+person.name = "John";
+person.age = 30;
+person.city = "New York";
+console.log(person);
+// Output: { name: 'John', age: 30, city: 'New York' }
 
-// Accessing individual elements from the HTMLCollection
-console.log(paragraphs[0]); // Outputs the first element with class 'content'
+// Example 2: Checking if a variable is an instance of Object
+let isObject = person instanceof Object;
+console.log(isObject);
+// Output: true
 
-// 3. Selecting Elements by Tag Name
-// getElementsByTagName() returns an array-like object (HTMLCollection) of all elements with the specified tag name.
-let divElements = document.getElementsByTagName("div");
-// Example: Fetches all <div> elements in the document
-console.log(divElements); // Outputs: HTMLCollection of all <div> elements
+// Example 3: Using Object.keys() to retrieve the keys of the object
+let keys = Object.keys(person);
+console.log(keys);
+// Output: [ 'name', 'age', 'city' ]
 
-// Accessing individual elements from the HTMLCollection
-console.log(divElements[1]); // Outputs the second <div> element
+/*
+  2. Array() Constructor
+*/
 
-// Example of iterating over the HTMLCollection
-for (let i = 0; i < paragraphs.length; i++) {
-  console.log(paragraphs[i].innerText); // Logs the inner text of each 'content' class element
-}
+// Example 1: Creating a new array using the Array() constructor
+let numbers = new Array(10, 20, 30, 40, 50);
+console.log(numbers);
+// Output: [ 10, 20, 30, 40, 50 ]
 
-// Important Notes:
-// - getElementById() returns a single element or null if not found, making it faster for selecting a specific element.
-// - getElementsByClassName() and getElementsByTagName() return an HTMLCollection, which is live and updates automatically if the DOM changes.
-// - To work with the results of getElementsByClassName() and getElementsByTagName(), you may need to convert the HTMLCollection to an array for more flexibility (e.g., using Array.from()).
+// Example 2: Checking if a variable is an array using Array.isArray()
+let isArray = Array.isArray(numbers);
+console.log(isArray);
+// Output: true
 
-// Converting HTMLCollection to an array example
-let paragraphArray = Array.from(paragraphs);
-paragraphArray.forEach((p) => console.log(p.innerText)); // Outputs the text of all paragraphs in the array
+/*
+  3. Function() Constructor
+*/
+
+// Example 1: Creating a new function using the Function() constructor
+let add = new Function("a", "b", "return a + b");
+console.log(add(5, 10));
+// Output: 15
+
+// Example 2: Checking the function’s constructor
+console.log(add.constructor === Function);
+// Output: true
+
+// Example 3: Accessing the length property of a function to get the number of arguments
+console.log(add.length);
+// Output: 2 (because the function takes two parameters 'a' and 'b')
+
+// Conclusion:
+// The Object(), Array(), and Function() constructors allow us to create new instances and access useful methods on these objects.
+// These built-in constructors provide powerful tools to work with objects, arrays, and functions.
