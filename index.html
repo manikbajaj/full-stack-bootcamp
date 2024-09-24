@@ -2,16 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>innerText and textContent Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getAttribute and setAttribute Example</title>
   </head>
   <body>
-    <h1>Understanding innerText and textContent in JavaScript</h1>
+    <h1>Working with getAttribute and setAttribute</h1>
 
-    <div id="example1">This is <strong>bold</strong> text.</div>
-    <div id="example2">Another <i>italic</i> example.</div>
+    <img
+      id="exampleImage"
+      src="https://via.placeholder.com/150"
+      alt="Placeholder Image"
+    />
 
-    <button onclick="useInnerText()">Use innerText</button>
-    <button onclick="useTextContent()">Use textContent</button>
+    <p id="description">This is a placeholder image.</p>
+
+    <button onclick="updateImageAttributes()">Update Image Attributes</button>
 
     <script src="script.js"></script>
   </body>
