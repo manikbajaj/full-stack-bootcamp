@@ -3,31 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>First and Last Child/Element Example</title>
+    <title>Selecting Sibling Nodes Example</title>
     <style>
-      .container {
-        background-color: lightgray;
-        padding: 10px;
-        margin: 20px 0;
-      }
-      .child {
-        background-color: lightblue;
+      .sibling {
         padding: 10px;
         margin: 5px 0;
+        background-color: lightblue;
+        border: 1px solid black;
       }
     </style>
   </head>
   <body>
-    <h1>Understanding First and Last Child/Element</h1>
+    <h1>Selecting Siblings of Nodes in the DOM</h1>
 
-    <!-- Parent Container -->
-    <div class="container" id="parent">
-      <!-- Text Node between divs -->
-      <div class="child">First Child (Element)</div>
-      <!-- This is a text node -->
-      <div class="child">Second Child (Element)</div>
-      <span>This is a span (Element)</span>
-    </div>
+    <!-- Sibling Nodes -->
+    <div id="first-sibling" class="sibling">First Sibling</div>
+    <!-- Text Node -->
+    This is a text node between siblings.
+    <div id="second-sibling" class="sibling">Second Sibling</div>
+    <div id="third-sibling" class="sibling">Third Sibling</div>
 
     <script src="script.js"></script>
   </body>

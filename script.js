@@ -1,41 +1,48 @@
-// Lecture: Selecting the First or Last Child/Element using DOM
+// Lecture: Selecting a Sibling of Nodes in the DOM
 
-// 1. Selecting the first child (node) of the parent container using firstChild
-let parentContainer = document.getElementById("parent");
-let firstNode = parentContainer.firstChild; // This could be a text node, comment, or element
+// 1. Selecting the Next Sibling Node
+// 'nextSibling' will select the next node, which could be a text, comment, or element.
+let firstSibling = document.getElementById("first-sibling");
+let nextNode = firstSibling.nextSibling; // This might be a text node if there is whitespace or text between siblings.
 
-console.log("First child node of parentContainer:");
-console.log(firstNode);
-// Output: This may be a text node (e.g., space or new line)
+console.log("Next sibling node of firstSibling:");
+console.log(nextNode);
+// Output: Depending on the structure, this could be a text node (e.g., "This is a text node between siblings.")
 
-// 2. Selecting the last child (node) using lastChild
-let lastNode = parentContainer.lastChild;
+// 2. Selecting the Previous Sibling Node
+let secondSibling = document.getElementById("second-sibling");
+let prevNode = secondSibling.previousSibling;
 
-console.log("Last child node of parentContainer:");
-console.log(lastNode);
-// Output: <span>This is a span (Element)</span> or another type of node
+console.log("Previous sibling node of secondSibling:");
+console.log(prevNode);
+// Output: This could also be a text node, not necessarily the first sibling.
 
-// 3. Selecting the first element child using firstElementChild
-let firstElement = parentContainer.firstElementChild;
+// 3. Selecting the Next Sibling Element
+// 'nextElementSibling' ensures you are selecting the next sibling element, skipping any text or comment nodes.
+let nextElementSibling = firstSibling.nextElementSibling;
 
-console.log("First element child of parentContainer:");
-console.log(firstElement);
-// Output: <div class="child">First Child (Element)</div>
+console.log("Next element sibling of firstSibling:");
+console.log(nextElementSibling);
+// Output: <div id="second-sibling" class="sibling">Second Sibling</div>
 
-// 4. Selecting the last element child using lastElementChild
-let lastElement = parentContainer.lastElementChild;
+// 4. Selecting the Previous Sibling Element
+// 'previousElementSibling' ensures you are selecting the previous sibling element.
+let previousElementSibling = secondSibling.previousElementSibling;
 
-console.log("Last element child of parentContainer:");
-console.log(lastElement);
-// Output: <span>This is a span (Element)</span>
+console.log("Previous element sibling of secondSibling:");
+console.log(previousElementSibling);
+// Output: <div id="first-sibling" class="sibling">First Sibling</div>
 
 // Important Notes:
-// - firstChild and lastChild can return any node (text, comment, element). If you need only elements, use firstElementChild or lastElementChild.
-// - Text nodes are often created from spaces and line breaks, which may not be immediately visible but are counted as nodes.
+// - 'nextSibling' and 'previousSibling' can select any node type (text, comment, or element), making them useful for more general traversing.
+// - 'nextElementSibling' and 'previousElementSibling' focus strictly on elements, skipping text and comment nodes.
 
-// Looping through all children to visualize the different types of nodes
-let childNodes = parentContainer.childNodes;
-childNodes.forEach((node) => {
-  console.log(node.nodeName, node.nodeType);
-  // Logs node name and type (element, text, etc.)
-});
+// Example: Skipping text nodes and logging only the element siblings
+let thirdSibling = document.getElementById("third-sibling");
+
+// Checking the next and previous element siblings
+console.log("Previous element sibling of thirdSibling:");
+console.log(thirdSibling.previousElementSibling); // Outputs: <div id="second-sibling" class="sibling">Second Sibling</div>
+
+console.log("Next element sibling of thirdSibling:");
+console.log(thirdSibling.nextElementSibling); // Output: null (no next sibling after the third)
