@@ -3,37 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Setting Styles and Manipulating Classes</title>
+    <title>parentNode vs parentElement Example</title>
     <style>
-      /* Default styles */
-      .box {
-        width: 100px;
-        height: 100px;
-        background-color: lightblue;
-        border: 2px solid blue;
-        margin: 10px;
-        display: inline-block;
-      }
-
       .highlight {
         background-color: yellow;
-        border-color: orange;
-      }
-
-      .large {
-        width: 150px;
-        height: 150px;
+        padding: 5px;
       }
     </style>
   </head>
   <body>
-    <h1>Setting Styles and Manipulating Classes</h1>
+    <h1>Understanding parentNode vs parentElement</h1>
 
-    <div id="box1" class="box"></div>
-    <div id="box2" class="box"></div>
+    <div id="container" class="highlight">
+      <p id="paragraph">This is a paragraph inside a div.</p>
+      <span>Some extra content in a span.</span>
+    </div>
 
-    <button onclick="applyStyles()">Apply Inline Styles</button>
-    <button onclick="toggleClass()">Toggle Class</button>
+    <!-- Empty Text Node for Testing -->
+    <div>
+      <!-- Empty Text Node Below -->
+      <p id="textNodeExample">Some text here.</p>
+    </div>
 
     <script src="script.js"></script>
   </body>

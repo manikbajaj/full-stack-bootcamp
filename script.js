@@ -1,40 +1,41 @@
-// Lecture: Setting Styles with .style and Manipulating Classes in the DOM
+// Lecture: Selecting a Parent with parentNode vs parentElement
 
-// 1. Using .style to Apply Inline Styles
-function applyStyles() {
-  let box1 = document.getElementById("box1");
+// 1. Selecting a child element (paragraph) inside the 'container' div
+let paragraph = document.getElementById("paragraph");
 
-  // Setting individual CSS properties using the .style property
-  box1.style.backgroundColor = "green";
-  box1.style.borderColor = "red";
-  box1.style.width = "200px";
-  box1.style.height = "200px";
+// 2. Using parentNode to get the parent of the 'paragraph'
+let parentUsingNode = paragraph.parentNode;
+console.log("parentNode of paragraph:", parentUsingNode);
+// Output: <div id="container" class="highlight">...</div>
+// Explanation: parentNode returns the parent node, which is the 'div' element in this case.
 
-  console.log(box1.style); // Outputs the inline styles set on the element
-}
+// 3. Using parentElement to get the parent of the 'paragraph'
+let parentUsingElement = paragraph.parentElement;
+console.log("parentElement of paragraph:", parentUsingElement);
+// Output: <div id="container" class="highlight">...</div>
+// Explanation: parentElement also returns the parent element, which is the 'div'.
 
-// Explanation:
-// The .style property directly sets inline styles on an element. In this example, the styles applied with .style overwrite any external or embedded CSS rules for the element.
+// Let's explore the difference between parentNode and parentElement using a text node
 
-// 2. Adding and Removing Classes using classList
-function toggleClass() {
-  let box2 = document.getElementById("box2");
+// 4. Selecting the text node within the 'p' element
+let textNode = document.getElementById("textNodeExample").firstChild;
+console.log("Text Node content:", textNode.textContent);
 
-  // Toggling the 'highlight' class on the second box
-  box2.classList.toggle("highlight");
+// 5. Getting the parent node of a text node
+let parentOfTextNodeUsingNode = textNode.parentNode;
+console.log("parentNode of text node:", parentOfTextNodeUsingNode);
+// Output: <p id="textNodeExample">Some text here.</p>
+// Explanation: parentNode returns the parent, which is the <p> element even for text nodes.
 
-  // Toggling another class 'large' to change the size
-  box2.classList.toggle("large");
+// 6. Getting the parent element of a text node
+let parentOfTextNodeUsingElement = textNode.parentElement;
+console.log("parentElement of text node:", parentOfTextNodeUsingElement);
+// Output: <p id="textNodeExample">Some text here.</p>
+// Explanation: parentElement returns the parent element of a text node, similar to parentNode in this case.
+// However, if the parent is not an element, it will return null.
 
-  console.log(box2.className); // Outputs the current classes applied to the element
-}
-
-/**
- *
- *! .style: Targets individual CSS properties and is limited to inline styles classList: A more efficient way to apply multiple style rules at once by managing CSS classes, allowing you to easily reuse styles across elements.
- */
-
-// Explanation:
-// classList is used to manipulate classes on an element.
-// - toggle() will add the class if it doesn't exist and remove it if it does, enabling quick toggling of states like "highlight" or "large."
-// - You can also use add() and remove() methods to explicitly manage class addition or removal.
+// 7. Example where parentNode returns a document, but parentElement returns null
+let htmlElement = document.documentElement; // Refers to the <html> tag
+console.log("parentNode of html:", htmlElement.parentNode); // Output: #document
+console.log("parentElement of html:", htmlElement.parentElement); // Output: null
+// Explanation: parentNode returns the document node, but parentElement returns null because the parent isn't an element.
