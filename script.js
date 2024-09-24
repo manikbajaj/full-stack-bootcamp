@@ -1,56 +1,41 @@
-// Lecture: Selecting Elements with childNodes vs children
+// Lecture: Selecting the First or Last Child/Element using DOM
 
-// 1. Selecting child nodes using childNodes (includes text and comment nodes)
+// 1. Selecting the first child (node) of the parent container using firstChild
 let parentContainer = document.getElementById("parent");
-let childNodes = parentContainer.childNodes;
+let firstNode = parentContainer.firstChild; // This could be a text node, comment, or element
 
-console.log("childNodes of parentContainer:");
-console.log(childNodes);
-// Output: NodeList(5) [text, div, text, div, text, span]
-// Explanation: childNodes includes text nodes and the span element in addition to div elements.
+console.log("First child node of parentContainer:");
+console.log(firstNode);
+// Output: This may be a text node (e.g., space or new line)
 
-// 2. Selecting child elements using children (only element nodes)
-let children = parentContainer.children;
+// 2. Selecting the last child (node) using lastChild
+let lastNode = parentContainer.lastChild;
 
-console.log("children of parentContainer:");
-console.log(children);
-// Output: HTMLCollection(3) [div, div, span]
-// Explanation: children only includes the div and span elements, ignoring text nodes.
+console.log("Last child node of parentContainer:");
+console.log(lastNode);
+// Output: <span>This is a span (Element)</span> or another type of node
 
-// Accessing individual elements from HTMLCollection and NodeList
-console.log(children[0]); // Output: <div class="child">First Child (Element)</div>
-console.log(childNodes[1]); // Output: <div class="child">First Child (Element)</div>
-console.log(childNodes[2]); // Output: Text node
+// 3. Selecting the first element child using firstElementChild
+let firstElement = parentContainer.firstElementChild;
 
-// Example 2: Selecting nodes in a container with text and comment nodes
-let parentContainer2 = document.getElementById("parent2");
-let childNodes2 = parentContainer2.childNodes;
+console.log("First element child of parentContainer:");
+console.log(firstElement);
+// Output: <div class="child">First Child (Element)</div>
 
-console.log("childNodes of parentContainer2:");
-console.log(childNodes2);
-// Output: NodeList(5) [text, span, text, comment, text]
-// Explanation: childNodes includes text and comment nodes along with the span element.
+// 4. Selecting the last element child using lastElementChild
+let lastElement = parentContainer.lastElementChild;
 
-let children2 = parentContainer2.children;
-
-console.log("children of parentContainer2:");
-console.log(children2);
-// Output: HTMLCollection(1) [span]
-// Explanation: children only includes the span element and ignores text nodes.
+console.log("Last element child of parentContainer:");
+console.log(lastElement);
+// Output: <span>This is a span (Element)</span>
 
 // Important Notes:
-// - childNodes returns a NodeList, which includes all child nodes (element, text, comment, etc.).
-// - children returns an HTMLCollection, which only contains element nodes and ignores text and comment nodes.
-// - HTMLCollection is live, meaning it updates automatically if the DOM changes, while NodeList can be live or static depending on how it’s retrieved.
+// - firstChild and lastChild can return any node (text, comment, element). If you need only elements, use firstElementChild or lastElementChild.
+// - Text nodes are often created from spaces and line breaks, which may not be immediately visible but are counted as nodes.
 
-// Looping through NodeList
-console.log("Looping through childNodes:");
+// Looping through all children to visualize the different types of nodes
+let childNodes = parentContainer.childNodes;
 childNodes.forEach((node) => {
-  console.log(node.nodeName, node.nodeType); // Logs the node name and type
+  console.log(node.nodeName, node.nodeType);
+  // Logs node name and type (element, text, etc.)
 });
-
-// Looping through HTMLCollection
-console.log("Looping through children:");
-for (let i = 0; i < children.length; i++) {
-  console.log(children[i].nodeName); // Logs the node names of elements
-}

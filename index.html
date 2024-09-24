@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>childNodes vs children Example</title>
+    <title>First and Last Child/Element Example</title>
     <style>
       .container {
         background-color: lightgray;
@@ -18,7 +18,7 @@
     </style>
   </head>
   <body>
-    <h1>Understanding childNodes vs children</h1>
+    <h1>Understanding First and Last Child/Element</h1>
 
     <!-- Parent Container -->
     <div class="container" id="parent">
@@ -27,14 +27,6 @@
       <!-- This is a text node -->
       <div class="child">Second Child (Element)</div>
       <span>This is a span (Element)</span>
-    </div>
-
-    <!-- Empty Container with Text Nodes -->
-    <div class="container" id="parent2">
-      First text node.
-      <!-- This is a comment node -->
-      <span>This is another span (Element)</span>
-      Second text node.
     </div>
 
     <script src="script.js"></script>
