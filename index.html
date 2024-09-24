@@ -3,26 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>parentNode vs parentElement Example</title>
+    <title>childNodes vs children Example</title>
     <style>
-      .highlight {
-        background-color: yellow;
-        padding: 5px;
+      .container {
+        background-color: lightgray;
+        padding: 10px;
+        margin: 20px 0;
+      }
+      .child {
+        background-color: lightblue;
+        padding: 10px;
+        margin: 5px 0;
       }
     </style>
   </head>
   <body>
-    <h1>Understanding parentNode vs parentElement</h1>
+    <h1>Understanding childNodes vs children</h1>
 
-    <div id="container" class="highlight">
-      <p id="paragraph">This is a paragraph inside a div.</p>
-      <span>Some extra content in a span.</span>
+    <!-- Parent Container -->
+    <div class="container" id="parent">
+      <!-- Text Node between divs -->
+      <div class="child">First Child (Element)</div>
+      <!-- This is a text node -->
+      <div class="child">Second Child (Element)</div>
+      <span>This is a span (Element)</span>
     </div>
 
-    <!-- Empty Text Node for Testing -->
-    <div>
-      <!-- Empty Text Node Below -->
-      <p id="textNodeExample">Some text here.</p>
+    <!-- Empty Container with Text Nodes -->
+    <div class="container" id="parent2">
+      First text node.
+      <!-- This is a comment node -->
+      <span>This is another span (Element)</span>
+      Second text node.
     </div>
 
     <script src="script.js"></script>

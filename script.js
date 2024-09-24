@@ -1,41 +1,56 @@
-// Lecture: Selecting a Parent with parentNode vs parentElement
+// Lecture: Selecting Elements with childNodes vs children
 
-// 1. Selecting a child element (paragraph) inside the 'container' div
-let paragraph = document.getElementById("paragraph");
+// 1. Selecting child nodes using childNodes (includes text and comment nodes)
+let parentContainer = document.getElementById("parent");
+let childNodes = parentContainer.childNodes;
 
-// 2. Using parentNode to get the parent of the 'paragraph'
-let parentUsingNode = paragraph.parentNode;
-console.log("parentNode of paragraph:", parentUsingNode);
-// Output: <div id="container" class="highlight">...</div>
-// Explanation: parentNode returns the parent node, which is the 'div' element in this case.
+console.log("childNodes of parentContainer:");
+console.log(childNodes);
+// Output: NodeList(5) [text, div, text, div, text, span]
+// Explanation: childNodes includes text nodes and the span element in addition to div elements.
 
-// 3. Using parentElement to get the parent of the 'paragraph'
-let parentUsingElement = paragraph.parentElement;
-console.log("parentElement of paragraph:", parentUsingElement);
-// Output: <div id="container" class="highlight">...</div>
-// Explanation: parentElement also returns the parent element, which is the 'div'.
+// 2. Selecting child elements using children (only element nodes)
+let children = parentContainer.children;
 
-// Let's explore the difference between parentNode and parentElement using a text node
+console.log("children of parentContainer:");
+console.log(children);
+// Output: HTMLCollection(3) [div, div, span]
+// Explanation: children only includes the div and span elements, ignoring text nodes.
 
-// 4. Selecting the text node within the 'p' element
-let textNode = document.getElementById("textNodeExample").firstChild;
-console.log("Text Node content:", textNode.textContent);
+// Accessing individual elements from HTMLCollection and NodeList
+console.log(children[0]); // Output: <div class="child">First Child (Element)</div>
+console.log(childNodes[1]); // Output: <div class="child">First Child (Element)</div>
+console.log(childNodes[2]); // Output: Text node
 
-// 5. Getting the parent node of a text node
-let parentOfTextNodeUsingNode = textNode.parentNode;
-console.log("parentNode of text node:", parentOfTextNodeUsingNode);
-// Output: <p id="textNodeExample">Some text here.</p>
-// Explanation: parentNode returns the parent, which is the <p> element even for text nodes.
+// Example 2: Selecting nodes in a container with text and comment nodes
+let parentContainer2 = document.getElementById("parent2");
+let childNodes2 = parentContainer2.childNodes;
 
-// 6. Getting the parent element of a text node
-let parentOfTextNodeUsingElement = textNode.parentElement;
-console.log("parentElement of text node:", parentOfTextNodeUsingElement);
-// Output: <p id="textNodeExample">Some text here.</p>
-// Explanation: parentElement returns the parent element of a text node, similar to parentNode in this case.
-// However, if the parent is not an element, it will return null.
+console.log("childNodes of parentContainer2:");
+console.log(childNodes2);
+// Output: NodeList(5) [text, span, text, comment, text]
+// Explanation: childNodes includes text and comment nodes along with the span element.
 
-// 7. Example where parentNode returns a document, but parentElement returns null
-let htmlElement = document.documentElement; // Refers to the <html> tag
-console.log("parentNode of html:", htmlElement.parentNode); // Output: #document
-console.log("parentElement of html:", htmlElement.parentElement); // Output: null
-// Explanation: parentNode returns the document node, but parentElement returns null because the parent isn't an element.
+let children2 = parentContainer2.children;
+
+console.log("children of parentContainer2:");
+console.log(children2);
+// Output: HTMLCollection(1) [span]
+// Explanation: children only includes the span element and ignores text nodes.
+
+// Important Notes:
+// - childNodes returns a NodeList, which includes all child nodes (element, text, comment, etc.).
+// - children returns an HTMLCollection, which only contains element nodes and ignores text and comment nodes.
+// - HTMLCollection is live, meaning it updates automatically if the DOM changes, while NodeList can be live or static depending on how it’s retrieved.
+
+// Looping through NodeList
+console.log("Looping through childNodes:");
+childNodes.forEach((node) => {
+  console.log(node.nodeName, node.nodeType); // Logs the node name and type
+});
+
+// Looping through HTMLCollection
+console.log("Looping through children:");
+for (let i = 0; i < children.length; i++) {
+  console.log(children[i].nodeName); // Logs the node names of elements
+}
