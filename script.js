@@ -1,29 +1,35 @@
-// Lecture: Working with getAttribute() and setAttribute() in JavaScript
+// Lecture: Working with removeAttribute() and hasAttribute() in JavaScript
 
-// 1. Using getAttribute()
-// getAttribute() retrieves the value of a specified attribute of an element.
-function updateImageAttributes() {
+// 1. Using hasAttribute()
+// hasAttribute() checks if an element has a specified attribute and returns true or false.
+function checkAndRemoveAttributes() {
   let imageElement = document.getElementById("exampleImage");
 
-  // Example: Get the 'src' and 'alt' attributes of the image
-  let imgSrc = imageElement.getAttribute("src");
-  let imgAlt = imageElement.getAttribute("alt");
+  // Example: Check if the image has a 'src' and 'alt' attribute
+  let hasSrc = imageElement.hasAttribute("src");
+  let hasAlt = imageElement.hasAttribute("alt");
 
-  console.log("Current image source:", imgSrc); // Outputs: "https://via.placeholder.com/150"
-  console.log("Current image alt text:", imgAlt); // Outputs: "Placeholder Image"
+  console.log("Has 'src' attribute?", hasSrc); // Outputs: true
+  console.log("Has 'alt' attribute?", hasAlt); // Outputs: true
 
-  // 2. Using setAttribute()
-  // setAttribute() allows you to update or add an attribute to an element.
-  // Example: Change the image source and alt text
-  imageElement.setAttribute("src", "https://via.placeholder.com/300");
-  imageElement.setAttribute("alt", "Updated Placeholder Image");
+  // 2. Using removeAttribute()
+  // removeAttribute() removes the specified attribute from an element.
+  if (hasSrc) {
+    imageElement.removeAttribute("src");
+    console.log("'src' attribute removed.");
+  }
 
-  // Update the text description
+  if (hasAlt) {
+    imageElement.removeAttribute("alt");
+    console.log("'alt' attribute removed.");
+  }
+
+  // Update the description text
   let descriptionElement = document.getElementById("description");
-  descriptionElement.textContent = "The image attributes have been updated!";
+  descriptionElement.textContent =
+    "The image attributes have been checked and removed!";
 }
 
 // Key Points:
-// - getAttribute(attrName): Retrieves the value of the specified attribute.
-// - setAttribute(attrName, value): Sets or updates the value of the specified attribute.
-// - Both methods allow dynamic manipulation of HTML elements, making it useful for interactive content.
+// - hasAttribute(attrName): Checks if the element has the specified attribute, returns true/false.
+// - removeAttribute(attrName): Removes the specified attribute from the element.
