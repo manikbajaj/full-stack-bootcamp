@@ -2,15 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>innerHTML Example and Risks</title>
+    <title>innerText and textContent Example</title>
   </head>
   <body>
-    <h1>Understanding innerHTML in JavaScript</h1>
-    <div id="content"></div>
+    <h1>Understanding innerText and textContent in JavaScript</h1>
 
-    <button onclick="safeUse()">Safe Use of innerHTML</button>
-    <button onclick="unsafeUse()">Unsafe Use of innerHTML</button>
+    <div id="example1">This is <strong>bold</strong> text.</div>
+    <div id="example2">Another <i>italic</i> example.</div>
+
+    <button onclick="useInnerText()">Use innerText</button>
+    <button onclick="useTextContent()">Use textContent</button>
 
     <script src="script.js"></script>
   </body>

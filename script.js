@@ -1,33 +1,37 @@
-// Lecture: Understanding innerHTML and Its Risks in JavaScript
+// Lecture: Understanding innerText and textContent Properties in JavaScript
 
-// 1. What is innerHTML?
-// innerHTML is a property of DOM elements in JavaScript that allows developers to get or set the HTML content of an element.
-let contentDiv = document.getElementById("content");
+// 1. What is innerText?
+// innerText is a property that represents the "rendered" text content of a node.
+// It will ignore hidden elements and returns the text exactly as it appears to the user in the browser.
+function useInnerText() {
+  let exampleDiv1 = document.getElementById("example1");
+  let exampleDiv2 = document.getElementById("example2");
 
-// Safe Example: Setting text content safely
-function safeUse() {
-  contentDiv.innerHTML =
-    "<p>This is a <strong>safe</strong> use of innerHTML.</p>";
+  console.log("Before using innerText:");
+  console.log("Example 1:", exampleDiv1.innerText); // Outputs: "This is bold text."
+  console.log("Example 2:", exampleDiv2.innerText); // Outputs: "Another italic example."
+
+  // Changing innerText
+  exampleDiv1.innerText = "Updated content using innerText";
+  exampleDiv2.innerText = "Another innerText update";
 }
 
-// Unsafe Example: Using innerHTML with user-provided content (demonstrating the risk)
-function unsafeUse() {
-  // Imagine this value is coming from user input
-  let userInput = "<img src='invalid-image' onerror='alert(\"Hacked!\")'>";
+// 2. What is textContent?
+// textContent returns the raw text inside the node and all its descendants, ignoring HTML formatting.
+// It will include hidden elements and doesn't respect the styling applied (e.g., `display: none` or `visibility: hidden`).
+function useTextContent() {
+  let exampleDiv1 = document.getElementById("example1");
+  let exampleDiv2 = document.getElementById("example2");
 
-  // Setting user input directly to innerHTML is dangerous as it may contain scripts
-  contentDiv.innerHTML = userInput;
-  // This will execute any script embedded in the input (like the `onerror` attribute in this example)
+  console.log("Before using textContent:");
+  console.log("Example 1:", exampleDiv1.textContent); // Outputs: "This is bold text."
+  console.log("Example 2:", exampleDiv2.textContent); // Outputs: "Another italic example."
+
+  // Changing textContent
+  exampleDiv1.textContent = "Updated content using textContent";
+  exampleDiv2.textContent = "Another textContent update";
 }
 
-// Risks of Using innerHTML:
-// 1. **Cross-Site Scripting (XSS) Attacks**:
-//    When you set `innerHTML` with user-provided content, it may include malicious scripts, leading to XSS attacks.
-//    For example, if user input contains a script tag or an event like `onerror`, it can be executed.
-//    - In the `unsafeUse()` example, an alert is triggered because of the malicious `onerror` event on the image.
-
-// How to mitigate these risks:
-// 1. **Sanitize User Input**: Before setting innerHTML, always sanitize or escape user content to remove harmful scripts.
-// 2. **Use textContent or innerText**: If you're only dealing with text, prefer `textContent` or `innerText`, which don't parse HTML.
-// Example:
-contentDiv.textContent = "<p>This will be treated as plain text, not HTML.</p>";
+// Key Differences Between innerText and textContent:
+// - innerText respects the CSS styles and returns only the visible text as displayed to the user.
+// - textContent returns the full text content of the element, including hidden elements and without regard to how it is rendered.
