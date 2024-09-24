@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nodeName and nodeType Example</title>
-    <style>
-      .container {
-        padding: 20px;
-        border: 1px solid black;
-      }
-    </style>
+    <title>Event Registration Examples</title>
   </head>
   <body>
-    <h1>Understanding nodeName and nodeType</h1>
+    <h1>JavaScript Event Registration Methods</h1>
 
-    <div class="container" id="sample-element">This is a sample element.</div>
+    <!-- Updated Example of Inline Event Handler -->
+    <button onclick="handleInlineClick()">Click Me! (Inline)</button>
 
-    <script src="script.js"></script>
+    <!-- Example of on-event Handler -->
+    <button id="onEventButton">Click Me! (on-event)</button>
+
+    <!-- Example for addEventListener -->
+    <button id="addEventListenerButton">Click Me! (addEventListener)</button>
+
+    <script src="events.js"></script>
   </body>
 </html>

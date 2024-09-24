@@ -1,41 +1,28 @@
-// Lecture: Understanding nodeName and nodeType in the DOM
+// Function for Inline Event Handler
+function handleInlineClick() {
+  alert("Clicked via inline handler!");
+}
 
-// 1. Accessing an Element Node
-let divElement = document.getElementById("sample-element");
+// Using on-event handlers
+document.getElementById("onEventButton").onclick = function () {
+  alert("Clicked via on-event handler!");
+};
 
-// nodeName returns the name of the node in uppercase (for element nodes).
-console.log("nodeName of the element:", divElement.nodeName);
-// Output: "DIV" (because <div> is an element node)
+// Using the addEventListener method
+document
+  .getElementById("addEventListenerButton")
+  .addEventListener("click", function () {
+    alert("Clicked via addEventListener!");
+  });
 
-// nodeType returns the type of the node as a number. 1 indicates an element node.
-console.log("nodeType of the element:", divElement.nodeType);
-// Output: 1 (because it's an element node)
+/*
+Explanations:
+1. Inline Event Handlers:
+   - Function is defined in JavaScript and referenced in the HTML. Provides better separation than writing JavaScript directly in attributes but still keeps some coupling.
 
-// 2. Accessing a Text Node
-let textNode = divElement.firstChild; // Selecting the text inside the div
+2. On-event Handlers:
+   - Set directly on the DOM object in JavaScript. Easier to manage and debug than inline handlers but can only handle one function per event type per element.
 
-// nodeName for text nodes is always "#text".
-console.log("nodeName of the text node:", textNode.nodeName);
-// Output: "#text"
-
-// nodeType for text nodes is 3.
-console.log("nodeType of the text node:", textNode.nodeType);
-// Output: 3
-
-// 3. Checking the nodeType for a comment node
-// Let's add a comment node dynamically
-let comment = document.createComment("This is a comment node");
-document.body.appendChild(comment);
-
-// nodeName for comment nodes is "#comment"
-console.log("nodeName of the comment node:", comment.nodeName);
-// Output: "#comment"
-
-// nodeType for comment nodes is 8.
-console.log("nodeType of the comment node:", comment.nodeType);
-// Output: 8
-
-// Summary of nodeType values:
-// 1 = Element
-// 3 = Text
-// 8 = Comment
+3. Using addEventListener:
+   - Allows multiple event listeners on a single element and more flexibility, including the ability to specify event capturing or bubbling. This is the recommended method for handling events in modern web applications.
+*/
