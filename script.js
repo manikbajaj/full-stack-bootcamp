@@ -1,72 +1,33 @@
-// Title: Selecting Elements with querySelector and querySelectorAll
+// Lecture: Understanding innerHTML and Its Risks in JavaScript
 
-// The querySelector() and querySelectorAll() methods allow us to select elements in the DOM using CSS selectors.
+// 1. What is innerHTML?
+// innerHTML is a property of DOM elements in JavaScript that allows developers to get or set the HTML content of an element.
+let contentDiv = document.getElementById("content");
 
-/*
-1. querySelector()
-This method selects the first element that matches a CSS selector. It returns a single DOM element.
-*/
+// Safe Example: Setting text content safely
+function safeUse() {
+  contentDiv.innerHTML =
+    "<p>This is a <strong>safe</strong> use of innerHTML.</p>";
+}
 
-let firstHeading = document.querySelector("h1"); // Selects the first <h1> element
-console.log(firstHeading.textContent); // Output: Content of the first <h1> element
+// Unsafe Example: Using innerHTML with user-provided content (demonstrating the risk)
+function unsafeUse() {
+  // Imagine this value is coming from user input
+  let userInput = "<img src='invalid-image' onerror='alert(\"Hacked!\")'>";
 
-let firstParagraph = document.querySelector(".intro"); // Selects the first element with class 'intro'
-console.log(firstParagraph.textContent); // Output: Content of the first element with class 'intro'
+  // Setting user input directly to innerHTML is dangerous as it may contain scripts
+  contentDiv.innerHTML = userInput;
+  // This will execute any script embedded in the input (like the `onerror` attribute in this example)
+}
 
-let firstListItem = document.querySelector("#list li"); // Selects the first <li> in the element with id 'list'
-console.log(firstListItem.textContent); // Output: Content of the first <li> element inside #list
+// Risks of Using innerHTML:
+// 1. **Cross-Site Scripting (XSS) Attacks**:
+//    When you set `innerHTML` with user-provided content, it may include malicious scripts, leading to XSS attacks.
+//    For example, if user input contains a script tag or an event like `onerror`, it can be executed.
+//    - In the `unsafeUse()` example, an alert is triggered because of the malicious `onerror` event on the image.
 
-/*
-2. querySelectorAll()
-This method selects all elements that match a CSS selector. It returns a NodeList (similar to an array) of elements.
-*/
-
-let allHeadings = document.querySelectorAll("h1"); // Selects all <h1> elements
-console.log(allHeadings.length); // Output: Number of <h1> elements
-
-allHeadings.forEach((heading) => {
-  console.log(heading.textContent); // Output: Each <h1>'s content
-});
-
-let allParagraphs = document.querySelectorAll(".intro"); // Selects all elements with class 'intro'
-console.log(allParagraphs.length); // Output: Number of elements with class 'intro'
-
-allParagraphs.forEach((para) => {
-  console.log(para.textContent); // Output: Content of each element with class 'intro'
-});
-
-/*
-3. Differences between querySelector() and querySelectorAll()
-
-querySelector() only returns the first matching element:
-*/
-
-let firstButton = document.querySelector("button"); // Only the first <button> element is selected
-console.log(firstButton.textContent);
-
-/*
-querySelectorAll() returns a NodeList of all matching elements, allowing us to loop through them:
-*/
-
-let allButtons = document.querySelectorAll("button");
-allButtons.forEach((btn) => {
-  console.log(btn.textContent); // Output: Content of each <button>
-});
-
-/*
-4. Using querySelector/querySelectorAll with complex selectors
-
-We can use complex CSS selectors to target elements more specifically.
-*/
-
-let navItems = document.querySelectorAll("nav ul li"); // Select all <li> elements inside <ul> within a <nav>
-navItems.forEach((item) => {
-  console.log(item.textContent); // Output: Text of each <li> in the navigation
-});
-
-/*
-Conclusion:
-- Use querySelector() when you want to select only the first element that matches a selector.
-- Use querySelectorAll() when you want to select all matching elements, and loop over them.
-- These methods are powerful because they allow selecting elements using CSS selectors.
-*/
+// How to mitigate these risks:
+// 1. **Sanitize User Input**: Before setting innerHTML, always sanitize or escape user content to remove harmful scripts.
+// 2. **Use textContent or innerText**: If you're only dealing with text, prefer `textContent` or `innerText`, which don't parse HTML.
+// Example:
+contentDiv.textContent = "<p>This will be treated as plain text, not HTML.</p>";
