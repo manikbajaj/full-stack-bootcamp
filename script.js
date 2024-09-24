@@ -1,48 +1,41 @@
-// Lecture: Selecting a Sibling of Nodes in the DOM
+// Lecture: Understanding nodeName and nodeType in the DOM
 
-// 1. Selecting the Next Sibling Node
-// 'nextSibling' will select the next node, which could be a text, comment, or element.
-let firstSibling = document.getElementById("first-sibling");
-let nextNode = firstSibling.nextSibling; // This might be a text node if there is whitespace or text between siblings.
+// 1. Accessing an Element Node
+let divElement = document.getElementById("sample-element");
 
-console.log("Next sibling node of firstSibling:");
-console.log(nextNode);
-// Output: Depending on the structure, this could be a text node (e.g., "This is a text node between siblings.")
+// nodeName returns the name of the node in uppercase (for element nodes).
+console.log("nodeName of the element:", divElement.nodeName);
+// Output: "DIV" (because <div> is an element node)
 
-// 2. Selecting the Previous Sibling Node
-let secondSibling = document.getElementById("second-sibling");
-let prevNode = secondSibling.previousSibling;
+// nodeType returns the type of the node as a number. 1 indicates an element node.
+console.log("nodeType of the element:", divElement.nodeType);
+// Output: 1 (because it's an element node)
 
-console.log("Previous sibling node of secondSibling:");
-console.log(prevNode);
-// Output: This could also be a text node, not necessarily the first sibling.
+// 2. Accessing a Text Node
+let textNode = divElement.firstChild; // Selecting the text inside the div
 
-// 3. Selecting the Next Sibling Element
-// 'nextElementSibling' ensures you are selecting the next sibling element, skipping any text or comment nodes.
-let nextElementSibling = firstSibling.nextElementSibling;
+// nodeName for text nodes is always "#text".
+console.log("nodeName of the text node:", textNode.nodeName);
+// Output: "#text"
 
-console.log("Next element sibling of firstSibling:");
-console.log(nextElementSibling);
-// Output: <div id="second-sibling" class="sibling">Second Sibling</div>
+// nodeType for text nodes is 3.
+console.log("nodeType of the text node:", textNode.nodeType);
+// Output: 3
 
-// 4. Selecting the Previous Sibling Element
-// 'previousElementSibling' ensures you are selecting the previous sibling element.
-let previousElementSibling = secondSibling.previousElementSibling;
+// 3. Checking the nodeType for a comment node
+// Let's add a comment node dynamically
+let comment = document.createComment("This is a comment node");
+document.body.appendChild(comment);
 
-console.log("Previous element sibling of secondSibling:");
-console.log(previousElementSibling);
-// Output: <div id="first-sibling" class="sibling">First Sibling</div>
+// nodeName for comment nodes is "#comment"
+console.log("nodeName of the comment node:", comment.nodeName);
+// Output: "#comment"
 
-// Important Notes:
-// - 'nextSibling' and 'previousSibling' can select any node type (text, comment, or element), making them useful for more general traversing.
-// - 'nextElementSibling' and 'previousElementSibling' focus strictly on elements, skipping text and comment nodes.
+// nodeType for comment nodes is 8.
+console.log("nodeType of the comment node:", comment.nodeType);
+// Output: 8
 
-// Example: Skipping text nodes and logging only the element siblings
-let thirdSibling = document.getElementById("third-sibling");
-
-// Checking the next and previous element siblings
-console.log("Previous element sibling of thirdSibling:");
-console.log(thirdSibling.previousElementSibling); // Outputs: <div id="second-sibling" class="sibling">Second Sibling</div>
-
-console.log("Next element sibling of thirdSibling:");
-console.log(thirdSibling.nextElementSibling); // Output: null (no next sibling after the third)
+// Summary of nodeType values:
+// 1 = Element
+// 3 = Text
+// 8 = Comment
