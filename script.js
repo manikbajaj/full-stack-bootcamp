@@ -1,28 +1,25 @@
-// Function for Inline Event Handler
-function handleInlineClick() {
-  alert("Clicked via inline handler!");
-}
-
-// Using on-event handlers
-document.getElementById("onEventButton").onclick = function () {
-  alert("Clicked via on-event handler!");
-};
-
-// Using the addEventListener method
 document
-  .getElementById("addEventListenerButton")
-  .addEventListener("click", function () {
-    alert("Clicked via addEventListener!");
+  .getElementById("exampleButton")
+  .addEventListener("click", function (event) {
+    console.log("Event type:", event.type); // Logs 'click'
+    console.log("Target element:", event.target.tagName); // Logs 'BUTTON'
+    console.log("Current element:", event.currentTarget.tagName); // Logs 'BUTTON'
+    console.log("Mouse X position:", event.clientX); // Logs X coordinate of the mouse
+    console.log("Mouse Y position:", event.clientY); // Logs Y coordinate of the mouse
+    console.log("Event timestamp:", event.timeStamp); // Logs the timestamp of the event
+
+    alert(`Clicked at position: (${event.clientX}, ${event.clientY})`);
   });
 
 /*
 Explanations:
-1. Inline Event Handlers:
-   - Function is defined in JavaScript and referenced in the HTML. Provides better separation than writing JavaScript directly in attributes but still keeps some coupling.
+1. event.type: Describes the type of event (e.g., 'click', 'mouseover').
 
-2. On-event Handlers:
-   - Set directly on the DOM object in JavaScript. Easier to manage and debug than inline handlers but can only handle one function per event type per element.
+2. event.target: Returns the DOM element that triggered the event. Useful for delegation when handling events on multiple elements.
 
-3. Using addEventListener:
-   - Allows multiple event listeners on a single element and more flexibility, including the ability to specify event capturing or bubbling. This is the recommended method for handling events in modern web applications.
+3. event.currentTarget: The element that the event listener is actually attached to. Useful to distinguish between target and currentTarget in event delegation scenarios.
+
+4. event.clientX and event.clientY: Provide the horizontal and vertical coordinates, respectively, where the event occurred relative to the viewport.
+
+5. event.timeStamp: Indicates the time at which the event was created.
 */
