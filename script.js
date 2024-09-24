@@ -1,60 +1,72 @@
-// Lecture: JavaScript Built-in Constructors
-// This lecture demonstrates how to use JavaScript's built-in constructors for Object(), Array(), and Function().
-// We will cover creating objects using constructors and accessing built-in functions on these constructor objects.
+// Title: Selecting Elements with querySelector and querySelectorAll
+
+// The querySelector() and querySelectorAll() methods allow us to select elements in the DOM using CSS selectors.
 
 /*
-  1. Object() Constructor
+1. querySelector()
+This method selects the first element that matches a CSS selector. It returns a single DOM element.
 */
 
-// Example 1: Creating a new object using the Object() constructor
-let person = new Object();
-person.name = "John";
-person.age = 30;
-person.city = "New York";
-console.log(person);
-// Output: { name: 'John', age: 30, city: 'New York' }
+let firstHeading = document.querySelector("h1"); // Selects the first <h1> element
+console.log(firstHeading.textContent); // Output: Content of the first <h1> element
 
-// Example 2: Checking if a variable is an instance of Object
-let isObject = person instanceof Object;
-console.log(isObject);
-// Output: true
+let firstParagraph = document.querySelector(".intro"); // Selects the first element with class 'intro'
+console.log(firstParagraph.textContent); // Output: Content of the first element with class 'intro'
 
-// Example 3: Using Object.keys() to retrieve the keys of the object
-let keys = Object.keys(person);
-console.log(keys);
-// Output: [ 'name', 'age', 'city' ]
+let firstListItem = document.querySelector("#list li"); // Selects the first <li> in the element with id 'list'
+console.log(firstListItem.textContent); // Output: Content of the first <li> element inside #list
 
 /*
-  2. Array() Constructor
+2. querySelectorAll()
+This method selects all elements that match a CSS selector. It returns a NodeList (similar to an array) of elements.
 */
 
-// Example 1: Creating a new array using the Array() constructor
-let numbers = new Array(10, 20, 30, 40, 50);
-console.log(numbers);
-// Output: [ 10, 20, 30, 40, 50 ]
+let allHeadings = document.querySelectorAll("h1"); // Selects all <h1> elements
+console.log(allHeadings.length); // Output: Number of <h1> elements
 
-// Example 2: Checking if a variable is an array using Array.isArray()
-let isArray = Array.isArray(numbers);
-console.log(isArray);
-// Output: true
+allHeadings.forEach((heading) => {
+  console.log(heading.textContent); // Output: Each <h1>'s content
+});
+
+let allParagraphs = document.querySelectorAll(".intro"); // Selects all elements with class 'intro'
+console.log(allParagraphs.length); // Output: Number of elements with class 'intro'
+
+allParagraphs.forEach((para) => {
+  console.log(para.textContent); // Output: Content of each element with class 'intro'
+});
 
 /*
-  3. Function() Constructor
+3. Differences between querySelector() and querySelectorAll()
+
+querySelector() only returns the first matching element:
 */
 
-// Example 1: Creating a new function using the Function() constructor
-let add = new Function("a", "b", "return a + b");
-console.log(add(5, 10));
-// Output: 15
+let firstButton = document.querySelector("button"); // Only the first <button> element is selected
+console.log(firstButton.textContent);
 
-// Example 2: Checking the function’s constructor
-console.log(add.constructor === Function);
-// Output: true
+/*
+querySelectorAll() returns a NodeList of all matching elements, allowing us to loop through them:
+*/
 
-// Example 3: Accessing the length property of a function to get the number of arguments
-console.log(add.length);
-// Output: 2 (because the function takes two parameters 'a' and 'b')
+let allButtons = document.querySelectorAll("button");
+allButtons.forEach((btn) => {
+  console.log(btn.textContent); // Output: Content of each <button>
+});
 
-// Conclusion:
-// The Object(), Array(), and Function() constructors allow us to create new instances and access useful methods on these objects.
-// These built-in constructors provide powerful tools to work with objects, arrays, and functions.
+/*
+4. Using querySelector/querySelectorAll with complex selectors
+
+We can use complex CSS selectors to target elements more specifically.
+*/
+
+let navItems = document.querySelectorAll("nav ul li"); // Select all <li> elements inside <ul> within a <nav>
+navItems.forEach((item) => {
+  console.log(item.textContent); // Output: Text of each <li> in the navigation
+});
+
+/*
+Conclusion:
+- Use querySelector() when you want to select only the first element that matches a selector.
+- Use querySelectorAll() when you want to select all matching elements, and loop over them.
+- These methods are powerful because they allow selecting elements using CSS selectors.
+*/
