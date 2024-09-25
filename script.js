@@ -1,25 +1,20 @@
-document
-  .getElementById("exampleButton")
-  .addEventListener("click", function (event) {
-    console.log("Event type:", event.type); // Logs 'click'
-    console.log("Target element:", event.target.tagName); // Logs 'BUTTON'
-    console.log("Current element:", event.currentTarget.tagName); // Logs 'BUTTON'
-    console.log("Mouse X position:", event.clientX); // Logs X coordinate of the mouse
-    console.log("Mouse Y position:", event.clientY); // Logs Y coordinate of the mouse
-    console.log("Event timestamp:", event.timeStamp); // Logs the timestamp of the event
+document.getElementById("exampleButton").addEventListener("click", function () {
+  console.log("'this' refers to:", this); // 'this' refers to the element that the event was attached to
+  console.log("Element ID is:", this.id); // Logs 'exampleButton'
+});
 
-    alert(`Clicked at position: (${event.clientX}, ${event.clientY})`);
-  });
+document.getElementById("exampleButton").addEventListener("click", () => {
+  console.log("'this' in arrow function refers to:", this); // 'this' refers to the global object or undefined in strict mode
+});
 
 /*
 Explanations:
-1. event.type: Describes the type of event (e.g., 'click', 'mouseover').
+1. 'this' Keyword in Event Handlers:
+   - In traditional function-based handlers, 'this' refers to the element that the event is currently being executed on. This is often used to directly manipulate the element or access its properties.
 
-2. event.target: Returns the DOM element that triggered the event. Useful for delegation when handling events on multiple elements.
+2. 'this' in Arrow Functions:
+   - Arrow functions do not have their own 'this' context; instead, they inherit 'this' from the enclosing execution context. In global code, 'this' will be the global object (window in browsers), or undefined if in strict mode. This can lead to bugs if not understood properly.
 
-3. event.currentTarget: The element that the event listener is actually attached to. Useful to distinguish between target and currentTarget in event delegation scenarios.
-
-4. event.clientX and event.clientY: Provide the horizontal and vertical coordinates, respectively, where the event occurred relative to the viewport.
-
-5. event.timeStamp: Indicates the time at which the event was created.
+3. Practical Use:
+   - Understanding the behavior of 'this' can help prevent common mistakes like incorrect referencing within event handlers. It's crucial for DOM manipulations, particularly in dynamically updated interfaces where elements are frequently added or removed.
 */
