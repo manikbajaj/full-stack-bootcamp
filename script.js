@@ -1,45 +1,29 @@
-const eventArea = document.getElementById("eventArea");
+const inputField = document.getElementById("inputField");
 
-// Mouse Over Event
-eventArea.addEventListener("mouseover", function () {
-  console.log("Mouse over the area");
-  this.style.backgroundColor = "lightblue";
+// Key Down Event
+inputField.addEventListener("keydown", function (event) {
+  console.log("Key Down:", event.key, "Code:", event.code);
 });
 
-// Mouse Out Event
-eventArea.addEventListener("mouseout", function () {
-  console.log("Mouse out of the area");
-  this.style.backgroundColor = "#f0f0f0";
+// Key Press Event
+inputField.addEventListener("keypress", function (event) {
+  console.log("Key Pressed:", event.key, "Character Code:", event.charCode);
 });
 
-// Mouse Down Event
-eventArea.addEventListener("mousedown", function (event) {
-  console.log("Mouse button down", "Button:", event.button);
-  this.style.backgroundColor = "lightgreen";
-});
-
-// Mouse Up Event
-eventArea.addEventListener("mouseup", function () {
-  console.log("Mouse button released");
-  this.style.backgroundColor = "lightblue";
-});
-
-// Click Event
-eventArea.addEventListener("click", function () {
-  console.log("Area clicked");
+// Key Up Event
+inputField.addEventListener("keyup", function (event) {
+  console.log("Key Up:", event.key);
+  if (event.key === "Enter") {
+    console.log("Enter key was released");
+    alert("You pressed Enter!");
+  }
 });
 
 /*
 Explanations:
-1. 'mouseover': Triggered when the mouse pointer enters the element area. Used to apply hover effects.
+1. 'keydown': Triggered when a key is pressed down. This event occurs before the 'keypress', and it can detect all key presses, including non-character keys.
 
-2. 'mouseout': Triggered when the mouse pointer leaves the element area. Often used to reset styles set by 'mouseover'.
+2. 'keypress': Triggered when a key that produces a character value is pressed down. This event is deprecated and it's recommended to use 'keydown' in most cases for better compatibility.
 
-3. 'mousedown': Occurs when a mouse button is pressed down over an element. Useful for initiating drag operations.
-
-4. 'mouseup': Occurs when a mouse button is released over an element. Often used in conjunction with 'mousedown' to detect a click.
-
-5. 'click': Triggered after a full click action (press and release). The most commonly used mouse event for interactive behaviors.
-
-These events help in creating interactive and responsive web applications by detecting and responding to user interactions via the mouse.
+3. 'keyup': Occurs when a key is released. Useful for handling events after a key has been pressed and ensuring the user has finished typing or executing a command.
 */
