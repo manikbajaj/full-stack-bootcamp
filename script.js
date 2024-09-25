@@ -1,43 +1,37 @@
-document
-  .getElementById("exampleForm")
-  .addEventListener("submit", function (event) {
-    console.log("Form submitted!");
-    event.preventDefault(); // Prevents the form from submitting normally
-  });
-
-document.getElementById("textInput").addEventListener("input", function () {
-  console.log("Text input changed:", this.value);
+// Window load event
+window.addEventListener("load", function () {
+  console.log("Window fully loaded");
+  alert("Window is loaded!");
 });
 
-document.getElementById("emailInput").addEventListener("change", function () {
-  console.log("Email input changed:", this.value);
+// Window resize event
+window.addEventListener("resize", function () {
+  console.log(
+    "Window resized to:",
+    window.innerWidth + "x" + window.innerHeight
+  );
 });
 
-document.getElementById("passwordInput").addEventListener("focus", function () {
-  console.log("Password input focused");
+// Window scroll event
+window.addEventListener("scroll", function () {
+  console.log(
+    "Window scrolled to:",
+    window.pageXOffset + ", " + window.pageYOffset
+  );
 });
 
-document.getElementById("passwordInput").addEventListener("blur", function () {
-  console.log("Password input lost focus");
-});
-
-document
-  .getElementById("checkboxInput")
-  .addEventListener("change", function () {
-    console.log("Checkbox state:", this.checked ? "Checked" : "Unchecked");
-  });
-
-document.getElementById("fileInput").addEventListener("change", function () {
-  console.log("Selected file:", this.files[0].name);
-  console.log("The file object:", this.files[0]);
+// Before unload event
+window.addEventListener("beforeunload", function (event) {
+  // Prompt the user with a choice to leave the page
+  var confirmationMessage = "Are you sure you want to leave?";
+  event.returnValue = confirmationMessage; // Standard for most browsers
+  return confirmationMessage; // For some older browsers
 });
 
 /*
 Explanations:
-1. 'submit': Triggers when the form is about to be submitted. Use preventDefault() to stop the submission if needed.
-2. 'input': Fired every time the value of an input type text changes. Useful for real-time validation or feedback.
-3. 'change': Occurs when the value of an input (e.g., email, file, checkbox) changes and loses focus, used for delayed validation or processing.
-4. 'focus': Activated when an element receives focus. Can be used to add styling or prep functionality.
-5. 'blur': Fires when an element loses focus, useful for validation and cleanup tasks.
-6. 'file change': Detects changes in file inputs, which can be used to handle file uploads or validations immediately.
+1. 'load': This event fires when the entire page including all dependent resources (like images) are fully loaded.
+2. 'resize': Triggered whenever the browser window is resized. Useful for adjusting layouts or elements based on window size.
+3. 'scroll': Occurs when the window is scrolled. Can be used to implement features like "scroll to top" buttons or lazy loading images.
+4. 'beforeunload': This event is fired when the window is about to be unloaded. It can be used to alert users about unsaved changes or to ask for confirmation before leaving the page.
 */

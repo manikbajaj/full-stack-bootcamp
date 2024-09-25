@@ -3,38 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form Events in JavaScript</title>
+    <title>Window Events in JavaScript</title>
+    <style>
+      /* Ensuring there is enough content to scroll */
+      .content {
+        height: 1500px;
+        background: linear-gradient(to bottom, #ffffff 0%, #00aaff 100%);
+      }
+    </style>
   </head>
   <body>
-    <h1>Form Events Demonstration</h1>
-
-    <form id="exampleForm">
-      <label for="textInput">Text Input:</label>
-      <input type="text" id="textInput" name="textInput" /><br /><br />
-
-      <label for="emailInput">Email Input:</label>
-      <input type="email" id="emailInput" name="emailInput" /><br /><br />
-
-      <label for="passwordInput">Password Input:</label>
-      <input
-        type="password"
-        id="passwordInput"
-        name="passwordInput"
-      /><br /><br />
-
-      <label for="checkboxInput">Checkbox Input:</label>
-      <input
-        type="checkbox"
-        id="checkboxInput"
-        name="checkboxInput"
-      /><br /><br />
-
-      <label for="fileInput">File Input:</label>
-      <input type="file" id="fileInput" name="fileInput" /><br /><br />
-
-      <input type="submit" value="Submit Form" />
-    </form>
-
+    <h1>Window Events Demonstration</h1>
+    <div class="content">
+      <p>
+        Resize the window or scroll to see some actions triggered by window
+        events.
+      </p>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
