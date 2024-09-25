@@ -1,29 +1,43 @@
-const inputField = document.getElementById("inputField");
+document
+  .getElementById("exampleForm")
+  .addEventListener("submit", function (event) {
+    console.log("Form submitted!");
+    event.preventDefault(); // Prevents the form from submitting normally
+  });
 
-// Key Down Event
-inputField.addEventListener("keydown", function (event) {
-  console.log("Key Down:", event.key, "Code:", event.code);
+document.getElementById("textInput").addEventListener("input", function () {
+  console.log("Text input changed:", this.value);
 });
 
-// Key Press Event
-inputField.addEventListener("keypress", function (event) {
-  console.log("Key Pressed:", event.key, "Character Code:", event.charCode);
+document.getElementById("emailInput").addEventListener("change", function () {
+  console.log("Email input changed:", this.value);
 });
 
-// Key Up Event
-inputField.addEventListener("keyup", function (event) {
-  console.log("Key Up:", event.key);
-  if (event.key === "Enter") {
-    console.log("Enter key was released");
-    alert("You pressed Enter!");
-  }
+document.getElementById("passwordInput").addEventListener("focus", function () {
+  console.log("Password input focused");
+});
+
+document.getElementById("passwordInput").addEventListener("blur", function () {
+  console.log("Password input lost focus");
+});
+
+document
+  .getElementById("checkboxInput")
+  .addEventListener("change", function () {
+    console.log("Checkbox state:", this.checked ? "Checked" : "Unchecked");
+  });
+
+document.getElementById("fileInput").addEventListener("change", function () {
+  console.log("Selected file:", this.files[0].name);
+  console.log("The file object:", this.files[0]);
 });
 
 /*
 Explanations:
-1. 'keydown': Triggered when a key is pressed down. This event occurs before the 'keypress', and it can detect all key presses, including non-character keys.
-
-2. 'keypress': Triggered when a key that produces a character value is pressed down. This event is deprecated and it's recommended to use 'keydown' in most cases for better compatibility.
-
-3. 'keyup': Occurs when a key is released. Useful for handling events after a key has been pressed and ensuring the user has finished typing or executing a command.
+1. 'submit': Triggers when the form is about to be submitted. Use preventDefault() to stop the submission if needed.
+2. 'input': Fired every time the value of an input type text changes. Useful for real-time validation or feedback.
+3. 'change': Occurs when the value of an input (e.g., email, file, checkbox) changes and loses focus, used for delayed validation or processing.
+4. 'focus': Activated when an element receives focus. Can be used to add styling or prep functionality.
+5. 'blur': Fires when an element loses focus, useful for validation and cleanup tasks.
+6. 'file change': Detects changes in file inputs, which can be used to handle file uploads or validations immediately.
 */

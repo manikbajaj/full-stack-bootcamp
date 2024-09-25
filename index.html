@@ -3,16 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Keyboard Events in JavaScript</title>
+    <title>Form Events in JavaScript</title>
   </head>
   <body>
-    <h1>Keyboard Events Demonstration</h1>
-    <input
-      type="text"
-      id="inputField"
-      placeholder="Type something..."
-      style="width: 300px; height: 25px"
-    />
+    <h1>Form Events Demonstration</h1>
+
+    <form id="exampleForm">
+      <label for="textInput">Text Input:</label>
+      <input type="text" id="textInput" name="textInput" /><br /><br />
+
+      <label for="emailInput">Email Input:</label>
+      <input type="email" id="emailInput" name="emailInput" /><br /><br />
+
+      <label for="passwordInput">Password Input:</label>
+      <input
+        type="password"
+        id="passwordInput"
+        name="passwordInput"
+      /><br /><br />
+
+      <label for="checkboxInput">Checkbox Input:</label>
+      <input
+        type="checkbox"
+        id="checkboxInput"
+        name="checkboxInput"
+      /><br /><br />
+
+      <label for="fileInput">File Input:</label>
+      <input type="file" id="fileInput" name="fileInput" /><br /><br />
+
+      <input type="submit" value="Submit Form" />
+    </form>
 
     <script src="script.js"></script>
   </body>
