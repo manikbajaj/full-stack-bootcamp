@@ -1,3 +1,15 @@
+/**
+ *! Steps to modularize the Calculator App
+ * * 1. Create a separate module for the calculate object and import it
+ * * 2. Create values.js to create functions to set and get values
+ * * 3. Create selectors.js file and add all selectors to a single file
+ * * 4. Create module for addNumberValue
+ * * 5. Create useOperator module
+ * * 6. create addDecimal Module
+ * * 7. Import all modules and test
+ * * 8. Create the reset Module
+ */
+
 const calculatorDisplay = document.querySelector("h1");
 const inputBtns = document.querySelectorAll("button");
 const clearBtn = document.getElementById("clear-btn");
@@ -18,19 +30,6 @@ function addNumberValue(number) {
       displayValue === "0" ? number : displayValue + number;
   }
 }
-
-// Calculate first and second values depending on operator
-const calculate = {
-  "/": (firstNumber, secondNumber) => firstNumber / secondNumber,
-
-  "*": (firstNumber, secondNumber) => firstNumber * secondNumber,
-
-  "+": (firstNumber, secondNumber) => firstNumber + secondNumber,
-
-  "-": (firstNumber, secondNumber) => firstNumber - secondNumber,
-
-  "=": (firstNumber, secondNumber) => secondNumber,
-};
 
 function useOperator(operator) {
   const currentValue = Number(calculatorDisplay.textContent);
