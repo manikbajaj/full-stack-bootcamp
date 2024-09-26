@@ -2,20 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Event Bubbling and Capturing</title>
+    <title>Event Bubbling Demo: Task List</title>
+    <style>
+      #taskList {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .task {
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .deleteButton {
+        cursor: pointer;
+        background-color: #ff6347;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: white;
+      }
+    </style>
   </head>
   <body>
-    <h1>Event Bubbling and Capturing Demonstration</h1>
-    <div id="outer" style="background-color: lightblue; padding: 20px">
-      Outer Container
-      <div id="middle" style="background-color: lightgreen; padding: 20px">
-        Middle Container
-        <div id="inner" style="background-color: lightcoral; padding: 20px">
-          Inner Container
-        </div>
-      </div>
-    </div>
+    <h1>Task List</h1>
+    <ul id="taskList">
+      <li class="task">
+        Learn JavaScript <button class="deleteButton">Delete</button>
+      </li>
+      <li class="task">
+        Practice coding <button class="deleteButton">Delete</button>
+      </li>
+      <li class="task">
+        Create a project <button class="deleteButton">Delete</button>
+      </li>
+    </ul>
+
     <script src="script.js"></script>
   </body>
 </html>

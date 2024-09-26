@@ -1,39 +1,19 @@
-// Selecting elements
-const outer = document.getElementById("outer");
-const middle = document.getElementById("middle");
-const inner = document.getElementById("inner");
+// Select the parent UL element to apply event delegation
+const taskList = document.getElementById("taskList");
 
-// Event handler function
-function logEvent(event) {
-  console.log(
-    `${event.currentTarget.id} ${event.type} handled at ${event.eventPhase}`
-  );
-  if (event.currentTarget.id === "middle") {
-    event.stopPropagation(); // Stop propagation at middle container
-    console.log("Propagation stopped at middle container");
+taskList.addEventListener("click", function (event) {
+  // Check if the clicked element is a delete button
+  if (event.target.className === "deleteButton") {
+    const task = event.target.parentElement; // The parent element of the button is the task li
+    taskList.removeChild(task); // Remove the task from the list
+    console.log("Task deleted:", task.textContent);
   }
-}
-
-// Event listeners for capturing phase (true for capturing)
-outer.addEventListener("click", logEvent, true);
-middle.addEventListener("click", logEvent, true);
-inner.addEventListener("click", logEvent, true);
-
-// Event listeners for bubbling phase (false for bubbling)
-// outer.addEventListener("click", logEvent, false);
-// middle.addEventListener("click", logEvent, false);
-// inner.addEventListener("click", logEvent, false);
+});
 
 /*
-Explanations:
-1. Event Bubbling:
-   - Events start from the target element and then bubble up to the outermost ancestor. This is the default phase.
-
-2. Event Capturing (also known as Event Trickling):
-   - Events start from the outermost ancestor and go down to the target element. It needs to be explicitly specified by setting the third argument of addEventListener to true.
-
-3. stopPropagation() Method:
-   - Used to stop the event from bubbling up or capturing down to other elements. This is useful when you want to prevent parent handlers from being notified of the event.
-
-These concepts are crucial for understanding how events are handled in the DOM, providing control over event flow and interaction patterns.
+Explanation:
+- We attach a single event listener to the UL element, not each button.
+- Using event.target, we check if a delete button was clicked.
+- If true, we remove the corresponding task from the DOM.
+- This method is efficient and simplifies the handling of dynamic elements.
 */
