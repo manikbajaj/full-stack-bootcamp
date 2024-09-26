@@ -1,6 +1,6 @@
-import { getAwaitingNextValue, setAwaitingNextValue } from "./values";
+import { getAwaitingNextValue, setAwaitingNextValue } from "./values.js";
 
-import { calculatorDisplay } from "./selectors";
+import { calculatorDisplay } from "./selectors.js";
 
 function addNumberValue(number) {
   // Replace current display value if first value is entered

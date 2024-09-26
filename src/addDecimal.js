@@ -1,9 +1,9 @@
-import { awaitingNextValue } from "./values.js";
-import { calculatorDisplay } from "./selectors";
+import { calculatorDisplay } from "./selectors.js";
+import { getAwaitingNextValue } from "./values.js";
 
 function addDecimal() {
   // If operator pressed, don't add decimal
-  if (awaitingNextValue()) return;
+  if (getAwaitingNextValue()) return;
   // If no decimal, add one
   if (!calculatorDisplay.textContent.includes(".")) {
     calculatorDisplay.textContent = `${calculatorDisplay.textContent}.`;

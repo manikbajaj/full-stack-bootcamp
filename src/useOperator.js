@@ -5,16 +5,17 @@ import {
   setAwaitingNextValue,
   setFirstValue,
   setOperatorValue,
-} from "./values";
+} from "./values.js";
 
-import calculate from "./calculate";
-import { calculatorDisplay } from "./selectors";
+import calculate from "./calculate.js";
+import { calculatorDisplay } from "./selectors.js";
 
 function useOperator(operator) {
   const currentValue = Number(calculatorDisplay.textContent);
   // Prevent multiple operators
   // Show console.log() that multiple operators are being added
   // Also assumes if the user did not added another opertor and straghtaway a new value was added new value will be assigned to the display assuming a NEW CALCULATION FROM BEGINNING
+
   if (getOperatorValue() && getAwaitingNextValue()) {
     setOperatorValue(operator);
     return;
@@ -23,7 +24,10 @@ function useOperator(operator) {
   if (!getFirstValue()) {
     setFirstValue(currentValue);
   } else {
-    const calculation = calculate[operatorValue](getFirstValue(), currentValue);
+    const calculation = calculate[getOperatorValue()](
+      getFirstValue(),
+      currentValue
+    );
     calculatorDisplay.textContent = calculation;
     setFirstValue(calculation);
   }
