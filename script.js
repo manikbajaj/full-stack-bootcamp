@@ -54,6 +54,15 @@ function useOperator(operator) {
   operatorValue = operator;
 }
 
+function addDecimal() {
+  // If operator pressed, don't add decimal
+  if (awaitingNextValue) return;
+  // If no decimal, add one
+  if (!calculatorDisplay.textContent.includes(".")) {
+    calculatorDisplay.textContent = `${calculatorDisplay.textContent}.`;
+  }
+}
+
 // Add Event Listeners for numbers, operators, decimal
 // Add event listeners one at a time
 inputBtns.forEach((inputBtn) => {
@@ -61,5 +70,18 @@ inputBtns.forEach((inputBtn) => {
     inputBtn.addEventListener("click", () => addNumberValue(inputBtn.value));
   } else if (inputBtn.classList.contains("operator")) {
     inputBtn.addEventListener("click", () => useOperator(inputBtn.value));
+  } else if (inputBtn.classList.contains("decimal")) {
+    inputBtn.addEventListener("click", () => addDecimal());
   }
 });
+
+// Reset all values, display
+function resetAll() {
+  firstValue = 0;
+  operatorValue = "";
+  awaitingNextValue = false;
+  calculatorDisplay.textContent = "0";
+}
+
+// Event Listener
+clearBtn.addEventListener("click", resetAll);
