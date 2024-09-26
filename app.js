@@ -1,5 +1,10 @@
 import { counter, incrementCounter } from "./src/counter.js";
 
+/**
+ * ! This will only work because counter and incrementCounter are in same module and Scope if counter is in a separate module it will not work
+ *
+ */
+
 document.getElementById("updateCounter").addEventListener("click", () => {
   incrementCounter();
   console.log("Counter updated to:", counter); // This logs the updated value of counter
