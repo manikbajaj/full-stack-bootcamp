@@ -23,5 +23,5 @@ export function getAwaitingNextValue() {
 }
 
 export function setAwaitingNextValue(value) {
-  operatorValue = value;
+  awaitingNextValue = value;
 }
