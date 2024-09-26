@@ -1,17 +1,22 @@
-import { counter, incrementCounter } from "./src/counter.js";
+import { showGlobalThis, showPublicVar } from "./src/moduleScope.js";
 
-document.getElementById("updateCounter").addEventListener("click", () => {
-  incrementCounter();
-  console.log("Counter updated to:", counter); // This logs the updated value of counter
-});
-
-document.getElementById("showCounter").addEventListener("click", () => {
-  alert(`Current counter value is: ${counter}`); // Shows the current value of counter reflecting any increments
-});
+showPublicVar(); // Accesses and shows the exported public variable
+showGlobalThis(); // Shows the global scope object
 
 /*
 Explanations:
-- Live bindings in ES6 modules ensure that `counter` reflects the latest value across all modules that import it.
-- Clicking 'Update Counter' will increment the counter and log its new value.
-- Clicking 'Show Counter' will display the current value of counter, demonstrating live updates across module imports.
+- `showPublicVar` accesses a public variable that is exported from the module.
+- `showGlobalThis` calls a function that logs the `globalThis` object, demonstrating its value and properties.
 */
+
+/**
+ *  ! WHY globalThis IS NEEDED?
+ *
+ * ! Scenario: Writing Cross-Environment Code
+ * Imagine you are developing a JavaScript library that is intended to be used in multiple environments: in browsers, within Node.js applications, and inside web workers. Each environment has traditionally used a different global object:
+ *
+ * Browsers: window
+ * Web Workers: self
+ * Node.js: global
+ * Using globalThis provides a uniform way to access the global object across these environments, which simplifies the code and eliminates the need for environment detection logic.
+ */
