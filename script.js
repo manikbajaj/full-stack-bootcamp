@@ -1,37 +1,39 @@
-// Window load event
-window.addEventListener("load", function () {
-  console.log("Window fully loaded");
-  alert("Window is loaded!");
-});
+// Selecting elements
+const outer = document.getElementById("outer");
+const middle = document.getElementById("middle");
+const inner = document.getElementById("inner");
 
-// Window resize event
-window.addEventListener("resize", function () {
+// Event handler function
+function logEvent(event) {
   console.log(
-    "Window resized to:",
-    window.innerWidth + "x" + window.innerHeight
+    `${event.currentTarget.id} ${event.type} handled at ${event.eventPhase}`
   );
-});
+  if (event.currentTarget.id === "middle") {
+    event.stopPropagation(); // Stop propagation at middle container
+    console.log("Propagation stopped at middle container");
+  }
+}
 
-// Window scroll event
-window.addEventListener("scroll", function () {
-  console.log(
-    "Window scrolled to:",
-    window.pageXOffset + ", " + window.pageYOffset
-  );
-});
+// Event listeners for capturing phase (true for capturing)
+outer.addEventListener("click", logEvent, true);
+middle.addEventListener("click", logEvent, true);
+inner.addEventListener("click", logEvent, true);
 
-// Before unload event
-window.addEventListener("beforeunload", function (event) {
-  // Prompt the user with a choice to leave the page
-  var confirmationMessage = "Are you sure you want to leave?";
-  event.returnValue = confirmationMessage; // Standard for most browsers
-  return confirmationMessage; // For some older browsers
-});
+// Event listeners for bubbling phase (false for bubbling)
+// outer.addEventListener("click", logEvent, false);
+// middle.addEventListener("click", logEvent, false);
+// inner.addEventListener("click", logEvent, false);
 
 /*
 Explanations:
-1. 'load': This event fires when the entire page including all dependent resources (like images) are fully loaded.
-2. 'resize': Triggered whenever the browser window is resized. Useful for adjusting layouts or elements based on window size.
-3. 'scroll': Occurs when the window is scrolled. Can be used to implement features like "scroll to top" buttons or lazy loading images.
-4. 'beforeunload': This event is fired when the window is about to be unloaded. It can be used to alert users about unsaved changes or to ask for confirmation before leaving the page.
+1. Event Bubbling:
+   - Events start from the target element and then bubble up to the outermost ancestor. This is the default phase.
+
+2. Event Capturing (also known as Event Trickling):
+   - Events start from the outermost ancestor and go down to the target element. It needs to be explicitly specified by setting the third argument of addEventListener to true.
+
+3. stopPropagation() Method:
+   - Used to stop the event from bubbling up or capturing down to other elements. This is useful when you want to prevent parent handlers from being notified of the event.
+
+These concepts are crucial for understanding how events are handled in the DOM, providing control over event flow and interaction patterns.
 */

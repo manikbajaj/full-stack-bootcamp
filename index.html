@@ -3,22 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Window Events in JavaScript</title>
-    <style>
-      /* Ensuring there is enough content to scroll */
-      .content {
-        height: 1500px;
-        background: linear-gradient(to bottom, #ffffff 0%, #00aaff 100%);
-      }
-    </style>
+    <title>Event Bubbling and Capturing</title>
   </head>
   <body>
-    <h1>Window Events Demonstration</h1>
-    <div class="content">
-      <p>
-        Resize the window or scroll to see some actions triggered by window
-        events.
-      </p>
+    <h1>Event Bubbling and Capturing Demonstration</h1>
+    <div id="outer" style="background-color: lightblue; padding: 20px">
+      Outer Container
+      <div id="middle" style="background-color: lightgreen; padding: 20px">
+        Middle Container
+        <div id="inner" style="background-color: lightcoral; padding: 20px">
+          Inner Container
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
