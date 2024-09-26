@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: whitesmoke;
+  background: white;
   background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
 
@@ -38,23 +38,6 @@ body {
   font-family: "Arial", sans-serif;
   font-weight: 100;
   overflow-x: auto;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 
 /* Buttons */
