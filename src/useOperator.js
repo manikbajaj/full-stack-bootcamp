@@ -5,10 +5,10 @@ import {
   setAwaitingNextValue,
   setFirstValue,
   setOperatorValue,
-} from "./values";
+} from "./values.js";
 
-import calculate from "./calculate";
-import { calculatorDisplay } from "./selectors";
+import calculate from "./calculate.js";
+import { calculatorDisplay } from "./selectors.js";
 
 function useOperator(operator) {
   const currentValue = Number(calculatorDisplay.textContent);
@@ -23,7 +23,10 @@ function useOperator(operator) {
   if (!getFirstValue()) {
     setFirstValue(currentValue);
   } else {
-    const calculation = calculate[operatorValue](getFirstValue(), currentValue);
+    const calculation = calculate[getOperatorValue()](
+      getFirstValue(),
+      currentValue
+    );
     calculatorDisplay.textContent = calculation;
     setFirstValue(calculation);
   }
