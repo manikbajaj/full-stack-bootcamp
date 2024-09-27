@@ -1,116 +1,90 @@
-html {
-  box-sizing: border-box;
+* {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
+.header {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: whitesmoke;
-  background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  height: 108px;
 }
 
-.calculator {
-  background: white;
-  width: 400px;
-  border-radius: 12px;
-  box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.6);
-}
-
-/* Display */
-.calculator-display {
-  background: black;
-  color: white;
-  margin: 0;
+.header-wrapper {
   display: flex;
+  justify-content: space-between;
+  padding: 32px 16px;
+  width: 1280px;
   align-items: center;
-  justify-content: flex-end;
-  border-radius: 10px 10px 0 0;
-  max-width: 100%;
 }
 
-.calculator-display h1 {
-  margin: 0;
-  padding: 25px;
-  font-size: 45px;
-  font-family: "Arial", sans-serif;
-  font-weight: 100;
-  overflow-x: auto;
+.logo {
+  height: 42px;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 5px;
+.navbar {
+  height: 42px;
+  display: flex;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+.nav-menu {
+  list-style-type: none;
+  display: flex;
+  column-gap: 42px;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #888;
+.nav-menu li {
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.nav-menu li a {
+  text-decoration: none;
+  color: #3b3c4a;
+  /*! Smooth tranition on hover */
+  transition: color 0.5s;
+}
+.nav-menu li a:hover {
+  color: #dd53f8;
 }
 
-/* Buttons */
-.calculator-buttons {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 10px;
+.search-container {
+  /*! Addded so that the search icon is relative to this div and not the root element */
+  position: relative;
 }
 
-button {
-  min-height: 50px;
-  font-size: 20px;
-  font-weight: 100;
-  border: none;
-  background: rgb(200, 200, 200);
-  border-radius: 5px;
-  cursor: pointer;
+.search-input {
+  background-color: #f4f4f5;
+  min-height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  min-width: 168px;
+  /*! Slightly indent the cursor when typing and indent the placeholder  */
+  text-indent: 20px;
 }
 
-button:hover {
-  filter: brightness(110%);
+.search-input::placeholder {
+  font-size: 0.875rem;
+  color: #a1a1aa;
+  line-height: 20px;
 }
 
-button:active {
-  transform: translateY(1px);
+.search-input:focus {
+  border: 1px solid #dd53f8; /* Change the border color */
+  outline: none; /* Remove the default outline */
+  background-color: #e0e0e0; /* Change the background color */
+  color: #3b3c4a; /* Change the text color */
 }
 
-button:focus {
-  outline: none;
-}
-
-.operator {
-  background: grey;
-  color: white;
-  font-size: 30px;
-}
-
-.clear {
-  background: rgb(255, 40, 40);
-  color: white;
-}
-
-.clear:hover {
-  filter: brightness(90%);
-}
-
-.equal-sign {
-  grid-column: -2;
-  grid-row: 2 / span 4;
-  background: rgb(13, 206, 87);
-}
-
-/* Media Query: Large Smartphone (Vertical) */
-@media screen and (max-width: 600px) {
-  .calculator {
-    width: 95%;
-  }
+.search-icon {
+  position: absolute;
+  right: 8px; /* Adjust based on your preference */
+  top: 8px;
+  color: #52525b; /* Icon color */
+  /* !After adding below porperty even clicking on the search icon will trigger input focu the way should be */
+  pointer-events: none; /* Ensure the icon does not interfere with input focus */
 }
