@@ -1,52 +1,39 @@
-/* General Styles */
+/* Define CSS variables at the root level */
+:root {
+  --main-bg-color: #ffffff;
+  --main-text-color: #000000;
+  --accent-color: #4caf50;
+}
+
+/* Apply CSS variables */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  margin: 20px;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-family: "Arial", sans-serif;
 }
 
-h1,
-h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Box Styling */
-.box {
-  width: 200px;
-  height: 200px;
-  background-color: lightblue;
-  margin: 20px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #333;
-  border: 2px solid #333;
-  cursor: pointer;
-  text-align: center;
+.content p {
   padding: 20px;
+  background-color: var(--accent-color);
+  color: var(--main-bg-color);
 }
 
-/* Transition Properties Example */
-.property-example {
-  transition-property: background-color, width; /* Define which properties will transition */
-  transition-duration: 2s; /* Time the transition will take */
-  transition-delay: 1s; /* Delay before transition begins */
-  transition-timing-function: ease-in-out; /* Speed curve for the transition */
+.themed-text {
+  background-color: var(--main-text-color);
+  color: var(--accent-color);
 }
 
-.property-example:hover {
-  background-color: lightcoral;
-  width: 300px;
+/* Hover example to demonstrate changing on interaction */
+.content p:hover {
+  background-color: var(--main-text-color);
+  color: var(--accent-color);
 }
 
-/* Transition Shorthand Example */
-.shorthand-example {
-  transition: background-color 1s ease-in-out 0.5s, width 2s ease-in; /* Using shorthand */
-}
-
-.shorthand-example:hover {
-  background-color: lightgreen;
-  width: 300px;
+/* Responsive design example using CSS variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-bg-color: #333333;
+    --main-text-color: #ffffff;
+    --accent-color: #007bff;
+  }
 }
