@@ -1,0 +1,56 @@
+.header-wrapper {
+  width: 100%;
+}
+
+.navbar {
+  display: none;
+  display: none;
+}
+
+.main-section {
+  width: 100%;
+}
+
+.hero-section {
+  position: static;
+}
+
+.hero-image {
+  min-height: 250px;
+}
+
+.hero-description {
+  width: 80%;
+  margin-top: -48px;
+  /* Difference of value left after 80% width */
+  left: 10%;
+  padding: 20px;
+}
+
+h1 a {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.blogs-section {
+  margin-top: 18rem;
+}
+
+.single-post {
+  width: 100%;
+}
+
+.footer-wrapper {
+  max-width: 100%;
+  margin: 0px;
+  justify-content: center;
+}
+
+.footer-links {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-links li {
+  border: none;
+}
