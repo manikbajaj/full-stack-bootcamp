@@ -1,7 +1,0 @@
-/* Define CSS variables at the root level */
-:root {
-  --font-family: "Work Sans", sans-serif;
-  --primary-color: #dd53f8;
-  --max-width: 1280px;
-  --heading-font-color: #181a2a;
-}
