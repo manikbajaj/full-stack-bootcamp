@@ -38,15 +38,16 @@ function myDisplayer(someValue) {
 }
 
 let myPromise = new Promise(function (myResolve, myReject) {
-  let x = 0;
-
-  // The producing code (this may take some time)
-
-  if (x == 0) {
-    myResolve("OK");
-  } else {
-    myReject("Error");
-  }
+  let req = new XMLHttpRequest();
+  req.open("GET", "https://jsonplaceholder.typicode.com/posts/1");
+  req.onload = function () {
+    if (req.status == 200) {
+      myResolve(req.response);
+    } else {
+      myReject("File not Found");
+    }
+  };
+  req.send();
 });
 
 myPromise.then(
