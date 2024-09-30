@@ -1,55 +1,19 @@
-function myDisplayer(value) {
-  document.getElementById("demo").innerHTML = value;
-}
-
 /**
- * ! Now using a callback function
+ * ! Set timeout mimics something that is going to take sometime to complete and can be render blocking or could slow down JS code. We leave it as it is and let it complete
  *
- * ! A callback function in JavaScript is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+ * ! THIS CODE IS EXECUTED ASYNCHRONOUSLY
  */
+setTimeout(myFunction, 5000);
+console.log("Set timeout executed", new Date().getSeconds());
 
-function myCalculator(num1, num2, callback) {
-  let sum = num1 + num2;
-  callback(sum);
+function myFunction() {
+  console.log("Hello World", new Date().getSeconds());
 }
 
-/**
- * ! We can now trigger a callback function which is independent of the calculator function and calculator is not only responsible for doing the calculation and calling the callback function when its done.
- */
-myCalculator(5, 5, myDisplayer);
+setInterval(myFunction, 1000);
 
-// ! A callback can be another function as well
-function log(value) {
-  console.log(value);
+function myFunction() {
+  let d = new Date();
+  document.getElementById("demo").innerHTML =
+    d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
 }
-
-myCalculator(5, 5, log);
-
-/**
- * ! In the below example callbacks are used to take decisions and the above example a callback is used to solve the problem of taking a decision
- *
- */
-
-function filterPositives(number) {
-  return number >= 0;
-}
-
-function filterNegatives(number) {
-  return number < 0;
-}
-
-// Another example
-function filterNumbers(numbers, /* callback predicate*/ filter) {
-  const numArray = [];
-  for (let number of numbers) {
-    if (filter(number)) {
-      numArray.push(number);
-    }
-  }
-  return numArray;
-}
-
-const numbers = [4, 9, 8, -9, -12, 6];
-
-console.log(filterNumbers(numbers, filterPositives));
-console.log(filterNumbers(numbers, filterNegatives));
