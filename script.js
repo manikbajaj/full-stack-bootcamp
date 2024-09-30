@@ -2,36 +2,54 @@ function myDisplayer(value) {
   document.getElementById("demo").innerHTML = value;
 }
 
-function myFirst() {
-  myDisplayer("Hello");
-}
-
-function mySecond() {
-  myDisplayer("Goodbye");
-}
-
 /**
- * ! JavaScript is executed from Top to Bottom. We we change the sequence of function invocation the output will change as well.
+ * ! Now using a callback function
+ *
+ * ! A callback function in JavaScript is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
  */
 
-myFirst();
-mySecond();
-
-/**
- * ! Sometimes you need control over the function execution sequence
- */
-
-function myCalculator(num1, num2) {
-  // !EARLIER return num1 + num2;
-  //  The option can be to call the function inside the result
-  myDisplayer(num1 + num2);
+function myCalculator(num1, num2, callback) {
+  let sum = num1 + num2;
+  callback(sum);
 }
 
 /**
- * ! We have to call two functions to display the result
+ * ! We can now trigger a callback function which is independent of the calculator function and calculator is not only responsible for doing the calculation and calling the callback function when its done.
  */
-// let result = myCalculator(5, 5);
-// myDisplayer(result);
-myCalculator(5, 5);
+myCalculator(5, 5, myDisplayer);
 
-// * The problem with the second example, is that you cannot prevent the calculator function from displaying the result. These kuind of nested functions are difficult to debug because a fucntion is performing multiple operations and when these increase in large applications it becomes a problem.
+// ! A callback can be another function as well
+function log(value) {
+  console.log(value);
+}
+
+myCalculator(5, 5, log);
+
+/**
+ * ! In the below example callbacks are used to take decisions and the above example a callback is used to solve the problem of taking a decision
+ *
+ */
+
+function filterPositives(number) {
+  return number >= 0;
+}
+
+function filterNegatives(number) {
+  return number < 0;
+}
+
+// Another example
+function filterNumbers(numbers, /* callback predicate*/ filter) {
+  const numArray = [];
+  for (let number of numbers) {
+    if (filter(number)) {
+      numArray.push(number);
+    }
+  }
+  return numArray;
+}
+
+const numbers = [4, 9, 8, -9, -12, 6];
+
+console.log(filterNumbers(numbers, filterPositives));
+console.log(filterNumbers(numbers, filterNegatives));
