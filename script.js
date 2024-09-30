@@ -21,9 +21,16 @@
  */
 
 async function loadFile() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
-  const data = await response.json();
-  console.log(data); // Log the data
+  try {
+    const response = await fetch(
+      // !Try creating an error with bad URL and see what happens
+      "https://jsonplaceholder.typicode.com/posts/1"
+    );
+    const data = await response.json();
+    console.log(data); // Log the data
+  } catch (error) {
+    console.log("ERROR FROM CATCH", error);
+  }
 }
 
 loadFile();
