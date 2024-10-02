@@ -1,36 +1,27 @@
-/** 
- * 
-    async function myFunction() {
-      return "Hello";
+// Define a JSON string
+const jsonString = `{
+    "name": "John Doe",
+    "age": 30,
+    "isStudent": false,
+    "courses": ["Mathematics", "Science"],
+    "address": {
+        "street": "123 Main St",
+        "city": "Anytown"
     }
+}`;
 
-    IS THE SAME AS 
+// Parse the JSON string into a JavaScript object
+const userObj = JSON.parse(jsonString);
 
-  function myFunction() {
-    return Promise.resolve("Hello");
-  }
+// Log the parsed object to the console
+console.log("Parsed Object:", userObj);
 
-    myFunction().then(
-      function(value),  // code if successful await keyword only caters to success
-    );
+// Modify the user object
+userObj.age = 31; // Increment age
+userObj.courses.push("English"); // Add another course
 
-    IS THE SAME AS 
-    
-    let value = await myFunction();
- * 
- */
+// Convert the modified object back to a JSON string
+const modifiedJsonString = JSON.stringify(userObj);
 
-async function loadFile() {
-  try {
-    const response = await fetch(
-      // !Try creating an error with bad URL and see what happens
-      "https://jsonplaceholder.typicode.com/posts/1"
-    );
-    const data = await response.json();
-    console.log(data); // Log the data
-  } catch (error) {
-    console.log("ERROR FROM CATCH", error);
-  }
-}
-
-loadFile();
+// Log the modified JSON string to the console
+console.log("Modified JSON String:", modifiedJsonString);
