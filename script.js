@@ -1,32 +1,29 @@
-// Example 1: Simple Array Transformation
-// This example demonstrates using map() to square each number in an array.
-const numbers = [1, 2, 3, 4, 5];
-const squares = numbers.map((number) => number * number);
+// Example 1: Filtering Numbers
+// This example demonstrates using filter() to select numbers greater than 10.
+const numbers = [5, 10, 15, 20, 25];
+const filteredNumbers = numbers.filter((number) => number > 10);
 console.log("Original numbers:", numbers);
-console.log("Squared numbers:", squares);
+console.log("Filtered numbers (>10):", filteredNumbers);
 
-// Example 2: Formatting Objects in an Array
-// Here we use map() to transform an array of objects, adding a new field.
+// Example 2: Filtering Objects
+// Here we use filter() to find users who are older than 25.
 const users = [
-  { name: "Alice", age: 25 },
+  { name: "Alice", age: 24 },
   { name: "Bob", age: 30 },
   { name: "Carol", age: 28 },
 ];
-const usersWithBirthYear = users.map((user) => ({
-  ...user,
-  birthYear: new Date().getFullYear() - user.age,
-}));
-console.log("Users with birth years:", usersWithBirthYear);
+const olderThan25 = users.filter((user) => user.age > 25);
+console.log("Users older than 25:", olderThan25);
 
-// Example 3: Using map() with a more complex function
-// This example shows map() being used to convert temperatures from Celsius to Fahrenheit.
-const celsius = [0, 10, 20, 30, 40];
-const fahrenheit = celsius.map((temp) => temp * 1.8 + 32);
-console.log("Temperatures in Fahrenheit:", fahrenheit);
+// Example 3: Complex Filtering
+// Filtering an array to find even numbers and log if they are even.
+const mixedNumbers = [3, 5, 8, 10, 14];
+const evenNumbers = mixedNumbers.filter((num) => num % 2 === 0);
+console.log("Even numbers:", evenNumbers);
 
 /*
 Key Points Covered:
-- map() returns a new array; it does not modify the original array.
-- It is ideal for cases where you need to transform the elements of an array.
-- Remember to return a value from the function passed to map(); otherwise, it will return undefined for that element.
+- filter() returns a new array containing elements that pass a test implemented by a provided function.
+- It does not modify the original array.
+- Ensure the callback function returns a boolean value to determine if the element should be included in the resulting array.
 */
