@@ -28,12 +28,3 @@ body {
   background-color: var(--main-text-color);
   color: var(--accent-color);
 }
-
-/* Responsive design example using CSS variables */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --main-bg-color: #333333;
-    --main-text-color: #ffffff;
-    --accent-color: #007bff;
-  }
-}
