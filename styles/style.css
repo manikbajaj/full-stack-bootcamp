@@ -47,3 +47,24 @@
 .nav-menu li a:hover {
   color: var(--primary-color);
 }
+
+.search-input {
+  background-color: #f4f4f5;
+  min-width: 166px;
+  min-height: 36px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  text-indent: 20px;
+}
+
+.search-input::placeholder {
+  font-size: 0.875rem;
+  color: #a1a1aa;
+  line-height: 20px;
+}
+
+.search-input:focus {
+  border: 1px solid var(--primary-color);
+  outline: none;
+  color: #3b3c4a;
+}
