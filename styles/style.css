@@ -96,3 +96,11 @@
   border: 1px solid rgba(255, 255, 255, 0);
   background-position: center;
 }
+
+.hero-description {
+  width: 600px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 24px -6px rgba(24, 26, 42, 0.12), inset 0 0 0 1px #e8e8ea;
+  padding: 40px;
+}
