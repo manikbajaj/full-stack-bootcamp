@@ -25,3 +25,11 @@
   font-size: 1.5rem;
   line-height: 1.2;
 }
+
+.blogs-section {
+  margin-top: 16rem;
+}
+
+.single-post {
+  flex-basis: 100%;
+}
