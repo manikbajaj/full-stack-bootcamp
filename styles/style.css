@@ -203,3 +203,25 @@
   width: 36px;
   height: auto;
 }
+
+.view-all {
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+}
+
+.view-all a {
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: #696a75;
+  border: 1px solid #696a75;
+  border-radius: 0.5rem;
+  transition: background-color, color, 0.5s;
+}
+
+.view-all a:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
