@@ -2,55 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Arithmetic Operators</title>
-  </head>
-  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script>
-      // 1. Equal (==)
-      let num1 = 10;
+      let num1 = 11;
       let str1 = "10";
-      console.log("Equal (==):", num1 == str1); // Output: true (compares value, not type)
 
-      // 2. Strict Equal (===)
-      console.log("Strict Equal (===):", num1 === str1); // Output: false (compares value and type)
+      // ! NOT
 
-      // 3. Not Equal (!=)
-      let num2 = 5;
-      let str2 = "5";
-      console.log("Not Equal (!=):", num2 != str2); // Output: false (compares value, not type)
+      // Logical AND (all conditions to be true)
+      console.log(num1 < 12 && str1 > 8);
 
-      // 4. Strict Not Equal (!==)
-      console.log("Strict Not Equal (!==):", num2 !== str2); // Output: true (compares value and type)
+      //  OR || (one of the conditions is true)
+      console.log(num1 > 12 || str1 < 8 || num1 === 10);
 
-      // 5. Greater Than (>)
-      let age1 = 25;
-      let age2 = 18;
-      console.log("Greater Than (>):", age1 > age2); // Output: true
+      // Nullish Coalescing (??)
+      let name = null; // !null !undefined
+      console.log(name ?? "Default value");
 
-      // 6. Greater Than or Equal (>=)
-      let score1 = 80;
-      let score2 = 80;
-      console.log("Greater Than or Equal (>=):", score1 >= score2); // Output: true
+      let age = 25;
+      console.log(age ?? 10);
 
-      // 7. Less Than (<)
-      let temp1 = 15;
-      let temp2 = 30;
-      console.log("Less Than (<):", temp1 < temp2); // Output: true
-
-      // 8. Less Than or Equal (<=)
-      let num3 = 50;
-      let num4 = 100;
-      console.log("Less Than or Equal (<=):", num3 <= num4); // Output: true
-
-      // 9. Compare different data types
-      console.log("Compare number and string:", 100 == "100"); // Output: true
-      console.log("Strict compare number and string:", 100 === "100"); // Output: false
-
-      // 10. Compare booleans
-      let isTrue = true;
-      let isFalse = false;
-      console.log("Boolean comparison (true == 1):", isTrue == 1); // Output: true
-      console.log("Boolean comparison (false == 0):", isFalse == 0); // Output: true
+      // Nullish assignment (??=)
+      let x = "John";
+      x ??= 10;
+      console.log(x);
     </script>
-  </body>
+  </head>
+  <body></body>
 </html>
