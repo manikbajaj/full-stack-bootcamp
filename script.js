@@ -40,8 +40,8 @@ function localScopeExample() {
 localScopeExample();
 
 // Uncommenting the following lines will throw errors because localVar and localLet are not accessible outside the function.
-// console.log(localVar); // Error: localVar is not defined
-// console.log(localLet);  // Error: localLet is not defined
+console.log(localVar); // This will print successfully
+console.log(localLet); // Error: localLet is not defined
 
 /////////////////////////////////
 // 3. Block Scope
@@ -58,7 +58,7 @@ function blockScopeExample() {
     console.log(blockLet); // Output: I am declared with let inside a block
   }
   console.log(blockVar); // Output: I am declared with var inside a block (because `var` ignores block scope)
-  // console.log(blockLet); // Error: blockLet is not defined (because `let` respects block scope)
+  console.log(blockLet); // Error: blockLet is not defined (because `let` respects block scope)
 }
 blockScopeExample();
 
