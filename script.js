@@ -39,3 +39,21 @@ let htmlElement = document.documentElement; // Refers to the <html> tag
 console.log("parentNode of html:", htmlElement.parentNode); // Output: #document
 console.log("parentElement of html:", htmlElement.parentElement); // Output: null
 // Explanation: parentNode returns the document node, but parentElement returns null because the parent isn't an element.
+
+// Get the div that directly follows the target comment
+let divElement = document.getElementById("textNodeExample").parentNode;
+// Access the comment node directly preceding the div
+let commentNode = divElement.previousSibling;
+
+/* 
+commentNode: This checks if commentNode is not null or undefined. It ensures that there is a node to examine, preventing errors when reaching the beginning of the node list without finding a comment.
+
+commentNode.nodeType !== Node.COMMENT_NODE: This checks if the current node is not a comment node (nodeType value for comments is 8). It continues the loop until it finds a node that is a comment. */
+// Make sure to handle any non-comment nodes like text nodes (whitespace, etc.)
+// This line iteratively moves to the previous sibling of the current node until it finds a comment node, skipping over any non-comment nodes.
+while (commentNode && commentNode.nodeType !== Node.COMMENT_NODE) {
+  commentNode = commentNode.previousSibling;
+}
+
+console.log(commentNode);
+console.log(commentNode.data);
