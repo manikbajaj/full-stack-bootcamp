@@ -8,11 +8,22 @@ document.getElementById("onEventButton").onclick = function () {
   alert("Clicked via on-event handler!");
 };
 
+// Using on-event handlers
+document.getElementById("onEventButton").onclick = function () {
+  console.log("Second Event");
+};
+
 // Using the addEventListener method
 document
   .getElementById("addEventListenerButton")
   .addEventListener("click", function () {
     alert("Clicked via addEventListener!");
+  });
+
+document
+  .getElementById("addEventListenerButton")
+  .addEventListener("click", function () {
+    console.log("second event");
   });
 
 /*
