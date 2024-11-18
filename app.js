@@ -7,11 +7,7 @@ import { counter, incrementCounter } from "./src/counter.js";
 
 document.getElementById("updateCounter").addEventListener("click", () => {
   incrementCounter();
-  console.log("Counter updated to:", counter); // This logs the updated value of counter
-});
-
-document.getElementById("showCounter").addEventListener("click", () => {
-  alert(`Current counter value is: ${counter}`); // Shows the current value of counter reflecting any increments
+  document.getElementById("counter").textContent = counter;
 });
 
 /*
