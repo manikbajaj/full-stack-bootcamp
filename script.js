@@ -3,17 +3,24 @@
  *
  * ! THIS CODE IS EXECUTED ASYNCHRONOUSLY
  */
-setTimeout(myFunction, 5000);
+setTimeout(renderImage, 10000);
 console.log("Set timeout executed", new Date().getSeconds());
 
-function myFunction() {
+function renderImage() {
   console.log("Hello World", new Date().getSeconds());
 }
 
-setInterval(myFunction, 1000);
-
-function myFunction() {
-  let d = new Date();
-  document.getElementById("demo").innerHTML =
-    d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+function myDisplayer(value) {
+  console.log("Printing Result:", value);
 }
+
+function myCalculator(num1, num2, callback) {
+  let result = num1 + num2;
+
+  if (callback) {
+    setTimeout(() => callback(result), 10000);
+  }
+  return result;
+}
+
+myCalculator(10, 20, myDisplayer);
