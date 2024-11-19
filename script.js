@@ -1,36 +1,16 @@
-/** 
- * 
-    async function myFunction() {
-      return "Hello";
-    }
+let jsonCar = `{
+  "brand": "BMW",
+  "model": "7 Series",
+  "color": "blue",
+  "make": 2024,
+  "available": true
+}`;
 
-    IS THE SAME AS 
+console.log(typeof jsonCar);
+console.log(jsonCar);
 
-  function myFunction() {
-    return Promise.resolve("Hello");
-  }
+const car = JSON.parse(jsonCar);
+console.log(car);
 
-    myFunction().then(
-      function(value),  // code if successful await keyword only caters to success
-    );
-
-    IS THE SAME AS 
-    
-    let value = await myFunction();
- * 
- */
-
-async function loadFile() {
-  try {
-    const response = await fetch(
-      // !Try creating an error with bad URL and see what happens
-      "https://jsonplaceholder.typicode.com/posts/1"
-    );
-    const data = await response.json();
-    console.log(data); // Log the data
-  } catch (error) {
-    console.log("ERROR FROM CATCH", error);
-  }
-}
-
-loadFile();
+const newJson = JSON.stringify(car);
+console.log(newJson);
